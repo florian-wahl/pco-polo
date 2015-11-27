@@ -5,25 +5,25 @@ var game = new Phaser.Game(1000, 800, Phaser.CANVAS, 'phaser-example', { preload
 
 function preload() {
 
-    game.load.spritesheet('player', 'assets/dude.png', 32, 48);
-    game.load.image('background', 'assets/starfield2.jpg');
-    game.load.image('ship', 'assets/thrust.png');
-    game.load.image('star', 'assets/star.png');
-    game.load.image('wall', 'assets/platform.png');
+    game.load.spritesheet('player', 'res/dude.png', 32, 48);
+    game.load.image('background', 'res/starfield2.jpg');
+    game.load.image('ship', 'res/thrust.png');
+    game.load.image('star', 'res/star.png');
+    game.load.image('wall', 'res/platform.png');
 
     //touch control
-    game.load.image('compass', 'assets/compass_rose.png');
-    game.load.image('touch_segment', 'assets/touch_segment.png');
-    game.load.image('touch', 'assets/touch.png');
+    game.load.image('compass', 'res/compass_rose.png');
+    game.load.image('touch_segment', 'res/touch_segment.png');
+    game.load.image('touch', 'res/touch.png');
 
 
     //Images boutons
-    game.load.image('settings', 'assets/settings.png');
-    game.load.image('volume', 'assets/volume.png');
-    game.load.image('volume_mute', 'assets/volume_mute.png');
+    game.load.image('settings', 'res/settings.png');
+    game.load.image('volume', 'res/volume.png');
+    game.load.image('volume_mute', 'res/volume_mute.png');
 
     //Sounds
-    game.load.audio('kikou', 'assets/Kikou.mp3');
+    game.load.audio('kikou', 'res/Kikou.mp3');
 
 }
 
