@@ -5,8 +5,6 @@
     <title></title>
 </head>
 <body>
-    <?php
-        echo "My first PHP script!";
-    ?>
+<a href="index.html"><button>Retour</button></a>
 </body>
 </html>
