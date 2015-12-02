@@ -4,62 +4,60 @@
 <body>
 
     <?php
-    //Initialisation des variables à un string vide
-    $errNom = $errPrenom = $errID_employe = $errPassword = "";
-    $nom = $password = $prenom = $id_employe = "";
+    try {
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if(empty($_POST["nom"])){
-            $errNom = "Votre Nom est requis";
-        }
-        elseif(!preg_match("/^[a-zA-Z ]*$/", $_POST["nom"])){
-            $errNom = "Ne peut contenir que des lettres et des espaces";
-        }
-        else {
-            $nom = test_input($_POST["nom"]);
+        /*
+         * Fonction de test sur les valeurs entrées
+         * Permet d'avoir un formulaire sécurisé
+         */
+        function test_input($info)        {
+            $info = trim($info);//Enlève els caractères inutiles
+            $info = stripcslashes($info);//Enlève les \
+            $info = htmlspecialchars($info);//Convertit tous les caractères spéciaux vers leurs codes
+            return $info;
         }
 
-        if(empty($_POST["prenom"])){
-            $errPrenom = "Votre Prénom est requis";
-        }
-        elseif(!preg_match("/^[a-zA-Z ]*$/", $_POST["prenom"])){
-            $errPrenom = "Ne peut contenir que des lettres et des espaces";
-        }
-        else{
-            $prenom = test_input($_POST["prenom"]);
-        }
+        //Initialisation des variables à un string vide
+        $errNom = $errPrenom = $errID_employe = $errPassword = "";
+        $nom = $password = $prenom = $id_employe = "";
 
-        if(empty($_POST["id_employe"])){
-            $errID_employe = "Votre ID d'employé est requis";
-        }
-        elseif(!preg_match("/^[0-9]*$/", $_POST["id_employe"])){
-            $errID_employe = "Ne peut contenir que des chiffres";
-        }
-        else{
-            $id_employe = test_input($_POST["id_employe"]);
-        }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty($_POST["nom"])) {
+                $errNom = "Votre Nom est requis";
+            } elseif (!preg_match("/^[a-zA-Z ]*$/", $_POST["nom"])) {
+                $errNom = "Ne peut contenir que des lettres et des espaces";
+            } else {
+                $nom = test_input($_POST["nom"]);
+            }
 
-        if(empty($_POST["password"])){
-            $errPassword = "Un mot de passe est requis";
-        }
-        elseif(count_chars($_POST["password"]) < 5){
-            $errPassword = "Votre mot de passe est trop petit. Il faut au moins 6 caractères.";
-        }
-        else {
-            $password = $_POST["password"];
-        }
+            if (empty($_POST["prenom"])) {
+                $errPrenom = "Votre Prénom est requis";
+            } elseif (!preg_match("/^[a-zA-Z ]*$/", $_POST["prenom"])) {
+                $errPrenom = "Ne peut contenir que des lettres et des espaces";
+            } else {
+                $prenom = test_input($_POST["prenom"]);
+            }
 
+            if (empty($_POST["id_employe"])) {
+                $errID_employe = "Votre ID d'employé est requis";
+            } elseif (!preg_match("/^[0-9]*$/", $_POST["id_employe"])) {
+                $errID_employe = "Ne peut contenir que des chiffres";
+            } else {
+                $id_employe = test_input($_POST["id_employe"]);
+            }
+
+            if (empty($_POST["password"])) {
+                $errPassword = "Un mot de passe est requis";
+            } elseif (count_chars($_POST["password"]) < 5) {
+                $errPassword = "Votre mot de passe est trop petit. Il faut au moins 6 caractères.";
+            } else {
+                $password = $_POST["password"];
+            }
+
+        }
     }
-
-    /*
-     * Fonction de test sur les valeurs entrées
-     * Permet d'avoir un formulaire sécurisé
-     */
-    function test_input($info){
-        $info = trim($info);//Enlève els caractères inutiles
-        $info = stripcslashes($info);//Enlève les \
-        $info = htmlspecialchars($info);//Convertit tous les caractères spéciaux vers leurs codes
-        return $info;
+    catch(Exception $e){
+        echo 'Message d\'erreur: ' . $e->getMessage();
     }
     ?>
 
