@@ -69,7 +69,6 @@
                     }
                     else{
                         $okPassword = true;
-                        //TODO: hasher le mot de passe !
                         $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
                     }
                 }
