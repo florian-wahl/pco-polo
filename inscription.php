@@ -70,6 +70,7 @@
                     else{
                         $okPassword = true;
                         //TODO: hasher le mot de passe !
+                        $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
                     }
                 }
             }
@@ -82,6 +83,7 @@
             if($okPrenom && $okPassword && $okNom && $okNum_employe){
                 /*CONNEXION A LA BDD SI TOUTES LES INFORMATIONS SONT RENSEIGNEES*/
                 try {
+
                     /*CONNECTION*/
                     $servername = "localhost";
                     $nameDB = "polo";
@@ -91,14 +93,13 @@
                     // set the PDO error mode to exception
                     $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     echo "Successfully connected to the " . $nameDB . " database <br>";
-
                     /*EXECUTION*/
 
                     //On prépare les commandes qu'on va pouvoir ajouter dans la table
 
                     $stmt_user = $poloDB->prepare("INSERT INTO Users(num_employe, password, nom, prenom, email) VALUES(:num_employe, :password, :nom, :prenom, :email)");
                     $stmt_user->bindParam(':num_employe', $num_employe);
-                    $stmt_user->bindParam(':password', $password);
+                    $stmt_user->bindParam(':password', $hashedpassword);
                     $stmt_user->bindParam(':nom', $nom);
                     $stmt_user->bindParam(':prenom', $prenom);
                     $stmt_user->bindParam(':email', $email);
