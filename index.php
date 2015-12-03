@@ -7,7 +7,7 @@
 <a href="inscription.php"><button>Inscription</button></a>
 <br>
 <br>
-<a href="polo.html"> <button style="font-size: 35px; align-content: center">Aller vers POLO !</button></a>
+<a href="polo.php"> <button style="font-size: 35px; align-content: center">Aller vers POLO !</button></a>
 <br>
 </body>
 <?php include 'footer.php';?>
