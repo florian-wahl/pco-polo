@@ -84,10 +84,7 @@
                 try {
 
                     /*CONNECTION*/
-                    $servername = "localhost";
-                    $nameDB = "polo";
-                    $usernameDB = "root";
-                    $passwordDB = "";
+                    include 'php/log.php';
                     $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
                     // set the PDO error mode to exception
                     $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
