@@ -28,6 +28,10 @@ $sql = "CREATE TABLE Users (
     reg_date TIMESTAMP
     )";
 $poloDB->exec($sql);
+echo 'TABLE Users créé <br>';
+
+
+
 
 //DECONNEXION
 $poloDB = null;
