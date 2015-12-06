@@ -8,12 +8,7 @@
     <?php
     if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
         //L'employé est déjà connecté
-        ?>
-        <h2>Bonjour <?php echo $_SESSION['prenom']; ?> ! </h2>
-        <h3>Vous êtes déjà connecté.</h3>
-
-        <a href="php/logout.php"><button>Se déconnecter</button></a>
-        <?php
+        header("refresh:0; url=menu_principal.php");
 
     }
     else {
@@ -98,7 +93,6 @@
                         $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
                         // set the PDO error mode to exception
                         $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        echo "Successfully connected to the " . $nameDB . " database <br>";
                         /*EXECUTION*/
 
                         //On prépare les commandes qu'on va pouvoir ajouter dans la table
@@ -112,13 +106,14 @@
 
                         $stmt_user->execute();
 
-
-                        echo "L\'utilisateur : $prenom" . " $nom " . " $num_employe " . " a correctement été créé.<br> ";
                         $nom = $password = $prenom = $num_employe = "";
 
                         /*DISCONNECTION*/
                         $poloDB = null;
-                        echo "Successfully disconnected from the  " . $nameDB . " database <br>";
+
+                        /*REDIRECTION*/
+                        header("Refresh:0; url=inscription_ok.php"); //Relaod page and redirect to index.php
+
                     } catch (PDOException $e) {
 
                         echo "<br>" . $e->getMessage();
@@ -147,9 +142,7 @@
             <span style="font-size: small;"> * Ces informations sont obligatoires.</span><br>
             <input type="submit">
         </form>
-        <a href="index.php">
-            <button>Retour</button>
-        </a>
+        <a href="index.php"><button>Retour</button></a>
         <br>
         <?php
     }

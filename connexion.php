@@ -8,12 +8,7 @@
 
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
     //L'employé est déjà connecté
-    ?>
-    <h2>Bonjour <?php echo $_SESSION['prenom']; ?> ! </h2>
-    <h3>Vous êtes déjà connecté.</h3>
-
-    <a href="php/logout.php"><button>Se déconnecter</button></a>
-    <?php
+    header("refresh:0; url=menu_principal.php");
 
 }
 else{
@@ -49,7 +44,7 @@ else{
         if(!empty($_POST["num_employe"]) && !empty($_POST["input_password"])){
             try{
 
-                /*CONNECTION*/
+                /*CONNEXION*/
                 $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
                 // set the PDO error mode to exception
                 $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -80,7 +75,12 @@ else{
 
                         //Réinitialisation des champs de connexion
                         $num_employe = $input_password = "";
-                        header("Refresh:0; url=index.php"); //Relaod page and redirect to index.php
+
+                        /*DECONNEXION*/
+                        $poloDB = null;
+
+                        /*REDIRECTION*/
+                        header("Refresh:0; url=menu_principal.php"); //Relaod page and redirect to index.php
                     }
                 }
 
