@@ -10,7 +10,7 @@
  */
 
 //CONNEXION
-include 'log.php';
+include 'first.php';
 $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
 // set the PDO error mode to exception
 $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
