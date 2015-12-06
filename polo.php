@@ -15,6 +15,6 @@
 <body>
 
 <script type="text/javascript" src="js/main.js"></script>
-
+<a href="menu_principal.php"><button>Retour</button></a>
 </body>
 </html>

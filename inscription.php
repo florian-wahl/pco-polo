@@ -95,24 +95,38 @@
                         $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         /*EXECUTION*/
 
-                        //On prépare les commandes qu'on va pouvoir ajouter dans la table
+                        //On vérifie que le numéro employé n'est pas déjà utilisé
+                        //Requête avec l'ID
+                        $stmt = $poloDB->prepare("SELECT * FROM users WHERE num_employe = :num");
+                        $stmt->bindValue(':num', $num_employe);
+                        $stmt->execute();
 
-                        $stmt_user = $poloDB->prepare("INSERT INTO Users(num_employe, password, nom, prenom, email) VALUES(:num_employe, :password, :nom, :prenom, :email)");
-                        $stmt_user->bindParam(':num_employe', $num_employe);
-                        $stmt_user->bindParam(':password', $hashedpassword);
-                        $stmt_user->bindParam(':nom', $nom);
-                        $stmt_user->bindParam(':prenom', $prenom);
-                        $stmt_user->bindParam(':email', $email);
+                        //On récupère les résultats
+                        $resultat = $stmt->fetchAll();
+                        if(count($resultat) != 0){
+                            $errNum_employe = "Le numéro que vous avez saisi est déjà utilié";
+                        }
+                        else{
+                            //On prépare les commandes qu'on va pouvoir ajouter dans la table
+                            $stmt_user = $poloDB->prepare("INSERT INTO Users(num_employe, password, nom, prenom, email) VALUES(:num_employe, :password, :nom, :prenom, :email)");
+                            $stmt_user->bindParam(':num_employe', $num_employe);
+                            $stmt_user->bindParam(':password', $hashedpassword);
+                            $stmt_user->bindParam(':nom', $nom);
+                            $stmt_user->bindParam(':prenom', $prenom);
+                            $stmt_user->bindParam(':email', $email);
 
-                        $stmt_user->execute();
+                            $stmt_user->execute();
 
-                        $nom = $password = $prenom = $num_employe = "";
+                            $nom = $password = $prenom = $num_employe = "";
 
-                        /*DISCONNECTION*/
-                        $poloDB = null;
+                            /*DISCONNECTION*/
+                            $poloDB = null;
 
-                        /*REDIRECTION*/
-                        header("Refresh:0; url=inscription_ok.php"); //Relaod page and redirect to index.php
+                            /*REDIRECTION*/
+                            header("Refresh:0; url=inscription_ok.php"); //Relaod page and redirect to index.php
+                        }
+
+
 
                     } catch (PDOException $e) {
 

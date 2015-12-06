@@ -11,15 +11,15 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
     <h2>Bonjour <?php echo $_SESSION['prenom']; ?> et bienvenue dans le menu principal ! </h2>
     <h3>Que voulez-vous faire ?</h3>
     <br>
-    <a href="polo.php"><button>Jouer</button></a>
+    <a class="menu_principal_button" href="polo.php"><button>Jouer</button></a>
     <br>
-    <a href="menu_mini_jeux.php"><button>Mini-Jeux</button></a>
+    <a class="menu_principal_button" href="menu_mini_jeux.php"><button>Mini-Jeux</button></a>
     <br>
-    <a href="aides.php"><button>Aides</button></a>
+    <a class="menu_principal_button" href="aides.php"><button>Aides</button></a>
     <br>
-    <a href="reglages.php"><button>Règlages</button></a>
+    <a class="menu_principal_button" href="reglages.php"><button>Règlages</button></a>
     <br>
-    <a href="php/logout.php"><button>Quitter</button></a>
+    <a class="menu_principal_button" href="php/logout.php"><button>Quitter</button></a>
     <?php
 }else{
     //L'employé ne doit pas être sur cette page sans être connecté
