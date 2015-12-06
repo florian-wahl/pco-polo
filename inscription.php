@@ -140,7 +140,7 @@
         }
         ?>
 
-
+    <div class="element">
         <h2>Création d'un nouveau compte utilisateur</h2>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 
@@ -158,6 +158,8 @@
         </form>
         <a href="index.php"><button>Retour</button></a>
         <br>
+
+    </div>
         <?php
     }
     ?>

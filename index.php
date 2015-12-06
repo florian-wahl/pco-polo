@@ -12,13 +12,15 @@
     }else{
 
     ?>
-    <h1>Bienvenue sur la page d'accueil de POLO</h1>
-    <a href="connexion.php"><button>Connexion</button></a>
-    <a href="inscription.php"><button>Inscription</button></a>
-    <br>
-    <br>
-    <a href="polo.php"> <button class="polo_button">Aller vers POLO !</button></a>
-    <br>
+        <div class="element">
+            <h1 class="titre">Bienvenue sur la page d'accueil de POLO</h1>
+            <a  href="connexion.php"><button class="menu_principal_button">Connexion</button></a>
+            <a href="inscription.php"><button class="menu_principal_button">Inscription</button></a>
+            <br>
+            <br>
+            <a href="polo.php"> <button class="polo_button">Aller vers POLO !</button></a>
+            <br>
+        </div>
     <?php
     }
     ?>
