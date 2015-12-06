@@ -35,7 +35,7 @@ var ship;
 var musicbg;
 var star;
 var stars;
-var newwindow2;
+var newwindow;
 
 var button_settings;
 var button_volume;
@@ -112,9 +112,8 @@ function update() {
     //movementControllerCursors(maxSpeed);
 }
 function apri(player,star) {
-    console.log('k');
     star.kill();
-    newwindow2=window.open('quizz.html','name','height=200,width=150');
+    newwindow=window.open('quizz.html','name','height=200,width=150');
 
 
 }
