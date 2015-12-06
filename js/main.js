@@ -10,7 +10,6 @@ function preload() {
     game.load.image('ship', 'res/img/thrust.png');
     game.load.image('star', 'res/img/star.png');
     game.load.image('wall', 'res/img/platform.png');
-    game.load.image('aid','res/img/firstaid.png');
 
     //touch control
     game.load.image('compass', 'res/img/compass_rose.png');
@@ -113,7 +112,7 @@ function update() {
 }
 function apri(player,star) {
     star.kill();
-    newwindow=window.open('quizz.html','name','height=200,width=150');
+    newwindow=window.open('quizz.html','quizz','height=200,width=150');
 
 
 }
