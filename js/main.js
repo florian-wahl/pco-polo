@@ -10,6 +10,7 @@ function preload() {
     game.load.image('ship', 'res/img/thrust.png');
     game.load.image('star', 'res/img/star.png');
     game.load.image('wall', 'res/img/platform.png');
+    game.load.image('aid','res/img/firstaid.png');
 
     //touch control
     game.load.image('compass', 'res/img/compass_rose.png');
@@ -32,6 +33,9 @@ var cursors;
 var walls;
 var ship;
 var musicbg;
+var star;
+var stars;
+var newwindow2;
 
 var button_settings;
 var button_volume;
@@ -42,13 +46,22 @@ var settingsOnOff = true;
 function create() {
 
     musicbg = game.add.audio('kikou');
-    musicbg.play();
+    //musicbg.play();
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
 
     game.world.setBounds(0, 0, 1920, 1920);
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
+    stars=game.add.group();
+    stars.enableBody=true;
+    game.physics.arcade.enable(stars);
 
+
+    for (var i = 0; i < 12; i++)
+    {
+        //  Create a star inside of the 'stars' group
+        var star = stars.create(i * 70, i*70, 'star');
+    }
     player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
     game.physics.arcade.enable(player);
     player.body.collideWorldBounds = true;
@@ -90,6 +103,7 @@ function update() {
     game.physics.arcade.collide(player, walls);
     game.physics.arcade.collide(player, ship);
     game.physics.arcade.collide(ship, walls);
+    game.physics.arcade.overlap(player, stars, apri, null, this);
 
     var maxSpeed = 300;
 
@@ -97,7 +111,13 @@ function update() {
 
     //movementControllerCursors(maxSpeed);
 }
+function apri(player,star) {
+    console.log('k');
+    star.kill();
+    newwindow2=window.open('quizz.html','name','height=200,width=150');
 
+
+}
 function render() {
 
     if(settingsOnOff){

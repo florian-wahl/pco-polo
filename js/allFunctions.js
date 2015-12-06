@@ -38,6 +38,9 @@ function movementControllerCursors(maxSpeed) {
 
 }
 
+
+
+
 function movementControllerJoystick (maxSpeed) {
 
     /*GESTION AVEC LE JOYSTICK*/
@@ -45,7 +48,7 @@ function movementControllerJoystick (maxSpeed) {
     var speed = game.touchControl.speed;
     var delay = 0;
 
-    player.body.velocity.y = -speed.y * 4;//coordonnées sont inversées
+    player.body.velocity.y = -speed.y * 4;//coordonnï¿½es sont inversï¿½es
     player.body.velocity.x = -speed.x * 4;
     // Also you could try linear speed;
     //this.tilesprite.tilePosition.y += this.game.touchControl.speed.y / 20;
