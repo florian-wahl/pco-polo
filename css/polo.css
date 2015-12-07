@@ -21,6 +21,15 @@
     width: 60%;
 }
 
+.formulaire{
+    font-size: 25px;
+}
+
+.formulaire_button{
+    font-size: 20px;
+    margin: 5px;
+}
+
 .menu_principal{
     align-content: center;
 }

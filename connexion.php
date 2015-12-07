@@ -94,13 +94,13 @@ else{
     ?>
     <div class="element">
         <h2>Connexion</h2>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+        <form class="formulaire" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
             Employé ID : <input type="text" name="num_employe" value="<?php echo $num_employe; ?>"> <span class="error"> <?php echo $errNum_employe; ?></span><br>
             Mot de passe : <input type="password" name="input_password"> <span class="error"> <?php echo $errPassword; ?></span> <br>
-            <input type="submit">
+            <input class="formulaire_button" type="submit">
         </form>
         <span class="error"> <?php echo $errConnexion; ?></span>
-        <a href="index.php"><button>Retour</button></a>
+        <a  href="index.php"><button class="formulaire_button">Retour</button></a>
     </div>
     <?php
 }

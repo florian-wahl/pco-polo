@@ -142,7 +142,7 @@
 
     <div class="element">
         <h2>Création d'un nouveau compte utilisateur</h2>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+        <form class="formulaire" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 
             Nom : <input type="text" name="nom" value="<?php echo $nom; ?>"> *<span
                 class="error"> <?php echo $errNom; ?></span> <br>
@@ -154,9 +154,9 @@
                 class="error"> <?php echo $errPassword; ?></span> <br>
             Mot de passe : <input type="password" name="password_bis"> * <br>
             <span style="font-size: small;"> * Ces informations sont obligatoires.</span><br>
-            <input type="submit">
+            <input class="formulaire_button" type="submit">
         </form>
-        <a href="index.php"><button>Retour</button></a>
+        <a  href="index.php"><button class="formulaire_button">Retour</button></a>
         <br>
 
     </div>
