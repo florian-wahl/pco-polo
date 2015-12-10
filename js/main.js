@@ -44,6 +44,16 @@ var settingsOnOff = true;
 
 function create() {
 
+    //inizialize les variables
+    var closePopup=document.getElementById("popupclose");
+    var overlay=document.getElementById("overlay");
+    var popup=document.getElementById("popup");
+    //fermer le popup
+    closePopup.onclick=function(){
+        overlay.style.display='none';
+        popup.style.display='none';
+    }
+
     musicbg = game.add.audio('kikou');
     //musicbg.play();
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
@@ -112,7 +122,9 @@ function update() {
 }
 function apri(player,star) {
     star.kill();
-    newwindow=window.open('quizz.html','quizz','height=200,width=150');
+    overlay.style.display='block';
+    popup.style.display='block';
+
 
 
 }
