@@ -53,7 +53,8 @@
         <span id="popupclose">X</span>
     </div>
     <div class="popupcontent">
-        <h1>Some pop up content</h1>
+        <h1><img src="http://www.dafont.com/forum/attach/orig/2/6/263344.jpg" alt="Ou un quizz" width="450" height="350"/>
+        Ou un quizz</h1>
     </div>
 </div>
 <script type="text/javascript" src="js/main.js"></script>
