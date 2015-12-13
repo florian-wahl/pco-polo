@@ -26,7 +26,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
     <?php
 }else{
     //L'employé ne doit pas être sur cette page sans être connecté
-    header("refresh:0; url=connexion.php");
+    ?>
+    <script>window.location.replace("index.php");</script>
+    <?php
 }
 ?>
 </body>

@@ -8,7 +8,9 @@
     <?php
     if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
         //L'employé est déjà connecté
-        header("refresh:0; url=menu_principal.php");
+        ?>
+        <script>window.location.replace("menu_principal.php");</script>
+    <?php
 
     }
     else {

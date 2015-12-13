@@ -7,11 +7,15 @@
 <?php
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
     //L'employé est déjà connecté
-    header("refresh:0; url=menu_principal.php");
+    ?>
+    <script>window.location.replace("menu_principal.php");</script>
+<?php
 
 }elseif(empty($_SERVER["HTTP_REFERER"])){
     //L'utilisateur n'a rien a faire sur cette page. Elle est uniquement accessible après inscription.php
-    header("refresh:0; url=index.php");
+    ?>
+    <script>window.location.replace("index.php");</script>
+<?php
 }
 
 else{
@@ -22,8 +26,14 @@ else{
     </h4>
     <br>
     <a href="index.php"><button>Retour</button></a>
+    <script>
+        window.setTimeout(function(){
+
+            // Move to a new location or you can do something else
+            window.location.href = "index.php";
+
+        }, 3000);</script>
     <?php
-    header("refresh:5; url=index.php");
 }
 ?>
 </body>
