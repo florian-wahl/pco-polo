@@ -91,7 +91,7 @@
         <input type="submit">
     </form>
     <span class="error"> <?php echo $errConnexion; ?></span>
-    <a href="index.php"><button>Retour</button></a>
+<input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
 
 
 <?php include 'footer.php'; ?>

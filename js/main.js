@@ -1,7 +1,7 @@
 /**
  * Created by Florian on 13/11/2015.
  */
-var game = new Phaser.Game(1000, 800, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1000, 800, Phaser.CANVAS, 'POLO', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -45,7 +45,7 @@ var settingsOnOff = true;
 function create() {
 
     //inizialize les variables
-    /*
+
     var closePopup=document.getElementById("popupclose");
     var overlay=document.getElementById("overlay");
     var popup=document.getElementById("popup");
@@ -54,8 +54,6 @@ function create() {
         overlay.style.display='none';
         popup.style.display='none';
     }
-    */
-
 
     musicbg = game.add.audio('kikou');
     //musicbg.play();
@@ -125,12 +123,9 @@ function update() {
 }
 function apri(player,star) {
     star.kill();
-    //overlay.style.display='block';
-    //popup.style.display='block';
+    overlay.style.display='block';
+    popup.style.display='block';
 
-    $(function() {
-        $("#popup").dialog();
-    });
 
 
 

@@ -13,15 +13,15 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
         <h3>Que voulez-vous faire ?</h3>
 
         <br>
-        <a href="polo.php"><button class="menu_principal_button">Jouer</button></a>
+            <input type="button" class="menu_principal_button" onclick="location.href='polo.php';" value="Jouer" />
         <br>
-        <a  href="menu_mini_jeux.php"><button class="menu_principal_button">Mini-Jeux</button></a>
+            <input type="button" class="menu_principal_button" onclick="location.href='menu_mini_jeux.php';" value="Mini-Jeux" />
         <br>
-        <a  href="aides.php"><button class="menu_principal_button">Aides</button></a>
+            <input type="button" class="menu_principal_button" onclick="location.href='aides.php';" value="Aides" />
         <br>
-        <a href="reglages.php"><button class="menu_principal_button">Règlages</button></a>
+            <input type="button" class="menu_principal_button" onclick="location.href='reglages.php';" value="Règlages" />
         <br>
-        <a href="php/logout.php"><button class="menu_principal_button">Quitter</button></a>
+            <input type="button" class="menu_principal_button" onclick="location.href='php/logout.php';" value="Quitter" />
         </div>
     <?php
 }else{

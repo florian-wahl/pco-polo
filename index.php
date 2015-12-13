@@ -103,7 +103,7 @@
             </form>
             <span class="error"> <?php echo $errConnexion; ?></span>
             <h2>Vous n'êtes pas encore inscrit ?</h2>
-            <a  href="inscription.php"><button class="formulaire_button">S'inscrire</button></a>
+            <input type="button" onclick="location.href='inscription.php';" value="S'inscrire" />
         </div>
         <?php
     }

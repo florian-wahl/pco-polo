@@ -6,11 +6,20 @@
 <script src="js/phaser/phaser-touch-control.js"></script>
 <script src="js/allFunctions.js"></script>
 <body>
-<div id="popup" title="Basic dialog">
-    <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-</div>
 
 <script type="text/javascript" src="js/main.js"></script>
-<a href="menu_principal.php"><button>Retour</button></a>
+<div id="maincontent">
+    <div id="overlay"></div>
+    <div id="popup">
+        <div class="popupcontrols">
+            <span id="popupclose">X</span>
+        </div>
+        <div class="popupcontent">
+            <h1>Some pop up content</h1>
+        </div>
+    </div>
+<input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
+
+
 </body>
 </html>

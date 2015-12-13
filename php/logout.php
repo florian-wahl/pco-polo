@@ -8,7 +8,6 @@
     session_destroy();
 
     ?>
-    <h4> Vous avez étez correctement déconnecté. Vous allez être redirigé automatiquement dans quelques secondes.
         <script>window.location.href = "../index.php";</script>
 
 </body>

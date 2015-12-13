@@ -156,9 +156,9 @@
                 class="error"> <?php echo $errPassword; ?></span> <br>
             Mot de passe : <input type="password" name="password_bis"> * <br>
             <span style="font-size: small;"> * Ces informations sont obligatoires.</span><br>
-            <input class="formulaire_button" type="submit">
+            <input class="formulaire_button" type="submit" value="S'inscrire">
         </form>
-        <a  href="index.php"><button class="formulaire_button">Retour</button></a>
+        <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
         <br>
 
     </div>
