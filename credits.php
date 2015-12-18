@@ -8,15 +8,15 @@
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
     //L'employé est connecté
     ?>
-    <h2> Règlages </h2>
-    <br>
-    <br>
-    <br>
+    <h2> Crédits</h2>
+<br>
+<br>
+<br>
 <input type="button" class="menu_principal_button" onclick="location.href='menu_principal.php';" value="Retour" />
-    <?php
+<?php
 }else{
-    //L'employé ne doit pas être sur cette page sans être connecté
-    ?>
+//L'employé ne doit pas être sur cette page sans être connecté
+?>
     <script>window.location.replace("index.php");</script>
     <?php
 }
