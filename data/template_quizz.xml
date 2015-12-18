@@ -1,0 +1,32 @@
+<quizz id="1">
+    <!--Composition d'un quizz -->
+    <!--Type : Texte / Image (le type de la réponse) -->
+    <type>Texte</type>
+    <scenario>
+        <!--Scénario : contexte du quizz, dialogue ... -->
+        Il était une fois chez Space France ...
+    </scenario>
+    <questions>
+        <!--Ensemble des questions, entre 1 et 5 -->
+        <question id="1">
+            <!--Question id 1 -->
+            <intitule>Comment vérouiller l'iPad ?</intitule>
+            <!--Quelle est la question ? -->
+            <reponses>
+                <!--Ensemble des réponses à la question : le paramètre estCorrect
+                définie si c'est une bonne réponse ou non -->
+                <reponse estCorrect="True">Bouton vérouiller</reponse>
+                <reponse estCorrect="False">Bouton home</reponse>
+            </reponses>
+        </question>
+        <question id="2">
+            <intitule>Et la question 2 ?</intitule>
+            <reponses>
+                <reponse estCorrect="True"> </reponse>
+                <reponse estCorrect="False"> </reponse>
+                <reponse estCorrect="False"> </reponse>
+                <reponse estCorrect="False"> </reponse>
+            </reponses>
+        </question>
+    </questions>
+</quizz>
