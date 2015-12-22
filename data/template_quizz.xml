@@ -1,7 +1,7 @@
 <quizz id="1">
     <!--Composition d'un quizz -->
-    <!--Type : Texte / Image (le type de la réponse) -->
-    <type>Texte</type>
+    <!--Type : TEXTE / IMAGE (le type de la réponse) -->
+    <type>TEXTE</type>
     <scenario>
         <!--Scénario : contexte du quizz, dialogue ... -->
         Il était une fois chez Space France ...
@@ -15,17 +15,15 @@
             <reponses>
                 <!--Ensemble des réponses à la question : le paramètre estCorrect
                 définie si c'est une bonne réponse ou non -->
-                <reponse estCorrect="True">Bouton vérouiller</reponse>
-                <reponse estCorrect="False">Bouton home</reponse>
+                <reponse estCorrect="VRAI">Bouton vérouiller</reponse>
+                <reponse estCorrect="FAUX">Bouton home</reponse>
             </reponses>
         </question>
         <question id="2">
             <intitule>Et la question 2 ?</intitule>
             <reponses>
-                <reponse estCorrect="True"> </reponse>
-                <reponse estCorrect="False"> </reponse>
-                <reponse estCorrect="False"> </reponse>
-                <reponse estCorrect="False"> </reponse>
+                <reponse estCorrect="VRAI">Cette réponse est vrai</reponse>
+                <reponse estCorrect="FAUX">Cette réponse est fausse</reponse>
             </reponses>
         </question>
     </questions>

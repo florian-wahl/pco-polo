@@ -6,7 +6,7 @@
 <body>
 
     <?php
-    if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
+    if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         //L'employé est déjà connecté
         ?>
         <script>window.location.replace("menu_principal.php");</script>
@@ -31,9 +31,9 @@
             }
 
             //Initialisation des variables à un string vide
-            $errNom = $errPrenom = $errNum_employe = $errPassword = "";
-            $nom = $password = $prenom = $num_employe = "";
-            $okPassword = $okNom = $okPrenom = $okNum_employe = false;
+            $errNom = $errPrenom = $errMatricule = $errPassword = "";
+            $nom = $password = $prenom = $matricule = "";
+            $okPassword = $okNom = $okPrenom = $okMatricule = false;
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (empty($_POST["nom"])) {
@@ -54,13 +54,13 @@
                     $okPrenom = true;
                 }
 
-                if (empty($_POST["num_employe"])) {
-                    $errNum_employe = "Votre numéro d'employé est requis";
-                } elseif (!preg_match("/^[0-9]*$/", $_POST["num_employe"])) {
-                    $errNum_employe = "Ne peut contenir que des chiffres";
+                if (empty($_POST["matricule"])) {
+                    $errMatricule = "Votre numéro d'employé est requis";
+                } elseif (!preg_match("/^[0-9]*$/", $_POST["matricule"])) {
+                    $errMatricule = "Ne peut contenir que des chiffres";
                 } else {
-                    $num_employe = test_input($_POST["num_employe"]);
-                    $okNum_employe = true;
+                    $matricule = test_input($_POST["matricule"]);
+                    $okMatricule = true;
                 }
 
                 if (empty($_POST["password"])) {
@@ -87,7 +87,7 @@
                 }
 
 
-                if ($okPrenom && $okPassword && $okNom && $okNum_employe) {
+                if ($okPrenom && $okPassword && $okNom && $okMatricule) {
                     /*CONNEXION A LA BDD SI TOUTES LES INFORMATIONS SONT RENSEIGNEES*/
                     try {
 
@@ -99,27 +99,26 @@
 
                         //On vérifie que le numéro employé n'est pas déjà utilisé
                         //Requête avec l'ID
-                        $stmt = $poloDB->prepare("SELECT * FROM users WHERE num_employe = :num");
-                        $stmt->bindValue(':num', $num_employe);
+                        $stmt = $poloDB->prepare("SELECT * FROM users WHERE matricule = :num");
+                        $stmt->bindValue(':num', $matricule);
                         $stmt->execute();
 
                         //On récupère les résultats
                         $resultat = $stmt->fetchAll();
                         if(count($resultat) != 0){
-                            $errNum_employe = "Le numéro que vous avez saisi est déjà utilié";
+                            $errMatricule = "Le numéro que vous avez saisi est déjà utilié";
                         }
                         else{
                             //On prépare les commandes qu'on va pouvoir ajouter dans la table
-                            $stmt_user = $poloDB->prepare("INSERT INTO Users(num_employe, password, nom, prenom, email) VALUES(:num_employe, :password, :nom, :prenom, :email)");
-                            $stmt_user->bindParam(':num_employe', $num_employe);
+                            $stmt_user = $poloDB->prepare("INSERT INTO Users(nom, prenom, matricule, password, question_s_1, rep_s_1, question_s_2, rep_s_2, score_id_score, personnage_id_personnage) VALUES(:nom, :prenom, :matricule, :password, 'a', 'b', 'c', 'd', '1', '1')");
+                            $stmt_user->bindParam(':matricule', $matricule);
                             $stmt_user->bindParam(':password', $hashedpassword);
                             $stmt_user->bindParam(':nom', $nom);
                             $stmt_user->bindParam(':prenom', $prenom);
-                            $stmt_user->bindParam(':email', $email);
 
                             $stmt_user->execute();
 
-                            $nom = $password = $prenom = $num_employe = "";
+                            $nom = $password = $prenom = $matricule = "";
 
                             /*DISCONNECTION*/
                             $poloDB = null;
@@ -150,8 +149,8 @@
                 class="error"> <?php echo $errNom; ?></span> <br>
             Prénom : <input type="text" name="prenom" value="<?php echo $prenom; ?>"> *<span
                 class="error"> <?php echo $errPrenom; ?></span> <br>
-            Employé ID : <input type="text" name="num_employe" value="<?php echo $num_employe; ?>"> *<span
-                class="error"> <?php echo $errNum_employe; ?></span><br>
+            Employé ID : <input type="text" name="matricule" value="<?php echo $matricule; ?>"> *<span
+                class="error"> <?php echo $errMatricule; ?></span><br>
             Mot de passe : <input type="password" name="password"> *<span
                 class="error"> <?php echo $errPassword; ?></span> <br>
             Mot de passe : <input type="password" name="password_bis"> * <br>

@@ -5,7 +5,7 @@
 <?php include 'header.php';?>
 <body>
 <?php
-if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
+if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     //L'employé est déjà connecté
     ?>
     <script>window.location.replace("menu_principal.php");</script>

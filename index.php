@@ -4,7 +4,7 @@
 <?php include 'header.php';?>
 <body>
     <?php
-    if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['num_employe'])){
+    if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         //L'employé est déjà connecté
         ?>
         <script>window.location.replace("menu_principal.php");</script>
@@ -13,8 +13,8 @@
     else{
 
         //Initialisation des variables à un string vide
-        $errNum_employe = $errPassword = $errConnexion = "";
-        $input_password = $num_employe = "";
+        $errMatricule = $errPassword = $errConnexion = "";
+        $input_password = $matricule = "";
 
         /*
          * Fonction de test sur les valeurs entrées
@@ -28,11 +28,11 @@
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if(empty($_POST["num_employe"])){
-                $errNum_employe = "* Un numéro d'employé est requis pour ce connecter";
+            if(empty($_POST["matricule"])){
+                $errMatricule = "* Un numéro d'employé est requis pour ce connecter";
             }
             else{
-                $num_employe = test_input($_POST['num_employe']);
+                $matricule = test_input($_POST['matricule']);
             }
             if(empty($_POST["input_password"])){
                 $errPassword = "* Un mot de passe est requis pour ce connecter";
@@ -40,7 +40,7 @@
             else{
                 $input_password = test_input($_POST['input_password']);
             }
-            if(!empty($_POST["num_employe"]) && !empty($_POST["input_password"])){
+            if(!empty($_POST["matricule"]) && !empty($_POST["input_password"])){
                 try{
 
                     /*CONNEXION*/
@@ -49,8 +49,8 @@
                     $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     //Requête avec l'ID
-                    $stmt = $poloDB->prepare("SELECT * FROM users WHERE num_employe = :num");
-                    $stmt->bindValue(':num', $num_employe);
+                    $stmt = $poloDB->prepare("SELECT * FROM users WHERE matricule = :num");
+                    $stmt->bindValue(':num', $matricule);
                     $stmt->execute();
 
                     //On récupère les résultats
@@ -68,12 +68,12 @@
                         else{//L'employé est identifié
 
                             $_SESSION['LoggedIn'] = 1;
-                            $_SESSION['num_employe'] = $num_employe;
+                            $_SESSION['matricule'] = $matricule;
                             $_SESSION['nom'] = $employe['nom'];
                             $_SESSION['prenom'] = $employe['prenom'];
 
                             //Réinitialisation des champs de connexion
-                            $num_employe = $input_password = "";
+                            $matricule = $input_password = "";
 
                             /*DECONNEXION*/
                             $poloDB = null;
@@ -97,7 +97,7 @@
         <div class="element">
             <h2>Identifiez-vous :</h2>
             <form class="formulaire" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-                Employé ID : <input type="text" name="num_employe" value="<?php echo $num_employe; ?>"> <span class="error"> <?php echo $errNum_employe; ?></span><br>
+                Employé ID : <input type="text" name="matricule" value="<?php echo $matricule; ?>"> <span class="error"> <?php echo $errMatricule; ?></span><br>
                 Mot de passe : <input type="password" name="input_password"> <span class="error"> <?php echo $errPassword; ?></span> <br>
                 <input class="formulaire_button" type="submit" value="S'identier">
             </form>
