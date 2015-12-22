@@ -1,0 +1,61 @@
+
+
+#formulaire{
+    margin:1em 0;
+    padding-top:10px;
+}
+#formulaire fieldset{
+    margin:0;
+    padding:0;
+    border:none;
+    padding-bottom:1em;
+}
+#formulaire h2{
+    padding-bottom: 5px;
+    border-bottom:2px solid #f1f1f1;
+    text-align: center;
+}
+#formulaire p{
+    clear:both;
+    margin:.5em 0;
+    overflow:hidden;
+}
+#formulaire label{
+    float:left;
+    width:200px;
+    display:block;
+    text-align:right;
+    margin-right:10px;
+}
+#formulaire input, #formulaire textarea{
+    margin:0;
+    width:200px;
+    border:1px solid #ddd;
+    padding:3px 5px 3px 25px;
+}
+
+#formulaire textarea{
+    height:125px;
+    overflow:auto;
+}
+
+#formulaire select{
+    float:left;
+    width:400px;
+    display:block;
+    text-align:right;
+    margin-right:10px;
+}
+
+.error{
+    color: red;
+    font-size: 90%;
+    text-align: left;
+}
+
+.button_polo input{
+    margin:0;
+    width:200px;
+    border:1px solid #ddd;
+    padding:3px 5px 3px 25px;
+}

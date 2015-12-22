@@ -20,19 +20,24 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
 else{
     ?>
-    <h4> L'inscription s'est déroulée avec succès. Vous allez être redirigé automatiquement dans quelques secondes.
+    <div id="container">
+        <h4> L'inscription s'est déroulée avec succès. Vous allez être redirigé automatiquement dans quelques secondes.
+            <br>
+            Si ce n'est pas le cas, cliquez sur le bouton ci-dessous.
+        </h4>
         <br>
-        Si ce n'est pas le cas, cliquez sur le bouton ci-dessous.
-    </h4>
-    <br>
-    <a href="index.php"><button>Retour</button></a>
-    <script>
-        window.setTimeout(function(){
 
-            // Move to a new location or you can do something else
-            window.location.href = "index.php";
+        <input class="button_polo" type="button" onclick="location.href='menu_principal.php';" value="Retour" />
 
-        }, 3000);</script>
+        <script>
+            window.setTimeout(function(){
+
+                // Move to a new location or you can do something else
+                window.location.href = "index.php";
+
+            }, 3000);</script>
+    </div>
+
     <?php
 }
 ?>

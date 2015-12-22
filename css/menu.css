@@ -1,0 +1,58 @@
+
+.menu_principal input{
+    font:100% Trebuchet MS, Arial, Helvetica, Sans-Serif;
+    vertical-align: bottom;
+    line-height:160%;
+    color:#333;
+    margin:0;
+    width:400px;
+    height: 120px;
+    border:1px solid #ddd;
+    padding:3px 5px 3px 25px;
+}
+
+#container h2 {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #f1f1f1;
+    text-align: center;
+}
+
+
+input#button_jouer{
+    background: url(../res/img/diamond.png) no-repeat 20px 50%;
+}
+
+input#button_mini_jeux{
+    background:  url(../res/img/baddie.png) no-repeat 20px 50%;
+}
+
+input#button_profil{
+    background: url(../res/img/star.png) no-repeat 20px 50%;
+}
+
+input#button_aides{
+    background: url(../res/img/firstaid.png) no-repeat 20px 50%;
+}
+
+input#button_credits, input#button_quitter{
+    float: right;
+    width: 40%;
+    height: 50%;
+    margin: 10px;
+    padding: 5px;
+}
+
+.menu_polo input{
+    font:100% Trebuchet MS, Arial, Helvetica, Sans-Serif;
+    vertical-align: bottom;
+    line-height:160%;
+    color:#333;
+    margin:0;
+    border:1px solid #ddd;
+    padding:5px 20px ;
+}
+
+.menu_polo h3, .menu_principal h3{
+    font-style: italic;
+}
+

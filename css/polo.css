@@ -1,38 +1,80 @@
-.error{
-    color: red;
+body{
+    background:#f8f8f8;
+    font:18px Trebuchet MS, Arial, Helvetica, Sans-Serif;
+    color:#333;
+    line-height:160%;
+    margin:0;
+    padding:0;
+    text-align:center;
 }
 
-.polo_button{
-    font-size: 35px;
-    align-content: center;
+
+h1{
+    font-size:250%;
+    font-weight:normal;
+    text-align: center;
+}
+h2, h3, h4, h5, h6{
+    font-weight:normal;
+    margin:1em 0;
+}
+h2{
+    font-size:160%;
+}
+h3{
+    font-size:140%;
+}
+h4{
+    font-size:120%;
 }
 
-.menu_principal_button{
-    font-size: 35px;
-    align-content: center;
-    width: 100%;
-    height: 80px;
-    margin-bottom: 10px;
+a{
+    text-decoration:none;
+    color:#f30;
+}
+a:hover{
+    color:#999;
+}
+table, input, textarea, select, li{
+    font:100% Trebuchet MS, Arial, Helvetica, Sans-Serif;
+    line-height:160%;
+    color:#333;
+}
+p, blockquote, ul, ol, form{
+    margin:1em 0;
+}
+blockquote{
+}
+img{
+    border:none;
+}
+hr{
+    display:none;
+}
+table{
+    margin:1em 0;
+    width:100%;
+    border-collapse:collapse;
+}
+th, td{
+    padding:2px 5px;
+}
+th{
+    text-align:left;
+}
+li{
+    display:list-item;
 }
 
-.element{
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
+
+#container{
+    margin:0 auto;
+    background:#fff;
+    width:800px;
+    padding:20px 40px;
+    text-align:left;
 }
 
-.formulaire{
-    font-size: 25px;
-}
-
-.formulaire_button{
-    font-size: 20px;
-    margin: 5px;
-}
-
-.menu_principal{
-    align-content: center;
-}
 
 #overlay {
     display:none;

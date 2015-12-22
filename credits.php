@@ -8,11 +8,11 @@
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     //L'employé est connecté
     ?>
+    <div id="container" class="menu_polo">
     <h2> Crédits</h2>
-<br>
-<br>
-<br>
+
 <input type="button" class="menu_principal_button" onclick="location.href='menu_principal.php';" value="Retour" />
+    </div>
 <?php
 }else{
 //L'employé ne doit pas être sur cette page sans être connecté

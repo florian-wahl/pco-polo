@@ -29,13 +29,13 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($_POST["matricule"])){
-                $errMatricule = "* Un numéro d'employé est requis pour ce connecter";
+                $errMatricule = "* Un matricule est requis pour se connecter";
             }
             else{
                 $matricule = test_input($_POST['matricule']);
             }
             if(empty($_POST["input_password"])){
-                $errPassword = "* Un mot de passe est requis pour ce connecter";
+                $errPassword = "* Un mot de passe est requis pour se connecter";
             }
             else{
                 $input_password = test_input($_POST['input_password']);
@@ -57,7 +57,7 @@
                     $resultat = $stmt->fetchAll();
 
                     if(count($resultat) == 0){//Il n'y a pas de résultat : erreur dans le numéro employé
-                        $errConnexion = "Le numéro d\'employé ou le mot de passe est incorrecte <br>";
+                        $errConnexion = "Le matricule ou le mot de passe est incorrecte <br>";
                     }
                     else{
                         $employe = $resultat[0];//On récupère la première ligne, le résultat doit être unique
@@ -94,16 +94,34 @@
 
         }
         ?>
-        <div class="element">
-            <h2>Identifiez-vous :</h2>
-            <form class="formulaire" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-                Employé ID : <input type="text" name="matricule" value="<?php echo $matricule; ?>"> <span class="error"> <?php echo $errMatricule; ?></span><br>
-                Mot de passe : <input type="password" name="input_password"> <span class="error"> <?php echo $errPassword; ?></span> <br>
-                <input class="formulaire_button" type="submit" value="S'identier">
+        <div id="container">
+            <form id="formulaire" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                <fieldset><h2>Connectez-vous</h2>
+                    <p>
+                        <label for="matricule">Matricule</label>
+                        <input type="text" name="matricule" id="matricule" value="<?php echo $matricule; ?>"> <span class="error"> <?php echo $errMatricule; ?></span>
+                    </p>
+                    <p>
+                        <label for="paswword">Mot de passe</label>
+                        <input type="password" name="input_password" id="paswword"> <span class="error"> <?php echo $errPassword; ?></span>
+                    </p>
+                    <p>
+                        <label>&nbsp;</label>
+                        <input type="submit" value="S'identier">
+                    </p>
+                 </fieldset>
             </form>
             <span class="error"> <?php echo $errConnexion; ?></span>
-            <h2>Vous n'êtes pas encore inscrit ?</h2>
-            <input type="button" onclick="location.href='inscription.php';" value="S'inscrire" />
+
+            <form id="formulaire">
+                <fieldset><h2>Vous n'êtes pas encore inscrit ?</h2>
+                    <p>
+                        <label>&nbsp;</label>
+                        <input class="formulaire_button" type="button" onclick="location.href='inscription.php';" value="S'inscrire" />
+                    </p>
+                </fieldset>
+            </form>
+
         </div>
         <?php
     }

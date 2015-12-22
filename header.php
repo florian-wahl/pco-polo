@@ -8,5 +8,8 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <link rel="stylesheet" href="css/polo.css">
+    <link rel="stylesheet" href="css/formulaire.css">
+    <link rel="stylesheet" href="css/menu.css">
+
 
 </head>
