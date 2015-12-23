@@ -9,10 +9,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     //L'employé est connecté
     ?>
         <div id="container" class="menu_principal">
-        <h2>Bonjour <?php echo $_SESSION['prenom']; ?> et bienvenue dans le menu principal ! </h2>
+        <h2>Bienvenue <?php echo $_SESSION['prenom']; ?> ! </h2>
         <h3>Que voulez-vous faire ?</h3>
-
-            <input type="button" id="button_credits" onclick="location.href='credits.php';" value="Crédits" />
 
         <table>
             <tr>

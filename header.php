@@ -7,9 +7,12 @@
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/polo.css">
     <link rel="stylesheet" href="css/formulaire.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/pages.css">
 
 
 </head>

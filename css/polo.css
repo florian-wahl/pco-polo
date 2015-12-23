@@ -19,7 +19,7 @@ h2, h3, h4, h5, h6{
     margin:1em 0;
 }
 h2{
-    font-size:160%;
+    font-size:220%;
 }
 h3{
     font-size:140%;
@@ -29,8 +29,9 @@ h4{
 }
 
 a{
-    text-decoration:none;
-    color:#f30;
+    color:#333;
+    font-style: italic;
+    text-decoration: none;
 }
 a:hover{
     color:#999;
@@ -70,7 +71,7 @@ li{
 #container{
     margin:0 auto;
     background:#fff;
-    width:800px;
+    width:820px;
     padding:20px 40px;
     text-align:left;
 }

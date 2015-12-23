@@ -1,0 +1,32 @@
+/* CREDITS */
+p#page_credit{
+    text-align: center;
+}
+
+h4#page_credit {
+    font-size: 150%;
+    text-align: center;
+}
+
+/* MINI-JEUX */
+p#nb_jetons {
+    font-size: 20px;
+    float: right;
+    border: solid 2px;
+    padding: 5px 20px;
+    margin: 0;
+}
+table#liste_mini_jeux {
+    border: solid 1px;
+    margin: 0;
+    text-align: center;
+}
+.liste_mini_jeux tr, .liste_mini_jeux td {
+    border: solid 1px;
+    padding: 10px;
+}
+
+img.icon_mini_jeux {
+    width:120px;
+    vertical-align: middle;
+}
