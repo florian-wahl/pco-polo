@@ -7,6 +7,7 @@
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
+    <link rel="manifest" href="/manifest.json">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/polo.css">
