@@ -8,6 +8,7 @@ h4#page_credit {
     text-align: center;
 }
 
+
 /* MINI-JEUX */
 p#nb_jetons {
     font-size: 20px;
@@ -17,16 +18,149 @@ p#nb_jetons {
     margin: 0;
 }
 table#liste_mini_jeux {
-    border: solid 1px;
     margin: 0;
     text-align: center;
 }
 .liste_mini_jeux tr, .liste_mini_jeux td {
-    border: solid 1px;
     padding: 10px;
 }
 
 img.icon_mini_jeux {
     width:120px;
     vertical-align: middle;
+}
+
+.liste_mini_jeux td > input{
+    border: none;
+    height: 120px;
+    width: 120px;
+}
+
+input#mini_jeux_1 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+
+input#mini_jeux_2 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+input#mini_jeux_3 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+input#mini_jeux_4 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+input#mini_jeux_5 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+input#mini_jeux_6 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+input#mini_jeux_7 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+input#mini_jeux_8 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+input#mini_jeux_9 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+input#mini_jeux_10 {
+    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background-size: 110%;
+    background-position: center;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 600px;
+    min-height: 480px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    text-align: left;
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 50px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+img#img_popup_left {
+    float: left;
+    margin-right: 20px;
+}
+
+.button_popup_jouer{
+    float: right;
+    font:100% Trebuchet MS, Arial, Helvetica, Sans-Serif;
+    vertical-align: bottom;
+    color:#333;
+    margin:0;
+    width:100px;
+    height: 40px;
+    border:1px solid #ddd;
+    padding:10px;
 }

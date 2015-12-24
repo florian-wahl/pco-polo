@@ -9,54 +9,69 @@
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     //L'employé est connecté
     ?>
+
+    <script src="js/liste_mini_jeux.js"></script>
+
+
     <div id="container" class="menu_polo">
         <h2> Menu Mini-Jeux </h2>
+
         <input type="button" class="menu_principal_button" onclick="location.href='menu_principal.php';" value="Retour" />
+
         <p id="nb_jetons">
             Jetons : <?php echo "103"; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/>
         </p>
+
         <h3>Que voulez-vous faire ?</h3>
+
         <table id="liste_mini_jeux" class="liste_mini_jeux">
             <tr>
-                <td><a href="#" id="mini_jeux_1" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #1</a> </td>
-                <td><a href="#" id="mini_jeux_2" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #2</a></td>
-                <td><a href="#" id="mini_jeux_3" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #3</a></td>
-                <td><a href="#" id="mini_jeux_4" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #4</a></td>
-                <td><a href="#" id="mini_jeux_5" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #5</a></td>
+                <td><input type="button" id="mini_jeux_1" class="element_liste" value="Mini-Jeux #1" onclick="location.href='#openModal_1'"></td>
+                <td><input type="button" id="mini_jeux_2" class="element_liste" value="Mini-Jeux #2"></td>
+                <td><input type="button" id="mini_jeux_3" class="element_liste" value="Mini-Jeux #3" onclick="location.href='#openModal_3'"></td>
+                <td><input type="button" id="mini_jeux_4" class="element_liste" value="Mini-Jeux #4"></td>
+                <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mini-Jeux #5"></td>
             </tr>
             <tr>
-                <td><a href="#" id="mini_jeux_6" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #6</a> </td>
-                <td><a href="#" id="mini_jeux_7" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #7</a></td>
-                <td><a href="#" id="mini_jeux_8" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #8</a></td>
-                <td><a href="#" id="mini_jeux_9" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #9</a></td>
-                <td><a href="#" id="mini_jeux_10" class="element_liste"><img src="res/img/mini-jeux/icon_pacman.png" class="icon_mini_jeux"><br>Mini-Jeux #10</a></td>
+                <td><input type="button" id="mini_jeux_6" class="element_liste" value="Mini-Jeux #6"></td>
+                <td><input type="button" id="mini_jeux_7" class="element_liste" value="Mini-Jeux #7"></td>
+                <td><input type="button" id="mini_jeux_8" class="element_liste" value="Mini-Jeux #8"></td>
+                <td><input type="button" id="mini_jeux_9" class="element_liste" value="Mini-Jeux #9"></td>
+                <td><input type="button" id="mini_jeux_10" class="element_liste" value="Mini-Jeux #10"></td>
             </tr>
         </table>
 
-        <!-- GESTION DES POPUP DES MINI-JEUX -->
-        <script>
-            $(document).ready(function() {
-                $(".element_liste").click(function (event) {
-                    openPopup(this.id);
-                    return false;
-                });
-
-                function openPopup(id) {
-                    switch (id){
-                        case 'mini_jeux_1':
-                            alert('1');
-                            break;
-                        case 'mini_jeux_2':
-                            alert('2');
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            });
-        </script>
-
     </div>
+
+    <!-- POPUP SUR LES MINI-JEUX -->
+    <!-- Géré uniquement en HTML5/CSS3 -->
+
+    <div id="openModal_1" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <img src="res/img/mini-jeux/img_defaut.jpg" id="img_popup_left"/>
+            <h2>Mini-Jeux 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p> Jetons : <?php echo "103"; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" value="Jouer" />
+        </div>
+    </div>
+
+    <div id="openModal_3" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <img src="res/img/mini-jeux/img_defaut.jpg" id="img_popup_left"/>
+            <h2>Mini-Jeux 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p> Jetons : <?php echo "103"; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" value="Jouer" />
+        </div>
+    </div>
+
     <?php
 }else{
     //L'employé ne doit pas être sur cette page sans être connecté
