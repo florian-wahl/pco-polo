@@ -137,9 +137,20 @@
                     if (count($resultat) != 0) {
                         $errMatricule = "Le numéro que vous avez saisi est déjà utilié";
                     } else {
+
+                        //On crée une ligne dans la table score
+                        $stmt = $poloDB->prepare("INSERT INTO Score(score_jour, best_score, jetons)
+                                                    VALUES('0', '0', '0')");
+                        $stmt->execute();
+                        //On récupère l'id correspondant
+                        $stmt = $poloDB->prepare("SELECT id_score FROM Score ORDER BY id_score DESC;");
+                        $stmt->execute();
+                        $res_id = $stmt->fetchAll();
+                        $id_score = $res_id[0][0];
+
                         //On prépare les commandes qu'on va pouvoir ajouter dans la table
-                        $stmt_user = $poloDB->prepare("INSERT INTO Users(nom, prenom, matricule, password, question_s_1, rep_s_1, question_s_2, rep_s_2, score_id_score, personnage_id_personnage)
-                                                            VALUES(:nom, :prenom, :matricule, :password, :question_s_1, :reponse_s_1, :question_s_2, :reponse_s_2, '1', '1')");
+                        $stmt_user = $poloDB->prepare("INSERT INTO Users(nom, prenom, matricule, password, question_s_1, rep_s_1, question_s_2, rep_s_2, pseudonyme, score_id_score, personnage_id_personnage)
+                                                            VALUES(:nom, :prenom, :matricule, :password, :question_s_1, :reponse_s_1, :question_s_2, :reponse_s_2, 'defaut', :id_score, '1')");
                         $stmt_user->bindParam(':matricule', $matricule);
                         $stmt_user->bindParam(':password', $hashedpassword);
                         $stmt_user->bindParam(':nom', $nom);
@@ -148,6 +159,7 @@
                         $stmt_user->bindParam(':question_s_2', $question_s_2);
                         $stmt_user->bindParam(':reponse_s_1', $reponse_s_1);
                         $stmt_user->bindParam(':reponse_s_2', $reponse_s_2);
+                        $stmt_user->bindParam(':id_score', $id_score);
 
                         $stmt_user->execute();
 

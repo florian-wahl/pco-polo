@@ -49,7 +49,7 @@
                     $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     //Requête avec l'ID
-                    $stmt = $poloDB->prepare("SELECT * FROM users, personnage, score WHERE matricule = :num AND personnage_id_personnage = id_personnage AND score_id_score = id_score;");
+                    $stmt = $poloDB->prepare("SELECT * FROM users, score WHERE matricule = :num AND score_id_score = id_score;");
                     $stmt->bindValue(':num', $matricule);
                     $stmt->execute();
 
@@ -73,7 +73,7 @@
                             $_SESSION['prenom'] = $employe['prenom'];
                             $_SESSION['pseudonyme'] = $employe['pseudonyme'];
                             $_SESSION['id_user'] = $employe['id_user'];
-                            $_SESSION['id_personnage'] = $employe['id_personnage'];
+                            $_SESSION['id_personnage'] = $employe['personnage_id_personnage'];
                             $_SESSION['id_score'] = $employe['id_score'];
                             $_SESSION['score_jour'] = $employe['score_jour'];
                             $_SESSION['best_score'] = $employe['best_score'];
