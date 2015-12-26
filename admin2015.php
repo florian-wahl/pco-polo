@@ -84,13 +84,30 @@
     }
     ?>
 
-    <h2>Administration - Connexion</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-        Identifiant : <input type="text" name="identifiant" value="<?php echo $identifiant; ?>"> <span class="error"> <?php echo $errIdentifiant; ?></span><br>
-        Mot de passe : <input type="password" name="input_password"> <span class="error"> <?php echo $errPassword; ?></span> <br>
-        <input type="submit">
+<div id="container">
+    <form id="formulaire" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+        <fieldset><h2>Administration - Connexion</h2>
+            <p>
+                <label for="identifiant">Identifiant</label>
+                <input type="text" name="identifiant" id="identifiant" value="<?php echo $identifiant; ?>"> <span class="error"> <?php echo $errIdentifiant; ?></span>
+            </p>
+            <p>
+                <label for="paswword">Mot de passe</label>
+                <input type="password" name="input_password" id="paswword"> <span class="error"> <?php echo $errPassword; ?></span>
+            </p>
+
+            <p>
+                <label>&nbsp;</label>
+                <input type="submit" value="S'identier">
+                <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
+            </p>
+            <p>
+                <label>&nbsp;</label>
+                <span class="error"> <?php echo $errConnexion; ?></span>
+            </p>
+        </fieldset>
     </form>
-    <span class="error"> <?php echo $errConnexion; ?></span>
+
 <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
 
 

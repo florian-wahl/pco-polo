@@ -117,9 +117,12 @@
                         <label>&nbsp;</label>
                         <input type="submit" value="S'identier">
                     </p>
+                    <p>
+                        <label>&nbsp;</label>
+                        <span class="error"> <?php echo $errConnexion; ?></span>
+                    </p>
                  </fieldset>
             </form>
-            <span class="error"> <?php echo $errConnexion; ?></span>
 
             <form id="formulaire">
                 <fieldset><h2>Vous n'êtes pas encore inscrit ?</h2>

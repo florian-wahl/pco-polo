@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 <?php include 'header.php';?>
+<!-- Désactive le zoom et le scrolling -->
+<script>
+    document.ontouchmove = function(event){
+        event.preventDefault();
+    }
+</script>
+
 <link rel="stylesheet" href="css/quiz.css"  type="text/css" />
 
 <script src="js/phaser/phaser.min.js"></script>

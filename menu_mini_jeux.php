@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'header.php';?>
+<!-- Désactive le zoom et le scrolling -->
+<script>
+    document.ontouchmove = function(event){
+        event.preventDefault();
+    }
+</script>
 
 <body>
 <?php

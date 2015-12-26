@@ -41,13 +41,13 @@ $sql = "CREATE TABLE Admins (
     )";
 $poloDB->exec($sql);
 echo 'TABLE Admins cree <br>';
-
+*/
 //Set default admin
 $hashedpassword = password_hash('marco@2015', PASSWORD_BCRYPT);
 $sql = "INSERT INTO Admins(identifiant, password) VALUES('marcopolo', '$hashedpassword')";
 $poloDB->exec($sql);
 echo 'Admin marcopolo cree <br>';
-*/
+
 
 //TODO: Créer le score et le personnage par defaut
 

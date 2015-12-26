@@ -11,12 +11,6 @@
     <!-- TODO: Installer jQuery en local pour éviter les problèmes liés à internet-->
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <script>
-        document.ontouchmove = function(event){
-            event.preventDefault();
-        }
-    </script>
-
 
     <link rel="manifest" href="/manifest.json">
 
