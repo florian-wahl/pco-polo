@@ -1,7 +1,10 @@
 /**
  * Created by Florian on 13/11/2015.
  */
-var game = new Phaser.Game(1000, 800, Phaser.CANVAS, 'POLO', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1024, 768, Phaser.CANVAS, 'POLO', { preload: preload, create: create, update: update, render: render });
+
+var GAME_WIDTH = 1024;
+var GAME_HEIGHT = 768;
 
 function preload() {
 
@@ -25,6 +28,9 @@ function preload() {
     //Sounds
     game.load.audio('kikou', 'res/sons/Kikou.mp3');
 
+    //Menu
+    game.load.image('menu', 'res/img/cadre_menu_in_game.png', 900, 700);
+
 }
 
 var player;
@@ -41,6 +47,9 @@ var button_volume;
 
 var on_off_volume = true;
 var settingsOnOff = true;
+
+var nb_jetons = 0;
+var score = 0;
 
 function create() {
 
@@ -106,6 +115,9 @@ function create() {
     setIHM();
 
 
+
+
+
 }
 
 function update() {
@@ -119,15 +131,16 @@ function update() {
 
     movementControllerJoystick(maxSpeed);
 
+    //TODO: Voir si ces requêtes sont optimales...
+    /*REQUETES SQL*/
+    getScore();
+    getJetons();
     //movementControllerCursors(maxSpeed);
 }
 function apri(player,star) {
     star.kill();
     overlay.style.display='block';
     popup.style.display='block';
-
-
-
 
 }
 function render() {
@@ -140,15 +153,13 @@ function render() {
 
 }
 
-///////////////////////////////////////////////////////////////////////
-
 function setIHM() {
 
     //Volume button
-    button_volume = game.add.button(game.width-60, 50, 'volume', actionOnClickVolume, this, 2, 1 ,0);
+    button_volume = game.add.button(game.width-60, 20, 'volume', actionOnClickVolume, this, 2, 1 ,0);
     button_volume.fixedToCamera = true;
 
-    button_settings = game.add.button(game.width-120, 50, 'settings', actionOnClickSettings, this, 2, 1, 0);
+    button_settings = game.add.button(game.width-120, 20, 'settings', actionOnClickMenu, this, 2, 1, 0);
     button_settings.fixedToCamera = true;
 
 }
@@ -164,8 +175,120 @@ function actionOnClickVolume() {
     }
 }
 
-function actionOnClickSettings() {
+function actionOnClickMenu() {
 
-    settingsOnOff =! settingsOnOff;
+    //TODO: A enlever
 
+    //A chaque fois on ajoute 100 a score
+    addToScore(100);
+
+
+    game.physics.arcade.isPaused = true;
+
+    /*AJOUT DU MENU ET DE SON IHM*/
+    menu = game.add.sprite(game.camera.x + GAME_WIDTH/2 -900/2, game.camera.y + GAME_HEIGHT/2 -700/2, 'menu');
+
+
+    var text_retour_menu_principal = 'RETOUR AU MENU PRINCIPAL';
+    var text_reglages_sons = 'REGLAGES SONORES';
+    var text_musique = 'Musique';
+    var text_effets = 'Effets';
+    var text_score = 'Score : ';
+    var text_jetons = 'Jetons : ';
+
+    t_reglages_sons = game.add.text(game.camera.x + GAME_WIDTH/2 - 150, game.camera.y + GAME_HEIGHT/2 -200, text_reglages_sons);
+    t_musique = game.add.text(game.camera.x + GAME_WIDTH/2 - 150, game.camera.y + GAME_HEIGHT/2 -150, text_musique);
+    t_effets = game.add.text(game.camera.x + GAME_WIDTH/2 - 150, game.camera.y + GAME_HEIGHT/2 -100, text_effets);
+    retour_menu_principal = game.add.text(game.camera.x + GAME_WIDTH/2 - 200, game.camera.y + GAME_HEIGHT/2 + 20, text_retour_menu_principal );
+    retour_menu_principal.inputEnabled = true;
+    retour_menu_principal.events.onInputUp.add(function () {
+        window.location.href = 'menu_principal.php';
+    });
+
+
+    t_score = game.add.text(game.camera.x + GAME_WIDTH/2 + 150, game.camera.y + GAME_HEIGHT/2 +100, text_score + score);
+
+    t_jetons = game.add.text(game.camera.x + GAME_WIDTH/2 + 150, game.camera.y + GAME_HEIGHT/2 +150, text_jetons + nb_jetons);
+
+    // Add a input listener that can help us return from being paused
+    game.input.onDown.add(unpause, self);
+
+
+}
+
+// And finally the method that handels the pause menu
+function unpause(event){
+    // Only act if paused
+
+    //TODO: Peut faire mieux avec un sprite de bouton quitté
+        //Cordonnée de la croix du menu
+        var x1 = GAME_WIDTH/2 + 900/2 - 120 ;
+        var x2 = GAME_WIDTH/2 + 900/2;
+        var y1 = GAME_HEIGHT/2 - 700/2;
+        var y2 = GAME_HEIGHT/2 - 700/2 + 120 ;
+
+        // Si l'utilisateur touche la croix
+        if(event.x > x1 && event.x < x2 && event.y > y1 && event.y < y2 ){
+            // Remove the menu and the label
+            menu.destroy();
+            retour_menu_principal.destroy();
+            t_reglages_sons.destroy();
+            t_musique.destroy();
+            t_effets.destroy();
+            t_score.destroy();
+            t_jetons.destroy();
+
+            // Unpause the game
+            game.physics.arcade.isPaused= false;
+        }
+        else{
+
+        }
+
+}
+
+function getJetons(){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4) {
+            //La réponse
+            var nbjt = xmlhttp.responseText;
+            setJetons(parseInt(nbjt));
+        }
+    };
+    xmlhttp.open("GET","ajaxDB.php?q=nbJeton", true);
+    xmlhttp.send();
+
+}
+
+function getScore(){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4) {
+            //La réponse
+            var sco = xmlhttp.responseText;
+            setScore(parseInt(sco));
+        }
+    };
+    xmlhttp.open("GET","ajaxDB.php?q=scoreJour", true);
+    xmlhttp.send();
+
+}
+
+function addToScore(scoreToAdd){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("GET","ajaxDB.php?q=addToScore&s="+scoreToAdd, true);
+    xmlhttp.send();
+
+}
+
+function setJetons(jt){;
+    nb_jetons = jt;
+}
+
+function setScore(sc){;
+    score  = sc;
 }
