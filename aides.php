@@ -20,6 +20,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <p id="fleche_gauche" class="fleche_aide"> < </p>
         <p id="fleche_droite" class="fleche_aide"> > </p>
 
+        <!--
+        AJOUTER LES POST IT A LA SUITE EN SUIVANT LA MEME SYNTHAXE
+        IL FAUT JUSTE BIEN INCREMENTER LE NUMERO DANS L'ID
+        L'AFFICHAGE EST GERE AVEC LE SCRIPT js/aide.js
+        -->
         <div class="post_it">
             <div id="aide-1" class="post_it_aide">
 
