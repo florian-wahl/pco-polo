@@ -37,7 +37,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p>Pseudonyme : <?php echo $_SESSION["pseudonyme"]; ?></p>
         </div>
         <div>
-            <p>Score Journalié : <?php echo $_SESSION["score_jour"]; ?></p>
+            <p>Score Journalier : <?php echo $_SESSION["score_jour"]; ?></p>
             <p>Meilleur Score : <?php echo $_SESSION["best_score"]; ?></p>
             <p>Nombre de jetons : <?php echo $_SESSION["jetons"]; ?></p>
         </div>

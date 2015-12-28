@@ -57,7 +57,7 @@
                     $resultat = $stmt->fetchAll();
 
                     if(count($resultat) == 0){//Il n'y a pas de résultat : erreur dans le numéro employé
-                        $errConnexion = "Le matricule ou le mot de passe est incorrecte <br>";
+                        $errConnexion = "Le matricule ou le mot de passe est incorrect <br>";
                     }
                     else{
                         $employe = $resultat[0];//On récupère la première ligne, le résultat doit être unique

@@ -116,6 +116,9 @@ function create() {
 
 
 
+    getJetons();
+    getScore();
+
 
 
 }
@@ -131,10 +134,6 @@ function update() {
 
     movementControllerJoystick(maxSpeed);
 
-    //TODO: Voir si ces requêtes sont optimales...
-    /*REQUETES SQL*/
-    getScore();
-    getJetons();
     //movementControllerCursors(maxSpeed);
 }
 function apri(player,star) {
@@ -142,6 +141,13 @@ function apri(player,star) {
     overlay.style.display='block';
     popup.style.display='block';
 
+    //TODO: A enlever
+
+    //A chaque fois on ajoute 100 a score
+    addToScore(100);
+
+    getJetons();
+    getScore();
 }
 function render() {
 
@@ -176,13 +182,6 @@ function actionOnClickVolume() {
 }
 
 function actionOnClickMenu() {
-
-    //TODO: A enlever
-
-    //A chaque fois on ajoute 100 a score
-    addToScore(100);
-
-
     game.physics.arcade.isPaused = true;
 
     /*AJOUT DU MENU ET DE SON IHM*/
