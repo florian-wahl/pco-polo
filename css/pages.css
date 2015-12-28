@@ -1,3 +1,32 @@
+/* AIDES */
+
+.post_it_aide {
+    display: none;
+    border: dashed 2px yellow;
+    width: 600px;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+
+#fleche_gauche {
+    float: left;
+}
+
+#fleche_droite {
+    float: right;
+
+}
+
+.fleche_aide {
+    font-size: 100px;
+    color: white;
+    background-color: #2b2b2b;
+    border: solid 2px ;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
 /* PROFIL */
 #profil_apercu {
     border: solid 1px;
@@ -229,3 +258,4 @@ img#img_popup_left {
     border: solid 1px;
     text-align: center;
 }
+

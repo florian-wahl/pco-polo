@@ -27,7 +27,9 @@
         });
     });
     </script>
-
+<?php
+//TODO: ajouter le test de loggin
+?>
 
 <body>
 
