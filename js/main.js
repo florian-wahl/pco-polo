@@ -50,6 +50,8 @@ var settingsOnOff = true;
 
 var nb_jetons = 0;
 var score = 0;
+var score_cumule = 0;
+var SCORE_POUR_NOUVEAU_JETON = 200;
 
 function create() {
 
@@ -182,6 +184,10 @@ function actionOnClickVolume() {
 }
 
 function actionOnClickMenu() {
+    //On pause la physique du jeu.
+    /*ATTENTION : mettre en pause tout le jeu (game.pause() ) bloque aussi
+    les listeners, donc plus aucun bouton ne fonctionne...
+     */
     game.physics.arcade.isPaused = true;
 
     /*AJOUT DU MENU ET DE SON IHM*/
@@ -210,13 +216,16 @@ function actionOnClickMenu() {
     t_jetons = game.add.text(game.camera.x + GAME_WIDTH/2 + 150, game.camera.y + GAME_HEIGHT/2 +150, text_jetons + nb_jetons);
 
     // Add a input listener that can help us return from being paused
-    game.input.onDown.add(unpause, self);
+    game.input.onDown.add(unPauseMenu, self);
 
 
 }
 
-// And finally the method that handels the pause menu
-function unpause(event){
+/*
+Fonction gérant le menu, en particulier à le détruire lorsque
+l'on quitte le menu
+ */
+function unPauseMenu(event){
     // Only act if paused
 
     //TODO: Peut faire mieux avec un sprite de bouton quitté
@@ -246,6 +255,12 @@ function unpause(event){
 
 }
 
+/*
+ Permet de récupérer les jetons enregistrer dans la BDD.
+ ATTENTION: il ne faut pas executer cette fonction en boucle (dans la fonction update par exemple)
+ Elle envoie des requêtes au serveur, trop de requêtes vont ralentir
+ le temps de réponse voir faire crasher le serveur
+ */
 function getJetons(){
     var xmlhttp = new XMLHttpRequest();
 
@@ -261,6 +276,12 @@ function getJetons(){
 
 }
 
+/*
+Permet de récupérer le score enregistrer dans la BDD.
+ATTENTION: il ne faut pas executer cette fonction en boucle (dans la fonction update par exemple)
+Elle envoie des requêtes au serveur, trop de requêtes vont ralentir
+le temps de réponse voir faire crasher le serveur
+ */
 function getScore(){
     var xmlhttp = new XMLHttpRequest();
 
@@ -275,19 +296,58 @@ function getScore(){
     xmlhttp.send();
 
 }
-
+/*
+Permet de mettre à jour le score dans la BDD.
+Ajoute le nombre donnée en paramètre.
+Si ce nombre est négatif, le score va être diminué
+ */
 function addToScore(scoreToAdd){
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open("GET","ajaxDB.php?q=addToScore&s="+scoreToAdd, true);
     xmlhttp.send();
 
+    /*
+    On test si le score cumulé permet de débloqué un nouveau jeton
+     */
+    score_cumule += scoreToAdd;
+    while(score_cumule >= SCORE_POUR_NOUVEAU_JETON){
+        score_cumule -= SCORE_POUR_NOUVEAU_JETON;
+        addToJeton(1);
+    }
+
+
+
 }
 
+/*
+Permet de mettre à jour les jetons dans la BDD.
+Ajoute le nombre donnée en paramètre.
+Si ce nombre est négatif, le nombre de jetons va être diminué
+ */
+function addToJeton(jetonToAdd){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("GET","ajaxDB.php?q=addToJeton&s="+jetonToAdd, true);
+    xmlhttp.send();
+
+}
+
+
+/*
+ Permet de mettre à jour les jetons en INTERNE,
+ n'applique pas de changement à la BDD.
+ Sert surtout pour mettre à jour l'affichage
+ */
 function setJetons(jt){;
     nb_jetons = jt;
 }
 
+/*
+Permet de mettre à jour le score en INTERNE,
+n'applique pas de changement à la BDD.
+Sert surtout pour mettre à jour l'affichage
+ */
 function setScore(sc){;
     score  = sc;
 }

@@ -49,7 +49,7 @@ $poloDB->exec($sql);
 echo 'Admin marcopolo cree <br>';
 
 
-//TODO: Créer le score et le personnage par defaut
+//TODO: Créer le personnage par defaut
 
 //DECONNEXION
 $poloDB = null;

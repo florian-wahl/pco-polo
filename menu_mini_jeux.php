@@ -16,8 +16,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     //L'employé est connecté
     ?>
 
-    <script src="js/liste_mini_jeux.js"></script>
-
 
     <div id="container" class="menu_polo">
         <h2> Menu Mini-Jeux </h2>
@@ -61,7 +59,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
-            <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" value="Jouer" />
+            <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" onclick="test()" value="Jouer" />
         </div>
     </div>
 
@@ -77,6 +75,13 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" value="Jouer" />
         </div>
     </div>
+
+    <!--
+        CE SCRIPT PERMET DE GERER LE FONCTION DES POPUPS
+        LA REACTION DES BOUTONS
+        LA GESTION DES JETONS
+    -->
+    <script src="js/liste_mini_jeux.js"></script>
 
     <?php
 }else{

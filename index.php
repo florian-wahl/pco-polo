@@ -78,6 +78,25 @@
                             $_SESSION['score_jour'] = $employe['score_jour'];
                             $_SESSION['best_score'] = $employe['best_score'];
                             $_SESSION['jetons'] = $employe['jetons'];
+                            $_SESSION['last_log_date'] = $employe['last_log_date'];
+
+                            //Si c'est la première connexion du jour
+                            if($_SESSION['last_log_date'] < date("Y-m-d")){
+                                $_SESSION['last_log_date'] = date("Y-m-d");
+                                $_SESSION['score_jour'] = 0;
+
+                                //On met à jour le score dans la BDD
+                                $stmt = $poloDB->prepare("UPDATE score SET score_jour = :new_score_jour WHERE id_score = :id_score;");
+                                $stmt->bindValue(':id_score', $_SESSION['id_score']);
+                                $stmt->bindValue(':new_score_jour', $_SESSION['score_jour']);
+                                $stmt->execute();
+
+                                //On met à jour la date dans la BDD
+                                $stmt = $poloDB->prepare("UPDATE users SET last_log_date = :last_log_date WHERE id_user = :id_user;");
+                                $stmt->bindValue(':id_user', $_SESSION['id_user']);
+                                $stmt->bindValue(':last_log_date', $_SESSION['last_log_date']);
+                                $stmt->execute();
+                            }
 
 
                             //Réinitialisation des champs de connexion

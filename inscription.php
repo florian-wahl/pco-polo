@@ -150,7 +150,7 @@
 
                         //On prépare les commandes qu'on va pouvoir ajouter dans la table
                         $stmt_user = $poloDB->prepare("INSERT INTO Users(nom, prenom, matricule, password, question_s_1, rep_s_1, question_s_2, rep_s_2, pseudonyme, score_id_score, personnage_id_personnage)
-                                                            VALUES(:nom, :prenom, :matricule, :password, :question_s_1, :reponse_s_1, :question_s_2, :reponse_s_2, 'defaut', :id_score, '1')");
+                                                            VALUES(:nom, :prenom, :matricule, :password, :question_s_1, :reponse_s_1, :question_s_2, :reponse_s_2, 'defaut', :last_log_date, :id_score, '1')");
                         $stmt_user->bindParam(':matricule', $matricule);
                         $stmt_user->bindParam(':password', $hashedpassword);
                         $stmt_user->bindParam(':nom', $nom);
@@ -160,6 +160,7 @@
                         $stmt_user->bindParam(':reponse_s_1', $reponse_s_1);
                         $stmt_user->bindParam(':reponse_s_2', $reponse_s_2);
                         $stmt_user->bindParam(':id_score', $id_score);
+                        $stmt_user->bindParam(':last_log_date', date("Y-m-d"));
 
                         $stmt_user->execute();
 
