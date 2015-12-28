@@ -1,3 +1,41 @@
+/* PROFIL */
+#profil_apercu {
+    border: solid 1px;
+    padding: 10px 50px;
+    padding-top: 0;
+}
+
+#profil_image_personnage {
+    margin-right: 50px;
+}
+
+#profil_badges {
+    padding-left: 50px;
+}
+
+#profil_top {
+    display: table;
+    padding: 0;
+}
+#profil_top > div {
+    display: table-cell;
+    line-height: 15px;
+
+}
+
+table#tableau_scores, .tableau_scores tr, .tableau_scores td {
+    border: solid 1px;
+    text-align: center;
+}
+
+h4.tableau_scores {
+    text-align: center;
+}
+
+#tabs {
+    margin-bottom: 20px;
+}
+
 /* CREDITS */
 p#page_credit{
     text-align: center;

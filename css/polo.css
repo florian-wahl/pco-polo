@@ -72,6 +72,7 @@ li{
     margin:0 auto;
     background:#fff;
     width:820px;
+    min-height: 500px;
     padding:20px 40px;
     text-align:left;
 }
