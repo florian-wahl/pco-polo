@@ -13,7 +13,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     // set the PDO error mode to exception
     $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //Requête avec l'ID
+    //On met à jour le score
     $stmt = $poloDB->prepare("SELECT * FROM score WHERE id_score = :id_score;");
     $stmt->bindValue(':id_score', $_SESSION['id_score']);
     $stmt->execute();
@@ -30,12 +30,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="container" class="menu_polo">
         <h2>Profil</h2>
 
-
+        <img id="profil_image_personnage" src="res/img/custom_icon_polo.png" />
 
         <div id="profil_top">
-            <div>
-                <img id="profil_image_personnage" src="res/img/custom_icon_polo.png" />
-            </div>
 
             <div id="profil_apercu">
                 <p>Nom : <?php echo $_SESSION["nom"]; ?></p>
@@ -73,8 +70,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p>Nombre de jetons : <?php echo $_SESSION["jetons"]; ?></p>
         </div>
 
-
-        <script
         <script>
             $(function() {
                 $( "#tabs" ).tabs();
@@ -89,25 +84,241 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <div id="tabs-1">
                 <table id="tableau_scores" class="tableau_scores">
                     <h4 class="tableau_scores">Classement global</h4>
-                    <tr>
+                    <tr id="first_row_tableau_score">
                         <td>Rang</td>
                         <td>Pseudonyme</td>
                         <td>Score</td>
                     </tr>
+                    <?php
+
+                    $stmt = $poloDB->prepare("SELECT * FROM score, users WHERE score_id_score = id_score ORDER BY best_score DESC;");
+                    $stmt->execute();
+
+                    //On récupère les résultats
+                    $resultat = $stmt->fetchAll();
+                    /*
+                     * Dans la suite, on gère l'affichage du tableau des scores global
+                     */
+                    $rang = 0;
+                    $inTop5 = false;
+                    $troisPoints = true;
+                    $row_avant = null;
+                    $row_apres = false;
+
+                    foreach($resultat as $row){
+                        $rang++;
+                        /*
+                         * On affiche en premier le top 5
+                         */
+                        if($rang < 6){
+                            if($row['id_user'] == $_SESSION['id_user']){
+                                echo '<tr id="ligne_tableau_score_user">';
+                            }
+                            else{
+                                echo "<tr>";
+                            }
+
+                            echo "<td> " . $rang . " </td>";
+                            echo "<td> " . $row['pseudonyme'] . " </td>";
+                            echo "<td> " . $row['best_score'] . " </td>";
+                            echo "</tr>";
+
+                        }
+                        else{
+                            if(!$inTop5){
+
+                                if($troisPoints && $rang != 6){
+                                    echo "<tr>";
+                                    echo "<td> ... </td>";
+                                    echo "<td> ... </td>";
+                                    echo "<td> ... </td>";
+                                    echo "</tr>";
+                                    $troisPoints = false;
+
+                                }
+
+                                /*
+                                 * On affiche le rang juste après l'utilisateur
+                                 */
+                                if($row_apres){
+                                    $row_apres = false;
+
+                                    echo "<tr>";
+                                    echo "<td> " . $rang . " </td>";
+                                    echo "<td> " . $row['pseudonyme'] . " </td>";
+                                    echo "<td> " . $row['best_score'] . " </td>";
+                                    echo "</tr>";
+
+
+                                    echo "<tr>";
+                                    echo "<td> ... </td>";
+                                    echo "<td> ... </td>";
+                                    echo "<td> ... </td>";
+                                    echo "</tr>";
+                                }
+
+                                if($row['id_user'] == $_SESSION['id_user']){
+
+                                    $troisPoints = false;
+
+                                    /*
+                                     * On affiche le rang juste avant
+                                     */
+                                    if($rang != 6){
+                                        $rang -= 1;
+                                        echo '<tr>';
+                                        echo "<td> " . $rang . " </td>";
+                                        echo "<td> " . $row_avant['pseudonyme'] . " </td>";
+                                        echo "<td> " . $row_avant['best_score'] . " </td>";
+                                        echo "</tr>";
+                                        $rang +=1;
+                                    }
+
+
+                                    /*
+                                     * On affiche le rang de l'utilisateur
+                                     */
+                                    echo '<tr id="ligne_tableau_score_user">';
+                                    echo "<td> " . $rang . " </td>";
+                                    echo "<td> " . $row['pseudonyme'] . " </td>";
+                                    echo "<td> " . $row['best_score'] . " </td>";
+                                    echo "</tr>";
+
+                                    $row_apres = true;
+                                }
+
+
+
+                            }
+                        }
+                        $row_avant = $row;
+
+                    }
+
+                    ?>
                 </table>
             </div>
             <div id="tabs-2">
                 <h4 class="tableau_scores">Classement journalier</h4>
                 <table id="tableau_scores" class="tableau_scores">
-                    <tr>
+                    <tr id="first_row_tableau_score">
                         <td>Rang</td>
                         <td>Pseudonyme</td>
                         <td>Score</td>
                     </tr>
+                    <?php
+
+                    $stmt = $poloDB->prepare("SELECT * FROM score, users WHERE score_id_score = id_score ORDER BY score_jour DESC;");
+                    $stmt->execute();
+
+                    //On récupère les résultats
+                    $resultat = $stmt->fetchAll();
+
+                    /*
+                     * Dans la suite on gère le tableau des scores journalier
+                     */
+                    $rang = 0;
+                    $inTop5 = false;
+                    $troisPoints = true;
+                    $row_avant = null;
+                    $row_apres = false;
+
+                    foreach($resultat as $row){
+                        $rang++;
+                        /*
+                         * On affiche en premier le top 5
+                         */
+                        if($rang < 6){
+                            if($row['id_user'] == $_SESSION['id_user']){
+                                echo '<tr id="ligne_tableau_score_user">';
+                            }
+                            else{
+                                echo "<tr>";
+                            }
+
+                            echo "<td> " . $rang . " </td>";
+                            echo "<td> " . $row['pseudonyme'] . " </td>";
+                            echo "<td> " . $row['score_jour'] . " </td>";
+                            echo "</tr>";
+
+                        }
+                        else{
+                            if(!$inTop5){
+
+                                if($troisPoints && $rang != 6){
+                                    echo "<tr>";
+                                    echo "<td> ... </td>";
+                                    echo "<td> ... </td>";
+                                    echo "<td> ... </td>";
+                                    echo "</tr>";
+                                    $troisPoints = false;
+
+                                }
+
+                                /*
+                                 * On affiche le rang juste après l'utilisateur
+                                 */
+                                if($row_apres){
+                                    $row_apres = false;
+
+                                    echo "<tr>";
+                                    echo "<td> " . $rang . " </td>";
+                                    echo "<td> " . $row['pseudonyme'] . " </td>";
+                                    echo "<td> " . $row['score_jour'] . " </td>";
+                                    echo "</tr>";
+
+
+                                    echo "<tr>";
+                                    echo "<td> ... </td>";
+                                    echo "<td> ... </td>";
+                                    echo "<td> ... </td>";
+                                    echo "</tr>";
+                                }
+
+                                if($row['id_user'] == $_SESSION['id_user']){
+
+                                    $troisPoints = false;
+
+                                    /*
+                                     * On affiche le rang juste avant
+                                     */
+                                    if($rang != 6){
+                                        $rang -= 1;
+                                        echo '<tr>';
+                                        echo "<td> " . $rang . " </td>";
+                                        echo "<td> " . $row_avant['pseudonyme'] . " </td>";
+                                        echo "<td> " . $row_avant['score_jour'] . " </td>";
+                                        echo "</tr>";
+                                        $rang +=1;
+                                    }
+
+
+                                    /*
+                                     * On affiche le rang de l'utilisateur
+                                     */
+                                    echo '<tr id="ligne_tableau_score_user">';
+                                    echo "<td> " . $rang . " </td>";
+                                    echo "<td> " . $row['pseudonyme'] . " </td>";
+                                    echo "<td> " . $row['score_jour'] . " </td>";
+                                    echo "</tr>";
+
+                                    $row_apres = true;
+                                }
+
+
+
+                            }
+                        }
+                        $row_avant = $row;
+
+                    }
+
+                    ?>
                 </table>
             </div>
         </div>
         <input type="button" class="menu_principal_button" onclick="location.href='menu_principal.php';" value="Retour" />
+        <?php $poloDB = null; ?>
     </div>
 <?php
 }else{
