@@ -8,17 +8,20 @@
     <!-- Au dessus : désactive le zoom
     En dessous : désactive les on touch move (zoom, pinch, scrolling)
     -->
-    <!-- TODO: Installer jQuery en local pour éviter les problèmes liés à internet-->
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- jQuery 1.11.3 -->
+    <script src="js/jquery/jquery-1.11.3.min.js"></script>
 
-
-    <link rel="manifest" href="/manifest.json">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
+    <script src="js/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/polo.css">
     <link rel="stylesheet" href="css/formulaire.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/pages.css">
+
+
 
 
 </head>

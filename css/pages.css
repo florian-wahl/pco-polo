@@ -1,3 +1,56 @@
+/* PROFIL */
+#profil_apercu {
+    border: solid 1px;
+    padding: 10px 50px;
+    padding-top: 0;
+}
+
+#profil_image_personnage {
+    margin-right: 50px;
+    float: left;
+    padding-top: 20px;
+}
+
+#profil_badges {
+    padding-left: 50px;
+    text-align: center;
+}
+
+#profil_top {
+    display: table;
+    padding: 0;
+}
+#profil_top > div {
+    display: table-cell;
+    line-height: 15px;
+
+}
+#first_row_tableau_score{
+    font-weight: bold;
+    font-size: 110%;
+    background-color: rgba(149, 139, 147, 0.1);
+}
+
+table#tableau_scores, .tableau_scores tr, .tableau_scores td {
+    border: solid 1px black;
+    text-align: center;
+}
+
+#ligne_tableau_score_user {
+    font-size: 110%;
+    font-style: italic;
+    font-weight: bold;
+    color: #003eff;
+}
+
+h4.tableau_scores {
+    text-align: center;
+}
+
+#tabs {
+    margin-bottom: 20px;
+}
+
 /* CREDITS */
 p#page_credit{
     text-align: center;
@@ -163,6 +216,11 @@ img#img_popup_left {
     height: 40px;
     border:1px solid #ddd;
     padding:10px;
+}
+
+.errJetons {
+    color: red;
+    display: none;
 }
 
 /*ADMINISTRATION*/
