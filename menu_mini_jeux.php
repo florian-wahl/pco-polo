@@ -60,7 +60,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" value="Jouer" />
-            <p id="errJetons">Vous n'avez pas assez de jetons.</p>
+            <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
 
@@ -74,7 +74,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" value="Jouer" />
-            <p id="errJetons">Vous n'avez pas assez de jetons.</p>
+            <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
 

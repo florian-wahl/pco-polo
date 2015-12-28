@@ -33,7 +33,7 @@ $(document).ready(function() {
             location.href = "menu_mini_jeux.php";
         }
         else{
-            $("#errJetons").show();
+            $(".errJetons").show();
         }
 
     });

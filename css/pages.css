@@ -218,7 +218,7 @@ img#img_popup_left {
     padding:10px;
 }
 
-#errJetons {
+.errJetons {
     color: red;
     display: none;
 }
