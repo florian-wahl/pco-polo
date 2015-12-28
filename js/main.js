@@ -136,6 +136,7 @@ function update() {
 
     movementControllerJoystick(maxSpeed);
     accesCarte();
+
     //movementControllerCursors(maxSpeed);
 }
 function apri(player,star) {

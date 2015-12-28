@@ -44,7 +44,7 @@ function accesCarte(){
 
             if(player.body.velocity.x>0)
                 player.body.velocity.x=0;
-
+            console.log("a");
             if(player.body.velocity.y>0)
                 player.body.velocity.y=0;
         }
