@@ -2,7 +2,7 @@
  * Created by Florian on 13/11/2015.
  */
 
-
+    var badge1=0;
 function movementControllerCursors(maxSpeed) {
 
     player.body.velocity.set(0);
@@ -38,7 +38,20 @@ function movementControllerCursors(maxSpeed) {
 
 }
 
+function accesCarte(){
+    if(badge1==0){
+        if(player.body.position.x>1000&&player.body.position.y>1000){
 
+            if(player.body.velocity.x>0)
+                player.body.velocity.x=0;
+            console.log("a");
+            if(player.body.velocity.y>0)
+                player.body.velocity.y=0;
+        }
+
+
+    }
+}
 
 
 function movementControllerJoystick (maxSpeed) {
