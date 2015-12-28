@@ -30,6 +30,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="container" class="menu_polo">
         <h2>Profil</h2>
 
+        <input type="button" class="menu_principal_button" onclick="location.href='menu_principal.php';" value="Retour" />
+        <br>
+
         <img id="profil_image_personnage" src="res/img/custom_icon_polo.png" />
 
         <div id="profil_top">
@@ -317,7 +320,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 </table>
             </div>
         </div>
-        <input type="button" class="menu_principal_button" onclick="location.href='menu_principal.php';" value="Retour" />
         <?php $poloDB = null; ?>
     </div>
 <?php
