@@ -211,7 +211,10 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     </tr>
                     <?php
 
-                    $stmt = $poloDB->prepare("SELECT * FROM score, users WHERE score_id_score = id_score ORDER BY score_jour DESC;");
+                    $stmt = $poloDB->prepare("SELECT * FROM score, users WHERE score_id_score = id_score AND last_log_date = :today_date ORDER BY score_jour DESC;");
+                    $today_date = date("Y-m-d");
+                    $stmt->bindValue(':today_date', $today_date);
+
                     $stmt->execute();
 
                     //On récupère les résultats

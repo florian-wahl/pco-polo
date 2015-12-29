@@ -10,6 +10,7 @@
 }
 
 #fleche_gauche {
+    vertical-align: middle;
     float: left;
 }
 
@@ -27,6 +28,45 @@
     padding-bottom: 20px;
 }
 
+/* CREATION PERSO */
+.espece_perso {
+    display: none;
+    width: 650px;
+    margin: auto;
+    padding: 10px;
+}
+
+.espece_perso > p {
+    font-size: 15px;
+    text-align: justify;
+}
+
+.espece_perso > h4 {
+    text-align: center;
+}
+
+.img_perso {
+    float: left;
+    margin: 5px 20px;
+    width: 130px;
+}
+
+#submit_perso{
+    float: right;
+    margin: 20px;
+}
+
+#selection_pseudo {
+    text-align: center;
+}
+
+#selection_couleur{
+    text-align: center;
+}
+
+#selection_couleur > img {
+    margin: 1px 15px;
+}
 /* PROFIL */
 #profil_apercu {
     border: solid 1px;

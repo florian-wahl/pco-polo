@@ -20,7 +20,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
         <table>
             <tr>
-                <td><input type="button" class="menu_principal_button" id="button_jouer" onclick="location.href='polo.php';" value="Jouer" /></td>
+                <td><input type="button" class="menu_principal_button" id="button_jouer" value="Jouer" /></td>
                 <td><input type="button" class="menu_principal_button" id="button_mini_jeux" onclick="location.href='menu_mini_jeux.php';" value="Mini-Jeux" /></td>
             </tr>
             <tr>
@@ -33,6 +33,20 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
             <br>
         </div>
+
+    <script>
+        $("#button_jouer").click(function(){
+            var pseudonyme = '<?php echo $_SESSION['pseudonyme'];?>';
+
+            if(pseudonyme == "defaut"){
+                location.href = "creation_perso.php";
+            }
+            else{
+                location.href = "polo.php";
+            }
+        });
+
+    </script>
     <?php
 }else{
     //L'employé ne doit pas être sur cette page sans être connecté
