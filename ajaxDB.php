@@ -76,6 +76,25 @@ switch($q){
 
 
         break;
+    case 'setPersonnage':
+
+        $stmt = $poloDB->prepare("SELECT id_personnage FROM personnage WHERE couleur = :couleur AND espece = :espece;");
+        $stmt->bindValue(':couleur', $_GET['couleur']);
+        $stmt->bindValue(':espece', $_GET['espece']);
+        $stmt->execute();
+
+        //On récupère les résultats
+        $resultat = $stmt->fetchAll();
+
+        $id_personnage = $resultat[0]['id_personnage'];
+
+        $stmt = $poloDB->prepare("UPDATE users SET personnage_id_personnage = :id_personnage WHERE id_user = :id_user;");
+        $stmt->bindValue(':id_user', $_SESSION['id_user']);
+        $stmt->bindValue('id_personnage',$id_personnage);
+        $stmt->execute();
+
+        $_SESSION['id_personnage'] = $id_personnage;
+        break;
     default:
         echo '';
 }

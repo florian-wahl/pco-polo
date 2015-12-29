@@ -26,6 +26,33 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     $_SESSION['score_jour'] = $res_score['score_jour'];
     $_SESSION['best_score'] = $res_score['best_score'];
     $_SESSION['jetons'] = $res_score['jetons'];
+
+    //On met à jour le score
+    $stmt = $poloDB->prepare("SELECT * FROM personnage WHERE id_personnage = :id_personnage;");
+    $stmt->bindValue(':id_personnage', $_SESSION['id_personnage']);
+    $stmt->execute();
+
+    //On récupère les résultats
+    $resultat = $stmt->fetchAll();
+    $personnage = $resultat[0];
+
+    switch($resultat[0]['espece']){
+        case 'Tut':
+            $personnage['img'] = "Alpha";
+            break;
+        case 'Lav':
+            $personnage['img'] = "Delta";
+            break;
+        case 'Pri':
+            $personnage['img'] = "Gamma";
+            break;
+        case 'Tec':
+            $personnage['img'] = "Zeta";
+            break;
+        case 'Qi':
+            $personnage['img'] = "Beta";
+            break;
+    }
     ?>
     <div id="container" class="menu_polo">
         <h2>Profil</h2>
@@ -33,7 +60,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <input type="button" class="menu_principal_button" onclick="location.href='menu_principal.php';" value="Retour" />
         <br>
 
-        <img id="profil_image_personnage" src="res/img/custom_icon_polo.png" />
+        <img id="profil_image_personnage" src="res/img/personnages/<?php echo $personnage['couleur']."/".$personnage['img']."/idle.png"?>" />
 
         <div id="profil_top">
 

@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/pages.css">
 
 
+    <link rel="icon" type="image/png" href="res/img/custom_icon_polo.png" />
+
 
 
 </head>
