@@ -13,6 +13,7 @@ function preload() {
     game.load.image('ship', 'res/img/thrust.png');
     game.load.image('star', 'res/img/star.png');
     game.load.image('wall', 'res/img/platform.png');
+    game.load.image('transparent','res/img/transparent.png')
 
     //touch control
     game.load.image('compass', 'res/img/compass_rose.png');
@@ -41,7 +42,8 @@ var musicbg;
 var star;
 var stars;
 var newwindow;
-
+var transparents;
+var transparente;
 var button_settings;
 var button_volume;
 
@@ -52,7 +54,7 @@ var nb_jetons = 0;
 var score = 0;
 var score_cumule = 0;
 var SCORE_POUR_NOUVEAU_JETON = 200;
-
+var badge1=0;
 function create() {
 
     //inizialize les variables
@@ -105,6 +107,13 @@ function create() {
     wall.body.immovable = true;
     wall = walls.create(500, 600, 'wall');
     wall.body.immovable = true;
+    //code pour bloquer les zones de la carte
+    transparents = game.add.group();
+    transparents.enableBody = true;
+    if(badge1==0) {
+        transparente = transparents.create(1200, 1200, 'transparent');
+        transparente.body.immovable = true;
+    }
 
     ship = game.add.sprite(800, 700, 'ship');
     game.physics.arcade.enable(ship);
@@ -131,11 +140,13 @@ function update() {
     game.physics.arcade.collide(player, ship);
     game.physics.arcade.collide(ship, walls);
     game.physics.arcade.overlap(player, stars, apri, null, this);
+    game.physics.arcade.collide(player, transparents);
+    game.physics.arcade.collide(player,transparents,blocco,null,this);
+
 
     var maxSpeed = 300;
 
     movementControllerJoystick(maxSpeed);
-    accesCarte();
 
     //movementControllerCursors(maxSpeed);
 }

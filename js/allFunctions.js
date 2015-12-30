@@ -38,20 +38,6 @@ function movementControllerCursors(maxSpeed) {
 
 }
 
-function accesCarte(){
-    if(badge1==0){
-        if(player.body.position.x>1000&&player.body.position.y>1000){
-
-            if(player.body.velocity.x>0)
-                player.body.velocity.x=0;
-            console.log("a");
-            if(player.body.velocity.y>0)
-                player.body.velocity.y=0;
-        }
-
-
-    }
-}
 
 
 function movementControllerJoystick (maxSpeed) {
@@ -100,3 +86,15 @@ function movementControllerJoystick (maxSpeed) {
 var easeInSpeed = function(x){
     return x * Math.abs(x) / 2000;
 };
+
+function SetOpacity( imageid, opacity ) {
+    var s= document.getElementById(imageid).style;
+    s.opacity = ( opacity / 100 );
+    s.MozOpacity = ( opacity / 100 );
+    s.KhtmlOpacity = ( opacity / 100 );
+    s.filter = 'alpha(opacity=' + opacity + ')';
+}
+
+function blocco(){
+    alert("Hello! I am an alert box!");
+}
