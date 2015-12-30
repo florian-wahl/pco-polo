@@ -22,13 +22,17 @@ $(document).ready(function() {
     /*GESTION DES BOUTONS JOUER*/
     $(".button_popup_jouer").click(function () {
 
+        var xmlhttp1 = new XMLHttpRequest();
+
+        xmlhttp1.open("GET","ajaxDB.php?q=addBadge&s=3", true);
+        xmlhttp1.send();
 
         if(nb_jetons > 0){
-            var xmlhttp = new XMLHttpRequest();
+            var xmlhttp2 = new XMLHttpRequest();
             var jetonToAdd = -1;
 
-            xmlhttp.open("GET","ajaxDB.php?q=addToJeton&s="+jetonToAdd, true);
-            xmlhttp.send();
+            xmlhttp2.open("GET","ajaxDB.php?q=addToJeton&s="+jetonToAdd, true);
+            xmlhttp2.send();
 
             location.href = "menu_mini_jeux.php";
         }

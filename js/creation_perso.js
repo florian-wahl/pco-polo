@@ -64,6 +64,11 @@ $(document).ready(function() {
         }
         xmlhttp.open("GET","ajaxDB.php?q=setPersonnage&espece="+espece+"&couleur="+couleur, true);
         xmlhttp.send();
+
+        var xmlhttp1 = new XMLHttpRequest();
+
+        xmlhttp1.open("GET","ajaxDB.php?q=addBadge&s=1", true);
+        xmlhttp1.send();
     });
 
     /* GESTION DES COULEURS*/

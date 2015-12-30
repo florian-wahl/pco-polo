@@ -121,6 +121,24 @@ h4.tableau_scores {
     margin-bottom: 20px;
 }
 
+h5.table_badges {
+    font-size: 110%;
+    margin: 0;
+}
+
+img.table_badges {
+    max-width: 50px;
+    margin-right: 20px;
+    align-content: center;
+}
+
+p.table_badges {
+    text-align: center;
+    font-size: 85%;
+    margin: 0;
+    width: 150px;
+}
+
 /* CREDITS */
 p#page_credit{
     text-align: center;

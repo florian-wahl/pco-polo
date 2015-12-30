@@ -95,6 +95,24 @@ switch($q){
 
         $_SESSION['id_personnage'] = $id_personnage;
         break;
+    case 'addBadge':
+
+            $stmt = $poloDB->prepare("SELECT * FROM users_badges WHERE users_id_user = :id_user AND badges_id_badge = :id_badge;");
+            $stmt->bindValue(':id_user', $_SESSION['id_user']);
+            $stmt->bindValue(':id_badge', $s);
+            $stmt->execute();
+
+            $resultat = $stmt->fetchAll();
+
+            //On test si le joueur a déjà le badge
+            if(count($resultat) == 0){
+                $stmt = $poloDB->prepare("INSERT INTO users_badges(users_id_user, badges_id_badge) VALUES (:id_user, :id_badge)");
+                $stmt->bindValue(':id_user', $_SESSION['id_user']);
+                $stmt->bindValue(':id_badge', $s);
+                $stmt->execute();
+            }
+
+        break;
     default:
         echo '';
 }
