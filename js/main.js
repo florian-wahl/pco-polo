@@ -8,12 +8,12 @@ var GAME_HEIGHT = 768;
 
 function preload() {
 
-    game.load.spritesheet('player', 'res/img/dude.png', 32, 48);
-    game.load.image('background', 'res/img/starfield2.jpg');
+    game.load.spritesheet('player', 'res/img/personnages/Green/Alpha/player_green_alpha.png', 71, 96);
+    game.load.image('background', 'res/img/floor.jpg');
     game.load.image('ship', 'res/img/thrust.png');
     game.load.image('star', 'res/img/star.png');
     game.load.image('wall', 'res/img/platform.png');
-    game.load.image('transparent','res/img/transparent.png')
+    game.load.image('transparent','res/img/transparent.png');
 
     //touch control
     game.load.image('compass', 'res/img/compass_rose.png');
@@ -88,6 +88,11 @@ function create() {
     player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
     game.physics.arcade.enable(player);
     player.body.collideWorldBounds = true;
+
+    player.animations.add('left', [0,1], 10, true);
+    player.animations.add('down', [2,3], 10, true);
+    player.animations.add('up', [5,6], 10, true);
+    player.animations.add('right', [7,8], 10, true);
 
     game.touchControl = game.plugins.add(Phaser.Plugin.TouchControl);
     game.touchControl.inputEnable();

@@ -58,20 +58,21 @@ function movementControllerJoystick (maxSpeed) {
 
         // moving mainly right or left
         if (game.touchControl.cursors.left) {
-            //this.character.play('walkLeft');
+            player.play('left');
         } else if (game.touchControl.cursors.right) {
-            //this.character.play('walkRight');
+            player.play('right');
         }
     } else if (Math.abs(speed.y) > Math.abs(speed.x)){
         delay = parseInt(1000 / Math.abs((easeInSpeed(speed.y)) * 10), 10);
         // moving mainly up or down
         if (game.touchControl.cursors.up) {
-            //this.character.play('walkUp');
+            player.play('up');
         } else if (game.touchControl.cursors.down) {
-            //this.character.play('walkDown');
+            player.play('down');
         }
     } else {
-        //this.character.animations.stop(0, true);
+        player.animations.stop();
+        player.frame = 4;
     }
 
     // this is a little hack, if the next frame its really slow and we have speed up things we will
