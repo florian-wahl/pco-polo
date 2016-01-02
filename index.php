@@ -1,7 +1,7 @@
 <?php include 'php/first.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'header.php';?>
+<?php include 'php/header.php';?>
 <body>
     <?php
     if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
@@ -157,5 +157,5 @@
     }
     ?>
 </body>
-<?php include 'footer.php';?>
+<?php include 'php/footer.php';?>
 </html>

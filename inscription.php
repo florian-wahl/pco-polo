@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'header.php';?>
+<?php include 'php/header.php';?>
 <body>
 
     <?php
@@ -266,6 +266,6 @@
 
 </body>
 
-<?php include "footer.php";?>
+<?php include "php/footer.php";?>
 
 </html>

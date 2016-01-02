@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?php include 'header.php';?>
+<?php include 'php/header.php';?>
 <!-- Désactive le zoom et le scrolling -->
 <script>
     document.ontouchmove = function(event){

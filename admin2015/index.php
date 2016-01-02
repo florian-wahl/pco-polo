@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include "../header.php"; ?>
+<?php include "../php/header.php"; ?>
 <body>
 <?php
 if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
@@ -53,7 +53,7 @@ if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
 
             ?>
         </table>
-        <input type="button" class="menu_principal_button" onclick="location.href='../php/logout.php';" value="Déconnexion" />
+        <input type="button" class="menu_principal_button" onclick="location.href='../logout.php';" value="Déconnexion" />
     </div>
     <?php
 }else{
@@ -62,5 +62,5 @@ if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
 }
 ?>
 </body>
-<?php include '../footer.php';?>
+<?php include '../php/footer.php';?>
 </html>

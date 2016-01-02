@@ -25,6 +25,7 @@ $(document).ready(function() {
         var xmlhttp1 = new XMLHttpRequest();
 
         xmlhttp1.open("GET","ajaxDB.php?q=addBadge&s=3", true);
+        xmlhttp1.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xmlhttp1.send();
 
         if(nb_jetons > 0){
@@ -32,6 +33,7 @@ $(document).ready(function() {
             var jetonToAdd = -1;
 
             xmlhttp2.open("GET","ajaxDB.php?q=addToJeton&s="+jetonToAdd, true);
+            xmlhttp2.setRequestHeader("X-Requested-With", "XMLHttpRequest");
             xmlhttp2.send();
 
             location.href = "menu_mini_jeux.php";
@@ -53,6 +55,7 @@ $(document).ready(function() {
             }
         };
         xmlhttp.open("GET","ajaxDB.php?q=nbJeton", true);
+        xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xmlhttp.send();
 
     }

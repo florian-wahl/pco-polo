@@ -7,8 +7,8 @@
     session_destroy();
 
     ?>
-        <script>window.location.href = "../index.php";</script>
+        <script>window.location.href = "index.php";</script>
 
 </body>
-<?php include '../footer.php';?>
+<?php include '../php/footer.php';?>
 </html>

@@ -63,11 +63,13 @@ $(document).ready(function() {
 
         }
         xmlhttp.open("GET","ajaxDB.php?q=setPersonnage&espece="+espece+"&couleur="+couleur, true);
+        xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xmlhttp.send();
 
         var xmlhttp1 = new XMLHttpRequest();
 
         xmlhttp1.open("GET","ajaxDB.php?q=addBadge&s=1", true);
+        xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xmlhttp1.send();
     });
 

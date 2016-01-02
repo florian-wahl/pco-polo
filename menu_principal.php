@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'header.php';?>
+<?php include 'php/header.php';?>
 <!-- Désactive le zoom et le scrolling -->
 <script>
     document.ontouchmove = function(event){
@@ -28,7 +28,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <td><input type="button" class="menu_principal_button" id="button_aides" onclick="location.href='aides.php';" value="Aides" /></td>
             </tr>
         </table>
-            <input type="button" id="button_quitter" onclick="location.href='php/logout.php';" value="Quitter" />
+            <input type="button" id="button_quitter" onclick="location.href='logout.php';" value="Quitter" />
             <br>
 
             <br>
@@ -56,5 +56,5 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 }
 ?>
 </body>
-<?php include 'footer.php';?>
+<?php include 'php/footer.php';?>
 </html>

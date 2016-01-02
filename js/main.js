@@ -172,7 +172,7 @@ function render() {
 
     if(settingsOnOff){
         game.debug.cameraInfo(game.camera, 32, 32);
-        game.debug.spriteCoords(player, 32, 500);
+        game.debug.spriteCoords(player, 600, 700);
     }
 
 
@@ -281,6 +281,8 @@ function unPauseMenu(event){
 function getJetons(){
     var xmlhttp = new XMLHttpRequest();
 
+
+
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4) {
             //La réponse
@@ -289,6 +291,7 @@ function getJetons(){
         }
     };
     xmlhttp.open("GET","ajaxDB.php?q=nbJeton", true);
+    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xmlhttp.send();
 
 }
@@ -302,6 +305,8 @@ le temps de réponse voir faire crasher le serveur
 function getScore(){
     var xmlhttp = new XMLHttpRequest();
 
+
+
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4) {
             //La réponse
@@ -310,6 +315,7 @@ function getScore(){
         }
     };
     xmlhttp.open("GET","ajaxDB.php?q=scoreJour", true);
+    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xmlhttp.send();
 
 }
@@ -321,7 +327,10 @@ Si ce nombre est négatif, le score va être diminué
 function addToScore(scoreToAdd){
     var xmlhttp = new XMLHttpRequest();
 
+
+
     xmlhttp.open("GET","ajaxDB.php?q=addToScore&s="+scoreToAdd, true);
+    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xmlhttp.send();
 
     /*
@@ -345,7 +354,9 @@ Si ce nombre est négatif, le nombre de jetons va être diminué
 function addToJeton(jetonToAdd){
     var xmlhttp = new XMLHttpRequest();
 
+
     xmlhttp.open("GET","ajaxDB.php?q=addToJeton&s="+jetonToAdd, true);
+    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xmlhttp.send();
 
 }

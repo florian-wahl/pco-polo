@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'header.php';?>
+<?php include 'php/header.php';?>
 <!-- Désactive le zoom et le scrolling -->
 <script>
     document.ontouchmove = function(event){
@@ -59,7 +59,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
-            <input type="button" id="popup_button_jouer_1" onclick="location.href='flappyBird.php';" class="button_popup_jouer" value="Jouer" />
+            <input type="button" id="popup_button_jouer_1" onclick="location.href='mini-jeux/flappyBird.php';" class="button_popup_jouer" value="Jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
@@ -94,5 +94,5 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 }
 ?>
 </body>
-<?php include 'footer.php';?>
+<?php include 'php/footer.php';?>
 </html>
