@@ -2,25 +2,33 @@
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'gameDiv');
 
 // Create our 'main' state that will contain the game
-var mainState = {
+var mainState;
+mainState = {
 
-    preload: function() {
+    preload: function () {
         // This function will be executed at the beginning
         // That's where we load the game's assets
-        game.state.backgroundColor= '71c5cf';
-        game.load.image('bird','assets/bird.png');
-        game.load.image('pipe','assets/pipe.png');
+        game.state.backgroundColor = '#FFFFFF';
+        game.load.image('bird', 'assets/bird.png');
+        game.load.image('pipe', 'assets/pipe.png');
+        game.load.spritesheet('brick', 'assets/bricks.png', 32, 32, 4);
+        game.load.image('bgtile', 'assets/back.jpg');
+        game.load.audio('salto','assets/jump.wav');
+
     },
+
 
     create: function() {
         // This function is called after the preload function
         // Here we set up the game, display sprites, etc.
+
         game.physics.startSystem(Phaser.Physics.ARCADE);
+        bgtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('bgtile').height, 'bgtile');
         this.bird=this.game.add.sprite(100,245,'bird');
         game.physics.arcade.enable(this.bird);
         this.pipes=game.add.group();
         this.pipes.enableBody = true;
-        this.pipes.createMultiple(20,'pipe');
+        this.pipes.createMultiple(30,'brick',2);
         this.bird.body.gravity.y=1000;
         this.bird.anchor.setTo(-0.2,0.5);
 
@@ -30,19 +38,21 @@ var mainState = {
         this.score=0;
         this.labelScore=game.add.text(20,20,"0",{font:"30px Arial",fill:'#ffffff'});
 
+
     },
 
     update: function() {
         // This function is called 60 times per second
         // It contains the game's logic
+        bgtile.tilePosition.x -= 1;
         game.physics.arcade.overlap(this.bird, this.pipes, this.restartGame, null, this);
-        if(this.bird.inWorld==false)
-        this.restartGame();
+        if(this.bird.inWorld==false && this.bird.alive==true)
+            this.restartGame();
 
         game.physics.arcade.overlap(this.bird,this.pipes,this.hitPipe,null,this);
 
         if(this.bird.angle<20)
-        this.bird.angle+=1;
+            this.bird.angle+=1;
 
     },
 
@@ -50,13 +60,16 @@ var mainState = {
         if(this.bird.alive==false){
             return;
         }
-        this.bird.body.velocity.y=-350;
+        this.bird.body.velocity.y=-300;
         var animation=game.add.tween(this.bird);
         animation.to({angle:-20},100);
         animation.start();
+        game.sound.play('salto');
+
     },
 
     restartGame: function() {
+
         game.state.start('main');
     },
     addOnePipe: function(x,y){
@@ -66,19 +79,21 @@ var mainState = {
         pipe.checkWorldBounds=true;
         pipe.outOfBoundsKill=true;
     },
+
+
     addRowOfPipes: function(){
         this.score+=1;
         this.labelScore.text=this.score;
         var hole=Math.floor(Math.random()*5)+1;
-        for(var i= 0;i<8;i++)
-            if(i!=hole && i !=hole+1)
-                this.addOnePipe(400,i*60+10);
+        for(var i= 0;i<16;i++)
+            if(i!=hole && i !=hole+1 && i!=hole+2 && i!=hole+3)
+                this.addOnePipe(400,i*32);
 
     },
 
     hitPipe: function(){
         if(this.bird.alive==false)
-        return;
+            return;
 
         this.bird.alive=false;
         //game.time.events.remove(this.timer);
@@ -87,6 +102,9 @@ var mainState = {
 
 
     },
+
+
+
 
 };
 
