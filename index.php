@@ -49,7 +49,7 @@
                     $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     //Requête avec l'ID
-                    $stmt = $poloDB->prepare("SELECT * FROM users, score WHERE matricule = :num AND score_id_score = id_score;");
+                    $stmt = $poloDB->prepare("SELECT * FROM users, score, logs WHERE matricule = :num AND score_id_score = id_score AND logs_id_log = id_log;");
                     $stmt->bindValue(':num', $matricule);
                     $stmt->execute();
 
@@ -78,12 +78,19 @@
                             $_SESSION['score_jour'] = $employe['score_jour'];
                             $_SESSION['best_score'] = $employe['best_score'];
                             $_SESSION['jetons'] = $employe['jetons'];
+                            $_SESSION['id_log'] = $employe['id_log'];
                             $_SESSION['last_log_date'] = $employe['last_log_date'];
+                            $_SESSION['last_log_time'] = $employe['last_log_time'];
+                            $_SESSION['nb_log'] = $employe['nb_log'];
+
 
                             //Si c'est la première connexion du jour
                             if($_SESSION['last_log_date'] < date("Y-m-d")){
                                 $_SESSION['last_log_date'] = date("Y-m-d");
+                                $_SESSION['nb_log'] += $_SESSION['nb_log'];
+                                //TODO : last_log_time correctement à jour
                                 $_SESSION['score_jour'] = 0;
+
 
                                 //On met à jour le score dans la BDD
                                 $stmt = $poloDB->prepare("UPDATE score SET score_jour = :new_score_jour WHERE id_score = :id_score;");
@@ -91,10 +98,35 @@
                                 $stmt->bindValue(':new_score_jour', $_SESSION['score_jour']);
                                 $stmt->execute();
 
-                                //On met à jour la date dans la BDD
-                                $stmt = $poloDB->prepare("UPDATE users SET last_log_date = :last_log_date WHERE id_user = :id_user;");
+                                //On met à jour le log dans la BDD
+                                //On créé une nouvelle ligne dans les logs
+                                $stmt_log = $poloDB->prepare("INSERT INTO logs(last_log_date, last_log_time, nb_log)
+                                                    VALUES(:last_log_date, :last_log_time, :nb_log)");
+                                $_SESSION['last_log_date'] = date("Y-m-d");
+                                $stmt_log->bindParam(':last_log_date', $_SESSION['last_log_date']);
+                                //TODO:Avoir un last_log_time correct
+                                $_SESSION['last_log_time'] = date("h:i:sa");
+                                $stmt_log->bindParam(':last_log_time', $_SESSION['last_log_time']);
+                                $stmt_log->bindParam(':nb_log', $_SESSION['nb_log']);
+                                $stmt_log->execute();
+                                //On récupère l'id correspondant
+                                $stmt_log = $poloDB->prepare("SELECT id_log FROM logs ORDER BY id_log DESC;");
+                                $stmt_log->execute();
+                                $res_id = $stmt_log->fetchAll();
+                                $new_id_log = $res_id[0][0];
+                                $_SESSION['id_log'] = $new_id_log;
+
+                                $stmt = $poloDB->prepare("UPDATE users SET logs_id_log = :new_id_log WHERE id_user = :id_user;");
                                 $stmt->bindValue(':id_user', $_SESSION['id_user']);
-                                $stmt->bindValue(':last_log_date', $_SESSION['last_log_date']);
+                                $stmt->bindValue(':new_id_log', $_SESSION['id_log']);
+                                $stmt->execute();
+                            }
+                            elseif($_SESSION['last_log_time'] != date("h:i:sa")){
+                                //TODO: meilleur gestion de last_log_time
+                                $_SESSION['last_log_time'] = date("h:i:sa");
+                                $stmt = $poloDB->prepare("UPDATE logs SET last_log_time = :new_last_log_time WHERE id_log = :id_log;");
+                                $stmt->bindValue(':new_last_log_time', $_SESSION['last_log_time']);
+                                $stmt->bindValue(':id_log', $_SESSION['id_log']);
                                 $stmt->execute();
                             }
 

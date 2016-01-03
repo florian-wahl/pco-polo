@@ -139,18 +139,33 @@
                     } else {
 
                         //On crée une ligne dans la table score
-                        $stmt = $poloDB->prepare("INSERT INTO Score(score_jour, best_score, jetons)
+                        $stmt_score = $poloDB->prepare("INSERT INTO Score(score_jour, best_score, jetons)
                                                     VALUES('0', '0', '0')");
-                        $stmt->execute();
+                        $stmt_score->execute();
                         //On récupère l'id correspondant
-                        $stmt = $poloDB->prepare("SELECT id_score FROM Score ORDER BY id_score DESC;");
-                        $stmt->execute();
-                        $res_id = $stmt->fetchAll();
+                        $stmt_score = $poloDB->prepare("SELECT id_score FROM Score ORDER BY id_score DESC;");
+                        $stmt_score->execute();
+                        $res_id = $stmt_score->fetchAll();
                         $id_score = $res_id[0][0];
 
+                        //On créé une ligne dans la table des logs
+                        $stmt_log = $poloDB->prepare("INSERT INTO logs(last_log_date, last_log_time, nb_log)
+                                                    VALUES(:last_log_date, :last_log_time, '0')");
+                        $today_date = date("Y-m-d");
+                        $stmt_log->bindParam(':last_log_date', $today_date);
+                        //TODO:Avoir un last_log_time correct
+                        $today_time = date("h:i:sa");
+                        $stmt_log->bindParam(':last_log_time', $today_time);
+                        $stmt_log->execute();
+                        //On récupère l'id correspondant
+                        $stmt_log = $poloDB->prepare("SELECT id_log FROM logs ORDER BY id_log DESC;");
+                        $stmt_log->execute();
+                        $res_id = $stmt_log->fetchAll();
+                        $id_log = $res_id[0][0];
+
                         //On prépare les commandes qu'on va pouvoir ajouter dans la table
-                        $stmt_user = $poloDB->prepare("INSERT INTO Users(nom, prenom, matricule, password, question_s_1, rep_s_1, question_s_2, rep_s_2, pseudonyme, last_log_date, score_id_score, personnage_id_personnage)
-                                                            VALUES(:nom, :prenom, :matricule, :password, :question_s_1, :reponse_s_1, :question_s_2, :reponse_s_2, 'defaut', :last_log_date, :id_score, '1')");
+                        $stmt_user = $poloDB->prepare("INSERT INTO Users(nom, prenom, matricule, password, question_s_1, rep_s_1, question_s_2, rep_s_2, pseudonyme, score_id_score, personnage_id_personnage, logs_id_log)
+                                                            VALUES(:nom, :prenom, :matricule, :password, :question_s_1, :reponse_s_1, :question_s_2, :reponse_s_2, 'defaut',:id_score, '1', :id_log)");
                         $stmt_user->bindParam(':matricule', $matricule);
                         $stmt_user->bindParam(':password', $hashedpassword);
                         $stmt_user->bindParam(':nom', $nom);
@@ -160,8 +175,7 @@
                         $stmt_user->bindParam(':reponse_s_1', $reponse_s_1);
                         $stmt_user->bindParam(':reponse_s_2', $reponse_s_2);
                         $stmt_user->bindParam(':id_score', $id_score);
-                        $today_date = date("Y-m-d");
-                        $stmt_user->bindParam(':last_log_date', $today_date);
+                        $stmt_user->bindParam(':id_log', $id_log);
 
                         $stmt_user->execute();
 

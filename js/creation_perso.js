@@ -69,7 +69,7 @@ $(document).ready(function() {
         var xmlhttp1 = new XMLHttpRequest();
 
         xmlhttp1.open("GET","ajaxDB.php?q=addBadge&s=1", true);
-        xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xmlhttp1.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xmlhttp1.send();
     });
 

@@ -67,6 +67,11 @@
 #selection_couleur > img {
     margin: 1px 15px;
 }
+
+p.choix {
+    text-align: center;
+}
+
 /* PROFIL */
 #profil_apercu {
     border: solid 1px;
@@ -318,3 +323,12 @@ img#img_popup_left {
     text-align: center;
 }
 
+#container_admin{
+    margin:0 auto;
+    background:#fff;
+    width:auto;
+    margin: 0px 50px;
+    min-height: 500px;
+    padding:20px 40px;
+    text-align:left;
+}

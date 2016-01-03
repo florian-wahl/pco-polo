@@ -10,5 +10,5 @@
         <script>window.location.href = "index.php";</script>
 
 </body>
-<?php include '../php/footer.php';?>
+<?php include 'php/footer.php';?>
 </html>

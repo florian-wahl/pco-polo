@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include "../php/header.php"; ?>
+<?php include "../php/header_admin.php"; ?>
 <body>
 <?php
 if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
@@ -14,13 +14,13 @@ if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
     $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Requête avec l'ID
-    $stmt = $poloDB->prepare("SELECT * FROM users ORDER BY id_user ASC;");
+    $stmt = $poloDB->prepare("SELECT * FROM users, logs WHERE logs_id_log = id_log ORDER BY id_user ASC;");
     $stmt->execute();
 
     //On récupère les résultats
     $resultat = $stmt->fetchAll();
     ?>
-    <div id="container" class="menu_polo">
+    <div id="container_admin" class="menu_polo">
         <h2>Tableau de Bord - Administration</h2>
 
 
@@ -36,6 +36,7 @@ if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
                 <td>Matricule</td>
                 <td>Pseudonyme</td>
                 <td>Date d'enregistrement</td>
+                <td>Date de dernière connexion</td>
             </tr>
             <?php
 
@@ -47,6 +48,7 @@ if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
                 echo "<td> " . $row['matricule'] . " </td>";
                 echo "<td> " . $row['pseudonyme'] . " </td>";
                 echo "<td> " . $row['reg_date'] . " </td>";
+                echo "<td> " . $row['last_log_date'] . " " . $row['last_log_time'] . " </td>";
                 echo "</tr>";
             }
 
