@@ -38,7 +38,7 @@
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (empty($_POST["nom"])) {
                     $errNom = "Votre Nom est requis";
-                } elseif (!preg_match("/^[a-zA-Z ]*$/", $_POST["nom"])) {
+                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["nom"])) {
                     $errNom = "Ne peut contenir que des lettres et des espaces";
                 } else {
                     $nom = test_input($_POST["nom"]);
@@ -47,7 +47,7 @@
 
                 if (empty($_POST["prenom"])) {
                     $errPrenom = "Votre Prénom est requis";
-                } elseif (!preg_match("/^[a-zA-Z ]*$/", $_POST["prenom"])) {
+                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["prenom"])) {
                     $errPrenom = "Ne peut contenir que des lettres et des espaces";
                 } else {
                     $prenom = test_input($_POST["prenom"]);
@@ -56,7 +56,7 @@
 
                 if (empty($_POST["matricule"])) {
                     $errMatricule = "Votre matricule est requis";
-                } elseif (!preg_match("/^[0-9a-zA-Z]*$/", $_POST["matricule"])) {
+                } elseif (!preg_match("/^[a-zA-Z0-9]*$/", $_POST["matricule"])) {
                     $errMatricule = "Ne peut contenir que des chiffres et des lettres";
                 } else {
                     $matricule = test_input($_POST["matricule"]);
@@ -72,7 +72,7 @@
 
                 if (empty($_POST["reponse_s_1"])) {
                     $errReponse_s_1 = "Une réponse à la question secrète est requise";
-                } elseif (!preg_match("/^[a-zA-Z ]*$/", $_POST["reponse_s_1"])) {
+                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["reponse_s_1"])) {
                     $errReponse_s_1 = "Ne peut contenir que des lettres et des espaces";
                 } else {
                     $reponse_s_1 = test_input($_POST["reponse_s_1"]);
@@ -88,7 +88,7 @@
 
                 if (empty($_POST["reponse_s_2"])) {
                     $errReponse_s_2 = "Une réponse à la question secrète est requise";
-                } elseif (!preg_match("/^[a-zA-Z ]*$/", $_POST["reponse_s_2"])) {
+                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["reponse_s_2"])) {
                     $errReponse_s_2 = "Ne peut contenir que des lettres et des espaces";
                 } else {
                     $reponse_s_2 = test_input($_POST["reponse_s_2"]);

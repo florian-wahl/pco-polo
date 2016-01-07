@@ -89,7 +89,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                         echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
                         echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
                         echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";
-                        echo "<p id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['description']."</p>";
+                        echo "<p id='badge-".$badge['id_badge']."' class='table_badges' >".$badge['description']."</p>";
                         echo "</div>";
                         echo "</td>";
 

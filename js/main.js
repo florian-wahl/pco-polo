@@ -55,7 +55,8 @@ var score = 0;
 var score_cumule = 0;
 var SCORE_POUR_NOUVEAU_JETON = 200;
 var badge1=0;
-var badges;
+
+var listeBadges = [];
 
 function create() {
 
@@ -117,7 +118,7 @@ function create() {
     //code pour bloquer les zones de la carte
     transparents = game.add.group();
     transparents.enableBody = true;
-    if(badge1==0) {
+    if(listeBadges[1] == false) {
         transparente = transparents.create(1200, 1200, 'transparent');
         transparente.body.immovable = true;
     }
@@ -319,7 +320,6 @@ function updateBadges(liste){
 
     var tabBadges = liste.split("/");
     var i = 0;
-    var listeBadges = [];
     while (i < 11){// 11 = nombre de badges au total
         listeBadges[i] = false;
         i++;
@@ -330,14 +330,6 @@ function updateBadges(liste){
         listeBadges[parseInt(tabBadges[j])] = true;
         j++;
     }
-
-    var s = "";
-    var k = 0;
-    while (k < 11){
-        s += listeBadges[k] + " ";
-        k++;
-    }
-    alert(s);
 
 }
 
