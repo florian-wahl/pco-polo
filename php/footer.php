@@ -6,6 +6,6 @@
     else{
         echo " POLO - Air France";
     }?>
-    &mdash; <a id="credits" href="../credits.php">Crédits</a>
+    &mdash; <a id="credits" href="credits.php">Crédits</a>
     <br>
 </footer>

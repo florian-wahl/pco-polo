@@ -88,7 +88,6 @@
                             if($_SESSION['last_log_date'] < date("Y-m-d")){
                                 $_SESSION['last_log_date'] = date("Y-m-d");
                                 $_SESSION['nb_log'] += $_SESSION['nb_log'];
-                                //TODO : last_log_time correctement à jour
                                 $_SESSION['score_jour'] = 0;
 
 
@@ -104,8 +103,7 @@
                                                     VALUES(:last_log_date, :last_log_time, :nb_log)");
                                 $_SESSION['last_log_date'] = date("Y-m-d");
                                 $stmt_log->bindParam(':last_log_date', $_SESSION['last_log_date']);
-                                //TODO:Avoir un last_log_time correct
-                                $_SESSION['last_log_time'] = date("h:i:sa");
+                                $_SESSION['last_log_time'] = date("H:i:s");
                                 $stmt_log->bindParam(':last_log_time', $_SESSION['last_log_time']);
                                 $stmt_log->bindParam(':nb_log', $_SESSION['nb_log']);
                                 $stmt_log->execute();
@@ -121,9 +119,8 @@
                                 $stmt->bindValue(':new_id_log', $_SESSION['id_log']);
                                 $stmt->execute();
                             }
-                            elseif($_SESSION['last_log_time'] != date("h:i:sa")){
-                                //TODO: meilleur gestion de last_log_time
-                                $_SESSION['last_log_time'] = date("h:i:sa");
+                            elseif($_SESSION['last_log_time'] != date("H:i:s")){
+                                $_SESSION['last_log_time'] = date("H:i:s");
                                 $stmt = $poloDB->prepare("UPDATE logs SET last_log_time = :new_last_log_time WHERE id_log = :id_log;");
                                 $stmt->bindValue(':new_last_log_time', $_SESSION['last_log_time']);
                                 $stmt->bindValue(':id_log', $_SESSION['id_log']);

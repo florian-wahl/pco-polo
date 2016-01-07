@@ -153,8 +153,7 @@
                                                     VALUES(:last_log_date, :last_log_time, '0')");
                         $today_date = date("Y-m-d");
                         $stmt_log->bindParam(':last_log_date', $today_date);
-                        //TODO:Avoir un last_log_time correct
-                        $today_time = date("h:i:sa");
+                        $today_time = date("H:i:s");
                         $stmt_log->bindParam(':last_log_time', $today_time);
                         $stmt_log->execute();
                         //On récupère l'id correspondant

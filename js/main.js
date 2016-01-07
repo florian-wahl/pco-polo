@@ -55,6 +55,8 @@ var score = 0;
 var score_cumule = 0;
 var SCORE_POUR_NOUVEAU_JETON = 200;
 var badge1=0;
+var badges;
+
 function create() {
 
     //inizialize les variables
@@ -66,7 +68,7 @@ function create() {
     closePopup.onclick=function(){
         overlay.style.display='none';
         popup.style.display='none';
-    }
+    };
 
     musicbg = game.add.audio('kikou');
     //musicbg.play();
@@ -132,8 +134,9 @@ function create() {
 
 
 
-    getJetons();
-    getScore();
+    ajaxRequest(setJetons, "nbJeton", null);
+    ajaxRequest(setScore, "scoreJour", null);
+    ajaxRequest(updateBadges, "getBadges", null);
 
 
 
@@ -165,8 +168,8 @@ function apri(player,star) {
     //A chaque fois on ajoute 100 a score
     addToScore(100);
 
-    getJetons();
-    getScore();
+    ajaxRequest(setJetons, "nbJeton", null);
+    ajaxRequest(setScore, "scoreJour", null);
 }
 function render() {
 
@@ -206,7 +209,6 @@ function actionOnClickMenu() {
     les listeners, donc plus aucun bouton ne fonctionne...
      */
     game.physics.arcade.isPaused = true;
-
     /*AJOUT DU MENU ET DE SON IHM*/
     menu = game.add.sprite(game.camera.x + GAME_WIDTH/2 -900/2, game.camera.y + GAME_HEIGHT/2 -700/2, 'menu');
 
@@ -272,66 +274,15 @@ function unPauseMenu(event){
 
 }
 
-/*
- Permet de récupérer les jetons enregistrer dans la BDD.
- ATTENTION: il ne faut pas executer cette fonction en boucle (dans la fonction update par exemple)
- Elle envoie des requêtes au serveur, trop de requêtes vont ralentir
- le temps de réponse voir faire crasher le serveur
- */
-function getJetons(){
-    var xmlhttp = new XMLHttpRequest();
 
-
-
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4) {
-            //La réponse
-            var nbjt = xmlhttp.responseText;
-            setJetons(parseInt(nbjt));
-        }
-    };
-    xmlhttp.open("GET","ajaxDB.php?q=nbJeton", true);
-    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    xmlhttp.send();
-
-}
-
-/*
-Permet de récupérer le score enregistrer dans la BDD.
-ATTENTION: il ne faut pas executer cette fonction en boucle (dans la fonction update par exemple)
-Elle envoie des requêtes au serveur, trop de requêtes vont ralentir
-le temps de réponse voir faire crasher le serveur
- */
-function getScore(){
-    var xmlhttp = new XMLHttpRequest();
-
-
-
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4) {
-            //La réponse
-            var sco = xmlhttp.responseText;
-            setScore(parseInt(sco));
-        }
-    };
-    xmlhttp.open("GET","ajaxDB.php?q=scoreJour", true);
-    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    xmlhttp.send();
-
-}
 /*
 Permet de mettre à jour le score dans la BDD.
 Ajoute le nombre donnée en paramètre.
 Si ce nombre est négatif, le score va être diminué
  */
 function addToScore(scoreToAdd){
-    var xmlhttp = new XMLHttpRequest();
 
-
-
-    xmlhttp.open("GET","ajaxDB.php?q=addToScore&s="+scoreToAdd, true);
-    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    xmlhttp.send();
+    ajaxRequest(null, "addToScore", scoreToAdd);
 
     /*
     On test si le score cumulé permet de débloqué un nouveau jeton
@@ -339,7 +290,7 @@ function addToScore(scoreToAdd){
     score_cumule += scoreToAdd;
     while(score_cumule >= SCORE_POUR_NOUVEAU_JETON){
         score_cumule -= SCORE_POUR_NOUVEAU_JETON;
-        addToJeton(1);
+        ajaxRequest(null, "addToJeton", 1);
     }
 
 
@@ -347,28 +298,12 @@ function addToScore(scoreToAdd){
 }
 
 /*
-Permet de mettre à jour les jetons dans la BDD.
-Ajoute le nombre donnée en paramètre.
-Si ce nombre est négatif, le nombre de jetons va être diminué
- */
-function addToJeton(jetonToAdd){
-    var xmlhttp = new XMLHttpRequest();
-
-
-    xmlhttp.open("GET","ajaxDB.php?q=addToJeton&s="+jetonToAdd, true);
-    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    xmlhttp.send();
-
-}
-
-
-/*
  Permet de mettre à jour les jetons en INTERNE,
  n'applique pas de changement à la BDD.
  Sert surtout pour mettre à jour l'affichage
  */
-function setJetons(jt){;
-    nb_jetons = jt;
+function setJetons(jt){
+    nb_jetons = parseInt(jt);
 }
 
 /*
@@ -376,6 +311,63 @@ Permet de mettre à jour le score en INTERNE,
 n'applique pas de changement à la BDD.
 Sert surtout pour mettre à jour l'affichage
  */
-function setScore(sc){;
-    score  = sc;
+function setScore(sc){
+    score  = parseInt(sc);
 }
+
+function updateBadges(liste){
+
+    var tabBadges = liste.split("/");
+    var i = 0;
+    var listeBadges = [];
+    while (i < 11){// 11 = nombre de badges au total
+        listeBadges[i] = false;
+        i++;
+    }
+    var j = 0;
+    while (j < tabBadges.length-1){
+        //tabBadges.length-1 car le dernier est null
+        listeBadges[parseInt(tabBadges[j])] = true;
+        j++;
+    }
+
+    var s = "";
+    var k = 0;
+    while (k < 11){
+        s += listeBadges[k] + " ";
+        k++;
+    }
+    alert(s);
+
+}
+
+/*
+Utilisé pour obtenir ou envoyer une info à la base de données
+
+callback = fonction qui traite l'information renvoyé par le serveur; null si pas de réponse attendue
+request = nom de la fonction ajax (coté php) à appeler
+valeur = valeur de l'information à passer, à mettre à jour; null si pas d'information à passer
+
+ */
+
+function ajaxRequest(callback, request, valeur) {
+    var xhr = new XMLHttpRequest();
+
+    if(callback != null){
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                callback(xhr.responseText);
+            }
+        };
+    }
+
+    if(valeur != null){
+        xhr.open("GET","ajaxDB.php?q="+request+"&s="+valeur, true);
+    }
+    else {
+        xhr.open("GET","ajaxDB.php?q="+request, true);
+    }
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    xhr.send(null);
+}
+
