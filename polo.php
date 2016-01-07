@@ -9,13 +9,13 @@
 </script>
 
 <link rel="stylesheet" href="css/quiz.css"  type="text/css" />
-
+<link rel="stylesheet" href="css/polo.css"  type="text/css" />
 <script src="js/phaser/phaser.min.js"></script>
 <script src="js/phaser/phaser-touch-control.js"></script>
 <script src="js/allFunctions.js"></script>
 <script src="quiz.js"></script>
  <style type="text/css">
-    .quiz{width:760px; margin:60px auto 10px auto}
+    .quiz{width:760px; margin:20px 10px 10px -280px}
     </style>
 
     <script>
@@ -38,13 +38,13 @@
     <div id="main">
         <div id="overlay"></div>
         <div id="popup">
-            <div class="popupcontrols">
-                        <span id="popupclose">X</span>
-                    </div>
             <div class="quiz">
                   <div id='quiz-container'></div>
+            </div>
+            <div class="popupcontrols">
+                  <span id="popupclose">X</span>
+            </div>
         </div>
-           </div>
     </div>
 
     <div id="test">

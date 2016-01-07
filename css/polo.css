@@ -94,18 +94,21 @@ li{
     top:50%;
     left:50%;
 
-    background: #fff;
-    width: 500px;
-    height: 500px;
+    background: #999;
+    width: 30px;
+    height: 30px;
     margin-left: -250px; /*Half the value of width to center div*/
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
 }
 #popupclose{
-    float:right;
+    float:none;
     padding:10px;
     cursor:pointer;
 }
+.popupcontrols{
+    position:absolute;left:-180px;top:40px;
+}
 .popupcontent{
-    padding:20px;
+    padding:15px;
 }
