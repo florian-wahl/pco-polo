@@ -30,7 +30,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
         <table id="liste_mini_jeux" class="liste_mini_jeux">
             <tr>
-                <td><input type="button" id="mini_jeux_1" class="element_liste" value="Mini-Jeux #1" onclick="location.href='#openModal_1'"></td>
+                <td><input type="button" id="mini_jeux_1" class="element_liste" value="Floppy Bird" onclick="location.href='#openModal_1'"></td>
                 <td><input type="button" id="mini_jeux_2" class="element_liste" value="Mini-Jeux #2"></td>
                 <td><input type="button" id="mini_jeux_3" class="element_liste" value="Mini-Jeux #3" onclick="location.href='#openModal_3'"></td>
                 <td><input type="button" id="mini_jeux_4" class="element_liste" value="Mini-Jeux #4"></td>
@@ -53,13 +53,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_1" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/img_defaut.jpg" id="img_popup_left"/>
-            <h2>Mini-Jeux 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
-            <input type="button" id="popup_button_jouer_1" onclick="location.href='mini-jeux/flappyBird.php';" class="button_popup_jouer" value="Jouer" />
+            <img src="res/img/mini-jeux/Flappy_Bird_icon.png" id="img_popup_left"/>
+            <h2>Floppy Bird</h2>
+            <p>Flappy Bird est un jeu vidéo d'obstacles développé au Viêt Nam à Hanoï par Nguyễn Hà Đông, développeur de jeu indépendant et publié par .GEARS Studios.</p>
+            <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" value="Jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>

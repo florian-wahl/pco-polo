@@ -20,7 +20,7 @@ $(document).ready(function() {
     });
 
     /*GESTION DES BOUTONS JOUER*/
-    $(".button_popup_jouer").click(function () {
+    $(".button_popup_jouer").click(function (event) {
 
         var xmlhttp1 = new XMLHttpRequest();
 
@@ -36,7 +36,15 @@ $(document).ready(function() {
             xmlhttp2.setRequestHeader("X-Requested-With", "XMLHttpRequest");
             xmlhttp2.send();
 
-            location.href = "menu_mini_jeux.php";
+            switch (event.target.id){
+                case 'popup_button_jouer_1':
+                    location.href = "mini-jeux/flappyBird.php"
+                    break;
+                default:
+                    location.href = "menu_mini_jeux.php";
+                    break;
+            }
+
         }
         else{
             $(".errJetons").show();
