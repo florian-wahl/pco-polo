@@ -36,9 +36,10 @@ $(document).ready(function() {
             xmlhttp2.setRequestHeader("X-Requested-With", "XMLHttpRequest");
             xmlhttp2.send();
 
+            //Pour chaque bouton
             switch (event.target.id){
                 case 'popup_button_jouer_1':
-                    location.href = "mini-jeux/flappyBird.php"
+                    location.href = "mini-jeux/flappyBird.php";
                     break;
                 default:
                     location.href = "menu_mini_jeux.php";
