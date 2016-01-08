@@ -101,6 +101,7 @@ li{
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
 }
+
 #popupclose{
     float:none;
     padding:10px;
