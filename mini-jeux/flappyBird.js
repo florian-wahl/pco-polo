@@ -9,9 +9,9 @@ mainState = {
         // This function will be executed at the beginning
         // That's where we load the game's assets
         game.state.backgroundColor = '#FFFFFF';
-        game.load.image('bird', 'res/img/mini-jeux/bird.png');
-        game.load.spritesheet('brick', 'res/img/mini-jeux/bricks.png', 32, 32, 4);
-        game.load.image('bgtile', 'res/img/mini-jeux/back.jpg');
+        game.load.image('bird', '../res/img/mini-jeux/bird.png');
+        game.load.spritesheet('brick', '../res/img/mini-jeux/bricks.png', 32, 32, 4);
+        game.load.image('bgtile', '../res/img/mini-jeux/back.jpg');
 
     },
 
