@@ -15,6 +15,7 @@
 <script src="js/phaser/phaser-touch-control.js"></script>
 <script src="js/allFunctions.js"></script>
 <script src="quiz.js"></script>
+<script src="js/client.js"></script>
  <style type="text/css">
     .quiz{width:760px; margin:20px 10px 10px -280px}
     </style>

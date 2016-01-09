@@ -5,13 +5,14 @@ var game = new Phaser.Game(1024, 768, Phaser.CANVAS, 'POLO', { preload: preload,
 
 var GAME_WIDTH = 1024;
 var GAME_HEIGHT = 768;
+var ESPECE_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
+var ESPECE_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
 
 function preload() {
 
     game.load.spritesheet('player', 'res/img/personnages/Green/Alpha/player_green_alpha.png', 71, 96);
     game.load.image('background', 'res/img/floor.jpg');
     game.load.image('ship', 'res/img/thrust.png');
-    game.load.image('star', 'res/img/star.png');
     game.load.image('wall', 'res/img/platform.png');
     game.load.image('transparent','res/img/transparent.png');
 
@@ -32,6 +33,31 @@ function preload() {
     //Menu
     game.load.image('menu', 'res/img/cadre_menu_in_game.png', 900, 700);
 
+    //Sprites personnages
+    for (i = 0; i < ESPECE_COLORS.length; i++) {
+        for (j = 0; j < ESPECE_NAMES.length; j++){
+            switch(ESPECE_NAMES[j]){
+                case 'Tut':
+                    img = "Alpha";
+                    break;
+                case 'Lav':
+                    img = "Delta";
+                    break;
+                case 'Pri':
+                    img = "Gamma";
+                    break;
+                case 'Tec':
+                    img = "Zeta";
+                    break;
+                case 'Qi':
+                    img = "Beta";
+                    break;
+            }
+            game.load.image(ESPECE_NAMES[j]+ESPECE_COLORS[i], 'res/img/personnages/'+ESPECE_COLORS[i]+'/'+img+'/idle.png');
+        }
+    }
+
+
 }
 
 var player;
@@ -39,8 +65,6 @@ var cursors;
 var walls;
 var ship;
 var musicbg;
-var star;
-var stars;
 var newwindow;
 var transparents;
 var transparente;
@@ -57,6 +81,8 @@ var SCORE_POUR_NOUVEAU_JETON = 200;
 var badge1=0;
 
 var listeBadges = [];
+var clients = [];
+var lastClient;
 
 function create() {
 
@@ -78,16 +104,14 @@ function create() {
     game.world.setBounds(0, 0, 1920, 1920);
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    stars=game.add.group();
-    stars.enableBody=true;
-    game.physics.arcade.enable(stars);
+
+    //Ajout des clients
+    clients[0] = new Client('Tec','Red', game.world.centerX+500, game.world.centerY+400);
+    clients[1] = new Client('Lav','Yellow', game.world.centerX-500, game.world.centerY+400);
+    clients[2] = new Client('Qi','Beige', game.world.centerX-100, game.world.centerY-700);
 
 
-    for (var i = 0; i < 12; i++)
-    {
-        //  Create a star inside of the 'stars' group
-        var star = stars.create(i * 70, i*70, 'star');
-    }
+    // Ajout du joueur
     player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
     game.physics.arcade.enable(player);
     player.body.collideWorldBounds = true;
@@ -108,6 +132,8 @@ function create() {
     //  (until it reaches an edge of the world)
     game.camera.deadzone = new Phaser.Rectangle(150, 150, 450, 300);
 
+
+    //Ajout des murs
     walls = game.add.group();
     walls.enableBody = true;
 
@@ -133,44 +159,55 @@ function create() {
 
     setIHM();
 
-
-
     ajaxRequest(setJetons, "nbJeton", null);
     ajaxRequest(setScore, "scoreJour", null);
     ajaxRequest(updateBadges, "getBadges", null);
-
-
 
 }
 
 function update() {
 
+    //TEST DE COLLISIONS
     game.physics.arcade.collide(player, walls);
     game.physics.arcade.collide(player, ship);
     game.physics.arcade.collide(ship, walls);
-    game.physics.arcade.overlap(player, stars, apri, null, this);
     game.physics.arcade.collide(player, transparents);
     game.physics.arcade.collide(player,transparents,blocco,null,this);
+    for (i = 0; i < clients.length; i++){
+        game.physics.arcade.collide(player, clients[i].getSprite(), interactionClient);
+    }
 
+
+    //DEPLACEMENTS
 
     var maxSpeed = 300;
+
+    clients[0].move();
 
     movementControllerJoystick(maxSpeed);
 
     //movementControllerCursors(maxSpeed);
 }
-function apri(player,star) {
-    star.kill();
-    overlay.style.display='block';
-    popup.style.display='block';
 
-    //TODO: A enlever
+function interactionClient(player, client){
 
-    //A chaque fois on ajoute 100 a score
-    addToScore(100);
+    if(lastClient == client){
+        //On ne fait rien
+    }
+    else {
+        lastClient = client;
 
-    ajaxRequest(setJetons, "nbJeton", null);
-    ajaxRequest(setScore, "scoreJour", null);
+        overlay.style.display='block';
+        popup.style.display='block';
+
+
+        //TODO : a enlever
+        //A chaque fois on ajoute 100 a score
+        addToScore(100);
+        ajaxRequest(setJetons, "nbJeton", null);
+        ajaxRequest(setScore, "scoreJour", null);
+    }
+
 }
 function render() {
 
