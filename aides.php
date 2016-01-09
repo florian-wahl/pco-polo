@@ -29,31 +29,25 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <div id="aide-1" class="post_it_aide">
 
                 <h4>Aide #1</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Pour te déplacer sur la carte pose ton doigt sur n’importe quelle zone de l’écran et fais le glisser dans la direction souhaitée </p>
+
             </div>
 
             <div id="aide-2" class="post_it_aide">
                 <h4>Aide #2</h4>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Pour interagir avec un personnage il te suffit  de t’approcher. Si le signe « ! » est présente au-dessus de sa tète vous pouvez interagir</p>
+
             </div>
 
             <div id="aide-3" class="post_it_aide">
                 <h4>Aide #3</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>L’interaction avec un personnage déclenche un quizz, en fonction de tes réponses des points et des jetons te seront attribué</p>
             </div>
 
             <div id="aide-4" class="post_it_aide">
                 <h4>Aide #4</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Tu peux  jouer aux mini-jeux en utilisant les jetons gagnés avec les quizz. Une partie cout un jeton</p>
             </div>
         </div>
 
