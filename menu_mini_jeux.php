@@ -31,9 +31,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <table id="liste_mini_jeux" class="liste_mini_jeux">
             <tr>
                 <td><input type="button" id="mini_jeux_1" class="element_liste" value="Floppy Bird" onclick="location.href='#openModal_1'"></td>
-                <td><input type="button" id="mini_jeux_2" class="element_liste" value="Mini-Jeux #2"></td>
-                <td><input type="button" id="mini_jeux_3" class="element_liste" value="Mini-Jeux #3" onclick="location.href='#openModal_3'"></td>
-                <td><input type="button" id="mini_jeux_4" class="element_liste" value="Mini-Jeux #4"></td>
+                <td><input type="button" id="mini_jeux_2" class="element_liste" value="Pacman" onclick="location.href='#openModal_2'"></td>
+                <td><input type="button" id="mini_jeux_3" class="element_liste" value="2048" onclick="location.href='#openModal_3'"></td>
+                <td><input type="button" id="mini_jeux_4" class="element_liste" value="Coil" onclick="location.href='#openModal_4'"></td>
                 <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mini-Jeux #5"></td>
             </tr>
             <tr>
@@ -62,11 +62,35 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         </div>
     </div>
 
+    <div id="openModal_2" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <img src="res/img/mini-jeux/icon_pacman.png" width="250px" id="img_popup_left"/>
+            <h2>Pacman Classic</h2>
+            <p>Pacman est un jeu d'arcade classique.</p>
+            <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" value="Jouer" />
+            <p class="errJetons">Vous n'avez pas assez de jetons.</p>
+        </div>
+    </div>
+
     <div id="openModal_3" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
             <img src="res/img/mini-jeux/img_defaut.jpg" id="img_popup_left"/>
-            <h2>Mini-Jeux 3</h2>
+            <h2>2048</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
+            <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" value="Jouer" />
+            <p class="errJetons">Vous n'avez pas assez de jetons.</p>
+        </div>
+    </div>
+
+    <div id="openModal_4" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <img src="res/img/mini-jeux/img_defaut.jpg" id="img_popup_left"/>
+            <h2>Coil</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

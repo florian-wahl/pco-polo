@@ -74,13 +74,15 @@ p.choix {
 
 /* PROFIL */
 #profil_apercu {
-    border: solid 1px;
     padding: 10px 50px;
     padding-top: 0;
 }
 
+#profil_score_jeton{
+    text-align: center;
+}
+
 #profil_image_personnage {
-    margin-right: 50px;
     float: left;
     padding-top: 20px;
     width: 100px;

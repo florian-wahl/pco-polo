@@ -7,7 +7,7 @@ $(document).ready(function() {
     /*GESTION DES MINI-JEUX*/
     liste_mini_jeux.each(function() {
         /*On teste quelles sont les jeux débloqués*/
-        if(this.id =='mini_jeux_1' || this.id =='mini_jeux_3'){
+        if(this.id =='mini_jeux_1' || this.id =='mini_jeux_2' || this.id =='mini_jeux_3' || this.id =='mini_jeux_4'){
             var actif = true;
         }
         if(!actif){
@@ -40,6 +40,15 @@ $(document).ready(function() {
             switch (event.target.id){
                 case 'popup_button_jouer_1':
                     location.href = "mini-jeux/flappyBird.php";
+                    break;
+                case 'popup_button_jouer_2':
+                    location.href = "mini-jeux/pacman/index.htm";
+                    break;
+                case 'popup_button_jouer_3':
+                    location.href = "mini-jeux/2048/index.html";
+                    break;
+                case 'popup_button_jouer_4':
+                    location.href = "mini-jeux/coil/index.html";
                     break;
                 default:
                     location.href = "menu_mini_jeux.php";
