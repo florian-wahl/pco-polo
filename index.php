@@ -163,7 +163,7 @@
                     </p>
                     <p>
                         <label>&nbsp;</label>
-                        <input type="submit" value="S'identier">
+                        <input type="submit" value="S'identifier">
                     </p>
                     <p>
                         <label>&nbsp;</label>

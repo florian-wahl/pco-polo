@@ -119,7 +119,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         </div>
 
         <div id="profil_score_jeton">
-            <p>Score Journalier : <?php echo $_SESSION["score_jour"]; ?> / Meilleur Score : <?php echo $_SESSION["best_score"]; ?> / Nombre de jetons : <?php echo $_SESSION["jetons"]; ?></p>
+            <p>Score Journalier : <b> <?php echo $_SESSION["score_jour"]; ?></b> / Meilleur Score :<b> <?php echo $_SESSION["best_score"]; ?></b> / Nombre de jetons : <b> <?php echo $_SESSION["jetons"]; ?></b></p>
         </div>
 
         <script>
