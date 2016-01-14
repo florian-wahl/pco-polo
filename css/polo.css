@@ -103,11 +103,13 @@ li{
 }
 
 #popupclose{
+    display:none;
     float:none;
     padding:10px;
     cursor:pointer;
 }
 .popupcontrols{
+    display:none;
     position:absolute;left:-180px;top:40px;
 }
 .popupcontent{
