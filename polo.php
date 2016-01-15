@@ -73,7 +73,6 @@
             }
         //}
         ?>
-        }
 
     <script>
         //On transfert les données récuppérées en php vers des tableaux en js
