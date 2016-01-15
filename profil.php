@@ -71,50 +71,65 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <p>Pseudonyme : <?php echo $_SESSION["pseudonyme"]; ?></p>
             </div>
 
+            <script>
+                $(function() {
+                    $( "#profil_badges" ).tabs();
+                });
+            </script>
             <div id="profil_badges">
                 <p>Mes badges</p>
-                <table id="table_badges">
-                    <?php
-                    //Onrécupère les badges que possède l'utilisateur
-                    $stmt = $poloDB->prepare("SELECT * FROM users_badges, badges WHERE users_id_user = :id_user AND badges_id_badge = id_badge;");
-                    $stmt->bindValue(':id_user', $_SESSION['id_user']);
-                    $stmt->execute();
+                <ul>
+                    <li><a href="#profil_badges-1">Mes Badges</a></li>
+                    <li><a href="#profil_badges-2">Missions POLO</a></li>
+                </ul>
+                <div id="profil_badges-1">
+                    <table id="table_badges">
+                        <?php
+                        //Onrécupère les badges que possède l'utilisateur
+                        $stmt = $poloDB->prepare("SELECT * FROM users_badges, badges WHERE users_id_user = :id_user AND badges_id_badge = id_badge;");
+                        $stmt->bindValue(':id_user', $_SESSION['id_user']);
+                        $stmt->execute();
 
-                    //On récupère les résultats
-                    $resultat = $stmt->fetchAll();
+                        //On récupère les résultats
+                        $resultat = $stmt->fetchAll();
 
-                    foreach($resultat as $badge){
+                        foreach($resultat as $badge){
 
-                        echo "<td>";
-                        echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
-                        echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
-                        echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";
-                        echo "<p id='badge-".$badge['id_badge']."' class='table_badges' >".$badge['description']."</p>";
-                        echo "</div>";
-                        echo "</td>";
+                            echo "<td>";
+                            echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
+                            echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
+                            echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";
+                            echo "<p id='badge-".$badge['id_badge']."' class='table_badges' >".$badge['description']."</p>";
+                            echo "</div>";
+                            echo "</td>";
 
-                    }
-                    ?>
-                </table>
-                <script>
-                    $("div.table_badges").hide();
+                        }
+                        ?>
+                    </table>
+                    <script>
+                        $("div.table_badges").hide();
 
-                    $("img.table_badges").click(function(event){
-                        var id = event.target.id;
+                        $("img.table_badges").click(function(event){
+                            var id = event.target.id;
 
-                        $("div.table_badges").each(function(event){
-                            if(this.id != id){
-                                $("div#"+this.id).hide();
-                            }
-                        });
+                            $("div.table_badges").each(function(event){
+                                if(this.id != id){
+                                    $("div#"+this.id).hide();
+                                }
+                            });
 
-                        $("div#"+id).toggle();
+                            $("div#"+id).toggle();
 
 
 
-                    })
+                        })
 
-                </script>
+                    </script>
+                </div>
+                <div id="profil_badges-2">
+
+                </div>
+
             </div>
         </div>
 
