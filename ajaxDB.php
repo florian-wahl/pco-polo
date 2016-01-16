@@ -127,10 +127,10 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
             foreach($resultat as $row){
                 echo $row['badges_id_badge'] . "/";
             }
-
             break;
         default:
             echo '';
+            break;
     }
 
 //DECONNEXION
