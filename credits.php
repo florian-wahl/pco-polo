@@ -19,7 +19,11 @@
             Anna TERRICABRAS - Responsable Documents <br>
             Mahdi BAHBAH - Responsable REFEX <br>
             Marco GENOVESE - Référent Codage <br>
-
+        </p>
+        <br>
+        <h4 id="page_credit">Crédits Graphiques</h4>
+        <p id="page_credit">
+           Personnages : Kenney.nl
         </p>
 
 
