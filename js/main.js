@@ -197,8 +197,12 @@ function interactionClient(player, client){
     else {
         lastClient = client;
 
-        overlay.style.display='block';
-        popup.style.display='block';
+        /*
+        LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
+        Pour démarrer un quizz, faire appel à demarrerQuizz(id_quizz)
+         */
+        demarrerQuizz(1);
+
 
 
         //TODO : a enlever
