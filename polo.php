@@ -19,7 +19,7 @@
 <script src="js/jQuizzy.js"></script>
 <script src="js/clientPNJ.js"></script>
  <style type="text/css">
-    .quiz{width:760px; margin:20px 10px 10px -280px}
+    .quiz{width:760px; margin:10px 10px 10px -360px}
     </style>
 <script src="js/gestionQuizz.js"></script>
 

@@ -3,7 +3,7 @@
         var defaults = {
             questions: null,
             startImg: 'res/img/start.gif',
-            endText: 'finish!',
+            endText: '2/2',
             shortURL: null,
             sendResultsURL: null,
             resultComments: {
