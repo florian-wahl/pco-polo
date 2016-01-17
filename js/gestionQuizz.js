@@ -19,7 +19,7 @@ function ajaxQuizzRequest(callback, request, valeur) {
     $.ajax({
         type:"GET",
         url: "ajaxQuizz.php",
-        async: false,
+        async: true,
         data: "q="+request+"&s="+valeur,
         dataType: "json",
         success: callback
@@ -56,22 +56,11 @@ function callbackQuestionsReponses(data){
 
     }
 
+    genererjQuizzy();
+
 }
 
-/*
- * Permet d'initialiser le quizz dont l'id est id_quizz
- */
-function initQuizz(id_quizz){
-    $.when(
-        ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
-        ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
-    ).done();
-}
-
-function demarrerQuizz(id_quizz){
-    //On veut le quizz 1
-    initQuizz(id_quizz);
-
+function genererjQuizzy(){
     //TODO : peut faire mieux
     var nbQuestion = intituleQuestions.length;
     var listeQuizz;
@@ -170,7 +159,79 @@ function demarrerQuizz(id_quizz){
         });
     });
 
-    overlay.style.display='block';
+
+
+    //On affiche le quizz
     popup.style.display='block';
+    loading_gif.style.display = 'none';
+
+}
+
+/*
+ * Permet d'initialiser le quizz dont l'id est id_quizz
+ */
+function initQuizz(id_quizz){
+    $.when(
+        //ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
+        //ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
+        xmlRequest(id_quizz)
+    ).done();
+}
+
+function demarrerQuizz(id_quizz){
+
+    //On veut le quizz 1
+    initQuizz(id_quizz);
+
+    //Filtre blanc
+    overlay.style.display='block';
+    loading_gif.style.display = 'block';
+
+}
+
+function xmlRequest(id_quizz){
+    $.ajax({
+        type: "GET",
+        url: "data/template_quizz.xml",
+        dataType: "xml",
+        success: function(xml) {
+            xmlCallback(xml, id_quizz);
+        }
+    }); //close $.ajax(
+}
+
+function xmlCallback(xml, id_quizz){
+    $(xml).find('quizz').each(function(){
+        var attr_id_quizz = $(this).attr('id');
+
+        if(attr_id_quizz == id_quizz){
+
+            scenario = $(this).find('scenario').text();
+
+            var i = 0;
+
+            $(this).find('question').each(function(){
+                intituleQuestions[i] = $(this).find('intitule').text();
+
+                $(this).find('reponses').each(function(){
+                    var j = 0;
+                    $(this).find('reponse').each(function(){
+                        intituleReponses[i][j] = $(this).text();
+                        var isTrue = $(this).attr('isTrue');
+                        if(isTrue == '1'){
+                            numTrueReponses[i] = j+1;
+                        }
+                        j++;
+                    });
+
+                });
+
+                i++;
+            });
+
+            genererjQuizzy();
+        }
+
+    });
 }
 

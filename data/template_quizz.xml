@@ -15,15 +15,16 @@
             <reponses>
                 <!--Ensemble des réponses à la question : le paramètre estCorrect
                 définie si c'est une bonne réponse ou non -->
-                <reponse estCorrect="VRAI">Bouton vérouiller</reponse>
-                <reponse estCorrect="FAUX">Bouton home</reponse>
+                <reponse isTrue="1">Bouton vérouiller</reponse>
+                <reponse isTrue="0">Bouton home</reponse>
+                <reponse isTrue="0">Les deux boutons de volumes</reponse>
             </reponses>
         </question>
         <question id="2">
             <intitule>Et la question 2 ?</intitule>
             <reponses>
-                <reponse estCorrect="VRAI">Cette réponse est vrai</reponse>
-                <reponse estCorrect="FAUX">Cette réponse est fausse</reponse>
+                <reponse id="1" isTrue="1">Cette réponse est vrai</reponse>
+                <reponse id="2" isTrue="0">Cette réponse est fausse</reponse>
             </reponses>
         </question>
     </questions>

@@ -91,6 +91,7 @@ function create() {
     var closePopup=document.getElementById("popupclose");
     var overlay=document.getElementById("overlay");
     var popup=document.getElementById("popup");
+    var loading_gif = document.getElementById("loading_gif");
     //fermer le popup
     closePopup.onclick=function(){
         overlay.style.display='none';
@@ -202,7 +203,7 @@ function interactionClient(player, client){
         Pour démarrer un quizz, faire appel à demarrerQuizz(id_quizz)
          */
         demarrerQuizz(1);
-
+        game.physics.arcade.isPaused = true;
 
 
         //TODO : a enlever
@@ -213,6 +214,12 @@ function interactionClient(player, client){
     }
 
 }
+
+function reprendre(){
+    game.physics.arcade.isPaused = false;
+}
+
+
 function render() {
 
     if(settingsOnOff){
@@ -308,7 +315,7 @@ function unPauseMenu(event){
             t_jetons.destroy();
 
             // Unpause the game
-            game.physics.arcade.isPaused= false;
+            reprendre();
         }
         else{
 

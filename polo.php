@@ -33,6 +33,7 @@
 
     <div id="main">
         <div id="overlay"></div>
+        <img id="loading_gif" src="res/img/loading.gif">
         <div id="popup">
             <div class="quiz">
                   <div id='quiz-container'></div>
@@ -43,9 +44,11 @@
         </div>
     </div>
 
-    <div id="test">
-
-    </div>
+    <script>
+        $(document).ready(function() {
+            $('#popupclose').click(reprendre);
+        });
+    </script>
 
 
 </body>
