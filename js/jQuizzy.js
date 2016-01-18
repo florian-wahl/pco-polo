@@ -2,18 +2,18 @@
     $.fn.jquizzy = function(settings) {
         var defaults = {
             questions: null,
-            startImg: 'res/img/start.gif',
+            startImg: 'res/img/custom_icon_polo.png',
             endText: '2/2',
             shortURL: null,
             sendResultsURL: null,
             resultComments: {
-                perfect: 'perfect',
-                excellent: 'excellent',
-                good: 'good',
-                average: 'average',
-                bad: 'bad',
-                poor: 'poor',
-                worst: 'worst'
+                perfect: 'Parfait',
+                excellent: 'Excellent',
+                good: 'Bien',
+                average: 'Bien',
+                bad: '',
+                poor: '',
+                worst: ''
             }
         };
         var config = $.extend(defaults, settings);
@@ -23,8 +23,8 @@
         }
         var superContainer = $(this),
         answers = [],
-        introFob = '	<div class="intro-container slide-container"><a class="nav-start" href="#">Are you ready？<br/><br/><span><img src="'+config.startImg+'"></span></a></div>	',
-        exitFob = '<div class="results-container slide-container"><div class="question-number">' + config.endText + '</div><div class="result-keeper"></div></div><div class="notice">please choise one！</div><div class="progress-keeper" ><div class="progress"></div></div>',
+        introFob = '	<div class="intro-container slide-container"><a class="nav-start" href="#">Êtes vous prêt ?<br/><br/><span><img src="'+config.startImg+'"></span></a></div>	',
+        exitFob = '<div class="results-container slide-container"><div class="question-number">' + config.endText + '</div><div class="result-keeper"></div></div><div class="notice">Merci de choisir une réponse</div><div class="progress-keeper" ><div class="progress"></div></div>',
         contentFob = '',
         questionsIteratorIndex,
         answersIteratorIndex;
@@ -36,12 +36,12 @@
             }
             contentFob += '</ul><div class="nav-container">';
             if (questionsIteratorIndex !== 0) {
-                contentFob += '<div class="prev"><a class="nav-previous" href="#">&lt; last</a></div>';
+                contentFob += '<div class="prev"><a class="nav-previous" href="#">&lt; </a></div>';
             }
             if (questionsIteratorIndex < config.questions.length - 1) {
-                contentFob += '<div class="next"><a class="nav-next" href="#">next &gt;</a></div>';
+                contentFob += '<div class="next"><a class="nav-next" href="#"> &gt;</a></div>';
             } else {
-                contentFob += '<div class="next final"><a class="nav-show-result" href="#">finish</a></div>';
+                contentFob += '<div class="next final"><a class="nav-show-result" href="#">Terminé</a></div>';
             }
             contentFob += '</div></div>';
             answers.push(config.questions[questionsIteratorIndex].correctAnswer);
@@ -184,7 +184,7 @@
             }
             score = roundReloaded(trueCount / questionLength * 100, 2);
             
-            resultSet = '<h2 class="qTitle">' + judgeSkills(score) + '<br/> your score： ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div>';
+            resultSet = '<h2 class="qTitle">' + judgeSkills(score) + '<br/> Votre score： ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div>';
             superContainer.find('.result-keeper').html(resultSet).show(500);
             superContainer.find('.resultsview-qhover').hide();
             superContainer.find('.result-row').hover(function() {
