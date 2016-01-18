@@ -11,6 +11,56 @@
 </script>
 
 
+<?php
+if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
+//L'employé est connecté
+
+/*CONNEXION*/
+$poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
+// set the PDO error mode to exception
+$poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//On met à jour le score
+$stmt = $poloDB->prepare("SELECT * FROM score WHERE id_score = :id_score;");
+$stmt->bindValue(':id_score', $_SESSION['id_score']);
+$stmt->execute();
+
+//On récupère les résultats
+$resultat = $stmt->fetchAll();
+
+//On récupère la première ligne, le résultat doit être unique
+$res_score = $resultat[0];
+$_SESSION['score_jour'] = $res_score['score_jour'];
+$_SESSION['best_score'] = $res_score['best_score'];
+$_SESSION['jetons'] = $res_score['jetons'];
+
+$stmt = $poloDB->prepare("SELECT * FROM personnage WHERE id_personnage = :id_personnage;");
+$stmt->bindValue(':id_personnage', $_SESSION['id_personnage']);
+$stmt->execute();
+
+//On récupère les résultats
+$resultat = $stmt->fetchAll();
+$personnage = $resultat[0];
+
+switch($resultat[0]['espece']){
+    case 'Tut':
+        $personnage['img'] = "Alpha";
+        break;
+    case 'Lav':
+        $personnage['img'] = "Delta";
+        break;
+    case 'Pri':
+        $personnage['img'] = "Gamma";
+        break;
+    case 'Tec':
+        $personnage['img'] = "Zeta";
+        break;
+    case 'Qi':
+        $personnage['img'] = "Beta";
+        break;
+}
+?>
+
 <link rel="stylesheet" href="css/quiz.css"  type="text/css" />
 <link rel="stylesheet" href="css/polo.css"  type="text/css" />
 <script src="js/phaser/phaser.min.js"></script>
@@ -18,17 +68,16 @@
 <script src="js/allFunctions.js"></script>
 <script src="js/jQuizzy.js"></script>
 <script src="js/clientPNJ.js"></script>
- <style type="text/css">
+<style type="text/css">
     .quiz{width:760px; margin:10px 10px 10px -360px}
-    </style>
+</style>
 <script src="js/gestionQuizz.js"></script>
-
-<?php
-//TODO: ajouter le test de loggin
-?>
 
 <body>
 
+    <script>
+        var link_res_perso = 'res/img/personnages/<?php echo $personnage['couleur']."/".$personnage['img']."/perso_sheet.png";?>';
+    </script>
     <script type="text/javascript" src="js/main.js"></script>
 
     <div id="main">
@@ -50,6 +99,14 @@
         });
     </script>
 
+    <?php
+    }else{
+//L'employé ne doit pas être sur cette page sans être connecté
+        ?>
+        <script>window.location.replace("index.php");</script>
+        <?php
+    }
+    ?>
 
 </body>
 </html>

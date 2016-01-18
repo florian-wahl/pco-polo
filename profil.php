@@ -27,7 +27,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     $_SESSION['best_score'] = $res_score['best_score'];
     $_SESSION['jetons'] = $res_score['jetons'];
 
-    //On met à jour le score
     $stmt = $poloDB->prepare("SELECT * FROM personnage WHERE id_personnage = :id_personnage;");
     $stmt->bindValue(':id_personnage', $_SESSION['id_personnage']);
     $stmt->execute();

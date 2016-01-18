@@ -10,7 +10,9 @@ var ESPECE_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
 
 function preload() {
 
-    game.load.spritesheet('player', 'res/img/personnages/Green/Alpha/player_green_alpha.png', 71, 96);
+
+    //link_res_perso est défini dans polo.php
+    game.load.spritesheet('player', link_res_perso, 74, 96);
     game.load.image('background', 'res/img/floor.jpg');
     game.load.image('ship', 'res/img/thrust.png');
     game.load.image('wall', 'res/img/platform.png');
