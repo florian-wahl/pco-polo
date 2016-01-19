@@ -56,7 +56,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="container" class="menu_polo">
         <h2>Profil</h2>
 
-        <input type="button" class="menu_principal_button" onclick="location.href='menu_principal.php';" value="Retour" />
+        <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
         <br>
 
         <img id="profil_image_personnage" src="res/img/personnages/<?php echo $personnage['couleur']."/".$personnage['img']."/idle.png"?>" />
@@ -76,7 +76,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 });
             </script>
             <div id="profil_badges">
-                <p>Mes badges</p>
                 <ul>
                     <li><a href="#profil_badges-1">Mes Badges</a></li>
                     <li><a href="#profil_badges-2">Missions POLO</a></li>

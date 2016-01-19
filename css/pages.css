@@ -89,8 +89,16 @@ p.choix {
 }
 
 #profil_badges {
-    padding-left: 50px;
+    margin: auto;
+    padding-left: 10px;
     text-align: center;
+    border: none;
+    width: 440px;
+}
+
+#profil_badges > div{
+    border: lightgray solid 1px;
+    min-height: 100px;
 }
 
 #profil_top {

@@ -20,12 +20,12 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
         <table>
             <tr>
-                <td><input type="button" class="menu_principal_button" id="button_jouer" value="Jouer" /></td>
-                <td><input type="button" class="menu_principal_button" id="button_mini_jeux" onclick="location.href='menu_mini_jeux.php';" value="Mini-Jeux" /></td>
+                <td><input type="button" class="menu_principal_button" id="button_jouer"/></td>
+                <td><input type="button" class="menu_principal_button" id="button_mini_jeux"/></td>
             </tr>
             <tr>
-                <td><input type="button" class="menu_principal_button" id="button_profil" onclick="location.href='profil.php';" value="Profil" /></td>
-                <td><input type="button" class="menu_principal_button" id="button_aides" onclick="location.href='aides.php';" value="Aides" /></td>
+                <td><input type="button" class="menu_principal_button" id="button_profil"/></td>
+                <td><input type="button" class="menu_principal_button" id="button_aides"/></td>
             </tr>
         </table>
             <input type="button" id="button_quitter" onclick="location.href='logout.php';" value="Quitter" />
@@ -45,6 +45,19 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 location.href = "polo.php";
             }
         });
+
+        $("#button_mini_jeux").click(function(){
+            location.href='menu_mini_jeux.php';
+        });
+
+        $("#button_aides").click(function(){
+            location.href='aides.php';
+        });
+
+        $("#button_profil").click(function(){
+            location.href='profil.php';
+        });
+
 
     </script>
     <?php

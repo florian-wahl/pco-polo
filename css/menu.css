@@ -17,21 +17,28 @@
     text-align: center;
 }
 
-
+input.menu_principal_button {
+    border: none;
+    width: 400px;
+    height: 125px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    margin-left: 0;
+}
 input#button_jouer{
-    background: url(../res/img/diamond.png) no-repeat 20px 50%;
+    background: url(../res/img/boutons/menu_principal_jouer.png) no-repeat;
 }
 
 input#button_mini_jeux{
-    background:  url(../res/img/baddie.png) no-repeat 20px 50%;
+    background:  url(../res/img/boutons/menu_principal_mini_jeux.png) no-repeat;
 }
 
 input#button_profil{
-    background: url(../res/img/star.png) no-repeat 20px 50%;
+    background: url(../res/img/boutons/menu_principal_profil.png) no-repeat;
 }
 
 input#button_aides{
-    background: url(../res/img/firstaid.png) no-repeat 20px 50%;
+    background: url(../res/img/boutons/menu_principal_aides.png) no-repeat;
 }
 
 input#button_credits, input#button_quitter{

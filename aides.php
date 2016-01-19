@@ -13,7 +13,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
         <h2> Aides </h2>
 
-        <input type="button"  onclick="location.href='menu_principal.php';" value="Retour" />
+        <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
 
         <h3>Que voulez-vous savoir ?</h3>
 
