@@ -3,16 +3,64 @@ var game = new Phaser.Game(400, 490, Phaser.AUTO, 'gameDiv');
 
 // Create our 'main' state that will contain the game
 var mainState;
+var bootState;
+var preload;
+var menu;
+var gameOverState;
+var scorefinal=0;
+bootState= {
+    preload: function(){
+        this.game.load.image("loading","../res/img/mini-jeux/loading.png");
+    },
+
+    create: function(){
+        this.game.state.start("preload");
+    }
+}
+preload={
+    preload:function(){
+        var loadingBar = this.add.sprite(160,240,"loading");
+        loadingBar.anchor.setTo(0.5,0.5);
+        this.load.setPreloadSprite(loadingBar);
+        game.load.image('bird', '../res/img/mini-jeux/bird.png');
+        game.load.spritesheet('brick', '../res/img/mini-jeux/bricks.png', 32, 32, 4);
+        game.load.image('fond', '../res/img/mini-jeux/back.jpg');
+        game.load.image('playButton','../res/img/mini-jeux/playButton.png');
+        game.load.image('title','../res/img/mini-jeux/Floppy.png');
+        game.load.image('skull','../res/img/mini-jeux/skull.png');
+        game.load.image('menuButton','../res/img/mini-jeux/menuButton.png');
+    },
+
+    create: function(){
+        this.game.state.start("menu");
+    }
+}
+
+menu={
+    create: function() {
+        this.fond = game.add.tileSprite(0, 0, 490, game.cache.getImage('fond').height, 'fond');
+        this.title = game.add.sprite(55,100,"title");
+        var playButton = this.game.add.button(200,320,"playButton",this.playTheGame,this);
+        playButton.anchor.setTo(0.5,0.5);
+    },
+    update:function(){
+        this. fond.tilePosition.x -= 1;
+    },
+
+    playTheGame: function(){
+        this.game.state.start("main");
+    }
+}
+
+
+
 mainState = {
 
     preload: function () {
         // This function will be executed at the beginning
         // That's where we load the game's assets
         game.state.backgroundColor = '#FFFFFF';
-        game.load.image('bird', '../res/img/mini-jeux/bird.png');
-        game.load.spritesheet('brick', '../res/img/mini-jeux/bricks.png', 32, 32, 4);
-        game.load.image('fond', '../res/img/mini-jeux/back.jpg');
-        game.load.audio('salto','../res/sons/jump.wav.jpg');
+
 
     },
 
@@ -22,7 +70,7 @@ mainState = {
         // Here we set up the game, display sprites, etc.
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.fond = game.add.tileSprite(0, 0,490, game.cache.getImage('fond').height, 'fond');
+        this.fond = game.add.tileSprite(0, 0, 490, game.cache.getImage('fond').height, 'fond');
         this.bird=this.game.add.sprite(100,245,'bird');
         game.physics.arcade.enable(this.bird);
         this.pipes=game.add.group();
@@ -31,8 +79,8 @@ mainState = {
         this.bird.body.gravity.y=1000;
         this.bird.anchor.setTo(-0.2,0.5);
 
-        var spaceKey=this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        spaceKey.onDown.add(this.jump,this);
+
+        game.input.onDown.add(this.jump,this);
         this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
         this.score=0;
         this.labelScore=game.add.text(20,20,"0",{font:"30px Arial",fill:'#ffffff'});
@@ -43,7 +91,7 @@ mainState = {
     update: function() {
         // This function is called 60 times per second
         // It contains the game's logic
-        this.fond.tilePosition.x -= 1;
+        this. fond.tilePosition.x -= 1;
         game.physics.arcade.overlap(this.bird, this.pipes, this.restartGame, null, this);
         if(this.bird.inWorld==false && this.bird.alive==true)
             this.restartGame();
@@ -63,13 +111,12 @@ mainState = {
         var animation=game.add.tween(this.bird);
         animation.to({angle:-20},100);
         animation.start();
-        game.sound.play('salto');
 
     },
 
     restartGame: function() {
-
-        game.state.start('main');
+        scorefinal=this.score;
+        game.state.start('gameOver');
     },
     addOnePipe: function(x,y){
         var pipe=this.pipes.getFirstDead();
@@ -106,7 +153,39 @@ mainState = {
 
 
 };
+gameOverState = {
+    create: function(){
+
+        this.fond = game.add.tileSprite(0, 0, 490, game.cache.getImage('fond').height, 'fond');
+        this.skull = game.add.sprite(130,0,"skull");
+        var playButton = this.game.add.button(200,250,"playButton",this.replayTheGame,this);
+        playButton.anchor.setTo(0.5,0.5);
+        var menuButton=this.game.add.button(200,400,"menuButton",this.goToMenu,this);
+        menuButton.anchor.setTo(0.5,0.5);
+        this.labelScore=game.add.text(25,150,"ton score finale est de "+scorefinal+" points!",{font:"25px Arial",fill:'#FF0000'});
+        console.log(scorefinal);
+    },
+    update: function(){
+        this. fond.tilePosition.x -= 1;
+    },
+    replayTheGame: function(){
+        game.state.start('main');
+    },
+    goToMenu:function(){
+        game.state.start('menu')
+    }
+
+}
+
+
+
 
 // Add and start the 'main' state to start the game
+game.state.add('boot', bootState);
+game.state.add('preload', preload);
+game.state.add('menu', menu);
 game.state.add('main', mainState);
-game.state.start('main');
+game.state.add('gameOver', gameOverState);
+
+
+game.state.start('boot');
