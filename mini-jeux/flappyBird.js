@@ -11,7 +11,8 @@ mainState = {
         game.state.backgroundColor = '#FFFFFF';
         game.load.image('bird', '../res/img/mini-jeux/bird.png');
         game.load.spritesheet('brick', '../res/img/mini-jeux/bricks.png', 32, 32, 4);
-        game.load.image('bgtile', '../res/img/mini-jeux/back.jpg');
+        game.load.image('fond', '../res/img/mini-jeux/back.jpg');
+        game.load.audio('salto','../res/sons/jump.wav.jpg');
 
     },
 
@@ -21,7 +22,7 @@ mainState = {
         // Here we set up the game, display sprites, etc.
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        bgtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('bgtile').height, 'bgtile');
+        this.fond = game.add.tileSprite(0, 0,490, game.cache.getImage('fond').height, 'fond');
         this.bird=this.game.add.sprite(100,245,'bird');
         game.physics.arcade.enable(this.bird);
         this.pipes=game.add.group();
@@ -42,7 +43,7 @@ mainState = {
     update: function() {
         // This function is called 60 times per second
         // It contains the game's logic
-        bgtile.tilePosition.x -= 1;
+        this.fond.tilePosition.x -= 1;
         game.physics.arcade.overlap(this.bird, this.pipes, this.restartGame, null, this);
         if(this.bird.inWorld==false && this.bird.alive==true)
             this.restartGame();
