@@ -52,7 +52,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p id="fleche_droite" class="fleche_aide"> > </p>
 
             <div id="selection_pseudo">
-                <label for="choix_pseudo">Choisissez un pseudonyme : </label>
+                <label for="choix_pseudo"><b>Choisissez un pseudonyme : </b></label>
                 <select name="choix_pseudo" id="choix_pseudo">
                     <option><?php echo $tab_choix[0]; ?></option>
                     <option><?php echo $tab_choix[1]; ?></option>

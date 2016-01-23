@@ -223,15 +223,9 @@ mainState = {
              LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
              Pour démarrer un quizz, faire appel à demarrerQuizz(id_quizz)
              */
-            demarrerQuizz(1);
+            demarrerQuizz(0);
             game.physics.arcade.isPaused = true;
 
-
-            //TODO : a enlever
-            //A chaque fois on ajoute 100 a score
-            this.addToScore(100);
-            this.ajaxRequest(setJetons, "nbJeton", null);
-            this.ajaxRequest(setScore, "scoreJour", null);
         }
 
     },

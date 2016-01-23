@@ -39,6 +39,7 @@ $(document).ready(function() {
     /*GESTION DE L'ENVOIE DU PERSONNAGE A LA BDD*/
 
     $("#submit_perso").click(function(){
+
         //Protocole AJAX
 
         var xmlhttp = new XMLHttpRequest();
