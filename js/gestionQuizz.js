@@ -2,7 +2,10 @@
  * Created by Florian on 12/01/2016.
  */
 
+    /*INITIALISATION */
 var NOMBRE_QUIZZ_MAX = 4;
+
+var last_quizz_id;
 //On défini les différents tableaux
 
 var scenario;
@@ -173,6 +176,7 @@ function genererjQuizzy(){
  * Permet d'initialiser le quizz dont l'id est id_quizz
  */
 function initQuizz(id_quizz){
+    last_quizz_id = id_quizz;
     $.when(
         //ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
         //ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
@@ -240,5 +244,22 @@ function xmlCallback(xml, id_quizz){
         }
 
     });
+}
+
+function updateStatsQuizz(nbReponseJuste, nbTotReponse){
+
+    var xhr = new XMLHttpRequest();
+
+    if (nbReponseJuste == nbTotReponse){
+        //Le quizz est validé
+        xhr.open("GET", "ajaxQuizz.php?q=quizzValide&id_quizz=" + last_quizz_id , true);
+    }
+    else {
+        //le quizz n'est pas validé
+        xhr.open("GET", "ajaxQuizz.php?q=quizzNonValide&id_quizz=" + last_quizz_id , true);
+    }
+
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    xhr.send(null);
 }
 

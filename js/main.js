@@ -1,10 +1,10 @@
 /**
  * Created by Florian on 13/11/2015.
  */
-var game = new Phaser.Game(1024, 768, Phaser.CANVAS, 'POLO');
+var game = new Phaser.Game(1024, 700, Phaser.CANVAS, 'POLO');
 
 var GAME_WIDTH = 1024;
-var GAME_HEIGHT = 768;
+var GAME_HEIGHT = 700;
 var ESPECE_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
 var ESPECE_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
 var player;
@@ -181,9 +181,9 @@ mainState = {
 
         this.setIHM();
 
-        this.ajaxRequest(this.setJetons, "nbJeton", null);
-        this.ajaxRequest(this.setScore, "scoreJour", null);
-        this.ajaxRequest(this.updateBadges, "getBadges", null);
+        ajaxRequest(this.setJetons, "nbJeton", null);
+        ajaxRequest(this.setScore, "scoreJour", null);
+        ajaxRequest(this.updateBadges, "getBadges", null);
 
     },
 
@@ -230,16 +230,12 @@ mainState = {
 
     },
 
-    reprendre: function () {
-        game.physics.arcade.isPaused = false;
-    },
-
 
     render: function () {
 
         if (settingsOnOff) {
             game.debug.cameraInfo(game.camera, 32, 32);
-            game.debug.spriteCoords(player, 600, 700);
+            game.debug.spriteCoords(player, 600, 600);
         }
 
 
@@ -336,95 +332,101 @@ mainState = {
 
         }
 
-    },
-
-
-    /*
-     Permet de mettre à jour le score dans la BDD.
-     Ajoute le nombre donnée en paramètre.
-     Si ce nombre est négatif, le score va être diminué
-     */
-    addToScore: function (scoreToAdd) {
-
-        this.ajaxRequest(null, "addToScore", scoreToAdd);
-
-        /*
-         On test si le score cumulé permet de débloqué un nouveau jeton
-         */
-        score_cumule += scoreToAdd;
-        while (score_cumule >= SCORE_POUR_NOUVEAU_JETON) {
-            score_cumule -= SCORE_POUR_NOUVEAU_JETON;
-            this.ajaxRequest(null, "addToJeton", 1);
-        }
-
-
-    },
-
-    /*
-     Permet de mettre à jour les jetons en INTERNE,
-     n'applique pas de changement à la BDD.
-     Sert surtout pour mettre à jour l'affichage
-     */
-    setJetons: function (jt) {
-        nb_jetons = parseInt(jt);
-    },
-
-    /*
-     Permet de mettre à jour le score en INTERNE,
-     n'applique pas de changement à la BDD.
-     Sert surtout pour mettre à jour l'affichage
-     */
-    setScore: function (sc) {
-        score = parseInt(sc);
-    },
-
-    updateBadges: function (liste) {
-
-        var tabBadges = liste.split("/");
-        var i = 0;
-        while (i < 11) {// 11 = nombre de badges au total
-            listeBadges[i] = false;
-            i++;
-        }
-        var j = 0;
-        while (j < tabBadges.length - 1) {
-            //tabBadges.length-1 car le dernier est null
-            listeBadges[parseInt(tabBadges[j])] = true;
-            j++;
-        }
-
-    },
-
-    /*
-     Utilisé pour obtenir ou envoyer une info à la base de données
-
-     callback = fonction qui traite l'information renvoyé par le serveur; null si pas de réponse attendue
-     request = nom de la fonction ajax (coté php) à appeler
-     valeur = valeur de l'information à passer, à mettre à jour; null si pas d'information à passer
-
-     */
-
-    ajaxRequest: function (callback, request, valeur) {
-        var xhr = new XMLHttpRequest();
-
-        if (callback != null) {
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-                    callback(xhr.responseText);
-                }
-            };
-        }
-
-        if (valeur != null) {
-            xhr.open("GET", "ajaxDB.php?q=" + request + "&s=" + valeur, true);
-        }
-        else {
-            xhr.open("GET", "ajaxDB.php?q=" + request, true);
-        }
-        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        xhr.send(null);
     }
+
+
 };
+
+function reprendre () {
+    game.physics.arcade.isPaused = false;
+}
+
+
+/*
+ Permet de mettre à jour le score dans la BDD.
+ Ajoute le nombre donnée en paramètre.
+ Si ce nombre est négatif, le score va être diminué
+ */
+function addToScore(scoreToAdd) {
+
+    this.ajaxRequest(null, "addToScore", scoreToAdd);
+
+    /*
+     On test si le score cumulé permet de débloqué un nouveau jeton
+     */
+    score_cumule += scoreToAdd;
+    while (score_cumule >= SCORE_POUR_NOUVEAU_JETON) {
+        score_cumule -= SCORE_POUR_NOUVEAU_JETON;
+        this.ajaxRequest(null, "addToJeton", 1);
+    }
+
+
+}
+
+/*
+ Permet de mettre à jour les jetons en INTERNE,
+ n'applique pas de changement à la BDD.
+ Sert surtout pour mettre à jour l'affichage
+ */
+function setJetons(jt) {
+    nb_jetons = parseInt(jt);
+}
+
+/*
+ Permet de mettre à jour le score en INTERNE,
+ n'applique pas de changement à la BDD.
+ Sert surtout pour mettre à jour l'affichage
+ */
+function setScore(sc) {
+    score = parseInt(sc);
+}
+
+function updateBadges (liste) {
+
+    var tabBadges = liste.split("/");
+    var i = 0;
+    while (i < 11) {// 11 = nombre de badges au total
+        listeBadges[i] = false;
+        i++;
+    }
+    var j = 0;
+    while (j < tabBadges.length - 1) {
+        //tabBadges.length-1 car le dernier est null
+        listeBadges[parseInt(tabBadges[j])] = true;
+        j++;
+    }
+
+}
+
+/*
+ Utilisé pour obtenir ou envoyer une info à la base de données
+
+ callback = fonction qui traite l'information renvoyé par le serveur; null si pas de réponse attendue
+ request = nom de la fonction ajax (coté php) à appeler
+ valeur = valeur de l'information à passer, à mettre à jour; null si pas d'information à passer
+
+ */
+
+function ajaxRequest(callback, request, valeur) {
+    var xhr = new XMLHttpRequest();
+
+    if (callback != null) {
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                callback(xhr.responseText);
+            }
+        };
+    }
+
+    if (valeur != null) {
+        xhr.open("GET", "ajaxDB.php?q=" + request + "&s=" + valeur, true);
+    }
+    else {
+        xhr.open("GET", "ajaxDB.php?q=" + request, true);
+    }
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    xhr.send(null);
+}
 
 game.state.add('boot', bootState);
 game.state.add('preload', preloadState);

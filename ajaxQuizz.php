@@ -1,65 +1,99 @@
 <?php include 'php/first.php'; ?>
 
 <?php
-/*CONNEXION*/
-$poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
+
+if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest' ) )
+{
+    /*CONNEXION*/
+    $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
 // set the PDO error mode to exception
-$poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //On récupère la fonction appelé
-$q = $_GET['q'];
-//On récupère le paramètre s'il y en a un
-if(!empty($_GET['s'])){
-    $s = $_GET['s'];
-}
+    $q = $_GET['q'];
 
 switch($q){
-
-    case 'getScenario':
-
-        $stmt = $poloDB->prepare("SELECT * FROM quizz, scenario
-                                                              WHERE scenario_id_scenario = id_scenario AND id_quizz = :id_quizz;");
-        $stmt->bindParam(':id_quizz', $s);
+    case 'quizzValide':
+        $stmt = $poloDB->prepare("SELECT * FROM users_quizz WHERE users_id_user = :id_user AND id_quizz = :id_quizz;");
+        $stmt->bindValue(':id_user', $_SESSION['id_user']);
+        $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
         $stmt->execute();
 
         //On récupère les résultats
         $resultat = $stmt->fetchAll();
 
-        //echo $resultat[0]['id_quizz']." ".$resultat[0]['descriptionScenario']."<br>";
-        $i = 0;
+        if(count($resultat) == 0){
+            //C'est la première fois que le joueur fair ce quizz
 
-        $scenario = $resultat[0]['descriptionScenario'];
-        echo $scenario;
+            $stmt = $poloDB->prepare("INSERT INTO users_quizz(users_id_user, id_quizz, valide, occurence, occurenceAvantValidation) VALUES(:id_user, :id_quizz,'1', '1','1')");
+            $stmt->bindValue(':id_user', $_SESSION['id_user']);
+            $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
+            $stmt->execute();
+
+        }
+        elseif($resultat[0]['valide'] == 0){
+            //On met à jour en validant le quizz
+            $occurence = $resultat[0]['occurence'];
+            $newOccurence = $occurence + 1;
+
+            $stmt = $poloDB->prepare("UPDATE users_quizz SET valide = '1', occurence = :newOccurence, occurenceAvantValidation = :newOccurence WHERE users_id_user = :id_user AND id_quizz = :id_quizz;");
+            $stmt->bindValue(':id_user', $_SESSION['id_user']);
+            $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
+            $stmt->bindValue(':newOccurence', $newOccurence);
+            $stmt->execute();
+        }
+        else{
+            //On met a jour l'occurence
+            $occurence = $resultat[0]['occurence'];
+            $newOccurence = $occurence + 1;
+
+            $stmt = $poloDB->prepare("UPDATE users_quizz SET valide = '1', occurence = :newOccurence WHERE users_id_user = :id_user AND id_quizz = :id_quizz;");
+            $stmt->bindValue(':id_user', $_SESSION['id_user']);
+            $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
+            $stmt->bindValue(':newOccurence', $newOccurence);
+            $stmt->execute();
+        }
+
         break;
-
-    case 'getQuestionsReponses':
-
-        $stmt = $poloDB->prepare("SELECT id_question, descriptionQuestion, descriptionReponse, isTrue FROM quizz, quizz_questions, questions, questions_reponses, reponses
-                                                              WHERE quizz_id_quizz = id_quizz AND questions_reponses.questions_id_question = id_question AND quizz_questions.questions_id_question AND reponses_id_reponse = id_reponse AND id_quizz = :id_quizz
-                                                              GROUP BY id_reponse;");
-        $stmt->bindParam(':id_quizz', $s);
+    case 'quizzNonValide':
+        $stmt = $poloDB->prepare("SELECT * FROM users_quizz WHERE users_id_user = :id_user AND id_quizz = :id_quizz;");
+        $stmt->bindValue(':id_user', $_SESSION['id_user']);
+        $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
         $stmt->execute();
 
         //On récupère les résultats
-        $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultat = $stmt->fetchAll();
 
-        $arr = Array();
+        if(count($resultat) == 0){
+            //C'est la première fois que le joueur fair ce quizz
 
-        $i = 0;
+            $stmt = $poloDB->prepare("INSERT INTO users_quizz(users_id_user, id_quizz, valide, occurence, occurenceAvantValidation) VALUES(:id_user, :id_quizz,'0', '1','0')");
+            $stmt->bindValue(':id_user', $_SESSION['id_user']);
+            $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
+            $stmt->execute();
 
-        foreach($resultat as $row){
-            foreach($row as $key => $value)
-            {
-                $arr[$i][$key] = utf8_encode($value);
-            }
-            $i++;
         }
+        else{
+            //On met a jour l'occurence
+            $occurence = $resultat[0]['occurence'];
+            $newOccurence = $occurence + 1;
 
-        echo strval(json_encode($arr));
-
+            $stmt = $poloDB->prepare("UPDATE users_quizz SET occurence = :newOccurence WHERE users_id_user = :id_user AND id_quizz = :id_quizz;");
+            $stmt->bindValue(':id_user', $_SESSION['id_user']);
+            $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
+            $stmt->bindValue(':newOccurence', $newOccurence);
+            $stmt->execute();
+        }
         break;
-    default:
-        echo '';
+}
+
+//DECONNEXION
+    $poloDB = null;
 
 }
+else {
+    die("HTTP/1.0 403 Forbidden");
+}
+
+
 ?>

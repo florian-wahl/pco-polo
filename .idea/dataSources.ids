@@ -1,6 +1,286 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - polo@localhost" uuid="a7901466-b54d-47a7-9c0a-ae28427c591c">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  <data-source name="MySQL - polo@localhost" uuid="53b692dd-f3d2-4948-9474-d69db24318f5">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="polo"/>
+      <table id="2" parent="1" name="admins"/>
+      <table id="3" parent="1" name="badges"/>
+      <table id="4" parent="1" name="logs"/>
+      <table id="5" parent="1" name="personnage"/>
+      <table id="6" parent="1" name="score"/>
+      <table id="7" parent="1" name="users"/>
+      <table id="8" parent="1" name="users_badges"/>
+      <table id="9" parent="1" name="users_quizz"/>
+      <column id="10" parent="2" name="id_admin">
+        <mandatory>1</mandatory>
+        <data-type>int(6) unsigned</data-type>
+      </column>
+      <column id="11" parent="2" name="identifiant">
+        <mandatory>1</mandatory>
+        <data-type>varchar(15)</data-type>
+      </column>
+      <column id="12" parent="2" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="13" parent="2" name="reg_date">
+        <data-type>timestamp</data-type>
+      </column>
+      <key id="14" parent="2" name="PRIMARY">
+        <columns>id_admin</columns>
+        <primary>1</primary>
+      </key>
+      <column id="15" parent="3" name="id_badge">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="16" parent="3" name="nom">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="17" parent="3" name="description">
+        <mandatory>1</mandatory>
+        <data-type>mediumtext</data-type>
+      </column>
+      <key id="18" parent="3" name="PRIMARY">
+        <columns>id_badge</columns>
+        <primary>1</primary>
+      </key>
+      <column id="19" parent="4" name="id_log">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="20" parent="4" name="last_log_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="21" parent="4" name="last_log_time">
+        <mandatory>1</mandatory>
+        <data-type>time</data-type>
+      </column>
+      <column id="22" parent="4" name="nb_log">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="23" parent="4" name="last_delog_time">
+        <data-type>date</data-type>
+      </column>
+      <column id="24" parent="4" name="connexion_duration">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="25" parent="4" name="PRIMARY">
+        <columns>id_log</columns>
+        <primary>1</primary>
+      </key>
+      <column id="26" parent="5" name="id_personnage">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="27" parent="5" name="espece">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+        <default-expression>&apos;defaut&apos;</default-expression>
+      </column>
+      <column id="28" parent="5" name="couleur">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+        <default-expression>&apos;defaut&apos;</default-expression>
+      </column>
+      <key id="29" parent="5" name="PRIMARY">
+        <columns>id_personnage</columns>
+        <primary>1</primary>
+      </key>
+      <column id="30" parent="6" name="id_score">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="31" parent="6" name="score_jour">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="32" parent="6" name="best_score">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="33" parent="6" name="jetons">
+        <mandatory>1</mandatory>
+        <data-type>int(5)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="34" parent="6" name="PRIMARY">
+        <columns>id_score</columns>
+        <primary>1</primary>
+      </key>
+      <column id="35" parent="7" name="id_user">
+        <mandatory>1</mandatory>
+        <data-type>int(6) unsigned</data-type>
+      </column>
+      <column id="36" parent="7" name="nom">
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="37" parent="7" name="prenom">
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="38" parent="7" name="matricule">
+        <mandatory>1</mandatory>
+        <data-type>varchar(15)</data-type>
+      </column>
+      <column id="39" parent="7" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="40" parent="7" name="question_s_1">
+        <mandatory>1</mandatory>
+        <data-type>mediumtext</data-type>
+      </column>
+      <column id="41" parent="7" name="rep_s_1">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="42" parent="7" name="question_s_2">
+        <mandatory>1</mandatory>
+        <data-type>mediumtext</data-type>
+      </column>
+      <column id="43" parent="7" name="rep_s_2">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="44" parent="7" name="reg_date">
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="45" parent="7" name="pseudonyme">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+        <default-expression>&apos;defaut&apos;</default-expression>
+      </column>
+      <column id="46" parent="7" name="score_id_score">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="47" parent="7" name="personnage_id_personnage">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="48" parent="7" name="logs_id_log">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="49" parent="7" name="fk_users_logs1_idx">
+        <columns>logs_id_log</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="50" parent="7" name="fk_users_personnage1_idx">
+        <columns>personnage_id_personnage</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="51" parent="7" name="fk_users_score1_idx">
+        <columns>score_id_score</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="52" parent="7" name="PRIMARY">
+        <columns>id_user
+score_id_score
+personnage_id_personnage
+logs_id_log</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="53" parent="7" name="fk_users_logs1">
+        <columns>logs_id_log</columns>
+        <ref-key>~.logs.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="54" parent="7" name="fk_users_personnage1">
+        <columns>personnage_id_personnage</columns>
+        <ref-key>~.personnage.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="55" parent="7" name="fk_users_score1">
+        <columns>score_id_score</columns>
+        <ref-key>~.score.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="56" parent="8" name="users_id_user">
+        <mandatory>1</mandatory>
+        <data-type>int(6) unsigned</data-type>
+      </column>
+      <column id="57" parent="8" name="badges_id_badge">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="58" parent="8" name="fk_users_has_badges_badges1_idx">
+        <columns>badges_id_badge</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="59" parent="8" name="fk_users_has_badges_users_idx">
+        <columns>users_id_user</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="60" parent="8" name="PRIMARY">
+        <columns>users_id_user
+badges_id_badge</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="61" parent="8" name="fk_users_has_badges_badges1">
+        <columns>badges_id_badge</columns>
+        <ref-key>~.badges.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="62" parent="8" name="fk_users_has_badges_users">
+        <columns>users_id_user</columns>
+        <ref-key>polo.users(id_user)</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="63" parent="9" name="users_id_user">
+        <mandatory>1</mandatory>
+        <data-type>int(6) unsigned</data-type>
+      </column>
+      <column id="64" parent="9" name="id_quizz">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="65" parent="9" name="valide">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="66" parent="9" name="occurence">
+        <mandatory>1</mandatory>
+        <data-type>int(6)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="67" parent="9" name="occurenceAvantValidation">
+        <data-type>int(6)</data-type>
+      </column>
+      <index id="68" parent="9" name="fk_users_has_quizz_users1_idx">
+        <columns>users_id_user</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="69" parent="9" name="PRIMARY">
+        <columns>users_id_user</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="70" parent="9" name="fk_users_has_quizz_users1">
+        <columns>users_id_user</columns>
+        <ref-key>polo.users(id_user)</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
   </data-source>
 </component>

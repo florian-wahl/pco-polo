@@ -189,6 +189,9 @@
             //Ajout du score dans la bdd
             addToScore(score);
 
+            //Mise à jour des statistiques associées
+            updateStatsQuizz(trueCount, questionLength);
+
             superContainer.find('.result-keeper').html(resultSet).show(500);
             superContainer.find('.resultsview-qhover').hide();
             superContainer.find('.result-row').hover(function() {
