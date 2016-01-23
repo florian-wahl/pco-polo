@@ -16,8 +16,6 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
         $s = $_GET['s'];
     }
 
-//TODO: problème de sécurité si l'utilisateur passe directement par l'adresse il peut s'ajouter tout seul des jetons ou du socre...
-
     switch($q){
         case 'nbJeton':
             //Requête avec l'ID

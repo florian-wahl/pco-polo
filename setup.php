@@ -49,8 +49,6 @@ $poloDB->exec($sql);
 echo 'Admin marcopolo cree <br>';
 
 
-//TODO: Créer le personnage par defaut
-
 //DECONNEXION
 $poloDB = null;
 
