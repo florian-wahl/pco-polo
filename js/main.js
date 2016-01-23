@@ -1,10 +1,10 @@
 /**
  * Created by Florian on 13/11/2015.
  */
-var game = new Phaser.Game(1024, 768, Phaser.CANVAS, 'POLO', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1024, 690, Phaser.CANVAS, 'POLO', { preload: preload, create: create, update: update, render: render });
 
 var GAME_WIDTH = 1024;
-var GAME_HEIGHT = 768;
+var GAME_HEIGHT = 690;
 var ESPECE_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
 var ESPECE_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
 
@@ -204,7 +204,7 @@ function interactionClient(player, client){
         LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
         Pour démarrer un quizz, faire appel à demarrerQuizz(id_quizz)
          */
-        demarrerQuizz(1);
+        demarrerQuizz(0);//le paramètre 0 demande la génération d'un quizz aléatoire
         game.physics.arcade.isPaused = true;
 
     }
@@ -226,7 +226,7 @@ function render() {
 
     if(settingsOnOff){
         game.debug.cameraInfo(game.camera, 32, 32);
-        game.debug.spriteCoords(player, 600, 700);
+        game.debug.spriteCoords(player, 600, 600);
     }
 
 

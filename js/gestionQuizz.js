@@ -1,6 +1,8 @@
 /**
  * Created by Florian on 12/01/2016.
  */
+
+var NOMBRE_QUIZZ_MAX = 4;
 //On défini les différents tableaux
 
 var scenario;
@@ -180,6 +182,11 @@ function initQuizz(id_quizz){
 
 function demarrerQuizz(id_quizz){
 
+    if(id_quizz == 0){
+        //On génère un numéro de quizz aléatoire
+        id_quizz = Math.ceil(Math.random()*NOMBRE_QUIZZ_MAX);
+    }
+
     //On veut le quizz 1
     initQuizz(id_quizz);
 
@@ -192,7 +199,7 @@ function demarrerQuizz(id_quizz){
 function xmlRequest(id_quizz){
     $.ajax({
         type: "GET",
-        url: "data/template_quizz.xml",
+        url: "data/quizz.xml",
         dataType: "xml",
         success: function(xml) {
             xmlCallback(xml, id_quizz);

@@ -1,0 +1,155 @@
+<data>
+    <quizz id="1">
+        <!--Composition d'un quizz -->
+        <!--Type : TEXTE / IMAGE (le type de la réponse) -->
+        <type>TEXTE</type>
+        <scenario>
+            <!--Scénario : contexte du quizz, dialogue ... -->
+            Il était une fois chez Space France ... Le Quizz 1
+        </scenario>
+        <questions>
+            <!--Ensemble des questions, entre 1 et 5 -->
+            <question id="1">
+                <!--Question id 1 -->
+                <intitule>Comment vérouiller l'iPad ?</intitule>
+                <!--Quelle est la question ? -->
+                <reponses>
+                    <!--Ensemble des réponses à la question : le paramètre estCorrect
+                    définie si c'est une bonne réponse ou non -->
+                    <reponse isTrue="1">Bouton vérouiller</reponse>
+                    <reponse isTrue="0">Bouton home</reponse>
+                    <reponse isTrue="0">Les deux boutons de volumes</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Et la question 2 ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Cette réponse est vrai</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="2">
+        <!--Composition d'un quizz -->
+        <!--Type : TEXTE / IMAGE (le type de la réponse) -->
+        <type>TEXTE</type>
+        <scenario>
+            <!--Scénario : contexte du quizz, dialogue ... -->
+            Il était une fois chez Space France ... Le Quizz 2
+        </scenario>
+        <questions>
+            <!--Ensemble des questions, entre 1 et 5 -->
+            <question id="1">
+                <!--Question id 1 -->
+                <intitule>Q2.1 ?</intitule>
+                <!--Quelle est la question ? -->
+                <reponses>
+                    <!--Ensemble des réponses à la question : le paramètre estCorrect
+                    définie si c'est une bonne réponse ou non -->
+                    <reponse isTrue="1">Bouton vérouiller</reponse>
+                    <reponse isTrue="0">Bouton home</reponse>
+                    <reponse isTrue="0">Les deux boutons de volumes</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Q2.2 ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Cette réponse est vrai</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                </reponses>
+            </question>
+            <question id="3">
+                <intitule>Q2.3 ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Cette réponse est vrai</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="3">
+        <!--Composition d'un quizz -->
+        <!--Type : TEXTE / IMAGE (le type de la réponse) -->
+        <type>TEXTE</type>
+        <scenario>
+            <!--Scénario : contexte du quizz, dialogue ... -->
+            Il était une fois chez Space France ... Le Quizz 3
+        </scenario>
+        <questions>
+            <!--Ensemble des questions, entre 1 et 5 -->
+            <question id="1">
+                <!--Question id 1 -->
+                <intitule>Q3.1 ?</intitule>
+                <!--Quelle est la question ? -->
+                <reponses>
+                    <!--Ensemble des réponses à la question : le paramètre estCorrect
+                    définie si c'est une bonne réponse ou non -->
+                    <reponse isTrue="1">Bouton vérouiller</reponse>
+                    <reponse isTrue="0">Bouton home</reponse>
+                    <reponse isTrue="0">Bouton home</reponse>
+                    <reponse isTrue="0">Les deux boutons de volumes</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Q3.2 ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Cette réponse est vrai</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                </reponses>
+            </question>
+            <question id="3">
+                <intitule>Q3.3 ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Cette réponse est vrai</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                </reponses>
+            </question>
+            <question id="4">
+                <intitule>Q3.4 ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Cette réponse est vrai</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="4">
+        <!--Composition d'un quizz -->
+        <!--Type : TEXTE / IMAGE (le type de la réponse) -->
+        <type>TEXTE</type>
+        <scenario>
+            <!--Scénario : contexte du quizz, dialogue ... -->
+            Il était une fois chez Space France ... Le Quizz 4
+        </scenario>
+        <questions>
+            <!--Ensemble des questions, entre 1 et 5 -->
+            <question id="1">
+                <!--Question id 1 -->
+                <intitule>Q4.1 ?</intitule>
+                <!--Quelle est la question ? -->
+                <reponses>
+                    <!--Ensemble des réponses à la question : le paramètre estCorrect
+                    définie si c'est une bonne réponse ou non -->
+                    <reponse isTrue="1">Bouton vérouiller</reponse>
+                    <reponse isTrue="0">Bouton home</reponse>
+                    <reponse isTrue="0">Les deux boutons de volumes</reponse>
+                    <reponse isTrue="0">Les deux boutons de volumes</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Q4.2 ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Cette réponse est vrai</reponse>
+                    <reponse isTrue="0">Cette réponse est fausse</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+</data>
