@@ -23,8 +23,8 @@
         <question id="2">
             <intitule>Et la question 2 ?</intitule>
             <reponses>
-                <reponse id="1" isTrue="1">Cette réponse est vrai</reponse>
-                <reponse id="2" isTrue="0">Cette réponse est fausse</reponse>
+                <reponse isTrue="1">Cette réponse est vrai</reponse>
+                <reponse isTrue="0">Cette réponse est fausse</reponse>
             </reponses>
         </question>
     </questions>

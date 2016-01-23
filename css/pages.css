@@ -193,7 +193,7 @@ img.icon_mini_jeux {
 }
 
 input#mini_jeux_1 {
-    background: url(../res/img/mini-jeux/Flappy_Bird_icon.png) no-repeat;
+    background: url(../res/img/mini-jeux/Floppy_Bird_icon.png) no-repeat;
     background-size: 90%;
     background-position: center;
     color: blue;
@@ -207,7 +207,7 @@ input#mini_jeux_2 {
 }
 
 input#mini_jeux_3 {
-    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background: url(../res/img/mini-jeux/2048_icon.png) no-repeat;
     background-size: 110%;
     background-position: center;
 }

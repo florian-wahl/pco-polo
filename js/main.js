@@ -207,17 +207,17 @@ function interactionClient(player, client){
         demarrerQuizz(1);
         game.physics.arcade.isPaused = true;
 
-
-        //TODO : a enlever
-        //A chaque fois on ajoute 100 a score
-        addToScore(100);
-        ajaxRequest(setJetons, "nbJeton", null);
-        ajaxRequest(setScore, "scoreJour", null);
     }
 
 }
 
 function reprendre(){
+
+    //update
+    ajaxRequest(setJetons, "nbJeton", null);
+    ajaxRequest(setScore, "scoreJour", null);
+
+
     game.physics.arcade.isPaused = false;
 }
 

@@ -30,9 +30,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
         <table id="liste_mini_jeux" class="liste_mini_jeux">
             <tr>
-                <td><input type="button" id="mini_jeux_1" class="element_liste" value="Floppy Bird" onclick="location.href='#openModal_1'"></td>
+                <td><input type="button" id="mini_jeux_1" class="element_liste" onclick="location.href='#openModal_1'"></td>
                 <td><input type="button" id="mini_jeux_2" class="element_liste" value="Pacman" onclick="location.href='#openModal_2'"></td>
-                <td><input type="button" id="mini_jeux_3" class="element_liste" value="2048" onclick="location.href='#openModal_3'"></td>
+                <td><input type="button" id="mini_jeux_3" class="element_liste" onclick="location.href='#openModal_3'"></td>
                 <td><input type="button" id="mini_jeux_4" class="element_liste" value="Coil" onclick="location.href='#openModal_4'"></td>
                 <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mini-Jeux #5"></td>
             </tr>
@@ -53,9 +53,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_1" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/Flappy_Bird_icon.png" id="img_popup_left"/>
+            <img src="res/img/mini-jeux/Floppy_Bird_icon.png" id="img_popup_left"/>
             <h2>Floppy Bird</h2>
-            <p>Flappy Bird est un jeu vidéo d'obstacles développé au Viêt Nam à Hanoï par Nguyễn Hà Đông, développeur de jeu indépendant et publié par .GEARS Studios.</p>
+            <p>Vous dirigez un oiseau : touchez l’écran et l’oiseau saute ! <br>Attention aux obstacles ! Une collision ou une chute vous feront perdre la partie.</p>
             <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" value="Jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
@@ -77,9 +77,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_3" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/img_defaut.jpg" id="img_popup_left"/>
+            <img src="res/img/mini-jeux/2048_icon.png" id="img_popup_left"/>
             <h2>2048</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
+            <p>Combinez les chiffres jusqu’à obtenir 2048. <br> Glissez votre doigt dans la direction qui permettra d’additionner les cases portant le même nombre : 4, 8, 16, … 2048 !</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" value="Jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>

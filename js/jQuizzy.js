@@ -182,9 +182,13 @@
                 }
                 resultSet += '</ul></div></div>';
             }
-            score = roundReloaded(trueCount / questionLength * 100, 2);
+            score = roundReloaded(trueCount / questionLength * 200, 2);
             
             resultSet = '<h2 class="qTitle">' + judgeSkills(score) + '<br/> Votre score： ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div>';
+
+            //Ajout du score dans la bdd
+            addToScore(score);
+
             superContainer.find('.result-keeper').html(resultSet).show(500);
             superContainer.find('.resultsview-qhover').hide();
             superContainer.find('.result-row').hover(function() {
@@ -198,6 +202,7 @@
                 $(this).next().fadeIn(500);
             });
             return false;
+
         });
     };
 })(jQuery);

@@ -233,9 +233,9 @@
                     <label for="question_s_1">Question secrète 1</label>
                     <select name="question_s_1" id="question_s_1">
                         <option><?php echo $question_s_1;?></option>
-                        <option>Quel est votre ville de naissance ?</option>
-                        <option>Quel est le nom de votre premier animal de compagnie ?</option>
-                        <option>Quel est le nom de jeune fille de votre mère ?</option>
+                        <option>Quel est le prénom de votre premier animal de compagnie ?</option>
+                        <option>Quelle est votre couleur préférée ?</option>
+                        <option>Quel est le signe astrologique de votre père ?</option>
                     </select> *<span class="error"> <?php echo $errQuestion_s_1; ?></span>
                 </p>
 
@@ -248,8 +248,9 @@
                     <label for="question_s_2">Question secrète 2</label>
                     <select name="question_s_2" id="question_s_2">
                         <option><?php echo $question_s_2;?></option>
-                        <option>Quel est le nom de votre meilleur(e) ami(e) d'enfance ?</option>
-                        <option>Quel est le signe astrologique de votre père ?</option>
+                        <option>Quel est le nom de jeune fille de votre mère ?</option>
+                        <option>Quelle est votre chiffre préféré ?</option>
+                        <option>Quel est votre fruit préféré ?</option>
                     </select> *<span class="error"> <?php echo $errQuestion_s_2; ?></span>
                 </p>
 
