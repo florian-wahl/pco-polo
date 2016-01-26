@@ -28,7 +28,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <td><input type="button" class="menu_principal_button" id="button_aides"/></td>
             </tr>
         </table>
-            <input type="button" id="button_quitter" onclick="location.href='logout.php';" value="Quitter" />
+            <input type="button" id="button_quitter" onclick="location.href='logout.php';"/>
             <br>
 
             <br>

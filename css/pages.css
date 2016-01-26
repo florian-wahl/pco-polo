@@ -2,7 +2,8 @@
 
 .post_it_aide {
     display: none;
-    border: dashed 2px yellow;
+    border-radius: 15px 50px 30px;
+    border: double 2px darkseagreen;
     width: 600px;
     text-align: center;
     margin: auto;
@@ -10,20 +11,22 @@
 }
 
 #fleche_gauche {
-    vertical-align: middle;
+    background: url(../res/img/boutons/green_arrow_left.png) no-repeat;
+    width: 60px;
+    height: 60px;
     float: left;
 }
 
 #fleche_droite {
+    background: url(../res/img/boutons/green_arrow_right.png) no-repeat;
+    width: 60px;
+    height: 60px;
     float: right;
 
 }
 
 .fleche_aide {
-    font-size: 100px;
-    color: white;
-    background-color: #2b2b2b;
-    border: solid 2px ;
+    margin-top: 50px;
     padding-top: 10px;
     padding-bottom: 20px;
 }

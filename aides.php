@@ -13,12 +13,12 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
         <h2> Aides </h2>
 
-        <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
+        <input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />
 
         <h3>Que voulez-vous savoir ?</h3>
 
-        <p id="fleche_gauche" class="fleche_aide"> < </p>
-        <p id="fleche_droite" class="fleche_aide"> > </p>
+        <p id="fleche_gauche" class="fleche_aide"></p>
+        <p id="fleche_droite" class="fleche_aide"> </p>
 
         <!--
         AJOUTER LES POST IT A LA SUITE EN SUIVANT LA MEME SYNTHAXE

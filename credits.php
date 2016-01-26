@@ -28,7 +28,7 @@
 
 
 
-<input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
+<input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />
     </div>
 
 </body>

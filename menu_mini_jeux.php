@@ -20,7 +20,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="container" class="menu_polo">
         <h2> Menu Mini-Jeux </h2>
 
-        <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
+        <input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />
 
         <p id="nb_jetons">
             Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/>

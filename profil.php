@@ -56,7 +56,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="container" class="menu_polo">
         <h2>Profil</h2>
 
-        <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
+        <input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />
         <br>
 
         <img id="profil_image_personnage" src="res/img/personnages/<?php echo $personnage['couleur']."/".$personnage['img']."/idle.png"?>" />

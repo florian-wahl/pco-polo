@@ -43,7 +43,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
         <h2> Création du personnage </h2>
 
-        <input type="button" onclick="location.href='menu_principal.php';" value="Retour"/>
+        <input type="button" id="button_retour" onclick="location.href='menu_principal.php';"/>
 
 
         <form id="creation_perso" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">

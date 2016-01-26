@@ -41,12 +41,20 @@ input#button_aides{
     background: url(../res/img/boutons/menu_principal_aides.png) no-repeat;
 }
 
-input#button_credits, input#button_quitter{
+input#button_quitter{
+    background: url(../res/img/boutons/bouton_quitter.png) no-repeat;
     float: right;
-    width: 40%;
-    height: 50%;
     margin: 10px;
-    padding: 5px;
+    width: 140px;
+    height: 60px;
+    border: none;
+}
+
+input#button_retour{
+    background: url(../res/img/boutons/bouton_retour.png) no-repeat;
+    width: 140px;
+    height: 60px;
+    border: none;
 }
 
 .menu_polo input{
