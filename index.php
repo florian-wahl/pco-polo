@@ -163,7 +163,7 @@
                     </p>
                     <p>
                         <label>&nbsp;</label>
-                        <input type="submit" value="S'identifier">
+                        <input type="submit" id="button_connecter" value="">
                     </p>
                     <p>
                         <label>&nbsp;</label>
@@ -176,7 +176,7 @@
                 <fieldset><h2>Vous n'êtes pas encore inscrit ?</h2>
                     <p>
                         <label>&nbsp;</label>
-                        <input class="formulaire_button" type="button" onclick="location.href='inscription.php';" value="S'inscrire" />
+                        <input class="formulaire_button" id="button_inscrire" type="button" onclick="location.href='inscription.php';" />
                     </p>
                 </fieldset>
             </form>

@@ -266,8 +266,8 @@
 
                 <p>
                     <label>&nbsp;</label>
-                    <input type="submit" value="S'inscrire">
-                    <input type="button" onclick="location.href='menu_principal.php';" value="Retour" />
+                    <input type="submit" id="button_inscrire" value="">
+                    <input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />
                 </p>
 
             </fieldset>

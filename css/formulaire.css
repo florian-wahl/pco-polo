@@ -27,7 +27,7 @@
     text-align:right;
     margin-right:10px;
 }
-#formulaire input, #formulaire textarea{
+#formulaire input[type="text"], #formulaire input[type="password"], #formulaire textarea{
     margin:0;
     width:200px;
     border:1px solid #ddd;
@@ -53,9 +53,18 @@
     text-align: left;
 }
 
-.button_polo input{
-    margin:0;
-    width:200px;
-    border:1px solid #ddd;
-    padding:3px 5px 3px 25px;
+
+#button_inscrire{
+    background: url(../res/img/boutons/bouton_sinscrire.png) no-repeat;
+    width: 140px;
+    height: 60px;
+    border: none;
+}
+
+#button_connecter{
+    background: url(../res/img/boutons/bouton_sidentifier.png) no-repeat;
+    width: 140px;
+    height: 60px;
+    border: none;
+
 }
