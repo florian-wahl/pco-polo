@@ -3,10 +3,21 @@
  */
 var game = new Phaser.Game(1024, 700, Phaser.CANVAS, 'POLO');
 
+/*
+DECLARATION DES CONSTANTES
+ */
 var GAME_WIDTH = 1024;
 var GAME_HEIGHT = 700;
 var ESPECE_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
 var ESPECE_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
+
+var MAX_SPEED_PLAYER = 300;
+
+var SCORE_POUR_NOUVEAU_JETON = 200;
+
+/*
+DECLARATION DES VARIABLES
+ */
 var player;
 var cursors;
 var walls;
@@ -21,12 +32,10 @@ var button_settings;
 var button_volume;
 
 var on_off_volume = true;
-var settingsOnOff = true;
 
 var nb_jetons = 0;
 var score = 0;
 var score_cumule = 0;
-var SCORE_POUR_NOUVEAU_JETON = 200;
 var badge1 = 0;
 
 var listeBadges = [];
@@ -48,7 +57,7 @@ preloadState = {
         this.loadingBar.anchor.setTo(0.5, 0.5);
         //this.load.setPreloadSprite(this.loadingBar);
         //link_res_perso est défini dans polo.php
-        game.load.image('playButton', 'res/img/mini-jeux/playButton.png');
+        game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);
         game.load.image('background', 'res/img/floor.jpg');
         game.load.image('ship', 'res/img/thrust.png');
@@ -100,14 +109,14 @@ preloadState = {
         }
     },
     create: function () {
-        var start = this.game.add.button(200, 320, "playButton", this.playTheGame, this);
+        var start = this.game.add.button(GAME_WIDTH / 2 - 160, GAME_HEIGHT / 2, "playButton", this.playTheGame, this);
 
     },
     playTheGame: function () {
         this.game.state.start("main");
     }
 
-}
+};
 
 mainState = {
 
@@ -220,14 +229,11 @@ mainState = {
 
 
         //DEPLACEMENTS
-
-        var maxSpeed = 300;
-
         clients[0].move();
 
-        movementControllerJoystick(maxSpeed);
+        movementControllerJoystick(MAX_SPEED_PLAYER);
 
-        //movementControllerCursors(maxSpeed);
+        //movementControllerCursors(MAX_SPEED_PLAYER);
     },
 
     interactionClient: function (player, client) {
@@ -252,7 +258,7 @@ mainState = {
 
     render: function () {
 
-        if (settingsOnOff) {
+        if (false) {
             game.debug.cameraInfo(game.camera, 32, 32);
             game.debug.spriteCoords(player, 32, 600);
         }
@@ -289,7 +295,10 @@ mainState = {
          */
         game.physics.arcade.isPaused = true;
 
+        game.touchControl.inputDisable();
         button_settings.inputEnabled = false;
+
+
         /*AJOUT DU MENU ET DE SON IHM*/
         menu = game.add.sprite(game.camera.x + GAME_WIDTH / 2 - 804 / 2, game.camera.y + GAME_HEIGHT / 2 - 599 / 2, 'menu');
 
@@ -304,6 +313,8 @@ mainState = {
             t_score.destroy();
             t_jetons.destroy();
             button_settings.inputEnabled = true;
+
+            game.touchControl.inputEnable();
 
             // Unpause the game
             reprendre();
@@ -332,6 +343,8 @@ function reprendre () {
     ajaxRequest(setJetons, "nbJeton", null);
     ajaxRequest(setScore, "scoreJour", null);
     game.physics.arcade.isPaused = false;
+
+
 }
 
 
@@ -438,7 +451,14 @@ function ajaxRequest(callback, request, valeur) {
     xhr.send(null);
 }
 
+
+
+function blocco(){
+    alert("Hello! I am an alert box!");
+}
+
 game.state.add('boot', bootState);
 game.state.add('preload', preloadState);
 game.state.add('main', mainState);
 game.state.start('boot');
+

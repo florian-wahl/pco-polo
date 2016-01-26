@@ -65,7 +65,7 @@ switch($resultat[0]['espece']){
 <link rel="stylesheet" href="css/polo.css"  type="text/css" />
 <script src="js/phaser/phaser.min.js"></script>
 <script src="js/phaser/phaser-touch-control.js"></script>
-<script src="js/allFunctions.js"></script>
+<script src="js/mouvementHandler.js"></script>
 <script src="js/jQuizzy.js"></script>
 <script src="js/clientPNJ.js"></script>
 <style type="text/css">

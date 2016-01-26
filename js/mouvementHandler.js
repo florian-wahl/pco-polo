@@ -87,15 +87,3 @@ function movementControllerJoystick (maxSpeed) {
 var easeInSpeed = function(x){
     return x * Math.abs(x) / 2000;
 };
-
-function SetOpacity( imageid, opacity ) {
-    var s= document.getElementById(imageid).style;
-    s.opacity = ( opacity / 100 );
-    s.MozOpacity = ( opacity / 100 );
-    s.KhtmlOpacity = ( opacity / 100 );
-    s.filter = 'alpha(opacity=' + opacity + ')';
-}
-
-function blocco(){
-    alert("Hello! I am an alert box!");
-}
