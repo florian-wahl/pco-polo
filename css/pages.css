@@ -1,9 +1,16 @@
+/* GNERAL */
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+    background: #8ccfb9;
+    border: #8ccfb9;
+}
+
+
 /* AIDES */
 
 .post_it_aide {
     display: none;
     border-radius: 15px 50px 30px;
-    border: double 2px darkseagreen;
+    border: double 2px #8ccfb9;
     width: 600px;
     text-align: center;
     margin: auto;
@@ -130,7 +137,7 @@ table#tableau_scores, .tableau_scores tr, .tableau_scores td {
     font-size: 110%;
     font-style: italic;
     font-weight: bold;
-    color: #003eff;
+    color: #8ccfb9;
 }
 
 h4.tableau_scores {
@@ -218,7 +225,8 @@ input#mini_jeux_2 {
 
 input#mini_jeux_3 {
     background: url(../res/img/mini-jeux/2048_icon.png) no-repeat;
-    background-size: 110%;
+    border-radius: 20px;
+    background-size: 100%;
     background-position: center;
 }
 
@@ -323,15 +331,12 @@ img#img_popup_left {
 }
 
 .button_popup_jouer{
+    background: url(../res/img/boutons/bouton_jouer.png) no-repeat;
     float: right;
-    font:100% Trebuchet MS, Arial, Helvetica, Sans-Serif;
-    vertical-align: bottom;
-    color:#333;
     margin:0;
-    width:100px;
-    height: 40px;
-    border:1px solid #ddd;
-    padding:10px;
+    width: 140px;
+    height: 60px;
+    border: none;
 }
 
 .errJetons {

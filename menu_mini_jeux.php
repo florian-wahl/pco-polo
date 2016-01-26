@@ -23,7 +23,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />
 
         <p id="nb_jetons">
-            Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/>
+            Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 50px; vertical-align: text-bottom;"/>
         </p>
 
         <h3>Que voulez-vous faire ?</h3>
@@ -56,8 +56,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <img src="res/img/mini-jeux/Floppy_Bird_icon.png" id="img_popup_left"/>
             <h2>Floppy Bird</h2>
             <p>Vous dirigez un oiseau : touchez l’écran et l’oiseau saute ! <br>Attention aux obstacles ! Une collision ou une chute vous feront perdre la partie.</p>
-            <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
-            <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" value="Jouer" />
+            <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 40px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
@@ -68,8 +68,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <img src="res/img/mini-jeux/icon_pacman.png" width="250px" id="img_popup_left"/>
             <h2>Pacman Classic</h2>
             <p>Pacman est un jeu d'arcade classique.</p>
-            <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
-            <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" value="Jouer" />
+            <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_2" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
@@ -80,8 +80,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <img src="res/img/mini-jeux/2048_icon.png" id="img_popup_left"/>
             <h2>2048</h2>
             <p>Combinez les chiffres jusqu’à obtenir 2048. <br> Glissez votre doigt dans la direction qui permettra d’additionner les cases portant le même nombre : 4, 8, 16, … 2048 !</p>
-            <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
-            <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" value="Jouer" />
+            <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
@@ -94,8 +94,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/coin.png" style="width: 20px; vertical-align: text-bottom;"/></p>
-            <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" value="Jouer" />
+            <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
