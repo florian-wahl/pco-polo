@@ -10,11 +10,13 @@ var ESPECE_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
 var player;
 var cursors;
 var walls;
+var murs;
+var mur;
 var ship;
 var musicbg;
 var newwindow;
 var transparents;
-var transparente;
+var transparent;
 var button_settings;
 var button_volume;
 
@@ -33,7 +35,7 @@ var lastClient;
 
 bootState = {
     preload: function () {
-        game.load.spritesheet("loading", "../res/img/mini-jeux/loading.png");
+        game.load.spritesheet("loading", "res/img/mini-jeux/loading.png");
     },
     create: function () {
         this.game.state.start("preload");
@@ -42,15 +44,17 @@ bootState = {
 
 preloadState = {
     preload: function () {
-        var loadingBar = this.add.sprite(160, 240, "loading");
-        loadingBar.anchor.setTo(0.5, 0.5);
-        this.load.setPreloadSprite(loadingBar);
+        this.loadingBar = this.add.sprite(160, 240, "loading");
+        this.loadingBar.anchor.setTo(0.5, 0.5);
+        //this.load.setPreloadSprite(this.loadingBar);
         //link_res_perso est défini dans polo.php
+        game.load.image('playButton', 'res/img/mini-jeux/playButton.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);
         game.load.image('background', 'res/img/floor.jpg');
         game.load.image('ship', 'res/img/thrust.png');
         game.load.image('wall', 'res/img/platform.png');
         game.load.image('transparent', 'res/img/transparent.png');
+        game.load.image('mur', 'res/img/wallie.png');
 
         //touch control
         game.load.image('compass', 'res/img/compass_rose.png');
@@ -130,11 +134,11 @@ mainState = {
         //Ajout des clients
         clients[0] = new Client('Tec', 'Red', game.world.centerX + 500, game.world.centerY + 400);
         clients[1] = new Client('Lav', 'Yellow', game.world.centerX - 500, game.world.centerY + 400);
-        clients[2] = new Client('Qi', 'Beige', game.world.centerX - 100, game.world.centerY - 700);
+        clients[2] = new Client('Qi', 'Beige', 150, 500);
 
 
         // Ajout du joueur
-        player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
+        player = game.add.sprite(100, 100, 'player');
         game.physics.arcade.enable(player);
         player.body.collideWorldBounds = true;
 
@@ -155,6 +159,13 @@ mainState = {
         game.camera.deadzone = new Phaser.Rectangle(150, 150, 450, 300);
 
 
+        //mur proto
+        murs = game.add.group();
+        murs.enableBody = true;
+        creermur();
+
+
+        /*
         //Ajout des murs
         walls = game.add.group();
         walls.enableBody = true;
@@ -163,13 +174,18 @@ mainState = {
         wall.body.immovable = true;
         wall = walls.create(500, 600, 'wall');
         wall.body.immovable = true;
+         */
         //code pour bloquer les zones de la carte
         transparents = game.add.group();
         transparents.enableBody = true;
-        if (listeBadges[1] == false) {
-            transparente = transparents.create(1200, 1200, 'transparent');
+        /*if (listeBadges[1] == false) {
+         transparente = transparents.create(600, 360, 'transparent');
             transparente.body.immovable = true;
-        }
+         transparente = transparents.create(600, 320, 'transparent');
+         transparente.body.immovable = true;
+         transparente = transparents.create(600, 280, 'transparent');
+         transparente.body.immovable = true;
+         }*/
 
         ship = game.add.sprite(800, 700, 'ship');
         game.physics.arcade.enable(ship);
@@ -195,6 +211,7 @@ mainState = {
         game.physics.arcade.collide(ship, walls);
         game.physics.arcade.collide(player, transparents);
         game.physics.arcade.collide(player, transparents, blocco, null, this);
+        game.physics.arcade.collide(player, murs);
         for (i = 0; i < clients.length; i++) {
             game.physics.arcade.collide(player, clients[i].getSprite(), this.interactionClient);
         }
@@ -406,7 +423,24 @@ function updateBadges (liste) {
  valeur = valeur de l'information à passer, à mettre à jour; null si pas d'information à passer
 
  */
-
+function creermur() {
+    for (var i = 0; i < 16; i++) {
+        mur = murs.create(i * 40, 0, 'mur');
+        mur = murs.create(i * 40, 600, 'mur');
+        mur.body.immovable = true;
+        if (i == 0 || i == 15) {
+            for (var j = 0; j < 16; j++) {
+                if (i == 15 && (j == 8 || j == 7 || j == 9)) {
+                    mur = murs.create(i * 40, j * 40, 'transparent');
+                }
+                else {
+                    mur = murs.create(i * 40, j * 40, 'mur');
+                    mur.body.immovable = true;
+                }
+            }
+        }
+    }
+}
 function ajaxRequest(callback, request, valeur) {
     var xhr = new XMLHttpRequest();
 
