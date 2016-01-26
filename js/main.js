@@ -71,7 +71,9 @@ preloadState = {
         game.load.audio('kikou', 'res/sons/Kikou.mp3');
 
         //Menu
-        game.load.image('menu', 'res/img/cadre_menu_in_game.png', 900, 700);
+        game.load.image('menu', 'res/img/ingame/menu.png', 804, 599);
+        game.load.image('retour_menu_principal', 'res/img/ingame/retour_menu_principal.png', 430, 60);
+        game.load.image('croix_blanche', 'res/img/ingame/croix_blanche.png', 70, 70);
 
         //Sprites personnages
         for (i = 0; i < ESPECE_COLORS.length; i++) {
@@ -197,9 +199,9 @@ mainState = {
 
         this.setIHM();
 
-        ajaxRequest(this.setJetons, "nbJeton", null);
-        ajaxRequest(this.setScore, "scoreJour", null);
-        ajaxRequest(this.updateBadges, "getBadges", null);
+        ajaxRequest(setJetons, "nbJeton", null);
+        ajaxRequest(setScore, "scoreJour", null);
+        ajaxRequest(updateBadges, "getBadges", null);
 
     },
 
@@ -252,7 +254,7 @@ mainState = {
 
         if (settingsOnOff) {
             game.debug.cameraInfo(game.camera, 32, 32);
-            game.debug.spriteCoords(player, 600, 600);
+            game.debug.spriteCoords(player, 32, 600);
         }
 
 
@@ -286,68 +288,40 @@ mainState = {
          les listeners, donc plus aucun bouton ne fonctionne...
          */
         game.physics.arcade.isPaused = true;
+
+        button_settings.inputEnabled = false;
         /*AJOUT DU MENU ET DE SON IHM*/
-        menu = game.add.sprite(game.camera.x + GAME_WIDTH / 2 - 900 / 2, game.camera.y + GAME_HEIGHT / 2 - 700 / 2, 'menu');
+        menu = game.add.sprite(game.camera.x + GAME_WIDTH / 2 - 804 / 2, game.camera.y + GAME_HEIGHT / 2 - 599 / 2, 'menu');
 
-
-        var text_retour_menu_principal = 'RETOUR AU MENU PRINCIPAL';
-        var text_reglages_sons = 'REGLAGES SONORES';
-        var text_musique = 'Musique';
-        var text_effets = 'Effets';
-        var text_score = 'Score : ';
-        var text_jetons = 'Jetons : ';
-
-        t_reglages_sons = game.add.text(game.camera.x + GAME_WIDTH / 2 - 150, game.camera.y + GAME_HEIGHT / 2 - 200, text_reglages_sons);
-        t_musique = game.add.text(game.camera.x + GAME_WIDTH / 2 - 150, game.camera.y + GAME_HEIGHT / 2 - 150, text_musique);
-        t_effets = game.add.text(game.camera.x + GAME_WIDTH / 2 - 150, game.camera.y + GAME_HEIGHT / 2 - 100, text_effets);
-        retour_menu_principal = game.add.text(game.camera.x + GAME_WIDTH / 2 - 200, game.camera.y + GAME_HEIGHT / 2 + 20, text_retour_menu_principal);
-        retour_menu_principal.inputEnabled = true;
-        retour_menu_principal.events.onInputUp.add(function () {
+        button_retour_menu_principal = game.add.button(game.camera.x + GAME_WIDTH / 2 - 200, game.camera.y + GAME_HEIGHT / 2 -80, 'retour_menu_principal', function () {
             window.location.href = 'menu_principal.php';
-        });
+        }, this, 2, 1, 0);
 
-
-        t_score = game.add.text(game.camera.x + GAME_WIDTH / 2 + 150, game.camera.y + GAME_HEIGHT / 2 + 100, text_score + score);
-
-        t_jetons = game.add.text(game.camera.x + GAME_WIDTH / 2 + 150, game.camera.y + GAME_HEIGHT / 2 + 150, text_jetons + nb_jetons);
-
-        // Add a input listener that can help us return from being paused
-        game.input.onDown.add(this.unPauseMenu, self);
-
-
-    },
-
-    /*
-     Fonction gérant le menu, en particulier à le détruire lorsque
-     l'on quitte le menu
-     */
-    unPauseMenu: function (event) {
-        // Only act if paused
-
-        //TODO: Peut faire mieux avec un sprite de bouton quitté
-        //Cordonnée de la croix du menu
-        var x1 = GAME_WIDTH / 2 + 900 / 2 - 120;
-        var x2 = GAME_WIDTH / 2 + 900 / 2;
-        var y1 = GAME_HEIGHT / 2 - 700 / 2;
-        var y2 = GAME_HEIGHT / 2 - 700 / 2 + 120;
-
-        // Si l'utilisateur touche la croix
-        if (event.x > x1 && event.x < x2 && event.y > y1 && event.y < y2) {
-            // Remove the menu and the label
+        button_croix_blanche = game.add.button(game.camera.x + 843, game.camera.y + 52, 'croix_blanche', function () {
             menu.destroy();
-            retour_menu_principal.destroy();
-            t_reglages_sons.destroy();
-            t_musique.destroy();
-            t_effets.destroy();
+            button_retour_menu_principal.destroy();
+            button_croix_blanche.destroy();
             t_score.destroy();
             t_jetons.destroy();
+            button_settings.inputEnabled = true;
 
             // Unpause the game
-            this.reprendre();
-        }
-        else {
+            reprendre();
+        }, this, 2, 1, 0);
 
-        }
+
+        t_score = game.add.text(game.camera.x + 760, game.camera.y + 530,  score);
+        t_score.font = 'Arial Black';
+        t_score.fontSize = 40;
+        t_score.fontWeight = 'bold';
+        t_score.fill = '#6ec2a6';
+
+        t_jetons = game.add.text(game.camera.x + 785, game.camera.y + 588,  nb_jetons);
+        t_jetons.font = 'Arial Black';
+        t_jetons.fontSize = 40;
+        t_jetons.fontWeight = 'bold';
+        t_jetons.fill = '#6ec2a6';
+
 
     }
 
@@ -355,6 +329,8 @@ mainState = {
 };
 
 function reprendre () {
+    ajaxRequest(setJetons, "nbJeton", null);
+    ajaxRequest(setScore, "scoreJour", null);
     game.physics.arcade.isPaused = false;
 }
 
@@ -366,7 +342,7 @@ function reprendre () {
  */
 function addToScore(scoreToAdd) {
 
-    this.ajaxRequest(null, "addToScore", scoreToAdd);
+    ajaxRequest(null, "addToScore", scoreToAdd);
 
     /*
      On test si le score cumulé permet de débloqué un nouveau jeton
@@ -374,7 +350,7 @@ function addToScore(scoreToAdd) {
     score_cumule += scoreToAdd;
     while (score_cumule >= SCORE_POUR_NOUVEAU_JETON) {
         score_cumule -= SCORE_POUR_NOUVEAU_JETON;
-        this.ajaxRequest(null, "addToJeton", 1);
+        ajaxRequest(null, "addToJeton", 1);
     }
 
 
