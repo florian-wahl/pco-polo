@@ -59,6 +59,7 @@ preloadState = {
         //this.load.setPreloadSprite(this.loadingBar);
         //link_res_perso est défini dans polo.php
         game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
+        game.load.image('tu1', 'res/img/tu1.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);
         game.load.image('background', 'res/img/floor.jpg');
         game.load.image('ship', 'res/img/thrust.png');
@@ -114,6 +115,7 @@ preloadState = {
     },
     create: function () {
         var start = this.game.add.button(GAME_WIDTH / 2 - 160, GAME_HEIGHT / 2, "playButton", this.playTheGame, this);
+        
 
     },
     playTheGame: function () {
