@@ -61,7 +61,7 @@ switch($resultat[0]['espece']){
 }
 ?>
 
-<link rel="stylesheet" href="css/quiz.css"  type="text/css" />
+<link rel="stylesheet" href="css/quizz.css" type="text/css" />
 <link rel="stylesheet" href="css/polo.css"  type="text/css" />
 <script src="js/phaser/phaser.min.js"></script>
 <script src="js/phaser/phaser-touch-control.js"></script>

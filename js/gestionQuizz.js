@@ -3,7 +3,7 @@
  */
 
     /*INITIALISATION */
-var NOMBRE_QUIZZ_MAX = 4;
+var NOMBRE_QUIZZ_MAX = 2;
 
 var last_quizz_id;
 //On défini les différents tableaux

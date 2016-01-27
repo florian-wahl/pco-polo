@@ -72,7 +72,7 @@
 
                 if (empty($_POST["reponse_s_1"])) {
                     $errReponse_s_1 = "Une réponse à la question secrète est requise";
-                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["reponse_s_1"])) {
+                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë0-9 -]*$/", $_POST["reponse_s_1"])) {
                     $errReponse_s_1 = "Ne peut contenir que des lettres et des espaces";
                 } else {
                     $reponse_s_1 = test_input($_POST["reponse_s_1"]);
@@ -88,7 +88,7 @@
 
                 if (empty($_POST["reponse_s_2"])) {
                     $errReponse_s_2 = "Une réponse à la question secrète est requise";
-                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["reponse_s_2"])) {
+                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë0-9 -]*$/", $_POST["reponse_s_2"])) {
                     $errReponse_s_2 = "Ne peut contenir que des lettres et des espaces";
                 } else {
                     $reponse_s_2 = test_input($_POST["reponse_s_2"]);
