@@ -115,7 +115,6 @@ preloadState = {
     },
     create: function () {
         var start = this.game.add.button(GAME_WIDTH / 2 - 160, GAME_HEIGHT / 2, "playButton", this.playTheGame, this);
-        
 
     },
     playTheGame: function () {

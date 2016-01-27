@@ -182,6 +182,7 @@
                 }
                 resultSet += '</ul></div></div>';
             }
+
             score = roundReloaded(trueCount * 100, 2);
             
             resultSet = '<h2 class="qTitle">' + judgeSkills(score) + '<br/> Votre score： ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div>';
