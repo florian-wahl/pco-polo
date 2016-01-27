@@ -73,16 +73,19 @@ preloadState = {
 
         //Images boutons
         game.load.image('settings', 'res/img/settings.png');
-        game.load.image('volume', 'res/img/volume.png');
-        game.load.image('volume_mute', 'res/img/volume_mute.png');
 
         //Sounds
-        game.load.audio('kikou', 'res/sons/Kikou.mp3');
+        game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
 
         //Menu
         game.load.image('menu', 'res/img/ingame/menu.png', 804, 599);
         game.load.image('retour_menu_principal', 'res/img/ingame/retour_menu_principal.png', 430, 60);
         game.load.image('croix_blanche', 'res/img/ingame/croix_blanche.png', 70, 70);
+        game.load.image('gestion_musique_menu', 'res/img/ingame/gestion_musique_menu.png', 200, 55);
+        game.load.image('musique_menu', 'res/img/ingame/musique_menu.png', 200, 55);
+        game.load.image('reglages_sons_menu', 'res/img/ingame/reglages_sons_menu.png', 405, 60);
+        game.load.image('score_menu', 'res/img/ingame/score_menu.png', 152, 37);
+        game.load.image('jetons_menu', 'res/img/ingame/jetons_menu.png', 177, 35);
 
         //Sprites personnages
         for (i = 0; i < ESPECE_COLORS.length; i++) {
@@ -134,8 +137,8 @@ mainState = {
             popup.style.display = 'none';
         };
 
-        musicbg = game.add.audio('kikou');
-        //musicbg.play();
+        musicbg = game.add.audio('fond_sonore');
+        musicbg.play();
         game.add.tileSprite(0, 0, 1920, 1920, 'background');
 
         game.world.setBounds(0, 0, 1920, 1920);
@@ -268,25 +271,11 @@ mainState = {
 
     setIHM: function () {
 
-        //Volume button
-        button_volume = game.add.button(game.width - 60, 20, 'volume', this.actionOnClickVolume, this, 2, 1, 0);
-        button_volume.fixedToCamera = true;
-
         button_settings = game.add.button(game.width - 120, 20, 'settings', this.actionOnClickMenu, this, 2, 1, 0);
         button_settings.fixedToCamera = true;
 
     },
 
-    actionOnClickVolume: function () {
-        on_off_volume = !on_off_volume;
-
-        if (on_off_volume) {
-            musicbg.pause();
-        }
-        else {
-            musicbg.resume();
-        }
-    },
 
     actionOnClickMenu: function () {
         //On pause la physique du jeu.
@@ -306,10 +295,15 @@ mainState = {
             window.location.href = 'menu_principal.php';
         }, this, 2, 1, 0);
 
+        button_gestion_musique = game.add.button(game.camera.x + GAME_WIDTH / 2 - 95, game.camera.y + GAME_HEIGHT / 2 -160, 'musique_menu', function () {
+            actionOnClickVolume();
+        }, this, 2, 1, 0);
+
         button_croix_blanche = game.add.button(game.camera.x + 843, game.camera.y + 52, 'croix_blanche', function () {
             menu.destroy();
             button_retour_menu_principal.destroy();
             button_croix_blanche.destroy();
+            button_gestion_musique.destroy();
             t_score.destroy();
             t_jetons.destroy();
             button_settings.inputEnabled = true;
@@ -452,6 +446,16 @@ function ajaxRequest(callback, request, valeur) {
 }
 
 
+function actionOnClickVolume() {
+    on_off_volume = !on_off_volume;
+
+    if (on_off_volume) {
+        musicbg.pause();
+    }
+    else {
+        musicbg.resume();
+    }
+}
 
 function blocco(){
     alert("Hello! I am an alert box!");
