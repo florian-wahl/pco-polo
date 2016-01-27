@@ -1,7 +1,7 @@
 /**
  * Created by Florian on 13/11/2015.
  */
-var game = new Phaser.Game(1024, 700, Phaser.CANVAS, 'POLO');
+var game = new Phaser.Game(1024, 705, Phaser.CANVAS, 'POLO');
 
 /*
 DECLARATION DES CONSTANTES

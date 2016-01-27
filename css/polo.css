@@ -73,7 +73,7 @@ li{
     background:#fff;
     width:820px;
     min-height: 500px;
-    padding:20px 40px;
+    padding:20px 20px;
     text-align:left;
 }
 
@@ -91,8 +91,8 @@ li{
 #popup {
     display:none;
     position:absolute;
-    top:50%;
-    left:50%;
+    top:350px;
+    left:670px;
 
     background: #999;
     width: 100px;
@@ -102,7 +102,9 @@ li{
     z-index: 200;
 }
 .popupcontrols{
-    position:absolute;left:500px;top:20px;
+    position:absolute;
+    left:500px;
+    top:20px;
 }
 #popupclose{
     float:none;
@@ -110,7 +112,7 @@ li{
     cursor:pointer;
 }
 .popupcontent{
-    padding:15px;
+    padding:0px;
 }
 
 #loading_gif{
