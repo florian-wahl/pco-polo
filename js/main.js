@@ -407,16 +407,16 @@ function updateBadges (liste) {
 
  */
 function creermur() {
-    for (var i = 0; i < 16; i++) {
+    for (var i = 0; i < 32; i++) {
         mur = murs.create(i * 40, 0, 'mur');
-        mur = murs.create(i * 40, 600, 'mur');
         mur.body.immovable = true;
-        if (i == 0 || i == 15) {
+        if (!(i == 24 || i == 25 || i == 26)) {
+            mur = murs.create(i * 40, 600, 'mur');
+        }
+        mur.body.immovable = true;
+        if (i == 0 || i == 15 || i == 31) {
             for (var j = 0; j < 16; j++) {
-                if (i == 15 && (j == 8 || j == 7 || j == 9)) {
-                    mur = murs.create(i * 40, j * 40, 'transparent');
-                }
-                else {
+                if (!(i == 15 && (j == 8 || j == 7 || j == 9))) {
                     mur = murs.create(i * 40, j * 40, 'mur');
                     mur.body.immovable = true;
                 }
