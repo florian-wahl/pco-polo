@@ -45,6 +45,7 @@ var lastClient;
 bootState = {
     preload: function () {
         game.load.spritesheet("loading", "res/img/mini-jeux/loading.png");
+        game.load.spritesheet("loading2", "res/img/barra.png");
     },
     create: function () {
         this.game.state.start("preload");
@@ -174,6 +175,8 @@ mainState = {
 
 
         //mur proto
+        transparents = game.add.group();
+        transparents.enableBody = true;
         murs = game.add.group();
         murs.enableBody = true;
         creermur();
@@ -190,8 +193,7 @@ mainState = {
         wall.body.immovable = true;
          */
         //code pour bloquer les zones de la carte
-        transparents = game.add.group();
-        transparents.enableBody = true;
+
         /*if (listeBadges[1] == false) {
          transparente = transparents.create(600, 360, 'transparent');
             transparente.body.immovable = true;
@@ -224,6 +226,7 @@ mainState = {
         game.physics.arcade.collide(player, ship);
         game.physics.arcade.collide(ship, walls);
         game.physics.arcade.collide(player, transparents);
+        //game.physics.arcade.collide(player,transparent);
         game.physics.arcade.collide(player, transparents, blocco, null, this);
         game.physics.arcade.collide(player, murs);
         for (i = 0; i < clients.length; i++) {
@@ -416,7 +419,18 @@ function creermur() {
         mur.body.immovable = true;
         if (i == 0 || i == 15 || i == 31) {
             for (var j = 0; j < 16; j++) {
-                if (!(i == 15 && (j == 8 || j == 7 || j == 9))) {
+
+                if ((i == 15 && (j == 8 || j == 7 || j == 9))) {
+                    console.log("a");
+                    transparent = transparents.create(i * 40, j * 40, 'mur');
+                    transparent.body.immovable = true;
+                    transparent.renderable = false;
+                    if (listeBadges[1] == 0) {
+                        console.log("alo");
+                        transparent.kill();
+                    }
+                }
+                else {
                     mur = murs.create(i * 40, j * 40, 'mur');
                     mur.body.immovable = true;
                 }
@@ -458,7 +472,7 @@ function actionOnClickVolume() {
 }
 
 function blocco(){
-    alert("Hello! I am an alert box!");
+
 }
 
 game.state.add('boot', bootState);
