@@ -81,7 +81,7 @@ preloadState = {
         game.load.image('settings', 'res/img/settings.png');
 
         //Sounds
-        game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
+        //game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
 
         //Menu
         game.load.image('menu', 'res/img/ingame/menu.png', 804, 599);
@@ -143,8 +143,8 @@ mainState = {
             popup.style.display = 'none';
         };
 
-        musicbg = game.add.audio('fond_sonore');
-        musicbg.play();
+        //musicbg = game.add.audio('fond_sonore');
+        //musicbg.play();
         game.add.tileSprite(0, 0, 1920, 1920, 'background');
 
         game.world.setBounds(0, 0, 1920, 1920);
@@ -349,7 +349,6 @@ mainState = {
 function reprendre () {
     ajaxRequest(setJetons, "nbJeton", null);
     ajaxRequest(setScore, "scoreJour", null);
-    ajaxRequest(updateBadges, "getBadges", null);
     game.physics.arcade.isPaused = false;
 
 
@@ -478,10 +477,10 @@ function actionOnClickVolume() {
     on_off_volume = !on_off_volume;
 
     if (on_off_volume) {
-        musicbg.pause();
+       // musicbg.pause();
     }
     else {
-        musicbg.resume();
+       // musicbg.resume();
     }
 }
 
@@ -491,15 +490,14 @@ function blocco(){
 
 function testDebloquageBadge(){
     if(score >= 400 && listeBadges[4] == 0 && ajoutBadge4 == false){
+        listeBadges[4] = 1;
         ajaxRequest(badgeAjoute, 'addBadge', 4);
         ajoutBadge4 = true;
-        console.log("demande d'ajout envoyée");
     }
 }
 
 function badgeAjoute(numBadge){
     listeBadges[numBadge] = 1;
-    console.log(numBadge + " ajoute dans la liste");
     ajaxRequest(updateBadges, "getBadges", null);
 }
 game.state.add('boot', bootState);
