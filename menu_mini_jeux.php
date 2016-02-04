@@ -23,7 +23,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />
 
         <p id="nb_jetons">
-            Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 50px; vertical-align: text-bottom;"/>
+            Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 50px;"/>
         </p>
 
         <h3>Que voulez-vous faire ?</h3>

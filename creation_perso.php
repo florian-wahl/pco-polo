@@ -70,15 +70,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <h4>Les Tut</h4>
                     <img id="img_tut" class="img_perso" src="res/img/personnages/Green/Alpha/idle.png">
                     <p>
-                        Ils habitent la planète QP66 et ceux-ci se distinguent des autres espèces grâce à leur caractère
-                        « touche à tout ».
-                        Evidemment ils ne naissent pas avec toutes leurs capacités développées, mais ils ont l’habilité
-                        d’apprendre très vite,
-                        bien plus que les autres espèces. Bien sûr, ils ont souvent un peu de mal par rapport aux autres
-                        espèces au début,
-                        mais avec le temps ils sont capables de s’adapter et de s’améliorer énormément. Ils sont donc
-                        des travailleurs
-                        intelligents et très flexibles.
+                        <b>Nom :</b> Tut <br>
+                        <b>Planète :</b> QP66 <br>
+                        <b>Signes particulières :</b> Leur capacité c’est l’apprentissage, Ils apprennent très vit leur travail et tout autre type de compétences.
                     </p>
                 </div>
 
@@ -86,15 +80,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <h4>Les Tec</h4>
                     <img id="img_tec" class="img_perso" src="res/img/personnages/Green/Zeta/idle.png">
                     <p>
-                        Ceci est une espèce unique dans tout l’univers connu. Provenant de la planète HQ30, ils sont en
-                        fait une forme de
-                        vie Biotechnologique. En étudiant l’histoire de leur évolution, on s’est aperçu que la
-                        technologie et les cellules
-                        ont toujours été en symbiose. Personne n’a encore vraiment compris quand et comment ceci était
-                        arrivé. Au vu de
-                        leur symbiose avec la technologie, ils maîtrisent toute forme d’électronique et savent utiliser
-                        ces instruments
-                        mieux que les autres.
+                        <b>Nom :</b> Tec <br>
+                        <b>Planète :</b> HQ30 <br>
+                        <b>Signes particulières :</b> Ils sont des formes de vie biotechnologiques, ils arrivent à bien utiliser  tout outil informatique
                     </p>
                 </div>
 
@@ -102,13 +90,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <h4>Les Pri</h4>
                     <img id="img_pri" class="img_perso" src="res/img/personnages/Green/Gamma/idle.png">
                     <p>
-                        Ils viennent de la planète Frolix8. Ils sont une espèce assez compétitive et avec un bon esprit
-                        d’entreprenariat
-                        mais jamais incorrects (ce n’est pas un hasard que le patron de l’astroport soit un Pri). Ils
-                        savent bien comment
-                        et quand vendre quelque chose à quelqu’un, cette caractéristique les rend très importants pour
-                        le service commercial
-                        de la compagnie.
+                        <b>Nom :</b> Pri <br>
+                        <b>Planète :</b> Frolix8 <br>
+                        <b>Signes particulières :</b> Ils ont un sens des affaires très développé
                     </p>
                 </div>
 
@@ -116,14 +100,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <h4>Les Lav</h4>
                     <img id="img_lav" class="img_perso" src="res/img/personnages/Green/Delta/idle.png">
                     <p>
-                        Provenant de la planète FI12, les Lav sont des grands travailleurs. Les conditions peu
-                        favorables de leur planète
-                        d’origine ont permis de développer une résistance à la fatigue et une motivation jamais vue chez
-                        les autres espèces.
-                        Ils n’aiment pas s’arrêter beaucoup de temps, ils aiment leur travail et ils le connaissent à la
-                        perfection.
-                        Ils sont souvent un point de référence pour les autres membres de l’équipe, qui n’hésiteront pas
-                        à leur demander des conseils.
+                        <b>Nom :</b> Lav <br>
+                        <b>Planète :</b> FI12 <br>
+                        <b>Signes particulières :</b> Les dures conditions sur leurs planète leur à permit de devenir des grands travailleur, ils ne sentent pas la fatigue et ils n’aiment pas trop les pauses
                     </p>
                 </div>
 
@@ -131,25 +110,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <h4>Les Qi</h4>
                     <img id="img_qi" class="img_perso" src="res/img/personnages/Green/Beta/idle.png">
                     <p>
-                        Ils viennent de la planète XK12. Une particularité dans leur évolution leur a permis de
-                        développer trois yeux :
-                        les deux premiers pour voir la réalité et le troisième pour comprendre les autres. Cela peut
-                        sembler bizarre mais
-                        lorsqu’un Qi parle avec quelqu’un, le troisième œil est toujours focalisé sur cette personne ;
-                        ceci permet à cette
-                        espèce de bien comprendre les problèmes et les états d’esprit des gens. Ils sont en général très
-                        gentils, donc
-                        représentent une ressource extrêmement importante pour le RV (Ressource vivantes) de la
-                        compagnie. Ils viennent
-                        de la planète XK12. Une particularité dans leur évolution leur a permis de développer trois yeux
-                        : les deux
-                        premiers pour voir la réalité et le troisième pour comprendre les autres. Cela peut sembler
-                        bizarre mais lorsqu’un
-                        Qi parle avec quelqu’un, le troisième œil est toujours focalisé sur cette personne ; ceci permet
-                        à cette espèce de
-                        bien comprendre les problèmes et les états d’esprit des gens. Ils sont en général très gentils,
-                        donc représentent
-                        une ressource extrêmement importante pour le RV (Ressource vivantes) de la compagnie.
+                        <b>Nom :</b> Qi <br>
+                        <b>Planète :</b> XK12 <br>
+                        <b>Yeux :</b> 3 <br>
+                        <b>Signes particulières :</b> Ils ont un troisième œil qui lui sert pour comprendre l’état d’esprit des gens
+
                     </p>
                 </div>
 
@@ -168,7 +133,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             </div>
 
 
-            <input id="submit_perso" type="submit" value="Valider">
+            <input id="submit_perso" type="submit" value="">
             <br>
 
         </form>

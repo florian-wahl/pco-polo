@@ -63,13 +63,19 @@
 
 #submit_perso{
     float: right;
-    margin: 20px;
+    width: 140px;
+    height: 60px;
+    border: none;
+    background: url(../res/img/boutons/bouton_valider.png) no-repeat;
 }
 
 #selection_pseudo {
     text-align: center;
 }
 
+#selection_espece{
+    min-height: 350px;
+}
 #selection_couleur{
     text-align: center;
 }

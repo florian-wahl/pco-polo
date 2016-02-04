@@ -64,10 +64,10 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <div id="profil_top">
 
             <div id="profil_apercu">
-                <p>Nom : <?php echo $_SESSION["nom"]; ?></p>
-                <p>Prénom : <?php echo $_SESSION["prenom"]; ?></p>
-                <p>Matricule : <?php echo $_SESSION["matricule"]; ?></p>
-                <p>Pseudonyme : <?php echo $_SESSION["pseudonyme"]; ?></p>
+                <p><b>Nom :</b> <?php echo $_SESSION["nom"]; ?></p>
+                <p><b>Prénom :</b> <?php echo $_SESSION["prenom"]; ?></p>
+                <p><b>Matricule :</b> <?php echo $_SESSION["matricule"]; ?></p>
+                <p><b>Pseudonyme :</b> <?php echo $_SESSION["pseudonyme"]; ?></p>
             </div>
 
             <script>

@@ -87,7 +87,6 @@ preloadState = {
         game.load.image('menu', 'res/img/ingame/menu.png', 804, 599);
         game.load.image('retour_menu_principal', 'res/img/ingame/retour_menu_principal.png', 430, 60);
         game.load.image('croix_blanche', 'res/img/ingame/croix_blanche.png', 70, 70);
-        game.load.image('gestion_musique_menu', 'res/img/ingame/gestion_musique_menu.png', 200, 55);
         game.load.image('musique_menu', 'res/img/ingame/musique_menu.png', 200, 55);
         game.load.image('reglages_sons_menu', 'res/img/ingame/reglages_sons_menu.png', 405, 60);
         game.load.image('score_menu', 'res/img/ingame/score_menu.png', 152, 37);

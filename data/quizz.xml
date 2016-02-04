@@ -2,9 +2,11 @@
     <quizz id="1">
         <type>TEXTE</type>
         <scenario>
-            Client : Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ? &#13;
-            Vous : Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? &#13;
-            Client : Oui, je l'ai imprimé hier soir. La voici.
+            <![CDATA[
+            <b>Client :</b> Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?<br/>
+            <b>Vous :</b> Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? <br/>
+            <b>Client :</b> Oui, je l'ai imprimé hier soir. La voici.<br/>
+            ]]>
         </scenario>
         <questions>
             <question id="1">
@@ -38,8 +40,11 @@
     <quizz id="2">
         <type>TEXTE</type>
         <scenario>
-            Vous : Bonjour. Est-ce que je peux vous aider ? &#13;
-            Client : Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui (Il est actuellement 10.00)
+            <![CDATA[
+            <b>Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+            <i>(Il est actuellement 10.00)</i><br/>
+            ]]>
         </scenario>
         <questions>
             <question id="1">
