@@ -15,6 +15,8 @@ var MAX_SPEED_PLAYER = 300;
 
 var SCORE_POUR_NOUVEAU_JETON = 200;
 
+var NOMBRE_BADGE_MAX = 11;
+
 /*
 DECLARATION DES VARIABLES
  */
@@ -32,6 +34,8 @@ var button_settings;
 var button_volume;
 
 var on_off_volume = true;
+
+var ajoutBadge4 = false;
 
 var nb_jetons = 0;
 var score = 0;
@@ -244,7 +248,7 @@ mainState = {
     },
 
     interactionClient: function (player, client) {
-
+/*
         if (lastClient == client) {
             //On ne fait rien
         }
@@ -255,15 +259,20 @@ mainState = {
              LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
              Pour démarrer un quizz, faire appel à demarrerQuizz(id_quizz)
              */
+
             demarrerQuizz(0);
             game.physics.arcade.isPaused = true;
-
-        }
+/*
+        }*/
 
     },
 
 
     render: function () {
+
+
+        testDebloquageBadge();
+        updateMap();
 
         if (false) {
             game.debug.cameraInfo(game.camera, 32, 32);
@@ -340,6 +349,7 @@ mainState = {
 function reprendre () {
     ajaxRequest(setJetons, "nbJeton", null);
     ajaxRequest(setScore, "scoreJour", null);
+    ajaxRequest(updateBadges, "getBadges", null);
     game.physics.arcade.isPaused = false;
 
 
@@ -389,7 +399,7 @@ function updateBadges (liste) {
 
     var tabBadges = liste.split("/");
     var i = 0;
-    while (i < 11) {// 11 = nombre de badges au total
+    while (i < NOMBRE_BADGE_MAX) {// 11 = nombre de badges au total
         listeBadges[i] = false;
         i++;
     }
@@ -402,6 +412,14 @@ function updateBadges (liste) {
 
 }
 
+function updateMap(){
+
+    //Blocage du niveau 1 séquence de test
+    if (listeBadges[4] == 1) {
+
+        transparents.destroy();
+    }
+}
 /*
  Utilisé pour obtenir ou envoyer une info à la base de données
 
@@ -422,14 +440,9 @@ function creermur() {
             for (var j = 0; j < 16; j++) {
 
                 if ((i == 15 && (j == 8 || j == 7 || j == 9))) {
-                    console.log("a");
                     transparent = transparents.create(i * 40, j * 40, 'mur');
                     transparent.body.immovable = true;
                     transparent.renderable = false;
-                    if (listeBadges[1] == 0) {
-                        console.log("alo");
-                        transparent.kill();
-                    }
                 }
                 else {
                     mur = murs.create(i * 40, j * 40, 'mur');
@@ -476,6 +489,19 @@ function blocco(){
 
 }
 
+function testDebloquageBadge(){
+    if(score >= 400 && listeBadges[4] == 0 && ajoutBadge4 == false){
+        ajaxRequest(badgeAjoute, 'addBadge', 4);
+        ajoutBadge4 = true;
+        console.log("demande d'ajout envoyée");
+    }
+}
+
+function badgeAjoute(numBadge){
+    listeBadges[numBadge] = 1;
+    console.log(numBadge + " ajoute dans la liste");
+    ajaxRequest(updateBadges, "getBadges", null);
+}
 game.state.add('boot', bootState);
 game.state.add('preload', preloadState);
 game.state.add('main', mainState);

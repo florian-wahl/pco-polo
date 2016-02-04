@@ -160,7 +160,8 @@ function genererjQuizzy(){
     //On démarre le quizz
     $(function() {
         $('#quiz-container').jquizzy({
-            questions: listeQuizz.questions
+            questions: listeQuizz.questions,
+            scenario: scenario
         });
     });
 

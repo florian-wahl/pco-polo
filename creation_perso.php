@@ -48,8 +48,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
         <form id="creation_perso" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 
-            <p id="fleche_gauche" class="fleche_aide"> < </p>
-            <p id="fleche_droite" class="fleche_aide"> > </p>
+            <p id="fleche_gauche" class="fleche_aide"> </p>
+            <p id="fleche_droite" class="fleche_aide"> </p>
 
             <div id="selection_pseudo">
                 <label for="choix_pseudo"><b>Choisissez un pseudonyme : </b></label>

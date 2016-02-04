@@ -2,8 +2,8 @@
     <quizz id="1">
         <type>TEXTE</type>
         <scenario>
-            Client : Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?
-            Vous : Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ?
+            Client : Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ? &#13;
+            Vous : Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? &#13;
             Client : Oui, je l'ai imprimé hier soir. La voici.
         </scenario>
         <questions>
@@ -38,7 +38,7 @@
     <quizz id="2">
         <type>TEXTE</type>
         <scenario>
-            Vous : Bonjour. Est-ce que je peux vous aider ?
+            Vous : Bonjour. Est-ce que je peux vous aider ? &#13;
             Client : Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui (Il est actuellement 10.00)
         </scenario>
         <questions>

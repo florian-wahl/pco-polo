@@ -23,7 +23,7 @@
         }
         var superContainer = $(this),
         answers = [],
-        introFob = '	<div class="intro-container slide-container"><div class="dialog"><img src="res/img/tu1.png" ><div style="position:absolute;z-index:99;top:20%; left:25%; ">Welcome! Do you know the answers? Come on!</div></div><a class="nav-start" href="#">Êtes vous prêt ?<br/><br/><span><img src="'+config.startImg+'"></span></a></div>	',
+        introFob = '	<div class="intro-container slide-container"><div class="dialog">'+ config.scenario +'</div><a class="nav-start" href="#">Commencer.<br/><br/><span></span></a></div>	',
         exitFob = '<div class="results-container slide-container"><div class="question-number">' + config.endText + '</div><div class="result-keeper"></div></div><div class="notice">Merci de choisir une réponse</div><div class="progress-keeper" ><div class="progress"></div></div>',
         contentFob = '',
         questionsIteratorIndex,
@@ -192,6 +192,10 @@
 
             //Mise à jour des statistiques associées
             updateStatsQuizz(trueCount, questionLength);
+
+            //on nettoie le quizz
+            config.questions = null;
+            config.answer = null;
 
             superContainer.find('.result-keeper').html(resultSet).show(500);
             superContainer.find('.resultsview-qhover').hide();
