@@ -3,7 +3,7 @@
         var defaults = {
             questions: null,
             startImg: 'res/img/custom_icon_polo.png',
-            endText: '2/2',
+            endText: 'Bravo !',
             shortURL: null,
             sendResultsURL: null,
             resultComments: {

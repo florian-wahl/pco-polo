@@ -178,6 +178,16 @@ function genererjQuizzy(){
  */
 function initQuizz(id_quizz){
     last_quizz_id = id_quizz;
+
+    //On remet à null les anciennes données
+    scenario = null;
+    intituleQuestions = [];
+    intituleReponses = new Array(5);
+    for( var j = 0; j < 5; j++){
+        intituleReponses[j] = [];
+    }
+    numTrueReponses = [];
+
     $.when(
         //ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
         //ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
