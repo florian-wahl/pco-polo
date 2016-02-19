@@ -65,7 +65,7 @@ preloadState = {
         game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
         game.load.image('ren', 'res/img/ren.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);
-        game.load.image('background', 'res/img/floor.jpg');
+        game.load.image('background', 'res/img/ingame/carte.jpg', 2890, 2206);
         game.load.image('ship', 'res/img/thrust.png');
         game.load.image('wall', 'res/img/platform.png');
         game.load.image('transparent', 'res/img/transparent.png');
@@ -144,9 +144,9 @@ mainState = {
 
         //musicbg = game.add.audio('fond_sonore');
         //musicbg.play();
-        game.add.tileSprite(0, 0, 1920, 1920, 'background');
+        game.add.tileSprite(0, 0, 2890, 2206, 'background');
 
-        game.world.setBounds(0, 0, 1920, 1920);
+        game.world.setBounds(0, 0, 2890, 2206);
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -157,7 +157,7 @@ mainState = {
 
 
         // Ajout du joueur
-        player = game.add.sprite(100, 100, 'player');
+        player = game.add.sprite(1100, 1900, 'player');
         game.physics.arcade.enable(player);
         player.body.collideWorldBounds = true;
 
@@ -273,7 +273,7 @@ mainState = {
         testDebloquageBadge();
         updateMap();
 
-        if (false) {
+        if (1) {
             game.debug.cameraInfo(game.camera, 32, 32);
             game.debug.spriteCoords(player, 32, 600);
         }
