@@ -79,9 +79,9 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
             break;
         case 'setPersonnage':
 
-            $stmt = $poloDB->prepare("SELECT id_personnage FROM personnage WHERE couleur = :couleur AND espece = :espece;");
+            $stmt = $poloDB->prepare("SELECT id_personnage FROM personnage WHERE couleur = :couleur AND clan = :clan;");
             $stmt->bindValue(':couleur', $_GET['couleur']);
-            $stmt->bindValue(':espece', $_GET['espece']);
+            $stmt->bindValue(':clan', $_GET['clan']);
             $stmt->execute();
 
             //On récupère les résultats

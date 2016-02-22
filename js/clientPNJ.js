@@ -2,13 +2,13 @@
  * Permet de créer un client et de gérer sa physique dans le jeux
  */
 
-function Client(espece, couleur, posX, posY){
-    this.espece = espece;
+function Client(clan, couleur, posX, posY){
+    this.clan = clan;
     this.couleur = couleur;
     this.posX = posX;
     this.posY = posY;
 
-    this.gameSprite = game.add.sprite(this.posX, this.posY, this.espece+this.couleur);
+    this.gameSprite = game.add.sprite(this.posX, this.posY, this.clan+this.couleur);
     game.physics.arcade.enable(this.gameSprite);
     this.gameSprite.body.immovable = true;
     this.gameSprite.body.collideWorldBounds = true;

@@ -1,26 +1,26 @@
 $(document).ready(function() {
 
-    var num_espece = 1;
-    var nb_espece = $(".espece_perso").size();
+    var num_clan = 1;
+    var nb_clan = $(".clan_perso").size();
 
     update_post_it();
 
 
    $("#fleche_droite").click(function(){
-        num_espece ++;
+        num_clan ++;
 
-       if(num_espece  > nb_espece){
-           num_espece  = 1;
+       if(num_clan  > nb_clan){
+           num_clan  = 1;
        }
 
        update_post_it();
    });
 
     $("#fleche_gauche").click(function(){
-        num_espece --;
+        num_clan --;
 
-        if(num_espece  < 1){
-            num_espece  = nb_espece;
+        if(num_clan  < 1){
+            num_clan  = nb_clan;
         }
 
         update_post_it();
@@ -28,11 +28,11 @@ $(document).ready(function() {
 
     function update_post_it(){
 
-        var nom_espece_perso = "#perso-"+num_espece ;
+        var nom_clan_perso = "#perso-"+num_clan ;
 
-        $(".espece_perso").hide();
+        $(".clan_perso").hide();
 
-        $(nom_espece_perso).show();
+        $(nom_clan_perso).show();
 
     }
 
@@ -43,27 +43,27 @@ $(document).ready(function() {
         //Protocole AJAX
 
         var xmlhttp = new XMLHttpRequest();
-        var espece;
+        var clan;
 
-        switch (num_espece){
+        switch (num_clan){
             case 1:
-                espece = "Tut";
+                clan = "Tut";
                 break;
             case 2:
-                espece = "Tec";
+                clan = "Tec";
                 break;
             case 3:
-                espece = "Pri";
+                clan = "Pri";
                 break;
             case 4:
-                espece = "Lav";
+                clan = "Lav";
                 break;
             case 5:
-                espece = "Qi";
+                clan = "Qi";
                 break;
 
         }
-        xmlhttp.open("GET","ajaxDB.php?q=setPersonnage&espece="+espece+"&couleur="+couleur, true);
+        xmlhttp.open("GET","ajaxDB.php?q=setPersonnage&clan="+clan+"&couleur="+couleur, true);
         xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xmlhttp.send();
 

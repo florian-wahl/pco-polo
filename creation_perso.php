@@ -62,11 +62,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             </div>
 
 
-            <div id="selection_espece">
+            <div id="selection_clan">
 
-                <p class="choix">Choisissez l'espèce que vous voulez pour votre personnage :</p>
+                <p class="choix">Choisissez le clan que vous voulez pour votre personnage :</p>
 
-                <div id="perso-1" class="espece_perso">
+                <div id="perso-1" class="clan_perso">
                     <h4>Les Tut</h4>
                     <img id="img_tut" class="img_perso" src="res/img/personnages/Green/Alpha/idle.png">
                     <p>
@@ -76,7 +76,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     </p>
                 </div>
 
-                <div id="perso-2" class="espece_perso">
+                <div id="perso-2" class="clan_perso">
                     <h4>Les Tec</h4>
                     <img id="img_tec" class="img_perso" src="res/img/personnages/Green/Zeta/idle.png">
                     <p>
@@ -86,7 +86,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     </p>
                 </div>
 
-                <div id="perso-3" class="espece_perso">
+                <div id="perso-3" class="clan_perso">
                     <h4>Les Pri</h4>
                     <img id="img_pri" class="img_perso" src="res/img/personnages/Green/Gamma/idle.png">
                     <p>
@@ -96,7 +96,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     </p>
                 </div>
 
-                <div id="perso-4" class="espece_perso">
+                <div id="perso-4" class="clan_perso">
                     <h4>Les Lav</h4>
                     <img id="img_lav" class="img_perso" src="res/img/personnages/Green/Delta/idle.png">
                     <p>
@@ -106,7 +106,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     </p>
                 </div>
 
-                <div id="perso-5" class="espece_perso">
+                <div id="perso-5" class="clan_perso">
                     <h4>Les Qi</h4>
                     <img id="img_qi" class="img_perso" src="res/img/personnages/Green/Beta/idle.png">
                     <p>

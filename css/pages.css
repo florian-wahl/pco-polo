@@ -39,19 +39,19 @@
 }
 
 /* CREATION PERSO */
-.espece_perso {
+.clan_perso {
     display: none;
     width: 650px;
     margin: auto;
     padding: 10px;
 }
 
-.espece_perso > p {
+.clan_perso > p {
     font-size: 15px;
     text-align: justify;
 }
 
-.espece_perso > h4 {
+.clan_perso > h4 {
     text-align: center;
 }
 
@@ -73,7 +73,7 @@
     text-align: center;
 }
 
-#selection_espece{
+#selection_clan{
     min-height: 350px;
 }
 #selection_couleur{

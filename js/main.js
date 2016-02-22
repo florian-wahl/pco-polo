@@ -8,8 +8,8 @@ DECLARATION DES CONSTANTES
  */
 var GAME_WIDTH = 1024;
 var GAME_HEIGHT = 700;
-var ESPECE_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
-var ESPECE_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
+var clan_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
+var clan_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
 
 var MAX_SPEED_PLAYER = 300;
 
@@ -93,9 +93,9 @@ preloadState = {
         game.load.image('jetons_menu', 'res/img/ingame/jetons_menu.png', 177, 35);
 
         //Sprites personnages
-        for (i = 0; i < ESPECE_COLORS.length; i++) {
-            for (j = 0; j < ESPECE_NAMES.length; j++) {
-                switch (ESPECE_NAMES[j]) {
+        for (i = 0; i < clan_COLORS.length; i++) {
+            for (j = 0; j < clan_NAMES.length; j++) {
+                switch (clan_NAMES[j]) {
                     case 'Tut':
                         img = "Alpha";
                         break;
@@ -112,7 +112,7 @@ preloadState = {
                         img = "Beta";
                         break;
                 }
-                game.load.image(ESPECE_NAMES[j] + ESPECE_COLORS[i], 'res/img/personnages/' + ESPECE_COLORS[i] + '/' + img + '/idle.png');
+                game.load.image(clan_NAMES[j] + clan_COLORS[i], 'res/img/personnages/' + clan_COLORS[i] + '/' + img + '/idle.png');
             }
         }
     },

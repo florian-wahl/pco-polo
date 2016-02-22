@@ -35,7 +35,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     $resultat = $stmt->fetchAll();
     $personnage = $resultat[0];
 
-    switch($resultat[0]['espece']){
+    switch($resultat[0]['clan']){
         case 'Tut':
             $personnage['img'] = "Alpha";
             break;
@@ -64,7 +64,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <div id="profil_top">
 
             <div id="profil_apercu">
-                <p><b>Nom :</b> <?php echo $_SESSION["nom"]; ?></p>
                 <p><b>Prénom :</b> <?php echo $_SESSION["prenom"]; ?></p>
                 <p><b>Matricule :</b> <?php echo $_SESSION["matricule"]; ?></p>
                 <p><b>Pseudonyme :</b> <?php echo $_SESSION["pseudonyme"]; ?></p>

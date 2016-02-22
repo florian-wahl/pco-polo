@@ -2,212 +2,213 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'php/header.php';?>
+<?php include 'php/header.php'; ?>
 <body>
 
-    <?php
-    if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
-        //L'employé est déjà connecté
-        ?>
-        <script>window.location.replace("menu_principal.php");</script>
+<?php
+if (!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
+    //L'employé est déjà connecté
+    ?>
+    <script>window.location.replace("menu_principal.php");</script>
     <?php
 
+}
+else {
+
+
+try {
+
+/*
+ * Fonction de test sur les valeurs entrées
+ * Permet d'avoir un formulaire sécurisé
+ */
+function test_input($info)
+{
+    $info = trim($info);//Enlève les caractères inutiles
+    $info = stripcslashes($info);//Enlève les \
+    $info = htmlspecialchars($info);//Convertit tous les caractères spéciaux vers leurs codes
+    return $info;
+}
+
+//Initialisation des variables à un string vide
+$errPrenom = $errMatricule = $errPassword = $errReponse_s = $errQuestion_s = "";
+$password = $prenom = $matricule = $reponse_s = $question_s = "";
+$okPassword = $okPrenom = $okMatricule = $okRepose_s = $okQuestion_s = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+if (empty($_POST["prenom"])) {
+    $errPrenom = "Votre Prénom est requis";
+} elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["prenom"])) {
+    $errPrenom = "Ne peut contenir que des lettres et des espaces";
+} else {
+    $prenom = test_input($_POST["prenom"]);
+    $okPrenom = true;
+}
+
+if (empty($_POST["matricule"])) {
+    $errMatricule = "Votre matricule est requis";
+} elseif (!preg_match("/^[a-zA-Z0-9]*$/", $_POST["matricule"])) {
+    $errMatricule = "Ne peut contenir que des chiffres et des lettres";
+} else {
+    $matricule = test_input($_POST["matricule"]);
+    $okMatricule = true;
+}
+
+if (empty($_POST["question_s"])) {
+    $errQuestion_s = "Vous devez choisir une question secrète";
+} else {
+    $question_s = test_input($_POST["question_s"]);
+    $okQuestion_s = true;
+}
+
+if (empty($_POST["reponse_s"])) {
+    $errReponse_s = "Une réponse à la question secrète est requise";
+} elseif (!preg_match("/^[a-zA-Zéèàêâùïüë0-9 -]*$/", $_POST["reponse_s"])) {
+    $errReponse_s = "Ne peut contenir que des lettres et des espaces";
+} else {
+    $reponse_s = test_input($_POST["reponse_s"]);
+    $okRepose_s = true;
+}
+
+if (empty($_POST["password"])) {
+    $errPassword = "Un mot de passe est requis";
+} else {
+    $password = $_POST["password"];
+
+    if (empty($_POST["password_bis"])) {
+        $errPassword = "Un mot de passe est requis";
+    } else {
+        $password_bis = $_POST["password_bis"];
+
+        if ($_POST["password"] !== $_POST["password_bis"]) {
+            $errPassword = "Les deux mots de passe doivent correspondrent.";
+        } else {
+            $okPassword = true;
+            $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
+        }
     }
-    else {
+}
 
 
-        try {
+if ($okPrenom && $okPassword && $okMatricule && $okRepose_s && $okQuestion_s) {
+/*CONNEXION A LA BDD SI TOUTES LES INFORMATIONS SONT RENSEIGNEES*/
+try {
 
-            /*
-             * Fonction de test sur les valeurs entrées
-             * Permet d'avoir un formulaire sécurisé
-             */
-            function test_input($info)
-            {
-                $info = trim($info);//Enlève les caractères inutiles
-                $info = stripcslashes($info);//Enlève les \
-                $info = htmlspecialchars($info);//Convertit tous les caractères spéciaux vers leurs codes
-                return $info;
-            }
+/*CONNECTION*/
+$poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
+// set the PDO error mode to exception
+$poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+/*EXECUTION*/
 
-            //Initialisation des variables à un string vide
-            $errNom = $errPrenom = $errMatricule = $errPassword = $errReponse_s_1 = $errReponse_s_2 = $errQuestion_s_1 = $errQuestion_s_2 = "";
-            $nom = $password = $prenom = $matricule = $reponse_s_1 = $reponse_s_2 = $question_s_1 = $question_s_2 = "";
-            $okPassword = $okNom = $okPrenom = $okMatricule = $okRepose_s_1 = $okRepose_s_2 = $okQuestion_s_1 = $okQuestion_s_2 = false;
+//On vérifie que le numéro employé n'est pas déjà utilisé
+//Requête avec l'ID
+$stmt = $poloDB->prepare("SELECT * FROM users WHERE matricule = :num");
+$stmt->bindValue(':num', $matricule);
+$stmt->execute();
 
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                if (empty($_POST["nom"])) {
-                    $errNom = "Votre Nom est requis";
-                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["nom"])) {
-                    $errNom = "Ne peut contenir que des lettres et des espaces";
-                } else {
-                    $nom = test_input($_POST["nom"]);
-                    $okNom = true;
-                }
+//On récupère les résultats
+$resultat = $stmt->fetchAll();
+if (count($resultat) != 0) {
+    $errMatricule = "Le numéro que vous avez saisi est déjà utilié";
+} else {
 
-                if (empty($_POST["prenom"])) {
-                    $errPrenom = "Votre Prénom est requis";
-                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë -]*$/", $_POST["prenom"])) {
-                    $errPrenom = "Ne peut contenir que des lettres et des espaces";
-                } else {
-                    $prenom = test_input($_POST["prenom"]);
-                    $okPrenom = true;
-                }
-
-                if (empty($_POST["matricule"])) {
-                    $errMatricule = "Votre matricule est requis";
-                } elseif (!preg_match("/^[a-zA-Z0-9]*$/", $_POST["matricule"])) {
-                    $errMatricule = "Ne peut contenir que des chiffres et des lettres";
-                } else {
-                    $matricule = test_input($_POST["matricule"]);
-                    $okMatricule = true;
-                }
-
-                if (empty($_POST["question_s_1"])) {
-                    $errQuestion_s_1 = "Vous devez choisir une question secrète";
-                } else {
-                    $question_s_1 = test_input($_POST["question_s_1"]);
-                    $okQuestion_s_1 = true;
-                }
-
-                if (empty($_POST["reponse_s_1"])) {
-                    $errReponse_s_1 = "Une réponse à la question secrète est requise";
-                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë0-9 -]*$/", $_POST["reponse_s_1"])) {
-                    $errReponse_s_1 = "Ne peut contenir que des lettres et des espaces";
-                } else {
-                    $reponse_s_1 = test_input($_POST["reponse_s_1"]);
-                    $okRepose_s_1 = true;
-                }
-
-                if (empty($_POST["question_s_2"])) {
-                    $errQuestion_s_2 = "Vous devez choisir une question secrète";
-                } else {
-                    $question_s_2 = test_input($_POST["question_s_2"]);
-                    $okQuestion_s_2 = true;
-                }
-
-                if (empty($_POST["reponse_s_2"])) {
-                    $errReponse_s_2 = "Une réponse à la question secrète est requise";
-                } elseif (!preg_match("/^[a-zA-Zéèàêâùïüë0-9 -]*$/", $_POST["reponse_s_2"])) {
-                    $errReponse_s_2 = "Ne peut contenir que des lettres et des espaces";
-                } else {
-                    $reponse_s_2 = test_input($_POST["reponse_s_2"]);
-                    $okRepose_s_2 = true;
-                }
-
-                if (empty($_POST["password"])) {
-                    $errPassword = "Un mot de passe est requis";
-                }
-                else {
-                $password = $_POST["password"];
-
-                if (empty($_POST["password_bis"])) {
-                    $errPassword = "Un mot de passe est requis";
-                } else {
-                    $password_bis = $_POST["password_bis"];
-
-                    if ($_POST["password"] !== $_POST["password_bis"]) {
-                        $errPassword = "Les deux mots de passe doivent correspondrent.";
-                    } else {
-                        $okPassword = true;
-                        $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
-                    }
-                }
-            }
-
-
-            if ($okPrenom && $okPassword && $okNom && $okMatricule && $okRepose_s_1 && $okRepose_s_2 && $okQuestion_s_1 && $okQuestion_s_2) {
-                /*CONNEXION A LA BDD SI TOUTES LES INFORMATIONS SONT RENSEIGNEES*/
-                try {
-
-                    /*CONNECTION*/
-                    $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-                    // set the PDO error mode to exception
-                    $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    /*EXECUTION*/
-
-                    //On vérifie que le numéro employé n'est pas déjà utilisé
-                    //Requête avec l'ID
-                    $stmt = $poloDB->prepare("SELECT * FROM users WHERE matricule = :num");
-                    $stmt->bindValue(':num', $matricule);
-                    $stmt->execute();
-
-                    //On récupère les résultats
-                    $resultat = $stmt->fetchAll();
-                    if (count($resultat) != 0) {
-                        $errMatricule = "Le numéro que vous avez saisi est déjà utilié";
-                    } else {
-
-                        //On crée une ligne dans la table score
-                        $stmt_score = $poloDB->prepare("INSERT INTO Score(score_jour, best_score, jetons)
+//On crée une ligne dans la table score
+$stmt_score = $poloDB->prepare("INSERT INTO Score(score_jour, best_score, jetons)
                                                     VALUES('0', '0', '0')");
-                        $stmt_score->execute();
-                        //On récupère l'id correspondant
-                        $stmt_score = $poloDB->prepare("SELECT id_score FROM Score ORDER BY id_score DESC;");
-                        $stmt_score->execute();
-                        $res_id = $stmt_score->fetchAll();
-                        $id_score = $res_id[0][0];
+$stmt_score->execute();
+//On récupère l'id correspondant
+$stmt_score = $poloDB->prepare("SELECT id_score FROM Score ORDER BY id_score DESC;");
+$stmt_score->execute();
+$res_id = $stmt_score->fetchAll();
+$id_score = $res_id[0][0];
 
-                        //On créé une ligne dans la table des logs
-                        $stmt_log = $poloDB->prepare("INSERT INTO logs(last_log_date, last_log_time, nb_log)
+//On créé une ligne dans la table des logs
+$stmt_log = $poloDB->prepare("INSERT INTO logs(last_log_date, last_log_time, nb_log)
                                                     VALUES(:last_log_date, :last_log_time, '0')");
-                        $today_date = date("Y-m-d");
-                        $stmt_log->bindParam(':last_log_date', $today_date);
-                        $today_time = date("H:i:s");
-                        $stmt_log->bindParam(':last_log_time', $today_time);
-                        $stmt_log->execute();
-                        //On récupère l'id correspondant
-                        $stmt_log = $poloDB->prepare("SELECT id_log FROM logs ORDER BY id_log DESC;");
-                        $stmt_log->execute();
-                        $res_id = $stmt_log->fetchAll();
-                        $id_log = $res_id[0][0];
+$today_date = date("Y-m-d");
+$stmt_log->bindParam(':last_log_date', $today_date);
+$today_time = date("H:i:s");
+$stmt_log->bindParam(':last_log_time', $today_time);
+$stmt_log->execute();
+//On récupère l'id correspondant
+$stmt_log = $poloDB->prepare("SELECT id_log FROM logs ORDER BY id_log DESC;");
+$stmt_log->execute();
+$res_id = $stmt_log->fetchAll();
+$id_log = $res_id[0][0];
 
-                        //On prépare les commandes qu'on va pouvoir ajouter dans la table
-                        $stmt_user = $poloDB->prepare("INSERT INTO Users(nom, prenom, matricule, password, question_s_1, rep_s_1, question_s_2, rep_s_2, pseudonyme, score_id_score, personnage_id_personnage, logs_id_log)
-                                                            VALUES(:nom, :prenom, :matricule, :password, :question_s_1, :reponse_s_1, :question_s_2, :reponse_s_2, 'defaut',:id_score, '1', :id_log)");
-                        $stmt_user->bindParam(':matricule', $matricule);
-                        $stmt_user->bindParam(':password', $hashedpassword);
-                        $stmt_user->bindParam(':nom', $nom);
-                        $stmt_user->bindParam(':prenom', $prenom);
-                        $stmt_user->bindParam(':question_s_1', $question_s_1);
-                        $stmt_user->bindParam(':question_s_2', $question_s_2);
-                        $stmt_user->bindParam(':reponse_s_1', $reponse_s_1);
-                        $stmt_user->bindParam(':reponse_s_2', $reponse_s_2);
-                        $stmt_user->bindParam(':id_score', $id_score);
-                        $stmt_user->bindParam(':id_log', $id_log);
+//On prépare les commandes qu'on va pouvoir ajouter dans la table
+$stmt_user = $poloDB->prepare("INSERT INTO Users(prenom, matricule, password, question_s, rep_s, pseudonyme, score_id_score, personnage_id_personnage, logs_id_log)
+                                                            VALUES(:prenom, :matricule, :password, :question_s, :reponse_s, 'defaut',:id_score, '1', :id_log)");
+$stmt_user->bindParam(':matricule', $matricule);
+$stmt_user->bindParam(':password', $hashedpassword);
+$stmt_user->bindParam(':prenom', $prenom);
+$stmt_user->bindParam(':question_s', $question_s);
+$stmt_user->bindParam(':reponse_s', $reponse_s);
+$stmt_user->bindParam(':id_score', $id_score);
+$stmt_user->bindParam(':id_log', $id_log);
 
-                        $stmt_user->execute();
+$stmt_user->execute();
 
-                        $nom = $password = $prenom = $matricule = "";
+    try{
+    /*CONNEXION*/
+    $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
+    // set the PDO error mode to exception
+    $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                        /*DISCONNECTION*/
-                        $poloDB = null;
+    //Requête avec l'ID
+    $stmt = $poloDB->prepare("SELECT * FROM users, score, logs WHERE matricule = :num AND score_id_score = id_score AND logs_id_log = id_log;");
+    $stmt->bindValue(':num', $matricule);
+    $stmt->execute();
 
-                        /*REDIRECTION*/
-                        header("Refresh:0; url=inscription_ok.php"); //Relaod page and redirect to index.php
-                    }
+    //On récupère les résultats
+    $resultat = $stmt->fetchAll();
 
+        if (count($resultat) == 0) {//Il n'y a pas de résultat : erreur dans le numéro employé
+            $errConnexion = "Le matricule ou le mot de passe est incorrect <br>";
+        } else {
+            $employe = $resultat[0];//On récupère la première ligne, le résultat doit être unique
+            $hashedPasswordFromDB = $resultat[0]['password'];
+            if (!password_verify($password, $hashedPasswordFromDB)) {//Mauvais mot de passe
+                $errConnexion = "Le mot de passe saisi est incorrect <br>";
+            } else {//L'employé est identifié
 
-                } catch (PDOException $e) {
-
-                    echo "<br>" . $e->getMessage();
-                }
+                include "php/connexion_script.php";
             }
         }
+        } catch (PDOException $e) {
+    echo $e->getMessage();
+}
+$nom = $password = $prenom = $matricule = "";
 
-        } catch (Exception $e) {
-            echo 'Message d\'erreur: ' . $e->getMessage();
-        }
-        ?>
+
+    /*DECONNEXION*/
+    $poloDB = null;
+
+/*REDIRECTION*/
+?>
+<script>window.location.replace("menu_principal.php");</script>
+
+    <?php
+}
+
+
+} catch (PDOException $e) {
+
+    echo "<br>" . $e->getMessage();
+}
+}
+}
+
+} catch (Exception $e) {
+    echo 'Message d\'erreur: ' . $e->getMessage();
+}
+?>
 
     <div id="container">
 
         <form id="formulaire" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <fieldset><h2>Créer un nouveau compte utilisateur</h2>
-                <p>
-                    <label for="nom">Nom</label>
-                    <input type="text" name="nom" id="nom" value="<?php echo $nom; ?>"> *<span class="error"> <?php echo $errNom; ?></span>
-                </p>
 
                 <p>
                     <label for="prenom">Prénom</label>
@@ -230,33 +231,22 @@
                 </p>
 
                 <p>
-                    <label for="question_s_1">Question secrète 1</label>
-                    <select name="question_s_1" id="question_s_1">
-                        <option><?php echo $question_s_1;?></option>
+                    <label for="question_s">Question secrète</label>
+                    <select name="question_s" id="question_s">
+                        <option><?php echo $question_s; ?></option>
                         <option>Quel est le prénom de votre premier animal de compagnie ?</option>
                         <option>Quelle est votre couleur préférée ?</option>
                         <option>Quel est le signe astrologique de votre père ?</option>
-                    </select> *<span class="error"> <?php echo $errQuestion_s_1; ?></span>
-                </p>
-
-                <p>
-                    <label for="reponse_s_1">Réponse 1</label>
-                    <input type="text" name="reponse_s_1" id="reponse_s_1" value="<?php echo $reponse_s_1; ?>"> *<span class="error"> <?php echo $errReponse_s_1; ?></span>
-                </p>
-
-                <p>
-                    <label for="question_s_2">Question secrète 2</label>
-                    <select name="question_s_2" id="question_s_2">
-                        <option><?php echo $question_s_2;?></option>
                         <option>Quel est le nom de jeune fille de votre mère ?</option>
                         <option>Quelle est votre chiffre préféré ?</option>
                         <option>Quel est votre fruit préféré ?</option>
-                    </select> *<span class="error"> <?php echo $errQuestion_s_2; ?></span>
+                    </select> *<span class="error"> <?php echo $errQuestion_s; ?></span>
                 </p>
 
                 <p>
-                    <label for="reponse_s_2">Réponse 2</label>
-                    <input type="text" name="reponse_s_2" id="reponse_s_2" value="<?php echo $reponse_s_2; ?>"> *<span class="error"> <?php echo $errReponse_s_2; ?></span>
+                    <label for="reponse_s">Réponse</label>
+                    <input type="text" name="reponse_s" id="reponse_s"
+                           value="<?php echo $reponse_s; ?>"> *<span class="error"> <?php echo $errReponse_s; ?></span>
                 </p>
 
                 <p>
@@ -275,11 +265,11 @@
 
     </div>
         <?php
-    }
-    ?>
+}
+?>
 
 </body>
 
-<?php include "php/footer.php";?>
+<?php include "php/footer.php"; ?>
 
 </html>

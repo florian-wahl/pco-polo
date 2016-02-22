@@ -42,7 +42,7 @@ $stmt->execute();
 $resultat = $stmt->fetchAll();
 $personnage = $resultat[0];
 
-switch($resultat[0]['espece']){
+switch($resultat[0]['clan']){
     case 'Tut':
         $personnage['img'] = "Alpha";
         break;
