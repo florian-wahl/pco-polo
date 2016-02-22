@@ -78,7 +78,10 @@ switch($resultat[0]['clan']){
     <script>
         var link_res_perso = 'res/img/personnages/<?php echo $personnage['couleur']."/".$personnage['img']."/perso_sheet.png";?>';
     </script>
+    <script type="text/javascript" src="js/bootState.js"></script>
+    <script type="text/javascript" src="js/preloadState.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+
 
     <div id="main">
         <div id="overlay"></div>

@@ -63,7 +63,7 @@ $(document).ready(function() {
                 break;
 
         }
-        xmlhttp.open("GET","ajaxDB.php?q=setPersonnage&clan="+clan+"&couleur="+couleur, true);
+        xmlhttp.open("GET","ajaxDB.php?q=setPersonnage&clan="+clan+"&couleur="+couleur, false);
         xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xmlhttp.send();
 

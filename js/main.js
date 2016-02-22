@@ -46,87 +46,9 @@ var listeBadges = [];
 var clients = [];
 var lastClient;
 
-bootState = {
-    preload: function () {
-        game.load.spritesheet("loading", "res/img/mini-jeux/loading.png");
-        game.load.spritesheet("loading2", "res/img/barra.png");
-    },
-    create: function () {
-        this.game.state.start("preload");
-    }
-};
-
-preloadState = {
-    preload: function () {
-        this.loadingBar = this.add.sprite(160, 240, "loading");
-        this.loadingBar.anchor.setTo(0.5, 0.5);
-        //this.load.setPreloadSprite(this.loadingBar);
-        //link_res_perso est défini dans polo.php
-        game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
-        game.load.image('ren', 'res/img/ren.png');
-        game.load.spritesheet('player', link_res_perso, 74, 96);
-        game.load.image('background', 'res/img/ingame/carte.jpg', 2890, 2206);
-        game.load.image('ship', 'res/img/thrust.png');
-        game.load.image('wall', 'res/img/platform.png');
-        game.load.image('transparent', 'res/img/transparent.png');
-        game.load.image('mur', 'res/img/wallie.png');
-
-        //touch control
-        game.load.image('compass', 'res/img/compass_rose.png');
-        game.load.image('touch_segment', 'res/img/touch_segment.png');
-        game.load.image('touch', 'res/img/touch.png');
 
 
-        //Images boutons
-        game.load.image('settings', 'res/img/settings.png');
-
-        //Sounds
-        //game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
-
-        //Menu
-        game.load.image('menu', 'res/img/ingame/menu.png', 804, 599);
-        game.load.image('retour_menu_principal', 'res/img/ingame/retour_menu_principal.png', 430, 60);
-        game.load.image('croix_blanche', 'res/img/ingame/croix_blanche.png', 70, 70);
-        game.load.image('musique_menu', 'res/img/ingame/musique_menu.png', 200, 55);
-        game.load.image('reglages_sons_menu', 'res/img/ingame/reglages_sons_menu.png', 405, 60);
-        game.load.image('score_menu', 'res/img/ingame/score_menu.png', 152, 37);
-        game.load.image('jetons_menu', 'res/img/ingame/jetons_menu.png', 177, 35);
-
-        //Sprites personnages
-        for (i = 0; i < clan_COLORS.length; i++) {
-            for (j = 0; j < clan_NAMES.length; j++) {
-                switch (clan_NAMES[j]) {
-                    case 'Tut':
-                        img = "Alpha";
-                        break;
-                    case 'Lav':
-                        img = "Delta";
-                        break;
-                    case 'Pri':
-                        img = "Gamma";
-                        break;
-                    case 'Tec':
-                        img = "Zeta";
-                        break;
-                    case 'Qi':
-                        img = "Beta";
-                        break;
-                }
-                game.load.image(clan_NAMES[j] + clan_COLORS[i], 'res/img/personnages/' + clan_COLORS[i] + '/' + img + '/idle.png');
-            }
-        }
-    },
-    create: function () {
-        var start = this.game.add.button(GAME_WIDTH / 2 - 160, GAME_HEIGHT / 2 + 200, "playButton", this.playTheGame, this);
-        ren = game.add.sprite(700, 300, 'ren');
-    },
-    playTheGame: function () {
-        this.game.state.start("main");
-    }
-
-};
-
-mainState = {
+var mainState = {
 
     create: function () {
 
@@ -183,34 +105,6 @@ mainState = {
         transparents.enableBody = true;
         murs = game.add.group();
         murs.enableBody = true;
-        creermur();
-
-
-        /*
-        //Ajout des murs
-        walls = game.add.group();
-        walls.enableBody = true;
-
-        var wall = walls.create(400, 400, 'wall');
-        wall.body.immovable = true;
-        wall = walls.create(500, 600, 'wall');
-        wall.body.immovable = true;
-         */
-        //code pour bloquer les zones de la carte
-
-        /*if (listeBadges[1] == false) {
-         transparente = transparents.create(600, 360, 'transparent');
-            transparente.body.immovable = true;
-         transparente = transparents.create(600, 320, 'transparent');
-         transparente.body.immovable = true;
-         transparente = transparents.create(600, 280, 'transparent');
-         transparente.body.immovable = true;
-         }*/
-
-        ship = game.add.sprite(800, 700, 'ship');
-        game.physics.arcade.enable(ship);
-        ship.body.collideWorldBounds = true;
-        ship.body.drag = new Phaser.Point(150, 150);
 
         //  Our controls.
         cursors = game.input.keyboard.createCursorKeys();
@@ -227,12 +121,8 @@ mainState = {
 
         //TEST DE COLLISIONS
         game.physics.arcade.collide(player, walls);
-        game.physics.arcade.collide(player, ship);
-        game.physics.arcade.collide(ship, walls);
         game.physics.arcade.collide(player, transparents);
-        //game.physics.arcade.collide(player,transparent);
-        game.physics.arcade.collide(player, transparents, blocco, null, this);
-        game.physics.arcade.collide(player, murs);
+
         for (i = 0; i < clients.length; i++) {
             game.physics.arcade.collide(player, clients[i].getSprite(), this.interactionClient);
         }
@@ -247,7 +137,7 @@ mainState = {
     },
 
     interactionClient: function (player, client) {
-/*
+
         if (lastClient == client) {
             //On ne fait rien
         }
@@ -261,8 +151,8 @@ mainState = {
 
             demarrerQuizz(0);
             game.physics.arcade.isPaused = true;
-/*
-        }*/
+
+        }
 
     },
 
@@ -483,9 +373,6 @@ function actionOnClickVolume() {
     }
 }
 
-function blocco(){
-
-}
 
 function testDebloquageBadge(){
     if(score >= 400 && listeBadges[4] == 0 && ajoutBadge4 == false){
@@ -499,8 +386,10 @@ function badgeAjoute(numBadge){
     listeBadges[numBadge] = 1;
     ajaxRequest(updateBadges, "getBadges", null);
 }
-game.state.add('boot', bootState);
-game.state.add('preload', preloadState);
-game.state.add('main', mainState);
-game.state.start('boot');
+
+
+game.state.add('bootState', bootState);
+game.state.add('preloadState', preloadState);
+game.state.add('mainState', mainState);
+game.state.start('bootState');
 
