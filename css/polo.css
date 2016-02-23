@@ -91,8 +91,8 @@ li{
 #popup {
     display:none;
     position:absolute;
-    top:350px;
-    left:670px;
+    top:260px;
+    left:650px;
 
     background: #999;
     width: 100px;

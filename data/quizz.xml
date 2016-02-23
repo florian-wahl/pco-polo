@@ -3,7 +3,7 @@
         <type>TEXTE</type>
         <scenario>
             <![CDATA[
-            <img src="res/img/test_quizz.jpg"/>
+            <img src="res/img/test_quizz.jpg"/><br/>
             <b>Client :</b> Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?<br/>
             <b>Vous :</b> Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? <br/>
             <b>Client :</b> Oui, je l'ai imprimé hier soir. La voici.<br/>
@@ -42,7 +42,7 @@
         <type>TEXTE</type>
         <scenario>
             <![CDATA[
-            <img src="res/img/test_quizz.jpg"/>
+            <img src="res/img/test_quizz.jpg"/><br/>
             <b>Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
             <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
             <i>(Il est actuellement 10.00)</i><br/>

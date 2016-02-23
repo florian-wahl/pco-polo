@@ -159,22 +159,39 @@ h4.tableau_scores {
     border: lightgray solid 1px;
 }
 
-h5.table_badges {
-    font-size: 110%;
-    margin: 0;
+div#table_badges_main {
+    width: auto;
 }
 
 img.table_badges {
     max-width: 50px;
-    margin-right: 20px;
+    margin-right: 40px;
+    margin-top: 20px;
     align-content: center;
+}
+
+div.table_badges {
+    position: absolute;
+    background-color: rgba(255,255,255, 0.95);
+    border: lightgray solid 1px;
+    padding: 8px;
+    top: auto;
+    left: auto;
+    z-index: 2;
+}
+
+h5.table_badges {
+    font-size: 110%;
+    margin: 0;
+    margin-bottom: 5px;
+    width: 200px;
 }
 
 p.table_badges {
     text-align: center;
     font-size: 85%;
     margin: 0;
-    width: 150px;
+    width: 200px;
 }
 
 /* CREDITS */

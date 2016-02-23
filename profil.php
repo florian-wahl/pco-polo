@@ -77,7 +77,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <li><a href="#profil_badges-2">Missions POLO</a></li>
                 </ul>
                 <div id="profil_badges-1">
-                    <table id="table_badges">
+                    <div id="table_badges_main">
                         <?php
 
                         //Onrécupère les badges que possède l'utilisateur
@@ -90,17 +90,16 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                         foreach($resultat as $badge){
 
-                            echo "<td>";
                             echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
+
                             echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
                             echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";
                             echo "<p id='badge-".$badge['id_badge']."' class='table_badges' >".$badge['description']."</p>";
                             echo "</div>";
-                            echo "</td>";
 
                         }
                         ?>
-                    </table>
+                    </div>
                     <script>
                         $("div.table_badges").hide();
 
@@ -116,8 +115,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                             $("div#"+id).toggle();
 
 
+                            var posLeft = this.offsetLeft - 70;
+                            $("div#"+id).css({'left': posLeft});
 
-                        })
+
+                        });
 
                     </script>
                 </div>
