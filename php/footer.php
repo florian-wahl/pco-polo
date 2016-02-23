@@ -7,5 +7,6 @@
         echo " POLO - Air France - INSA Lyon";
     }?>
     &mdash; <a id="credits" href="credits.php">Crédits</a>
+    <?php $poloDB = null; ?>
     <br>
 </footer>

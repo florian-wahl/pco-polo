@@ -37,9 +37,9 @@ var preloadState = {
         game.load.image('jetons_menu', 'res/img/ingame/jetons_menu.png', 177, 35);
 
         //Sprites personnages
-        for (i = 0; i < clan_COLORS.length; i++) {
-            for (j = 0; j < clan_NAMES.length; j++) {
-                switch (clan_NAMES[j]) {
+        for (i = 0; i < CLAN_COLORS.length; i++) {
+            for (j = 0; j < CLAN_NAMES.length; j++) {
+                switch (CLAN_NAMES[j]) {
                     case 'Tut':
                         img = "Alpha";
                         break;
@@ -56,7 +56,7 @@ var preloadState = {
                         img = "Beta";
                         break;
                 }
-                game.load.image(clan_NAMES[j] + clan_COLORS[i], 'res/img/personnages/' + clan_COLORS[i] + '/' + img + '/idle.png');
+                game.load.image(CLAN_NAMES[j] + CLAN_COLORS[i], 'res/img/personnages/' + CLAN_COLORS[i] + '/' + img + '/idle.png');
             }
         }
     },

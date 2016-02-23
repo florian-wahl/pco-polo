@@ -24,7 +24,7 @@ $(document).ready(function() {
 
         var xmlhttp1 = new XMLHttpRequest();
 
-        xmlhttp1.open("GET","ajaxDB.php?q=addBadge&s=3", true);
+        xmlhttp1.open("GET","ajaxDB.php?q=addBadge&s=8", true);
         xmlhttp1.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xmlhttp1.send();
 

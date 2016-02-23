@@ -1,4 +1,4 @@
-<?php include 'php/first.php'; ?>
+<?php include 'php/first_sql_conf.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +21,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['pseudonyme'] = $_POST['choix_pseudo'] . $_SESSION['id_user'];
 
-        /*CONNEXION*/
-        $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-        // set the PDO error mode to exception
-        $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $poloDB->prepare("UPDATE users SET pseudonyme = :pseudonyme WHERE id_user = :id_user;");
         $stmt->bindValue(':id_user', $_SESSION['id_user']);

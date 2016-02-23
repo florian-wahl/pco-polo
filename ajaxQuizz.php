@@ -1,13 +1,9 @@
-<?php include 'php/first.php'; ?>
+<?php include 'php/first_sql_conf.php'; ?>
 
 <?php
 
 if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest' ) )
 {
-    /*CONNEXION*/
-    $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-// set the PDO error mode to exception
-    $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //On récupère la fonction appelé
     $q = $_GET['q'];

@@ -25,5 +25,9 @@
     <link rel="icon" type="image/png" href="res/img/custom_icon_polo.png" />
 
 
+    <?php
+    // défini l'UTF-8 comme encodage par défaut (à placer dans le fichier de configuration par exemple)
+    mb_internal_encoding('UTF-8');
+    ?>
 
 </head>

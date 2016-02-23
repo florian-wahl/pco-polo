@@ -1,4 +1,4 @@
-<?php include '../php/first.php'; ?>
+<?php include '../php/first_sql_conf.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,11 +7,6 @@
 <?php
 if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
     //L'employé est connecté
-
-    /*CONNEXION*/
-    $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-    // set the PDO error mode to exception
-    $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Requête avec l'ID
     $stmt = $poloDB->prepare("SELECT * FROM users, logs WHERE logs_id_log = id_log ORDER BY id_user ASC;");

@@ -1,4 +1,4 @@
-<?php include 'php/first.php'; ?>
+<?php include 'php/first_sql_conf.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,12 +95,6 @@ if ($okPrenom && $okPassword && $okMatricule && $okRepose_s && $okQuestion_s) {
 /*CONNEXION A LA BDD SI TOUTES LES INFORMATIONS SONT RENSEIGNEES*/
 try {
 
-/*CONNECTION*/
-$poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-// set the PDO error mode to exception
-$poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-/*EXECUTION*/
-
 //On vérifie que le numéro employé n'est pas déjà utilisé
 //Requête avec l'ID
 $stmt = $poloDB->prepare("SELECT * FROM users WHERE matricule = :num");
@@ -151,10 +145,6 @@ $stmt_user->bindParam(':id_log', $id_log);
 $stmt_user->execute();
 
     try{
-    /*CONNEXION*/
-    $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-    // set the PDO error mode to exception
-    $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Requête avec l'ID
     $stmt = $poloDB->prepare("SELECT * FROM users, score, logs WHERE matricule = :num AND score_id_score = id_score AND logs_id_log = id_log;");

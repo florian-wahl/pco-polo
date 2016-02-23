@@ -1,4 +1,4 @@
-<?php include 'php/first.php'; ?>
+<?php include 'php/first_sql_conf.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,4 @@
-<?php include 'php/first.php'; ?>
+<?php include 'php/first_sql_conf.php'; ?>
 
 <!doctype html>
 <html lang="en">
@@ -14,11 +14,6 @@
 <?php
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 //L'employé est connecté
-
-/*CONNEXION*/
-$poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-// set the PDO error mode to exception
-$poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //On met à jour le score
 $stmt = $poloDB->prepare("SELECT * FROM score WHERE id_score = :id_score;");
@@ -80,7 +75,7 @@ switch($resultat[0]['clan']){
     </script>
     <script type="text/javascript" src="js/bootState.js"></script>
     <script type="text/javascript" src="js/preloadState.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/mainState.js"></script>
 
 
     <div id="main">

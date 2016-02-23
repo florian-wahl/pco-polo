@@ -1,4 +1,4 @@
-<?php include 'php/first.php'; ?>
+<?php include 'php/first_sql_conf.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,10 +8,7 @@
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     //L'employé est connecté
 
-    /*CONNEXION*/
-    $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-    // set the PDO error mode to exception
-    $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
     //On met à jour le score
     $stmt = $poloDB->prepare("SELECT * FROM score WHERE id_score = :id_score;");
@@ -82,6 +79,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <div id="profil_badges-1">
                     <table id="table_badges">
                         <?php
+
                         //Onrécupère les badges que possède l'utilisateur
                         $stmt = $poloDB->prepare("SELECT * FROM users_badges, badges WHERE users_id_user = :id_user AND badges_id_badge = id_badge;");
                         $stmt->bindValue(':id_user', $_SESSION['id_user']);

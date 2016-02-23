@@ -1,4 +1,4 @@
-<?php include 'php/first.php'; ?>
+<?php include 'php/first_sql_conf.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,11 +36,6 @@
 
         if (!empty($_POST["identifiant"]) && !empty($_POST["input_password"])) {
             try{
-
-                /*CONNEXION*/
-                $poloDB = new PDO("mysql:host=$servername;dbname=$nameDB", $usernameDB, $passwordDB);
-                // set the PDO error mode to exception
-                $poloDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 //Requête avec l'ID
                 $stmt = $poloDB->prepare("SELECT * FROM Admins WHERE identifiant = :id");

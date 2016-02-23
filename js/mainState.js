@@ -8,8 +8,8 @@ DECLARATION DES CONSTANTES
  */
 var GAME_WIDTH = 1024;
 var GAME_HEIGHT = 700;
-var clan_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
-var clan_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
+var CLAN_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
+var CLAN_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
 
 var MAX_SPEED_PLAYER = 300;
 
@@ -26,8 +26,6 @@ var walls;
 var murs;
 var mur;
 var ship;
-var musicbg;
-var newwindow;
 var transparents;
 var transparent;
 var button_settings;
@@ -35,12 +33,9 @@ var button_volume;
 
 var on_off_volume = true;
 
-var ajoutBadge4 = false;
-
 var nb_jetons = 0;
 var score = 0;
 var score_cumule = 0;
-var badge1 = 0;
 
 var listeBadges = [];
 var clients = [];
@@ -178,6 +173,31 @@ var mainState = {
 
     },
 
+    creermur: function(){
+        for (var i = 0; i < 32; i++) {
+            mur = murs.create(i * 40, 0, 'mur');
+            mur.body.immovable = true;
+            if (!(i == 24 || i == 25 || i == 26)) {
+                mur = murs.create(i * 40, 600, 'mur');
+            }
+            mur.body.immovable = true;
+            if (i == 0 || i == 15 || i == 31) {
+                for (var j = 0; j < 16; j++) {
+
+                    if ((i == 15 && (j == 8 || j == 7 || j == 9))) {
+                        transparent = transparents.create(i * 40, j * 40, 'mur');
+                        transparent.body.immovable = true;
+                        transparent.renderable = false;
+                    }
+                    else {
+                        mur = murs.create(i * 40, j * 40, 'mur');
+                        mur.body.immovable = true;
+                    }
+                }
+            }
+        }
+    },
+
 
     actionOnClickMenu: function () {
         //On pause la physique du jeu.
@@ -303,7 +323,7 @@ function updateBadges (liste) {
 function updateMap(){
 
     //Blocage du niveau 1 séquence de test
-    if (listeBadges[4] == 1) {
+    if (listeBadges[1] == 1) {
 
         transparents.destroy();
     }
@@ -316,30 +336,6 @@ function updateMap(){
  valeur = valeur de l'information à passer, à mettre à jour; null si pas d'information à passer
 
  */
-function creermur() {
-    for (var i = 0; i < 32; i++) {
-        mur = murs.create(i * 40, 0, 'mur');
-        mur.body.immovable = true;
-        if (!(i == 24 || i == 25 || i == 26)) {
-            mur = murs.create(i * 40, 600, 'mur');
-        }
-        mur.body.immovable = true;
-        if (i == 0 || i == 15 || i == 31) {
-            for (var j = 0; j < 16; j++) {
-
-                if ((i == 15 && (j == 8 || j == 7 || j == 9))) {
-                    transparent = transparents.create(i * 40, j * 40, 'mur');
-                    transparent.body.immovable = true;
-                    transparent.renderable = false;
-                }
-                else {
-                    mur = murs.create(i * 40, j * 40, 'mur');
-                    mur.body.immovable = true;
-                }
-            }
-        }
-    }
-}
 function ajaxRequest(callback, request, valeur) {
     var xhr = new XMLHttpRequest();
 
@@ -375,10 +371,10 @@ function actionOnClickVolume() {
 
 
 function testDebloquageBadge(){
-    if(score >= 400 && listeBadges[4] == 0 && ajoutBadge4 == false){
-        listeBadges[4] = 1;
-        ajaxRequest(badgeAjoute, 'addBadge', 4);
-        ajoutBadge4 = true;
+    /*DEBLOQUAGE DU BADGE 1 */
+    if(score >= 400 && listeBadges[1] == 0){
+        listeBadges[1] = 1;
+        ajaxRequest(badgeAjoute, 'addBadge', 1);
     }
 }
 
