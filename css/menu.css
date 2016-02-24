@@ -71,3 +71,9 @@ input#button_retour{
     font-style: italic;
 }
 
+
+/*Desactive l'arrondi que donne iOS aux boutons*/
+input, textarea {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
