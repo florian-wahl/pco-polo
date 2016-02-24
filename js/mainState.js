@@ -154,6 +154,9 @@ var mainState = {
         group_decors_collide = game.add.group();
         group_decors_collide.enableBody = true;
         group_decors_collide.add(game.add.sprite(1300, 1900, 'accueil_salon'));
+        group_decors_collide.add(game.add.sprite(1300, 500, 'BLS'));
+        group_decors_collide.add(game.add.sprite(1500, 500, 'BLS'));
+        group_decors_collide.add(game.add.sprite(1500, 1000, 'borne_arcade'));
         for(var i = 0; i < group_decors_collide.length; i++){
             group_decors_collide.getChildAt(i).body.immovable = true;
         }
