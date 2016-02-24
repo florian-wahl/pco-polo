@@ -2,7 +2,7 @@
  * Permet de créer un client et de gérer sa physique dans le jeux
  */
 
-function Client(clan, couleur, posX, posY){
+function PNJ(clan, couleur, posX, posY){
     this.clan = clan;
     this.couleur = couleur;
     this.posX = posX;
@@ -16,7 +16,7 @@ function Client(clan, couleur, posX, posY){
     this.velocity = 50;
 }
 
-Client.prototype.getSprite = function() {
+PNJ.prototype.getSprite = function() {
     return this.gameSprite;
 };
 
@@ -25,7 +25,7 @@ var mov2 = false;
 var mov3 = false;
 var mov4 = false;
 
-Client.prototype.move = function(){
+PNJ.prototype.move = function(){
     actPosX = this.gameSprite.x;
     actPosY = this.gameSprite.y;
 

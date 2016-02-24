@@ -62,7 +62,7 @@ switch($resultat[0]['clan']){
 <script src="js/phaser/phaser-touch-control.js"></script>
 <script src="js/mouvementHandler.js"></script>
 <script src="js/jQuizzy.js"></script>
-<script src="js/clientPNJ.js"></script>
+<script src="js/PNJ.js"></script>
 <style type="text/css">
     .quiz{width:760px; margin:10px 10px 10px -360px}
 </style>

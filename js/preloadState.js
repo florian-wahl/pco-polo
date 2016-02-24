@@ -9,9 +9,8 @@ var preloadState = {
         //link_res_perso est défini dans polo.php
         game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);
-        game.load.image('background', 'res/img/ingame/carte.jpg', 2890, 2206);
+        game.load.image('background', 'res/img/ingame/fond_avec_panneaux.jpg', 2890, 2206);
         game.load.image('ship', 'res/img/thrust.png');
-        game.load.image('wall', 'res/img/platform.png');
         game.load.image('transparent', 'res/img/transparent.png');
         game.load.image('mur', 'res/img/wallie.png');
 
@@ -22,19 +21,25 @@ var preloadState = {
 
 
         //Images boutons
-        game.load.image('settings', 'res/img/settings.png');
+        game.load.image('settings', 'res/img/boutons/menu.png');
 
         //Sounds
         game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
 
         //Menu
         game.load.image('menu', 'res/img/ingame/menu.png', 804, 599);
-        game.load.image('retour_menu_principal', 'res/img/ingame/retour_menu_principal.png', 430, 60);
+        game.load.image('retour_menu_principal', 'res/img/boutons/bouton_retour_menu_principal.png');
         game.load.image('croix_blanche', 'res/img/ingame/croix_blanche.png', 70, 70);
-        game.load.image('musique_menu', 'res/img/ingame/musique_menu.png', 200, 55);
+        game.load.spritesheet('toggle_button', 'res/img/boutons/toggle.png', 95, 48);
         game.load.image('reglages_sons_menu', 'res/img/ingame/reglages_sons_menu.png', 405, 60);
         game.load.image('score_menu', 'res/img/ingame/score_menu.png', 152, 37);
         game.load.image('jetons_menu', 'res/img/ingame/jetons_menu.png', 177, 35);
+
+        //Elements
+        game.load.image('accueil_salon','res/img/ingame/elements/accueil_salon.png');
+        game.load.image('BLS','res/img/ingame/elements/BLS.png');
+        game.load.image('borne_arcade','res/img/ingame/elements/borne_arcade.png');
+        game.load.image('buffet_salon','res/img/ingame/elements/buffet_salon.png');
 
         //Sprites personnages
         for (i = 0; i < CLAN_COLORS.length; i++) {

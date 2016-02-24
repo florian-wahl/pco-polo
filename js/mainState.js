@@ -26,12 +26,15 @@ var walls;
 var murs;
 var mur;
 var ship;
-var transparents;
+var group_transparents;
 var transparent;
-var button_settings;
-var button_volume;
 
+var group_decors_collide;
+var group_decors_non_collide;
+
+var button_settings;
 var on_off_volume = true;
+var on_off_effet = true;
 
 var nb_jetons = 0;
 var score = 0;
@@ -59,64 +62,40 @@ var mainState = {
             popup.style.display = 'none';
         };
 
-        //musicbg = game.add.audio('fond_sonore');
-        //musicbg.play();
         game.add.tileSprite(0, 0, 2890, 2206, 'background');
-
         game.world.setBounds(0, 0, 2890, 2206);
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        //Ajout des clients
-        clients[0] = new Client('Tec', 'Red', game.world.centerX + 500, game.world.centerY + 400);
-        clients[1] = new Client('Lav', 'Yellow', game.world.centerX - 500, game.world.centerY + 400);
-        clients[2] = new Client('Qi', 'Beige', 150, 500);
-
-
-        // Ajout du joueur
-        player = game.add.sprite(1100, 1900, 'player');
-        game.physics.arcade.enable(player);
-        player.body.collideWorldBounds = true;
-
-        player.animations.add('left', [0, 1], 10, true);
-        player.animations.add('down', [2, 3], 10, true);
-        player.animations.add('up', [5, 6], 10, true);
-        player.animations.add('right', [7, 8], 10, true);
-
+        // controls
         game.touchControl = game.plugins.add(Phaser.Plugin.TouchControl);
         game.touchControl.inputEnable();
-
-        game.camera.follow(player);
-
-        //  The deadzone is a Rectangle that defines the limits at which the camera will start to scroll
-        //  It does NOT keep the target sprite within the rectangle, all it does is control the boundary
-        //  at which the camera will start to move. So when the sprite hits the edge, the camera scrolls
-        //  (until it reaches an edge of the world)
-        game.camera.deadzone = new Phaser.Rectangle(150, 150, 450, 300);
-
-
-        //mur proto
-        transparents = game.add.group();
-        transparents.enableBody = true;
-        murs = game.add.group();
-        murs.enableBody = true;
-
-        //  Our controls.
         cursors = game.input.keyboard.createCursorKeys();
 
-        this.setIHM();
-
+        //récupération des infos nécessaires pour de l'affichage
         ajaxRequest(setJetons, "nbJeton", null);
         ajaxRequest(setScore, "scoreJour", null);
         ajaxRequest(updateBadges, "getBadges", null);
 
+        //this.setMusicsAndEffects();
+
+        this.setDecors();
+
+        this.setPNJ();
+
+        this.setPlayer();
+        game.camera.follow(player);
+        game.camera.deadzone = new Phaser.Rectangle(150, 150, 450, 300);
+
+        this.setIHM();
+
     },
 
-    update: function () {
+    update : function () {
 
         //TEST DE COLLISIONS
-        game.physics.arcade.collide(player, walls);
-        game.physics.arcade.collide(player, transparents);
+        game.physics.arcade.collide(player, group_transparents);
+        game.physics.arcade.collide(player, group_decors_collide);
 
         for (i = 0; i < clients.length; i++) {
             game.physics.arcade.collide(player, clients[i].getSprite(), this.interactionClient);
@@ -131,7 +110,78 @@ var mainState = {
         //movementControllerCursors(MAX_SPEED_PLAYER);
     },
 
-    interactionClient: function (player, client) {
+    render : function () {
+
+
+        testDebloquageBadge();
+        updateMap();
+
+        if (1) {
+            game.debug.cameraInfo(game.camera, 32, 32);
+            game.debug.spriteCoords(player, 32, 600);
+            game.debug.body(player);
+        }
+
+
+    },
+
+    setPlayer : function(){
+        // Ajout du joueur
+        player = game.add.sprite(1100, 1900, 'player');
+        game.physics.arcade.enable(player);
+        player.body.collideWorldBounds = true;
+        player.body.height = 40;
+        player.anchor.setTo(1);
+
+        player.animations.add('left', [0, 1], 10, true);
+        player.animations.add('down', [2, 3], 10, true);
+        player.animations.add('up', [5, 6], 10, true);
+        player.animations.add('right', [7, 8], 10, true);
+    },
+
+    setIHM : function () {
+
+        button_settings = game.add.button(game.width - 80, 8, 'settings', this.actionOnClickMenu, this, 2, 1, 0);
+        button_settings.fixedToCamera = true;
+
+    },
+
+    setDecors : function () {
+
+        //mur proto
+
+        group_decors_collide = game.add.group();
+        group_decors_collide.enableBody = true;
+        group_decors_collide.add(game.add.sprite(1300, 1900, 'accueil_salon'));
+        for(var i = 0; i < group_decors_collide.length; i++){
+            group_decors_collide.getChildAt(i).body.immovable = true;
+        }
+
+        group_transparents = game.add.group();
+        group_transparents.enableBody = true;
+
+        group_decors_non_collide = game.add.group();
+        group_decors_non_collide.enableBody = false;
+
+
+
+    },
+
+    setPNJ : function(){
+
+        //Ajout des clients
+        clients[0] = new PNJ('Tec', 'Red', game.world.centerX + 500, game.world.centerY + 400);
+        clients[1] = new PNJ('Lav', 'Yellow', game.world.centerX - 500, game.world.centerY + 400);
+        clients[2] = new PNJ('Qi', 'Beige', 150, 500);
+    },
+
+    setMusicsAndEffects : function(){
+        //Musics
+        musicbg = game.add.audio('fond_sonore');
+        musicbg.play();
+    },
+
+    interactionClient : function (player, client) {
 
         if (lastClient == client) {
             //On ne fait rien
@@ -151,28 +201,6 @@ var mainState = {
 
     },
 
-
-    render: function () {
-
-
-        testDebloquageBadge();
-        updateMap();
-
-        if (1) {
-            game.debug.cameraInfo(game.camera, 32, 32);
-            game.debug.spriteCoords(player, 32, 600);
-        }
-
-
-    },
-
-    setIHM: function () {
-
-        button_settings = game.add.button(game.width - 120, 20, 'settings', this.actionOnClickMenu, this, 2, 1, 0);
-        button_settings.fixedToCamera = true;
-
-    },
-
     creermur: function(){
         for (var i = 0; i < 32; i++) {
             mur = murs.create(i * 40, 0, 'mur');
@@ -185,7 +213,7 @@ var mainState = {
                 for (var j = 0; j < 16; j++) {
 
                     if ((i == 15 && (j == 8 || j == 7 || j == 9))) {
-                        transparent = transparents.create(i * 40, j * 40, 'mur');
+                        transparent = group_transparents.create(i * 40, j * 40, 'mur');
                         transparent.body.immovable = true;
                         transparent.renderable = false;
                     }
@@ -213,19 +241,23 @@ var mainState = {
         /*AJOUT DU MENU ET DE SON IHM*/
         menu = game.add.sprite(game.camera.x + GAME_WIDTH / 2 - 804 / 2, game.camera.y + GAME_HEIGHT / 2 - 599 / 2, 'menu');
 
-        button_retour_menu_principal = game.add.button(game.camera.x + GAME_WIDTH / 2 - 200, game.camera.y + GAME_HEIGHT / 2 -80, 'retour_menu_principal', function () {
+        button_retour_menu_principal = game.add.button(game.camera.x + GAME_WIDTH / 2, game.camera.y + GAME_HEIGHT / 2 + 80, 'retour_menu_principal', function () {
             window.location.href = 'menu_principal.php';
         }, this, 2, 1, 0);
+        button_retour_menu_principal.anchor.setTo(0.5);
 
-        button_gestion_musique = game.add.button(game.camera.x + GAME_WIDTH / 2 - 95, game.camera.y + GAME_HEIGHT / 2 -160, 'musique_menu', function () {
-            actionOnClickVolume();
-        }, this, 2, 1, 0);
+        button_gestion_musique = game.add.button(game.camera.x + GAME_WIDTH / 2 + 130, game.camera.y + GAME_HEIGHT / 2 - 85 , 'toggle_button', actionOnClickVolume, this, 0);
+        button_gestion_musique.anchor.setTo(0.5);
+
+        button_gestion_effet = game.add.button(game.camera.x + GAME_WIDTH / 2 + 130, game.camera.y + GAME_HEIGHT / 2 - 25 , 'toggle_button', actionOnClickEffet, this, 0);
+        button_gestion_effet.anchor.setTo(0.5);
 
         button_croix_blanche = game.add.button(game.camera.x + 843, game.camera.y + 52, 'croix_blanche', function () {
             menu.destroy();
             button_retour_menu_principal.destroy();
             button_croix_blanche.destroy();
             button_gestion_musique.destroy();
+            button_gestion_effet.destroy();
             t_score.destroy();
             t_jetons.destroy();
             button_settings.inputEnabled = true;
@@ -325,7 +357,7 @@ function updateMap(){
     //Blocage du niveau 1 séquence de test
     if (listeBadges[1] == 1) {
 
-        transparents.destroy();
+        group_transparents.destroy();
     }
 }
 /*
@@ -363,9 +395,24 @@ function actionOnClickVolume() {
 
     if (on_off_volume) {
        // musicbg.pause();
+        button_gestion_musique.setFrames(0);
     }
     else {
        // musicbg.resume();
+        button_gestion_musique.setFrames(1);
+    }
+}
+
+function actionOnClickEffet() {
+    on_off_effet = !on_off_effet;
+
+    if (on_off_effet) {
+       // musicbg.pause();
+        button_gestion_effet.setFrames(0);
+    }
+    else {
+       // musicbg.resume();
+        button_gestion_effet.setFrames(1);
     }
 }
 
