@@ -1,5 +1,4 @@
 var text;
-var titre;
 
 var preloadState = {
     preload: function () {
