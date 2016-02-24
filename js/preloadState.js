@@ -6,7 +6,7 @@ var preloadState = {
 
 
         this.loadingScreen = this.add.image(0,0, 'loadingScreen');
-        this.loadingBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loadingBar');
+        this.loadingBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY+150, 'loadingBar');
         this.loadingBar.anchor.setTo(0.5);
         this.game.load.setPreloadSprite(this.loadingBar);
 
@@ -18,14 +18,14 @@ var preloadState = {
         game.load.onLoadStart.add(this.loadStart, this);
         game.load.onFileComplete.add(this.fileComplete, this);
         game.load.onLoadComplete.add(this.loadComplete, this);
-        text = game.add.text(GAME_WIDTH/2, GAME_HEIGHT/2-40, 'Le chargement va débuter.', { fill: '#FFFFFF' });
+        text = game.add.text(GAME_WIDTH/2, GAME_HEIGHT/2+180, 'Le chargement va débuter.', { fill: '#FFFFFF' });
         text.anchor.setTo(0.5);
-        titre = game.add.text(GAME_WIDTH/2, 150, 'POLO');
+        /*titre = game.add.text(GAME_WIDTH/2, 150, 'POLO');
         titre.anchor.setTo(0.5);
         titre.font = 'Arial Black';
         titre.fontSize = 60;
         titre.fontWeight = 'bold';
-        titre.fill = '#FFFFFF';
+        titre.fill = '#FFFFFF';*/
 
         this.startLoading();
     },
@@ -111,7 +111,7 @@ var preloadState = {
     loadComplete : function() {
         text.setText("Chargement terminé");
 
-        this.startButton = this.game.add.button(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 100, "playButton", this.playTheGame, this);
+        this.startButton = this.game.add.button(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 260, "playButton", this.playTheGame, this);
         this.startButton.anchor.setTo(0.5);
     }
 

@@ -73,60 +73,79 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             </script>
             <div id="profil_badges">
                 <ul>
-                    <li><a href="#profil_badges-1">Mes Badges</a></li>
-                    <li><a href="#profil_badges-2">Missions POLO</a></li>
+                    <li><a href="#profil_badges-1">Missions POLO</a></li>
+                    <li><a href="#profil_badges-2">Mes Badges</a></li>
                 </ul>
+                <?php
+
+                //Onrécupère les badges que possède l'utilisateur
+                $stmt = $poloDB->prepare("SELECT * FROM users_badges, badges WHERE users_id_user = :id_user AND badges_id_badge = id_badge;");
+                $stmt->bindValue(':id_user', $_SESSION['id_user']);
+                $stmt->execute();
+
+                //On récupère les résultats
+                $resultat = $stmt->fetchAll();
+                ?>
+
                 <div id="profil_badges-1">
                     <div id="table_badges_main">
                         <?php
-
-                        //Onrécupère les badges que possède l'utilisateur
-                        $stmt = $poloDB->prepare("SELECT * FROM users_badges, badges WHERE users_id_user = :id_user AND badges_id_badge = id_badge;");
-                        $stmt->bindValue(':id_user', $_SESSION['id_user']);
-                        $stmt->execute();
-
-                        //On récupère les résultats
-                        $resultat = $stmt->fetchAll();
-
                         foreach($resultat as $badge){
 
-                            echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
+                            if($badge['id_badge'] >= 21 || $badge['id_badge'] < 8){
+                                echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
+                                echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
+                                echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";
+                                echo "<p id='badge-".$badge['id_badge']."' class='table_badges' >".$badge['description']."</p>";
+                                echo "</div>";
+                            }
 
-                            echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
-                            echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";
-                            echo "<p id='badge-".$badge['id_badge']."' class='table_badges' >".$badge['description']."</p>";
-                            echo "</div>";
 
                         }
                         ?>
                     </div>
-                    <script>
-                        $("div.table_badges").hide();
-
-                        $("img.table_badges").click(function(event){
-                            var id = event.target.id;
-
-                            $("div.table_badges").each(function(event){
-                                if(this.id != id){
-                                    $("div#"+this.id).hide();
-                                }
-                            });
-
-                            $("div#"+id).toggle();
-
-
-                            var posLeft = this.offsetLeft - 70;
-                            $("div#"+id).css({'left': posLeft});
-
-
-                        });
-
-                    </script>
                 </div>
                 <div id="profil_badges-2">
+                    <div id="table_badges_main">
+                    <?php
 
+                    foreach($resultat as $badge){
+
+                        if($badge['id_badge'] < 21 && $badge['id_badge'] >= 8 || $badge['id_badge'] >= 27){
+                            echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
+                            echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
+                            echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";
+                            echo "<p id='badge-".$badge['id_badge']."' class='table_badges' >".$badge['description']."</p>";
+                            echo "</div>";
+                        }
+
+
+                    }
+                    ?>
+                    </div>
                 </div>
+                <script>
+                    $("div.table_badges").hide();
 
+                    $("img.table_badges").click(function(event){
+                        var id = event.target.id;
+
+                        $("div.table_badges").each(function(event){
+                            if(this.id != id){
+                                $("div#"+this.id).hide();
+                            }
+                        });
+
+                        $("div#"+id).toggle();
+
+
+                        var posLeft = this.offsetLeft - 70;
+                        $("div#"+id).css({'left': posLeft});
+
+
+                    });
+
+                </script>
             </div>
         </div>
 

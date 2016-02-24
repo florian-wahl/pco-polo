@@ -1,7 +1,7 @@
 /* GNERAL */
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
-    background: #8ccfb9;
-    border: #8ccfb9;
+    background: #fa3d6e;
+    border: #fa3d6e;
 }
 
 
@@ -143,7 +143,7 @@ table#tableau_scores, .tableau_scores tr, .tableau_scores td {
     font-size: 110%;
     font-style: italic;
     font-weight: bold;
-    color: #8ccfb9;
+    color: #fa3d6e;
 }
 
 h4.tableau_scores {
