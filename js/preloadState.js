@@ -6,7 +6,7 @@ var preloadState = {
 
 
         this.loadingScreen = this.add.image(0,0, 'loadingScreen');
-        this.loadingBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY+100, 'loadingBar');
+        this.loadingBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY+80, 'loadingBar');
         this.loadingBar.anchor.setTo(0.5);
         this.game.load.setPreloadSprite(this.loadingBar);
 
