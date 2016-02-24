@@ -97,8 +97,9 @@ var mainState = {
         game.physics.arcade.collide(player, group_transparents);
         game.physics.arcade.collide(player, group_decors_collide);
 
+
         for (i = 0; i < clients.length; i++) {
-            game.physics.arcade.collide(player, clients[i].getSprite(), this.interactionClient);
+            game.physics.arcade.collide(player, clients[i].getSprite(), function(player, clientSprite){mainState.interactionClient(player, clientSprite, clients[i])});
         }
 
 
@@ -170,9 +171,9 @@ var mainState = {
     setPNJ : function(){
 
         //Ajout des clients
-        clients[0] = new PNJ('Tec', 'Red', game.world.centerX + 500, game.world.centerY + 400);
-        clients[1] = new PNJ('Lav', 'Yellow', game.world.centerX - 500, game.world.centerY + 400);
-        clients[2] = new PNJ('Qi', 'Beige', 150, 500);
+        clients[0] = new PNJ('Tec', 'Red', game.world.centerX + 500, game.world.centerY + 400, 0);
+        clients[1] = new PNJ('Lav', 'Yellow', game.world.centerX - 500, game.world.centerY + 400, 0);
+        clients[2] = new PNJ('Qi', 'Beige', 150, 500, 0);
     },
 
     setMusicsAndEffects : function(){
@@ -181,20 +182,20 @@ var mainState = {
         musicbg.play();
     },
 
-    interactionClient : function (player, client) {
+    interactionClient : function (player, clientSprite, clientPNJ) {
 
-        if (lastClient == client) {
+        if (lastClient == clientSprite) {
             //On ne fait rien
         }
         else {
-            lastClient = client;
+            lastClient = clientSprite;
 
             /*
              LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
              Pour démarrer un quizz, faire appel à demarrerQuizz(id_quizz)
              */
 
-            demarrerQuizz(0);
+            demarrerQuizz(clientPNJ.zone);
             game.physics.arcade.isPaused = true;
 
         }

@@ -2,11 +2,12 @@
  * Permet de créer un client et de gérer sa physique dans le jeux
  */
 
-function PNJ(clan, couleur, posX, posY){
+function PNJ(clan, couleur, posX, posY, zone){
     this.clan = clan;
     this.couleur = couleur;
     this.posX = posX;
     this.posY = posY;
+    this.zone = zone;
 
     this.gameSprite = game.add.sprite(this.posX, this.posY, this.clan+this.couleur);
     game.physics.arcade.enable(this.gameSprite);

@@ -1,10 +1,35 @@
+var text;
+var titre;
+
 var preloadState = {
     preload: function () {
+
+
         this.loadingScreen = this.add.image(0,0, 'loadingScreen');
         this.loadingBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loadingBar');
         this.loadingBar.anchor.setTo(0.5);
         this.game.load.setPreloadSprite(this.loadingBar);
 
+
+    },
+    create: function () {
+
+        //	You can listen for each of these events from Phaser.Loader
+        game.load.onLoadStart.add(this.loadStart, this);
+        game.load.onFileComplete.add(this.fileComplete, this);
+        game.load.onLoadComplete.add(this.loadComplete, this);
+        text = game.add.text(GAME_WIDTH/2, GAME_HEIGHT/2-40, 'Le chargement va débuter.', { fill: '#FFFFFF' });
+        text.anchor.setTo(0.5);
+        titre = game.add.text(GAME_WIDTH/2, 150, 'POLO');
+        titre.anchor.setTo(0.5);
+        titre.font = 'Arial Black';
+        titre.fontSize = 60;
+        titre.fontWeight = 'bold';
+        titre.fill = '#FFFFFF';
+
+        this.startLoading();
+    },
+    startLoading : function() {
 
         //link_res_perso est défini dans polo.php
         game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
@@ -64,13 +89,30 @@ var preloadState = {
                 game.load.image(CLAN_NAMES[j] + CLAN_COLORS[i], 'res/img/personnages/' + CLAN_COLORS[i] + '/' + img + '/idle.png');
             }
         }
+
+        game.load.start();
     },
-    create: function () {
-        this.start = this.game.add.button(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 100, "playButton", this.playTheGame, this);
-        this.start.anchor.setTo(0.5);
-    },
+
     playTheGame: function () {
         this.game.state.start("mainState");
+    },
+
+    loadStart : function() {
+        text.setText("Chargement ...");
+    },
+
+    //	This callback is sent the following parameters:
+    fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
+
+        text.setText("Chargement a " + progress + "% terminé - " + totalLoaded + " sur " + totalFiles);
+
+    },
+
+    loadComplete : function() {
+        text.setText("Chargement terminé");
+
+        this.startButton = this.game.add.button(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 100, "playButton", this.playTheGame, this);
+        this.startButton.anchor.setTo(0.5);
     }
 
 };
