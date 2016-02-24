@@ -29,12 +29,14 @@ var ship;
 var group_transparents;
 var transparent;
 
+var musicbg;
+
 var group_decors_collide;
 var group_decors_non_collide;
 
 var button_settings;
-var on_off_volume = true;
-var on_off_effet = true;
+var off_volume = false;
+var off_effet = false;
 
 var nb_jetons = 0;
 var score = 0;
@@ -77,7 +79,7 @@ var mainState = {
         ajaxRequest(setScore, "scoreJour", null);
         ajaxRequest(updateBadges, "getBadges", null);
 
-        //this.setMusicsAndEffects();
+        this.setMusicsAndEffects();
 
         this.setDecors();
 
@@ -250,10 +252,10 @@ var mainState = {
         }, this, 2, 1, 0);
         button_retour_menu_principal.anchor.setTo(0.5);
 
-        button_gestion_musique = game.add.button(game.camera.x + GAME_WIDTH / 2 + 130, game.camera.y + GAME_HEIGHT / 2 - 85 , 'toggle_button', actionOnClickVolume, this, 0);
+        button_gestion_musique = game.add.button(game.camera.x + GAME_WIDTH / 2 + 130, game.camera.y + GAME_HEIGHT / 2 - 85 , 'toggle_button', actionOnClickVolume, this, frameButonOnOff(off_volume), frameButonOnOff(off_volume));
         button_gestion_musique.anchor.setTo(0.5);
 
-        button_gestion_effet = game.add.button(game.camera.x + GAME_WIDTH / 2 + 130, game.camera.y + GAME_HEIGHT / 2 - 25 , 'toggle_button', actionOnClickEffet, this, 0);
+        button_gestion_effet = game.add.button(game.camera.x + GAME_WIDTH / 2 + 130, game.camera.y + GAME_HEIGHT / 2 - 25 , 'toggle_button', actionOnClickEffet, this, frameButonOnOff(off_effet), frameButonOnOff(off_effet));
         button_gestion_effet.anchor.setTo(0.5);
 
         button_croix_blanche = game.add.button(game.camera.x + 843, game.camera.y + 52, 'croix_blanche', function () {
@@ -395,22 +397,22 @@ function ajaxRequest(callback, request, valeur) {
 
 
 function actionOnClickVolume() {
-    on_off_volume = !on_off_volume;
+    off_volume = !off_volume;
 
-    if (on_off_volume) {
-       // musicbg.pause();
+    if (off_volume == false) {
+       musicbg.resume();
         button_gestion_musique.setFrames(0);
     }
     else {
-       // musicbg.resume();
+       musicbg.pause();
         button_gestion_musique.setFrames(1);
     }
 }
 
 function actionOnClickEffet() {
-    on_off_effet = !on_off_effet;
+    off_effet = !off_effet;
 
-    if (on_off_effet) {
+    if (off_effet == false) {
        // musicbg.pause();
         button_gestion_effet.setFrames(0);
     }
@@ -420,6 +422,14 @@ function actionOnClickEffet() {
     }
 }
 
+function frameButonOnOff(test){
+    if(test == false){
+        return 0;
+    }
+    else {
+        return 1;
+    }
+}
 
 function testDebloquageBadge(){
     /*DEBLOQUAGE DU BADGE 1 */
