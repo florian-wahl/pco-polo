@@ -46,7 +46,7 @@ $personnage = $resultat[0];
 <script src="js/jQuizzy.js"></script>
 <script src="js/PNJ.js"></script>
 <style type="text/css">
-    .quiz{width:760px; margin:10px 10px 10px -360px}
+    .popup_holder {width:760px; margin:10px 10px 10px -360px}
 </style>
 <script src="js/gestionQuizz.js"></script>
 
@@ -64,11 +64,24 @@ $personnage = $resultat[0];
         <div id="overlay"></div>
         <img id="loading_gif" src="res/img/loading.gif">
         <div id="popup">
-            <div class="quiz">
+            <div class="popup_holder">
                   <div id='quiz-container'></div>
             </div>
             <div class="popupcontrols">
                   <span id="popupclose">X</span>
+            </div>
+        </div>
+
+        <div id="popup_arcade">
+            <div class="popup_holder">
+                <div id="info_arcade">
+                    <h2>Bornes d'Arcades ZX1999</h2>
+                    <p>Bienvenue sur la borne d'arcade, pour accéder aux mini-jeux cliquez sur le bouton ci-dessous : <br></p>
+                    <input type="button" id="button_mini_jeux"/>
+                </div>
+            </div>
+            <div class="popupcontrols_arcade">
+                <span id="popupclose_arcade">X</span>
             </div>
         </div>
     </div>
@@ -76,6 +89,17 @@ $personnage = $resultat[0];
     <script>
         $(document).ready(function() {
             $('#popupclose').click(reprendre);
+
+            $('#popupclose_arcade').click(function(){
+                reprendre();
+                overlay.style.display='none';
+                popup_arcade.style.display='none';
+            });
+
+            $("#button_mini_jeux").click(function(){
+                location.href='menu_mini_jeux.php';
+            });
+
         });
     </script>
 

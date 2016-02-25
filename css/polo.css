@@ -101,6 +101,7 @@ li{
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
 }
+
 .popupcontrols{
     position:absolute;
     left:500px;
@@ -111,6 +112,7 @@ li{
     padding:15px;
     cursor:pointer;
 }
+
 .popupcontent{
     padding:0px;
 }
@@ -123,4 +125,51 @@ li{
     margin-left: -250px; /*Half the value of width to center div*/
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
+}
+
+
+/*BORNES ARCADES*/
+#popup_arcade {
+    display: none;
+    position: absolute;
+    top: 260px;
+    left: 650px;
+
+    background: #999;
+    width: 100px;
+    height: 100px;
+    margin-left: -250px; /*Half the value of width to center div*/
+    margin-top: -250px; /*Half the value of height to center div*/
+    z-index: 200;
+}
+.popupcontrols_arcade{
+    position:absolute;
+    left:500px;
+    top:20px;
+}
+#popupclose_arcade{
+    float:none;
+    padding:15px;
+    cursor:pointer;
+}
+#info_arcade {
+    margin:0 auto;
+    background:#FCFCFC;
+    border:1px solid #dedede;
+    box-shadow:0 1px 5px #D9D9D9,inset 0 10px 20px #F1F1F1;
+    -o-box-shadow:0 1px 5px #D9D9D9,inset 0 10px 20px #F1F1F1;
+    -webkit-box-shadow:0 1px 5px #D9D9D9,inset 0 10px 20px #F1F1F1;
+    -moz-box-shadow:0 1px 5px #D9D9D9,inset 0 10px 20px #F1F1F1;
+    border-radius:20px 2px 20px 2px;
+    position:relative;
+    width:940px;
+    height:660px;
+}
+input#button_mini_jeux{
+    background: url(../res/img/boutons/bouton_jouer.png) no-repeat;
+    border: none;
+    height: 60px;
+    width: 140px;
+    margin-right: 10px;
+    margin-left: 0;
 }

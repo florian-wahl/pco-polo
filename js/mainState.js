@@ -30,6 +30,7 @@ var transparent;
 var musicbg;
 
 var group_decors_collide;
+var group_bornes_arcades;
 var group_decors_non_collide;
 
 var button_settings;
@@ -96,10 +97,11 @@ var mainState = {
         //TEST DE COLLISIONS
         game.physics.arcade.collide(player, group_transparents);
         game.physics.arcade.collide(player, group_decors_collide);
+        game.physics.arcade.collide(player, group_bornes_arcades, this.interactionArcade);
 
 
         for (i = 0; i < clients.length; i++) {
-            game.physics.arcade.collide(player, clients[i].getSprite(), function(player, clientSprite){mainState.interactionClient(player, clientSprite, clients[i])});
+            game.physics.arcade.collide(player, clients[i].getSprite(), function(player, clientSprite){mainState.interactionPNJ(player, clientSprite, clients[i])});
         }
 
 
@@ -149,21 +151,31 @@ var mainState = {
 
     setDecors : function () {
 
-        //mur proto
 
+        /*DECORS SOLIDE*/
         group_decors_collide = game.add.group();
         group_decors_collide.enableBody = true;
         group_decors_collide.add(game.add.sprite(1300, 1900, 'accueil_salon'));
         group_decors_collide.add(game.add.sprite(1300, 500, 'BLS'));
         group_decors_collide.add(game.add.sprite(1500, 500, 'BLS'));
-        group_decors_collide.add(game.add.sprite(1500, 1000, 'borne_arcade'));
         for(var i = 0; i < group_decors_collide.length; i++){
             group_decors_collide.getChildAt(i).body.immovable = true;
         }
 
+        /*BORNES ARCADES*/
+        group_bornes_arcades = game.add.group();
+        group_bornes_arcades.enableBody = true;
+        group_bornes_arcades.add(game.add.sprite(600, 1450, 'borne_arcade'));
+        group_bornes_arcades.add(game.add.sprite(750, 1450, 'borne_arcade'));
+        for(var i = 0; i < group_bornes_arcades.length; i++){
+            group_bornes_arcades.getChildAt(i).body.immovable = true;
+        }
+
+        /*DECORS TRANSPARENTS SOLIDES*/
         group_transparents = game.add.group();
         group_transparents.enableBody = true;
 
+        /*DECORS VISIBLES ET NON SOLIDES*/
         group_decors_non_collide = game.add.group();
         group_decors_non_collide.enableBody = false;
 
@@ -185,7 +197,7 @@ var mainState = {
         musicbg.play();
     },
 
-    interactionClient : function (player, clientSprite, clientPNJ) {
+    interactionPNJ : function (player, clientSprite, clientPNJ) {
 
         if (lastClient == clientSprite) {
             //On ne fait rien
@@ -202,6 +214,18 @@ var mainState = {
             game.physics.arcade.isPaused = true;
 
         }
+
+    },
+
+    interactionArcade : function(){
+
+        //Filtre blanc
+        game.physics.arcade.isPaused = true;
+
+        overlay.style.display='block';
+        popup_arcade.style.display='block';
+
+
 
     },
 

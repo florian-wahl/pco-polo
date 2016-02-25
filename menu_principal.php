@@ -43,10 +43,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             }
         });
 
-        $("#button_mini_jeux").click(function(){
-            location.href='menu_mini_jeux.php';
-        });
-
         $("#button_aides").click(function(){
             location.href='aides.php';
         });
