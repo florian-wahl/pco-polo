@@ -34,7 +34,6 @@ var preloadState = {
         game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);
         game.load.image('background', 'res/img/ingame/fond_avec_panneaux.jpg', 2890, 2206);
-        game.load.image('ship', 'res/img/thrust.png');
         game.load.image('transparent', 'res/img/transparent.png');
         game.load.image('mur', 'res/img/wallie.png');
 
@@ -68,24 +67,8 @@ var preloadState = {
         //Sprites personnages
         for (i = 0; i < CLAN_COLORS.length; i++) {
             for (j = 0; j < CLAN_NAMES.length; j++) {
-                switch (CLAN_NAMES[j]) {
-                    case 'Tut':
-                        img = "Alpha";
-                        break;
-                    case 'Lav':
-                        img = "Delta";
-                        break;
-                    case 'Pri':
-                        img = "Gamma";
-                        break;
-                    case 'Tec':
-                        img = "Zeta";
-                        break;
-                    case 'Qi':
-                        img = "Beta";
-                        break;
-                }
-                game.load.image(CLAN_NAMES[j] + CLAN_COLORS[i], 'res/img/personnages/' + CLAN_COLORS[i] + '/' + img + '/idle.png');
+
+                game.load.spritesheet(CLAN_NAMES[j] + CLAN_COLORS[i], 'res/img/personnages/clients/' + CLAN_COLORS[i] + '/' + CLAN_NAMES[j] + '/perso_sheet.png', 74, 96);
             }
         }
 

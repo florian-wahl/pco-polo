@@ -11,6 +11,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     if($_SESSION['pseudonyme'] == 'defaut') {
 
 
+
+    //TODO : améliorer la gestion de l'aléatoire dans les pseudos
     $tab_pseudonymes = array("Rendge", "Havan", "Nuty", "Luba", "Leto", "Len", "Nadam", "Macus", "Mardatt", "Lek", "Kunno", "Nery", "Mungan", "Anger", "Rodatt", "Saran", "Nel", "Mungan", "Dancus", "Locus", "Ranggs", "Bodatt", "Yono", "Necus", "Monrell", "Deedo", "Tanba");
     $i = 0;
     while ($i < 4) {
@@ -64,7 +66,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                 <div id="perso-1" class="clan_perso">
                     <h4>Les Tut</h4>
-                    <img id="img_tut" class="img_perso" src="res/img/personnages/Green/Alpha/idle.png">
+                    <img id="img_tut" class="img_perso" src="res/img/personnages/agents/Green/Tut/idle.png">
                     <p>
                         <b>Nom :</b> Tut <br>
                         <b>Planète :</b> QP66 <br>
@@ -74,7 +76,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                 <div id="perso-2" class="clan_perso">
                     <h4>Les Tec</h4>
-                    <img id="img_tec" class="img_perso" src="res/img/personnages/Green/Zeta/idle.png">
+                    <img id="img_tec" class="img_perso" src="res/img/personnages/agents/Green/Tec/idle.png">
                     <p>
                         <b>Nom :</b> Tec <br>
                         <b>Planète :</b> HQ30 <br>
@@ -84,7 +86,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                 <div id="perso-3" class="clan_perso">
                     <h4>Les Pri</h4>
-                    <img id="img_pri" class="img_perso" src="res/img/personnages/Green/Gamma/idle.png">
+                    <img id="img_pri" class="img_perso" src="res/img/personnages/agents/Green/Pri/idle.png">
                     <p>
                         <b>Nom :</b> Pri <br>
                         <b>Planète :</b> Frolix8 <br>
@@ -94,7 +96,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                 <div id="perso-4" class="clan_perso">
                     <h4>Les Lav</h4>
-                    <img id="img_lav" class="img_perso" src="res/img/personnages/Green/Delta/idle.png">
+                    <img id="img_lav" class="img_perso" src="res/img/personnages/agents/Green/Lav/idle.png">
                     <p>
                         <b>Nom :</b> Lav <br>
                         <b>Planète :</b> FI12 <br>
@@ -104,7 +106,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                 <div id="perso-5" class="clan_perso">
                     <h4>Les Qi</h4>
-                    <img id="img_qi" class="img_perso" src="res/img/personnages/Green/Beta/idle.png">
+                    <img id="img_qi" class="img_perso" src="res/img/personnages/agents/Green/Qi/idle.png">
                     <p>
                         <b>Nom :</b> Qi <br>
                         <b>Planète :</b> XK12 <br>
@@ -120,12 +122,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                 <p class="choix">Choisissez la couleur que vous voulez pour votre personnage :</p>
 
-                <img id="col_green" class="badge_couleur" src="res/img/personnages/Green/Alpha/badge_1.png">
-                <img id="col_beige" class="badge_couleur" src="res/img/personnages/Beige/Alpha/badge_1.png">
-                <img id="col_blue" class="badge_couleur" src="res/img/personnages/Blue/Alpha/badge_1.png">
-                <img id="col_purple" class="badge_couleur" src="res/img/personnages/Purple/Alpha/badge_1.png">
-                <img id="col_red" class="badge_couleur" src="res/img/personnages/Red/Alpha/badge_1.png">
-                <img id="col_yellow" class="badge_couleur" src="res/img/personnages/Yellow/Alpha/badge_1.png">
+                <img id="col_green" class="badge_couleur" src="res/img/personnages/agents/Green/Tut/badge_1.png">
+                <img id="col_blue" class="badge_couleur" src="res/img/personnages/agents/Blue/Tut/badge_1.png">
+                <img id="col_purple" class="badge_couleur" src="res/img/personnages/agents/Purple/Tut/badge_1.png">
+                <img id="col_red" class="badge_couleur" src="res/img/personnages/agents/Red/Tut/badge_1.png">
+                <img id="col_yellow" class="badge_couleur" src="res/img/personnages/agents/Yellow/Tut/badge_1.png">
             </div>
 
 

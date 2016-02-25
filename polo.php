@@ -36,24 +36,6 @@ $stmt->execute();
 //On récupère les résultats
 $resultat = $stmt->fetchAll();
 $personnage = $resultat[0];
-
-switch($resultat[0]['clan']){
-    case 'Tut':
-        $personnage['img'] = "Alpha";
-        break;
-    case 'Lav':
-        $personnage['img'] = "Delta";
-        break;
-    case 'Pri':
-        $personnage['img'] = "Gamma";
-        break;
-    case 'Tec':
-        $personnage['img'] = "Zeta";
-        break;
-    case 'Qi':
-        $personnage['img'] = "Beta";
-        break;
-}
 ?>
 
 <link rel="stylesheet" href="css/quizz.css" type="text/css" />
@@ -71,7 +53,7 @@ switch($resultat[0]['clan']){
 <body>
 
     <script>
-        var link_res_perso = 'res/img/personnages/<?php echo $personnage['couleur']."/".$personnage['img']."/perso_sheet.png";?>';
+        var link_res_perso = 'res/img/personnages/agents/<?php echo $personnage['couleur']."/".$personnage['clan']."/perso_sheet.png";?>';
     </script>
     <script type="text/javascript" src="js/bootState.js"></script>
     <script type="text/javascript" src="js/preloadState.js"></script>

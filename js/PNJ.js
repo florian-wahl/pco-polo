@@ -14,6 +14,12 @@ function PNJ(clan, couleur, posX, posY, zone){
     this.gameSprite.body.immovable = true;
     this.gameSprite.body.collideWorldBounds = true;
 
+    this.gameSprite.animations.add('left', [0, 1], 10, true);
+    this.gameSprite.animations.add('down', [2, 3], 10, true);
+    this.gameSprite.animations.add('up', [5, 6], 10, true);
+    this.gameSprite.animations.add('right', [7, 8], 10, true);
+    this.gameSprite.frame = 4;
+
     this.velocity = 50;
 }
 
@@ -34,6 +40,7 @@ PNJ.prototype.move = function(){
     if(mov1){
         this.gameSprite.body.velocity.x = this.velocity;
         this.gameSprite.body.velocity.y = 0;
+        this.gameSprite.play('right');
 
         if (actPosX > this.posX+100){
             mov2 = true;
@@ -43,7 +50,7 @@ PNJ.prototype.move = function(){
     else if (mov2){
         this.gameSprite.body.velocity.x = 0;
         this.gameSprite.body.velocity.y = this.velocity;
-        //this.gameSprite.play('down');
+        this.gameSprite.play('down');
 
         if (actPosY > this.posY+100){
             mov3 = true;
@@ -53,6 +60,7 @@ PNJ.prototype.move = function(){
     else if (mov3){
         this.gameSprite.body.velocity.x = -this.velocity;
         this.gameSprite.body.velocity.y = 0;
+        this.gameSprite.play('left');
 
         if (actPosX < this.posX){
             mov4 = true;
@@ -62,6 +70,7 @@ PNJ.prototype.move = function(){
     else if (mov4){
         this.gameSprite.body.velocity.x = 0;
         this.gameSprite.body.velocity.y = -this.velocity;
+        this.gameSprite.play('up');
 
         if (actPosY < this.posY){
             mov1 = true;

@@ -32,23 +32,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     $resultat = $stmt->fetchAll();
     $personnage = $resultat[0];
 
-    switch($resultat[0]['clan']){
-        case 'Tut':
-            $personnage['img'] = "Alpha";
-            break;
-        case 'Lav':
-            $personnage['img'] = "Delta";
-            break;
-        case 'Pri':
-            $personnage['img'] = "Gamma";
-            break;
-        case 'Tec':
-            $personnage['img'] = "Zeta";
-            break;
-        case 'Qi':
-            $personnage['img'] = "Beta";
-            break;
-    }
     ?>
     <div id="container" class="menu_polo">
         <h2>Profil</h2>
@@ -56,7 +39,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />
         <br>
 
-        <img id="profil_image_personnage" src="res/img/personnages/<?php echo $personnage['couleur']."/".$personnage['img']."/idle.png"?>" />
+        <img id="profil_image_personnage" src="res/img/personnages/agents/<?php echo $personnage['couleur']."/".$personnage['clan']."/idle.png"?>" />
 
         <div id="profil_top">
 

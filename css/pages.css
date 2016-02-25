@@ -18,14 +18,14 @@
 }
 
 #fleche_gauche {
-    background: url(../res/img/boutons/green_arrow_left.png) no-repeat;
+    background: url(../res/img/boutons/fleche_gauche.png) no-repeat;
     width: 60px;
     height: 60px;
     float: left;
 }
 
 #fleche_droite {
-    background: url(../res/img/boutons/green_arrow_right.png) no-repeat;
+    background: url(../res/img/boutons/fleche_droite.png) no-repeat;
     width: 60px;
     height: 60px;
     float: right;

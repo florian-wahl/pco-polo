@@ -84,23 +84,6 @@ $(document).ready(function() {
     });
 
     //SELECTION
-    $("#col_beige").click(function(){
-        couleur = "Beige";
-        $(".badge_couleur").css({
-            border: "none"
-        });
-
-        $("#col_beige").css({
-            border: "dashed 1px",
-            padding: "1px"
-        });
-
-        $("#img_qi").attr("src","res/img/personnages/"+couleur+"/Beta/idle.png");
-        $("#img_tut").attr("src","res/img/personnages/"+couleur+"/Alpha/idle.png");
-        $("#img_tec").attr("src","res/img/personnages/"+couleur+"/Zeta/idle.png");
-        $("#img_pri").attr("src","res/img/personnages/"+couleur+"/Gamma/idle.png");
-        $("#img_lav").attr("src","res/img/personnages/"+couleur+"/Delta/idle.png");
-    });
 
     $("#col_green").click(function(){
         couleur = "Green";
@@ -113,11 +96,11 @@ $(document).ready(function() {
             padding: "1px"
         });
 
-        $("#img_qi").attr("src","res/img/personnages/"+couleur+"/Beta/idle.png");
-        $("#img_tut").attr("src","res/img/personnages/"+couleur+"/Alpha/idle.png");
-        $("#img_tec").attr("src","res/img/personnages/"+couleur+"/Zeta/idle.png");
-        $("#img_pri").attr("src","res/img/personnages/"+couleur+"/Gamma/idle.png");
-        $("#img_lav").attr("src","res/img/personnages/"+couleur+"/Delta/idle.png");
+        $("#img_qi").attr("src","res/img/personnages/agents/"+couleur+"/Qi/idle.png");
+        $("#img_tut").attr("src","res/img/personnages/agents/"+couleur+"/Tut/idle.png");
+        $("#img_tec").attr("src","res/img/personnages/agents/"+couleur+"/Tec/idle.png");
+        $("#img_pri").attr("src","res/img/personnages/agents/"+couleur+"/Pri/idle.png");
+        $("#img_lav").attr("src","res/img/personnages/agents/"+couleur+"/Lav/idle.png");
     });
 
     $("#col_blue").click(function(){
@@ -131,11 +114,11 @@ $(document).ready(function() {
             padding: "1px"
         });
 
-        $("#img_qi").attr("src","res/img/personnages/"+couleur+"/Beta/idle.png");
-        $("#img_tut").attr("src","res/img/personnages/"+couleur+"/Alpha/idle.png");
-        $("#img_tec").attr("src","res/img/personnages/"+couleur+"/Zeta/idle.png");
-        $("#img_pri").attr("src","res/img/personnages/"+couleur+"/Gamma/idle.png");
-        $("#img_lav").attr("src","res/img/personnages/"+couleur+"/Delta/idle.png");
+        $("#img_qi").attr("src","res/img/personnages/agents/"+couleur+"/Qi/idle.png");
+        $("#img_tut").attr("src","res/img/personnages/agents/"+couleur+"/Tut/idle.png");
+        $("#img_tec").attr("src","res/img/personnages/agents/"+couleur+"/Tec/idle.png");
+        $("#img_pri").attr("src","res/img/personnages/agents/"+couleur+"/Pri/idle.png");
+        $("#img_lav").attr("src","res/img/personnages/agents/"+couleur+"/Lav/idle.png");
     });
 
     $("#col_purple").click(function(){
@@ -149,11 +132,11 @@ $(document).ready(function() {
             padding: "1px"
         });
 
-        $("#img_qi").attr("src","res/img/personnages/"+couleur+"/Beta/idle.png");
-        $("#img_tut").attr("src","res/img/personnages/"+couleur+"/Alpha/idle.png");
-        $("#img_tec").attr("src","res/img/personnages/"+couleur+"/Zeta/idle.png");
-        $("#img_pri").attr("src","res/img/personnages/"+couleur+"/Gamma/idle.png");
-        $("#img_lav").attr("src","res/img/personnages/"+couleur+"/Delta/idle.png");
+        $("#img_qi").attr("src","res/img/personnages/agents/"+couleur+"/Qi/idle.png");
+        $("#img_tut").attr("src","res/img/personnages/agents/"+couleur+"/Tut/idle.png");
+        $("#img_tec").attr("src","res/img/personnages/agents/"+couleur+"/Tec/idle.png");
+        $("#img_pri").attr("src","res/img/personnages/agents/"+couleur+"/Pri/idle.png");
+        $("#img_lav").attr("src","res/img/personnages/agents/"+couleur+"/Lav/idle.png");
     });
 
     $("#col_red").click(function(){
@@ -167,11 +150,11 @@ $(document).ready(function() {
             padding: "1px"
         });
 
-        $("#img_qi").attr("src","res/img/personnages/"+couleur+"/Beta/idle.png");
-        $("#img_tut").attr("src","res/img/personnages/"+couleur+"/Alpha/idle.png");
-        $("#img_tec").attr("src","res/img/personnages/"+couleur+"/Zeta/idle.png");
-        $("#img_pri").attr("src","res/img/personnages/"+couleur+"/Gamma/idle.png");
-        $("#img_lav").attr("src","res/img/personnages/"+couleur+"/Delta/idle.png");
+        $("#img_qi").attr("src","res/img/personnages/agents/"+couleur+"/Qi/idle.png");
+        $("#img_tut").attr("src","res/img/personnages/agents/"+couleur+"/Tut/idle.png");
+        $("#img_tec").attr("src","res/img/personnages/agents/"+couleur+"/Tec/idle.png");
+        $("#img_pri").attr("src","res/img/personnages/agents/"+couleur+"/Pri/idle.png");
+        $("#img_lav").attr("src","res/img/personnages/agents/"+couleur+"/Lav/idle.png");
     });
 
     $("#col_yellow").click(function(){
@@ -185,10 +168,10 @@ $(document).ready(function() {
             padding: "1px"
         });
 
-        $("#img_qi").attr("src","res/img/personnages/"+couleur+"/Beta/idle.png");
-        $("#img_tut").attr("src","res/img/personnages/"+couleur+"/Alpha/idle.png");
-        $("#img_tec").attr("src","res/img/personnages/"+couleur+"/Zeta/idle.png");
-        $("#img_pri").attr("src","res/img/personnages/"+couleur+"/Gamma/idle.png");
-        $("#img_lav").attr("src","res/img/personnages/"+couleur+"/Delta/idle.png");
+        $("#img_qi").attr("src","res/img/personnages/agents/"+couleur+"/Qi/idle.png");
+        $("#img_tut").attr("src","res/img/personnages/agents/"+couleur+"/Tut/idle.png");
+        $("#img_tec").attr("src","res/img/personnages/agents/"+couleur+"/Tec/idle.png");
+        $("#img_pri").attr("src","res/img/personnages/agents/"+couleur+"/Pri/idle.png");
+        $("#img_lav").attr("src","res/img/personnages/agents/"+couleur+"/Lav/idle.png");
     });
 });

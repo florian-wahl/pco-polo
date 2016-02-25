@@ -9,7 +9,7 @@ DECLARATION DES CONSTANTES
 var GAME_WIDTH = 1024;
 var GAME_HEIGHT = 700;
 var CLAN_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
-var CLAN_COLORS = ['Beige','Blue','Green','Purple','Red','Yellow'];
+var CLAN_COLORS = ['Blue','Green','Purple','Red','Yellow'];
 
 var MAX_SPEED_PLAYER = 300;
 
@@ -178,7 +178,7 @@ var mainState = {
         //Ajout des clients
         clients[0] = new PNJ('Tec', 'Red', game.world.centerX + 500, game.world.centerY + 400, 0);
         clients[1] = new PNJ('Lav', 'Yellow', game.world.centerX - 500, game.world.centerY + 400, 0);
-        clients[2] = new PNJ('Qi', 'Beige', 150, 500, 0);
+        clients[2] = new PNJ('Qi', 'Blue', 150, 500, 0);
     },
 
     setMusicsAndEffects : function(){
