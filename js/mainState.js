@@ -22,10 +22,8 @@ DECLARATION DES VARIABLES
  */
 var player;
 var cursors;
-var walls;
 var murs;
 var mur;
-var ship;
 var group_transparents;
 var transparent;
 
