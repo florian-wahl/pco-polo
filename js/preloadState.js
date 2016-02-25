@@ -58,8 +58,22 @@ var preloadState = {
         //Elements
         game.load.image('accueil_salon','res/img/ingame/elements/accueil_salon.png');
         game.load.image('BLS','res/img/ingame/elements/BLS.png');
+        game.load.image('DBA','res/img/ingame/elements/DBA.png');
         game.load.image('borne_arcade','res/img/ingame/elements/borne_arcade.png');
         game.load.image('buffet_salon','res/img/ingame/elements/buffet_salon.png');
+        game.load.image('canape_blanc_dos','res/img/ingame/elements/canape_blanc_dos.png');
+        game.load.image('canape_blanc_face','res/img/ingame/elements/canape_blanc_face.png');
+        game.load.image('distributeur','res/img/ingame/elements/distributeur.png');
+        game.load.image('fauteuil_rouge','res/img/ingame/elements/fauteuil_rouge.png');
+        game.load.image('guichet_emb','res/img/ingame/elements/guichet_emb.png');
+        game.load.image('guichet_enregistrement','res/img/ingame/elements/guichet_enregistrement.png');
+        game.load.image('table','res/img/ingame/elements/table.png');
+        game.load.image('magazines','res/img/ingame/elements/magazines.png');
+        game.load.image('magazines_2','res/img/ingame/elements/magazines_2.png');
+        game.load.image('magazines_3','res/img/ingame/elements/magazines_3.png');
+        game.load.image('plante1','res/img/ingame/elements/plante1.png');
+        game.load.image('plante2','res/img/ingame/elements/plante2.png');
+        game.load.image('plante3','res/img/ingame/elements/plante3.png');
 
         //Panneaux
         game.load.image('panneau_bagage','res/img/ingame/elements/panneau_bagage.png');
@@ -70,6 +84,8 @@ var preloadState = {
         game.load.image('panneau_salle_repos','res/img/ingame/elements/panneau_salle_repos.png');
         game.load.image('panneau_salon','res/img/ingame/elements/panneau_salon.png');
         game.load.image('panneau_toilettes','res/img/ingame/elements/panneau_toilettes.png');
+        game.load.image('ecran_AF','res/img/ingame/elements/ecran.png');
+        game.load.image('guichets_zone_partie_haute','res/img/ingame/elements/guichets_zone_partie_haute.png');
 
 
         //Fond transparents

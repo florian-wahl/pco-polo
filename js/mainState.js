@@ -88,7 +88,7 @@ var mainState = {
 
         this.setPlayer();
         game.camera.follow(player);
-        game.camera.deadzone = new Phaser.Rectangle(150, 150, 450, 300);
+        game.camera.deadzone = new Phaser.Rectangle(300, 250, 420, 250);
 
         this.setDecorsDevant();
 
@@ -176,10 +176,42 @@ var mainState = {
         group_decors_derriere_collide.add(game.add.sprite(505, 1500, 'mur_salle_repos_haut'));
         group_decors_derriere_collide.add(game.add.sprite(1271, 1500, 'mur_salle_repos_droite_petit'));
         group_decors_derriere_collide.add(game.add.sprite(1271, 1698, 'mur_salle_repos_droite_grand'));
+
         //Elements
         group_decors_derriere_collide.add(game.add.sprite(240, 1340, 'accueil_salon'));
         group_decors_derriere_collide.add(game.add.sprite(975, 1030, 'BLS'));
         group_decors_derriere_collide.add(game.add.sprite(1075, 1030, 'BLS'));
+        group_decors_derriere_collide.add(game.add.sprite(1175, 1030, 'BLS'));
+        group_decors_derriere_collide.add(game.add.sprite(1275, 1030, 'BLS'));
+        group_decors_derriere_collide.add(game.add.sprite(2685, 840, 'DBA'));
+        group_decors_derriere_collide.add(game.add.sprite(2685, 1040, 'DBA'));
+        group_decors_derriere_collide.add(game.add.sprite(2685, 1240, 'DBA'));
+        group_decors_derriere_collide.add(game.add.sprite(0, 1100, 'buffet_salon'));
+        group_decors_derriere_collide.add(game.add.sprite(270, 706, 'distributeur'));
+        group_decors_derriere_collide.add(game.add.sprite(776, 706, 'distributeur'));
+        group_decors_derriere_collide.add(game.add.sprite(860, 1500, 'distributeur'));
+        group_decors_derriere_collide.add(game.add.sprite(1390, 120, 'guichet_emb'));
+        group_decors_derriere_collide.add(game.add.sprite(1465, 1171, 'guichet_enregistrement'));
+        group_decors_derriere_collide.add(game.add.sprite(1665, 1171, 'guichet_enregistrement'));
+        group_decors_derriere_collide.add(game.add.sprite(1865, 1171, 'guichet_enregistrement'));
+        group_decors_derriere_collide.add(game.add.sprite(23, 918, 'table'));
+        group_decors_derriere_collide.add(game.add.sprite(410, 918, 'table'));
+        group_decors_derriere_collide.add(game.add.sprite(770, 1910, 'table'));
+        var plantes = game.add.sprite(1420, 1150, 'plante1');
+        game.physics.arcade.enable(plantes);
+        plantes.body.height = 20;
+        plantes.anchor.setTo(1);
+        group_decors_derriere_collide.add(plantes);
+        plantes = game.add.sprite(2680, 150, 'plante1');
+        game.physics.arcade.enable(plantes);
+        plantes.body.height = 20;
+        plantes.anchor.setTo(1);
+        group_decors_derriere_collide.add(plantes);
+        plantes = game.add.sprite(1010, 1600, 'plante2');
+        game.physics.arcade.enable(plantes);
+        plantes.body.height = 60;
+        plantes.anchor.setTo(1);
+        group_decors_derriere_collide.add(plantes);
         for(var i = 0; i < group_decors_derriere_collide.length; i++){
             group_decors_derriere_collide.getChildAt(i).body.immovable = true;
         }
@@ -212,6 +244,19 @@ var mainState = {
         group_decors_derriere_non_collide = game.add.group();
         group_decors_derriere_non_collide.enableBody = false;
         group_decors_derriere_non_collide.add(game.add.sprite(2508, 27, 'panneau_toilettes'));
+        group_decors_derriere_non_collide.add(game.add.sprite(65, 718, 'ecran_AF'));
+        group_decors_derriere_non_collide.add(game.add.sprite(890, 718, 'ecran_AF'));
+        group_decors_derriere_non_collide.add(game.add.sprite(1120, 15, 'ecran_AF'));
+        group_decors_derriere_non_collide.add(game.add.sprite(1725, 15, 'ecran_AF'));
+        group_decors_derriere_non_collide.add(game.add.sprite(1910, 15, 'ecran_AF'));
+        group_decors_derriere_non_collide.add(game.add.sprite(1021, 2107, 'canape_blanc_dos'));
+        group_decors_derriere_non_collide.add(game.add.sprite(750, 1740, 'canape_blanc_face'));
+        group_decors_derriere_non_collide.add(game.add.sprite(0, 780, 'canape_blanc_face'));
+        group_decors_derriere_non_collide.add(game.add.sprite(385, 780, 'canape_blanc_face'));
+        group_decors_derriere_non_collide.add(game.add.sprite(520, 2080, 'fauteuil_rouge'));
+        group_decors_derriere_non_collide.add(game.add.sprite(420, 925, 'magazines'));
+        group_decors_derriere_non_collide.add(game.add.sprite(90, 930, 'magazines_2'));
+        group_decors_derriere_non_collide.add(game.add.sprite(840, 1920, 'magazines_3'));
 
 
 
@@ -231,10 +276,37 @@ var mainState = {
         group_decors_devant_non_collide.add(game.add.sprite(2615, 690, 'panneau_dba'));
         group_decors_devant_non_collide.add(game.add.sprite(933, 960, 'panneau_bls'));
         group_decors_devant_non_collide.add(game.add.sprite(1193, 1681, 'panneau_salle_repos'));
+        group_decors_devant_non_collide.add(game.add.sprite(1465, 1020, 'guichets_zone_partie_haute'));
 
         /*DECORS SOLIDES*/
         group_decors_devant_collide = game.add.group();
         group_decors_devant_collide.enableBody = true;
+        var plantes = game.add.sprite(2270, 1495, 'plante1');
+        game.physics.arcade.enable(plantes);
+        plantes.body.height = 20;
+        plantes.anchor.setTo(1);
+        group_decors_devant_collide.add(plantes);
+        plantes = game.add.sprite(2040, 2190, 'plante2');
+        game.physics.arcade.enable(plantes);
+        plantes.body.height = 20;
+        plantes.anchor.setTo(1);
+        group_decors_devant_collide.add(plantes);
+        plantes = game.add.sprite(65, 1495, 'plante3');
+        game.physics.arcade.enable(plantes);
+        plantes.body.height = 20;
+        plantes.anchor.setTo(1);
+        group_decors_devant_collide.add(plantes);
+        plantes = game.add.sprite(1265, 1495, 'plante3');
+        game.physics.arcade.enable(plantes);
+        plantes.body.height = 20;
+        plantes.anchor.setTo(1);
+        group_decors_devant_collide.add(plantes);
+        group_decors_devant_collide.add(plantes);
+        plantes = game.add.sprite(1125, 790, 'plante3');
+        game.physics.arcade.enable(plantes);
+        plantes.body.height = 20;
+        plantes.anchor.setTo(1);
+        group_decors_devant_collide.add(plantes);
 
         for(var i = 0; i < group_decors_devant_collide.length; i++){
             group_decors_devant_collide.getChildAt(i).body.immovable = true;
@@ -245,7 +317,7 @@ var mainState = {
 
         //Ajout des clients
         clients[0] = new PNJ('Tec', 'Red', game.world.centerX + 500, game.world.centerY + 400, 0);
-        clients[1] = new PNJ('Lav', 'Yellow', game.world.centerX - 500, game.world.centerY + 400, 0);
+        clients[1] = new PNJ('Lav', 'Yellow', game.world.centerX, game.world.centerY + 400, 0);
         clients[2] = new PNJ('Qi', 'Blue', 150, 500, 0);
     },
 
