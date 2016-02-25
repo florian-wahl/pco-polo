@@ -19,18 +19,13 @@
 
 input.menu_principal_button {
     border: none;
-    width: 400px;
     height: 125px;
-    margin-bottom: 15px;
     margin-right: 10px;
     margin-left: 0;
 }
 input#button_jouer{
     background: url(../res/img/boutons/menu_principal_jouer.png) no-repeat;
-}
-
-input#button_mini_jeux{
-    background:  url(../res/img/boutons/menu_principal_mini_jeux.png) no-repeat;
+    width: 827px;
 }
 
 input#button_profil{

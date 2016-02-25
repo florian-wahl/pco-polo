@@ -18,11 +18,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <h2>Bienvenue <?php echo $_SESSION['prenom']; ?> ! </h2>
         <h3>Que voulez-vous faire ?</h3>
 
+            <input type="button" class="menu_principal_button" id="button_jouer"/>
         <table>
-            <tr>
-                <td><input type="button" class="menu_principal_button" id="button_jouer"/></td>
-                <td><input type="button" class="menu_principal_button" id="button_mini_jeux"/></td>
-            </tr>
             <tr>
                 <td><input type="button" class="menu_principal_button" id="button_profil"/></td>
                 <td><input type="button" class="menu_principal_button" id="button_aides"/></td>
