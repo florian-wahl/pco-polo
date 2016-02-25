@@ -22,16 +22,18 @@ DECLARATION DES VARIABLES
  */
 var player;
 var cursors;
-var murs;
 var mur;
-var group_transparents;
 var transparent;
 
 var musicbg;
 
-var group_decors_collide;
+/*Groupes d'éléments du décor*/
+var group_decors_derriere_collide;
+var group_decors_devant_collide;
 var group_bornes_arcades;
-var group_decors_non_collide;
+var group_decors_derriere_non_collide;
+var group_decors_devant_non_collide;
+var group_transparents;
 
 var button_settings;
 var off_volume = false;
@@ -80,13 +82,15 @@ var mainState = {
 
         this.setMusicsAndEffects();
 
-        this.setDecors();
+        this.setDecorsDerriere();
 
         this.setPNJ();
 
         this.setPlayer();
         game.camera.follow(player);
         game.camera.deadzone = new Phaser.Rectangle(150, 150, 450, 300);
+
+        this.setDecorsDevant();
 
         this.setIHM();
 
@@ -96,7 +100,8 @@ var mainState = {
 
         //TEST DE COLLISIONS
         game.physics.arcade.collide(player, group_transparents);
-        game.physics.arcade.collide(player, group_decors_collide);
+        game.physics.arcade.collide(player, group_decors_derriere_collide);
+        game.physics.arcade.collide(player, group_decors_devant_collide);
         game.physics.arcade.collide(player, group_bornes_arcades, this.interactionArcade);
 
 
@@ -149,38 +154,90 @@ var mainState = {
 
     },
 
-    setDecors : function () {
-
+    setDecorsDerriere : function () {
+        /*GESTION DES DECORS QUI SE SITUERONT AEN DESSOUS DU PLAYER*/
 
         /*DECORS SOLIDE*/
-        group_decors_collide = game.add.group();
-        group_decors_collide.enableBody = true;
-        group_decors_collide.add(game.add.sprite(1300, 1900, 'accueil_salon'));
-        group_decors_collide.add(game.add.sprite(1300, 500, 'BLS'));
-        group_decors_collide.add(game.add.sprite(1500, 500, 'BLS'));
-        for(var i = 0; i < group_decors_collide.length; i++){
-            group_decors_collide.getChildAt(i).body.immovable = true;
+        group_decors_derriere_collide = game.add.group();
+        group_decors_derriere_collide.enableBody = true;
+        //Elements du vide, limite de la carte
+        group_decors_derriere_collide.add(game.add.sprite(0, 0, 'haut_gauche'));
+        group_decors_derriere_collide.add(game.add.sprite(1071, 0, 'haut_milieu'));
+        group_decors_derriere_collide.add(game.add.sprite(2690, 0, 'haut_droite'));
+        group_decors_derriere_collide.add(game.add.sprite(0, 1500, 'bas_gauche'));
+        group_decors_derriere_collide.add(game.add.sprite(509, 2193, 'bas_milieu'));
+        group_decors_derriere_collide.add(game.add.sprite(2225, 1498, 'bas_droite'));
+        //Elements de mur
+        group_decors_derriere_collide.add(game.add.sprite(1072, 800, 'mur_haut_gauche'));
+        group_decors_derriere_collide.add(game.add.sprite(1685, 802, 'mur_haut_milieu'));
+        group_decors_derriere_collide.add(game.add.sprite(2372, 802, 'mur_haut_droite'));
+        group_decors_derriere_collide.add(game.add.sprite(626, 800, 'mur_gauche'));
+        group_decors_derriere_collide.add(game.add.sprite(505, 1500, 'mur_salle_repos_haut'));
+        group_decors_derriere_collide.add(game.add.sprite(1271, 1500, 'mur_salle_repos_droite_petit'));
+        group_decors_derriere_collide.add(game.add.sprite(1271, 1698, 'mur_salle_repos_droite_grand'));
+        //Elements
+        group_decors_derriere_collide.add(game.add.sprite(240, 1340, 'accueil_salon'));
+        group_decors_derriere_collide.add(game.add.sprite(975, 1030, 'BLS'));
+        group_decors_derriere_collide.add(game.add.sprite(1025, 1030, 'BLS'));
+        for(var i = 0; i < group_decors_derriere_collide.length; i++){
+            group_decors_derriere_collide.getChildAt(i).body.immovable = true;
         }
 
         /*BORNES ARCADES*/
         group_bornes_arcades = game.add.group();
         group_bornes_arcades.enableBody = true;
-        group_bornes_arcades.add(game.add.sprite(600, 1450, 'borne_arcade'));
-        group_bornes_arcades.add(game.add.sprite(750, 1450, 'borne_arcade'));
+        var borne_arcade = game.add.sprite(580, 1625, 'borne_arcade');
+        game.physics.arcade.enable(borne_arcade);
+        borne_arcade.body.height = 120;
+        borne_arcade.anchor.setTo(1);
+        group_bornes_arcades.add(borne_arcade);
+        borne_arcade = game.add.sprite(650, 1625, 'borne_arcade');
+        game.physics.arcade.enable(borne_arcade);
+        borne_arcade.body.height = 120;
+        borne_arcade.anchor.setTo(1);
+        group_bornes_arcades.add(borne_arcade);
         for(var i = 0; i < group_bornes_arcades.length; i++){
             group_bornes_arcades.getChildAt(i).body.immovable = true;
         }
 
-        /*DECORS TRANSPARENTS SOLIDES*/
+        /*DECORS TRANSPARENTS SOLIDES BLOQUAND LES NIVEAUX*/
         group_transparents = game.add.group();
         group_transparents.enableBody = true;
+        for(var i = 0; i < group_transparents.length; i++){
+            group_transparents.getChildAt(i).body.immovable = true;
+        }
 
         /*DECORS VISIBLES ET NON SOLIDES*/
-        group_decors_non_collide = game.add.group();
-        group_decors_non_collide.enableBody = false;
+        group_decors_derriere_non_collide = game.add.group();
+        group_decors_derriere_non_collide.enableBody = false;
+        group_decors_derriere_non_collide.add(game.add.sprite(2508, 27, 'panneau_toilettes'));
 
 
 
+
+
+    },
+
+    setDecorsDevant : function(){
+        /*GESTION DES DECORS QUI SE SITUERONT AU DESSUS DU PLAYER*/
+
+        /*DECORS NON SOLIDE*/
+        group_decors_devant_non_collide = game.add.group();
+        group_decors_devant_non_collide.enableBody = false;
+        group_decors_devant_non_collide.add(game.add.sprite(1868, 762, 'panneau_bagage'));
+        group_decors_devant_non_collide.add(game.add.sprite(1686, 762, 'panneau_embarquement_debarquement'));
+        group_decors_devant_non_collide.add(game.add.sprite(547, 1183, 'panneau_salon'));
+        group_decors_devant_non_collide.add(game.add.sprite(2615, 690, 'panneau_dba'));
+        group_decors_devant_non_collide.add(game.add.sprite(933, 960, 'panneau_bls'));
+        group_decors_devant_non_collide.add(game.add.sprite(1193, 1681, 'panneau_salle_repos'));
+
+        /*DECORS SOLIDES*/
+        group_decors_devant_collide = game.add.group();
+        group_decors_devant_collide.enableBody = true;
+
+        for(var i = 0; i < group_decors_devant_collide.length; i++){
+            group_decors_devant_collide.getChildAt(i).body.immovable = true;
+        }
     },
 
     setPNJ : function(){
@@ -227,31 +284,6 @@ var mainState = {
 
 
 
-    },
-
-    creermur: function(){
-        for (var i = 0; i < 32; i++) {
-            mur = murs.create(i * 40, 0, 'mur');
-            mur.body.immovable = true;
-            if (!(i == 24 || i == 25 || i == 26)) {
-                mur = murs.create(i * 40, 600, 'mur');
-            }
-            mur.body.immovable = true;
-            if (i == 0 || i == 15 || i == 31) {
-                for (var j = 0; j < 16; j++) {
-
-                    if ((i == 15 && (j == 8 || j == 7 || j == 9))) {
-                        transparent = group_transparents.create(i * 40, j * 40, 'mur');
-                        transparent.body.immovable = true;
-                        transparent.renderable = false;
-                    }
-                    else {
-                        mur = murs.create(i * 40, j * 40, 'mur');
-                        mur.body.immovable = true;
-                    }
-                }
-            }
-        }
     },
 
 
@@ -384,8 +416,6 @@ function updateMap(){
 
     //Blocage du niveau 1 séquence de test
     if (listeBadges[1] == 1) {
-
-        group_transparents.destroy();
     }
 }
 /*
