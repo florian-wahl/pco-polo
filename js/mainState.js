@@ -172,13 +172,14 @@ var mainState = {
         group_decors_derriere_collide.add(game.add.sprite(1685, 802, 'mur_haut_milieu'));
         group_decors_derriere_collide.add(game.add.sprite(2372, 802, 'mur_haut_droite'));
         group_decors_derriere_collide.add(game.add.sprite(626, 800, 'mur_gauche'));
+        group_decors_derriere_collide.add(game.add.sprite(933, 1079, 'mur_milieu'));
         group_decors_derriere_collide.add(game.add.sprite(505, 1500, 'mur_salle_repos_haut'));
         group_decors_derriere_collide.add(game.add.sprite(1271, 1500, 'mur_salle_repos_droite_petit'));
         group_decors_derriere_collide.add(game.add.sprite(1271, 1698, 'mur_salle_repos_droite_grand'));
         //Elements
         group_decors_derriere_collide.add(game.add.sprite(240, 1340, 'accueil_salon'));
         group_decors_derriere_collide.add(game.add.sprite(975, 1030, 'BLS'));
-        group_decors_derriere_collide.add(game.add.sprite(1025, 1030, 'BLS'));
+        group_decors_derriere_collide.add(game.add.sprite(1075, 1030, 'BLS'));
         for(var i = 0; i < group_decors_derriere_collide.length; i++){
             group_decors_derriere_collide.getChildAt(i).body.immovable = true;
         }
