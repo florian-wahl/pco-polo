@@ -34,8 +34,6 @@ var preloadState = {
         game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);
         game.load.image('background', 'res/img/ingame/fond_sans_panneaux.jpg', 2890, 2206);
-        game.load.image('transparent', 'res/img/transparent.png');
-        game.load.image('mur', 'res/img/wallie.png');
 
         //touch control
         game.load.image('compass', 'res/img/compass_rose.png');
@@ -57,12 +55,15 @@ var preloadState = {
 
         //Elements
         game.load.image('accueil_salon','res/img/ingame/elements/accueil_salon.png');
-        game.load.image('BLS','res/img/ingame/elements/BLS.png');
+        game.load.image('BLS_haut','res/img/ingame/elements/BLS_haut.png');
+        game.load.image('BLS_bas','res/img/ingame/elements/BLS_bas.png');
         game.load.image('DBA','res/img/ingame/elements/DBA.png');
         game.load.image('borne_arcade','res/img/ingame/elements/borne_arcade.png');
         game.load.image('buffet_salon','res/img/ingame/elements/buffet_salon.png');
-        game.load.image('canape_blanc_dos','res/img/ingame/elements/canape_blanc_dos.png');
-        game.load.image('canape_blanc_face','res/img/ingame/elements/canape_blanc_face.png');
+        game.load.image('canape_blanc_dos_bas','res/img/ingame/elements/canape_blanc_dos_bas.png');
+        game.load.image('canape_blanc_dos_haut','res/img/ingame/elements/canape_blanc_dos_haut.png');
+        game.load.image('canape_blanc_face_bas','res/img/ingame/elements/canape_blanc_face_bas.png');
+        game.load.image('canape_blanc_face_haut','res/img/ingame/elements/canape_blanc_face_haut.png');
         game.load.image('distributeur','res/img/ingame/elements/distributeur.png');
         game.load.image('fauteuil_rouge','res/img/ingame/elements/fauteuil_rouge.png');
         game.load.image('guichet_emb','res/img/ingame/elements/guichet_emb.png');
@@ -74,6 +75,20 @@ var preloadState = {
         game.load.image('plante1','res/img/ingame/elements/plante1.png');
         game.load.image('plante2','res/img/ingame/elements/plante2.png');
         game.load.image('plante3','res/img/ingame/elements/plante3.png');
+        game.load.image('PC1','res/img/ingame/elements/PC1.png');
+        game.load.image('PC2','res/img/ingame/elements/PC2.png');
+        game.load.image('point_info','res/img/ingame/elements/point_info.png');
+        game.load.image('rangee_chaise_type1_simple','res/img/ingame/elements/rangee_chaise_type1_simple.png');
+        game.load.image('rangee_chaise_type1_haut','res/img/ingame/elements/rangee_chaise_type1_haut.png');
+        game.load.image('rangee_chaise_type1_bas','res/img/ingame/elements/rangee_chaise_type1_bas.png');
+        game.load.image('tapis_apporte_bagage','res/img/ingame/elements/tapis_apporte_bagage.png');
+        game.load.image('bagage1','res/img/ingame/elements/bagage1.png');
+        game.load.image('bagage2','res/img/ingame/elements/bagage2.png');
+        game.load.image('chicane_assemblees_dba1','res/img/ingame/elements/chicane_assemblees_dba1.png');
+        game.load.image('chicane_verticale','res/img/ingame/elements/chicane_verticale.png');
+        game.load.image('chicane_horizontale_sf','res/img/ingame/elements/chicane_horizontale_sf.png');
+        game.load.image('chicane_assemblees_dba3','res/img/ingame/elements/chicane_assemblees_dba3.png');
+        game.load.image('chicane_assemblees_embarquement3','res/img/ingame/elements/chicane_assemblees_embarquement3.png');
 
         //Panneaux
         game.load.image('panneau_bagage','res/img/ingame/elements/panneau_bagage.png');
@@ -106,6 +121,7 @@ var preloadState = {
         game.load.image('mur_salle_repos_droite_grand','res/img/ingame/transparents/mur_salle_repos_droite_grand.png');
 
         //Sprites personnages
+        game.load.image('agent_blue_headset','res/img/personnages/agent_blue_headset.png');
         for (i = 0; i < CLAN_COLORS.length; i++) {
             for (j = 0; j < CLAN_NAMES.length; j++) {
 
@@ -127,7 +143,7 @@ var preloadState = {
     //	This callback is sent the following parameters:
     fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
 
-        text.setText("Chargement à " + progress + "% terminé - " + totalLoaded + " sur " + totalFiles);
+        text.setText("Chargement à " + progress + "% terminé - " + totalLoaded + " / " + totalFiles);
 
     },
 

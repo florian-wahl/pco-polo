@@ -155,7 +155,9 @@ var mainState = {
     },
 
     setDecorsDerriere : function () {
-        /*GESTION DES DECORS QUI SE SITUERONT AEN DESSOUS DU PLAYER*/
+        /*GESTION DES DECORS QUI SE SITUERONT EN DESSOUS DU PLAYER*/
+
+        /*DECORS VISIBLES ET NON SOLIDES PART 1/2*/
 
         /*DECORS SOLIDE*/
         group_decors_derriere_collide = game.add.group();
@@ -179,10 +181,11 @@ var mainState = {
 
         //Elements
         group_decors_derriere_collide.add(game.add.sprite(240, 1340, 'accueil_salon'));
-        group_decors_derriere_collide.add(game.add.sprite(975, 1030, 'BLS'));
-        group_decors_derriere_collide.add(game.add.sprite(1075, 1030, 'BLS'));
-        group_decors_derriere_collide.add(game.add.sprite(1175, 1030, 'BLS'));
-        group_decors_derriere_collide.add(game.add.sprite(1275, 1030, 'BLS'));
+        group_decors_derriere_collide.add(game.add.sprite(1890, 1650, 'agent_blue_headset'));
+        group_decors_derriere_collide.add(game.add.sprite(975, 1080, 'BLS_bas'));
+        group_decors_derriere_collide.add(game.add.sprite(1075, 1080, 'BLS_bas'));
+        group_decors_derriere_collide.add(game.add.sprite(1175, 1080, 'BLS_bas'));
+        group_decors_derriere_collide.add(game.add.sprite(1275, 1080, 'BLS_bas'));
         group_decors_derriere_collide.add(game.add.sprite(2685, 840, 'DBA'));
         group_decors_derriere_collide.add(game.add.sprite(2685, 1040, 'DBA'));
         group_decors_derriere_collide.add(game.add.sprite(2685, 1240, 'DBA'));
@@ -190,13 +193,22 @@ var mainState = {
         group_decors_derriere_collide.add(game.add.sprite(270, 706, 'distributeur'));
         group_decors_derriere_collide.add(game.add.sprite(776, 706, 'distributeur'));
         group_decors_derriere_collide.add(game.add.sprite(860, 1500, 'distributeur'));
+        group_decors_derriere_collide.add(game.add.sprite(1390, 50, 'agent_blue_headset'));
         group_decors_derriere_collide.add(game.add.sprite(1390, 120, 'guichet_emb'));
+        group_decors_derriere_collide.add(game.add.sprite(1465, 1110, 'agent_blue_headset'));
+        group_decors_derriere_collide.add(game.add.sprite(1665, 1110, 'agent_blue_headset'));
+        group_decors_derriere_collide.add(game.add.sprite(1865, 1110, 'agent_blue_headset'));
         group_decors_derriere_collide.add(game.add.sprite(1465, 1171, 'guichet_enregistrement'));
         group_decors_derriere_collide.add(game.add.sprite(1665, 1171, 'guichet_enregistrement'));
         group_decors_derriere_collide.add(game.add.sprite(1865, 1171, 'guichet_enregistrement'));
         group_decors_derriere_collide.add(game.add.sprite(23, 918, 'table'));
         group_decors_derriere_collide.add(game.add.sprite(410, 918, 'table'));
         group_decors_derriere_collide.add(game.add.sprite(770, 1910, 'table'));
+        group_decors_derriere_collide.add(game.add.sprite(1021, 2151, 'canape_blanc_dos_haut'));
+        group_decors_derriere_collide.add(game.add.sprite(750, 1747, 'canape_blanc_face_haut'));
+        group_decors_derriere_collide.add(game.add.sprite(0, 787, 'canape_blanc_face_haut'));
+        group_decors_derriere_collide.add(game.add.sprite(385, 787, 'canape_blanc_face_haut'));
+        group_decors_derriere_collide.add(game.add.sprite(1790, 1500, 'point_info'));
         var plantes = game.add.sprite(1420, 1150, 'plante1');
         game.physics.arcade.enable(plantes);
         plantes.body.height = 20;
@@ -212,6 +224,16 @@ var mainState = {
         plantes.body.height = 60;
         plantes.anchor.setTo(1);
         group_decors_derriere_collide.add(plantes);
+        group_decors_derriere_collide.add(game.add.sprite(1690, 270, 'rangee_chaise_type1_haut'));
+        group_decors_derriere_collide.add(game.add.sprite(1690, 512, 'rangee_chaise_type1_haut'));
+        group_decors_derriere_collide.add(game.add.sprite(2358, 1403, 'chicane_assemblees_dba1'));
+        group_decors_derriere_collide.add(game.add.sprite(2358, 910, 'chicane_assemblees_dba3'));
+        group_decors_derriere_collide.add(game.add.sprite(2532, 809, 'chicane_verticale'));
+        group_decors_derriere_collide.add(game.add.sprite(1080, 566, 'chicane_assemblees_dba1'));
+        group_decors_derriere_collide.add(game.add.sprite(1080, 272, 'chicane_horizontale_sf'));
+        group_decors_derriere_collide.add(game.add.sprite(1353, 372, 'chicane_horizontale_sf'));
+        group_decors_derriere_collide.add(game.add.sprite(1490, 272, 'chicane_verticale'));
+        group_decors_derriere_collide.add(game.add.sprite(1080, 272, 'chicane_assemblees_embarquement3'));
         for(var i = 0; i < group_decors_derriere_collide.length; i++){
             group_decors_derriere_collide.getChildAt(i).body.immovable = true;
         }
@@ -240,23 +262,31 @@ var mainState = {
             group_transparents.getChildAt(i).body.immovable = true;
         }
 
-        /*DECORS VISIBLES ET NON SOLIDES*/
+
+        /*DECORS VISIBLES ET NON SOLIDES PART 2/2*/
         group_decors_derriere_non_collide = game.add.group();
         group_decors_derriere_non_collide.enableBody = false;
         group_decors_derriere_non_collide.add(game.add.sprite(2508, 27, 'panneau_toilettes'));
-        group_decors_derriere_non_collide.add(game.add.sprite(65, 718, 'ecran_AF'));
+        group_decors_derriere_non_collide.add(game.add.sprite(65, 712, 'ecran_AF'));
         group_decors_derriere_non_collide.add(game.add.sprite(890, 718, 'ecran_AF'));
         group_decors_derriere_non_collide.add(game.add.sprite(1120, 15, 'ecran_AF'));
         group_decors_derriere_non_collide.add(game.add.sprite(1725, 15, 'ecran_AF'));
         group_decors_derriere_non_collide.add(game.add.sprite(1910, 15, 'ecran_AF'));
-        group_decors_derriere_non_collide.add(game.add.sprite(1021, 2107, 'canape_blanc_dos'));
-        group_decors_derriere_non_collide.add(game.add.sprite(750, 1740, 'canape_blanc_face'));
-        group_decors_derriere_non_collide.add(game.add.sprite(0, 780, 'canape_blanc_face'));
-        group_decors_derriere_non_collide.add(game.add.sprite(385, 780, 'canape_blanc_face'));
+        group_decors_derriere_non_collide.add(game.add.sprite(1021, 2107, 'canape_blanc_dos_bas'));
+        group_decors_derriere_non_collide.add(game.add.sprite(750, 1798, 'canape_blanc_face_bas'));
+        group_decors_derriere_non_collide.add(game.add.sprite(0, 838, 'canape_blanc_face_bas'));
+        group_decors_derriere_non_collide.add(game.add.sprite(385, 838, 'canape_blanc_face_bas'));
         group_decors_derriere_non_collide.add(game.add.sprite(520, 2080, 'fauteuil_rouge'));
         group_decors_derriere_non_collide.add(game.add.sprite(420, 925, 'magazines'));
         group_decors_derriere_non_collide.add(game.add.sprite(90, 930, 'magazines_2'));
         group_decors_derriere_non_collide.add(game.add.sprite(840, 1920, 'magazines_3'));
+        group_decors_derriere_non_collide.add(game.add.sprite(1690, 70, 'rangee_chaise_type1_simple'));
+        group_decors_derriere_non_collide.add(game.add.sprite(1690, 335, 'rangee_chaise_type1_bas'));
+        group_decors_derriere_non_collide.add(game.add.sprite(1690, 577, 'rangee_chaise_type1_bas'));
+        group_decors_derriere_non_collide.add(game.add.sprite(2215, 193, 'tapis_apporte_bagage'));
+        group_decors_derriere_non_collide.add(game.add.sprite(2215, 490, 'tapis_apporte_bagage'));
+        group_decors_derriere_non_collide.add(game.add.sprite(2225, 241, 'bagage1'));
+        group_decors_derriere_non_collide.add(game.add.sprite(2355, 486, 'bagage2'));
 
 
 
@@ -270,6 +300,10 @@ var mainState = {
         /*DECORS NON SOLIDE*/
         group_decors_devant_non_collide = game.add.group();
         group_decors_devant_non_collide.enableBody = false;
+        group_decors_devant_non_collide.add(game.add.sprite(975, 1029, 'BLS_haut'));
+        group_decors_devant_non_collide.add(game.add.sprite(1075, 1029, 'BLS_haut'));
+        group_decors_devant_non_collide.add(game.add.sprite(1175, 1029, 'BLS_haut'));
+        group_decors_devant_non_collide.add(game.add.sprite(1275, 1029, 'BLS_haut'));
         group_decors_devant_non_collide.add(game.add.sprite(1868, 762, 'panneau_bagage'));
         group_decors_devant_non_collide.add(game.add.sprite(1686, 762, 'panneau_embarquement_debarquement'));
         group_decors_devant_non_collide.add(game.add.sprite(547, 1183, 'panneau_salon'));
@@ -277,6 +311,8 @@ var mainState = {
         group_decors_devant_non_collide.add(game.add.sprite(933, 960, 'panneau_bls'));
         group_decors_devant_non_collide.add(game.add.sprite(1193, 1681, 'panneau_salle_repos'));
         group_decors_devant_non_collide.add(game.add.sprite(1465, 1020, 'guichets_zone_partie_haute'));
+        group_decors_devant_non_collide.add(game.add.sprite(385, 1294, 'PC1'));
+        group_decors_devant_non_collide.add(game.add.sprite(528, 1408, 'PC2'));
 
         /*DECORS SOLIDES*/
         group_decors_devant_collide = game.add.group();
@@ -316,9 +352,9 @@ var mainState = {
     setPNJ : function(){
 
         //Ajout des clients
-        clients[0] = new PNJ('Tec', 'Red', game.world.centerX + 500, game.world.centerY + 400, 0);
-        clients[1] = new PNJ('Lav', 'Yellow', game.world.centerX, game.world.centerY + 400, 0);
-        clients[2] = new PNJ('Qi', 'Blue', 150, 500, 0);
+        clients[0] = new PNJ('Tec', 'Red', 1600, 1900, 0);
+        clients[1] = new PNJ('Lav', 'Yellow', 1950, 865, 0);
+        clients[2] = new PNJ('Qi', 'Blue', 2110, 275, 0);
     },
 
     setMusicsAndEffects : function(){
