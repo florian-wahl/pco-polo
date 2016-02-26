@@ -371,9 +371,10 @@ var mainState = {
              LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
              Pour démarrer un quizz, faire appel à demarrerQuizzByID(id_quizz)
              */
-
+            game.touchControl.inputDisable();
             demarrerQuizzByZone(clientPNJ.zone);
             game.physics.arcade.isPaused = true;
+
 
         }
 
@@ -460,6 +461,7 @@ function reprendre () {
     ajaxRequest(setJetons, "nbJeton", null);
     ajaxRequest(setScore, "scoreJour", null);
     game.physics.arcade.isPaused = false;
+    game.touchControl.inputEnable();
 
 
 }
