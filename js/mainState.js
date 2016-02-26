@@ -352,9 +352,9 @@ var mainState = {
     setPNJ : function(){
 
         //Ajout des clients
-        clients[0] = new PNJ('Tec', 'Red', 1600, 1900, 0);
-        clients[1] = new PNJ('Lav', 'Yellow', 1950, 865, 0);
-        clients[2] = new PNJ('Qi', 'Blue', 2110, 275, 0);
+        clients[0] = new PNJ('Tec', 'Red', 1600, 1900, 1);
+        clients[1] = new PNJ('Lav', 'Yellow', 1950, 865, 1);
+        clients[2] = new PNJ('Qi', 'Blue', 2110, 275, 1);
     },
 
     setMusicsAndEffects : function(){
@@ -373,10 +373,10 @@ var mainState = {
 
             /*
              LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
-             Pour démarrer un quizz, faire appel à demarrerQuizz(id_quizz)
+             Pour démarrer un quizz, faire appel à demarrerQuizzByID(id_quizz)
              */
 
-            demarrerQuizz(clientPNJ.zone);
+            demarrerQuizzByZone(clientPNJ.zone);
             game.physics.arcade.isPaused = true;
 
         }

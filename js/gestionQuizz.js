@@ -176,8 +176,7 @@ function genererjQuizzy(){
 /*
  * Permet d'initialiser le quizz dont l'id est id_quizz
  */
-function initQuizz(id_quizz){
-    last_quizz_id = id_quizz;
+function initQuizz(){
 
     //On remet à null les anciennes données
     scenario = null;
@@ -188,22 +187,24 @@ function initQuizz(id_quizz){
     }
     numTrueReponses = [];
 
-    $.when(
-        //ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
-        //ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
-        xmlRequest(id_quizz)
-    ).done();
 }
 
-function demarrerQuizz(id_quizz){
+function demarrerQuizzByID(id_quizz){
+
 
     if(id_quizz == 0){
         //On génère un numéro de quizz aléatoire
         id_quizz = Math.ceil(Math.random()*NOMBRE_QUIZZ_MAX);
     }
 
-    //On veut le quizz 1
-    initQuizz(id_quizz);
+    last_quizz_id = id_quizz;
+    initQuizz();
+
+    $.when(
+        //ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
+        //ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
+        xmlRequestByID(id_quizz)
+    ).done();
 
     //Filtre blanc
     overlay.style.display='block';
@@ -211,22 +212,86 @@ function demarrerQuizz(id_quizz){
 
 }
 
-function xmlRequest(id_quizz){
+function demarrerQuizzByZone(id_zone){
+
+    //On veut le quizz 1
+    initQuizz();
+
+    $.when(
+        //ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
+        //ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
+        xmlRequestByZone(id_zone)
+    ).done();
+
+    //Filtre blanc
+    overlay.style.display='block';
+    loading_gif.style.display = 'block';
+
+}
+
+function xmlRequestByID(id_quizz){
     $.ajax({
         type: "GET",
         url: "data/quizz.xml",
         dataType: "xml",
         success: function(xml) {
-            xmlCallback(xml, id_quizz);
+            xmlCallbackByID(xml, id_quizz);
         }
     }); //close $.ajax(
 }
 
-function xmlCallback(xml, id_quizz){
+function xmlCallbackByID(xml, id_quizz){
     $(xml).find('quizz').each(function(){
         var attr_id_quizz = $(this).attr('id');
 
         if(attr_id_quizz == id_quizz){
+
+            scenario = $(this).find('scenario').text();
+
+            var i = 0;
+
+            $(this).find('question').each(function(){
+                intituleQuestions[i] = $(this).find('intitule').text();
+
+                $(this).find('reponses').each(function(){
+                    var j = 0;
+                    $(this).find('reponse').each(function(){
+                        intituleReponses[i][j] = $(this).text();
+                        var isTrue = $(this).attr('isTrue');
+                        if(isTrue == '1'){
+                            numTrueReponses[i] = j+1;
+                        }
+                        j++;
+                    });
+
+                });
+
+                i++;
+            });
+
+            genererjQuizzy();
+        }
+
+    });
+}
+
+function xmlRequestByZone(id_zone){
+    $.ajax({
+        type: "GET",
+        url: "data/quizz.xml",
+        dataType: "xml",
+        success: function(xml) {
+            xmlCallbackByZone(xml, id_zone);
+        }
+    }); //close $.ajax(
+}
+
+function xmlCallbackByZone(xml, id_zone){
+    $(xml).find('quizz').each(function(){
+        var attr_id_quizz = $(this).attr('id');
+        var attr_id_zone = $(this).find('zone').text();
+
+        if(attr_id_zone == id_zone){
 
             scenario = $(this).find('scenario').text();
 
