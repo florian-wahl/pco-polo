@@ -34,6 +34,7 @@ input#button_profil{
 
 input#button_aides{
     background: url(../res/img/boutons/menu_principal_aides.png) no-repeat;
+    margin-left: 10px;
 }
 
 input#button_quitter{
@@ -59,13 +60,15 @@ input#button_retour{
     color:#333;
     margin:0;
     border:1px solid #ddd;
-    padding:5px 20px ;
 }
 
 .menu_polo h3, .menu_principal h3{
     font-style: italic;
 }
 
+td.menu_principal{
+    padding: 0;
+}
 
 /*Desactive l'arrondi que donne iOS aux boutons*/
 input, textarea {

@@ -21,7 +21,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <input type="button" class="menu_principal_button" id="button_jouer"/>
         <table>
             <tr>
-                <td><input type="button" class="menu_principal_button" id="button_profil"/></td>
+                <td class="menu_principal"><input type="button" class="menu_principal_button" id="button_profil"/></td>
                 <td><input type="button" class="menu_principal_button" id="button_aides"/></td>
             </tr>
         </table>
