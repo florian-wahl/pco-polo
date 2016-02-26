@@ -15,7 +15,7 @@ var MAX_SPEED_PLAYER = 300;
 
 var SCORE_POUR_NOUVEAU_JETON = 200;
 
-var NOMBRE_BADGE_MAX = 11;
+var NOMBRE_BADGE_MAX = 27;
 
 /*
 DECLARATION DES VARIABLES
@@ -75,10 +75,6 @@ var mainState = {
         game.touchControl.inputEnable();
         cursors = game.input.keyboard.createCursorKeys();
 
-        //récupération des infos nécessaires pour de l'affichage
-        ajaxRequest(setJetons, "nbJeton", null);
-        ajaxRequest(setScore, "scoreJour", null);
-        ajaxRequest(updateBadges, "getBadges", null);
 
         this.setMusicsAndEffects();
 
@@ -124,7 +120,7 @@ var mainState = {
         testDebloquageBadge();
         updateMap();
 
-        if (1) {
+        if (0) {
             game.debug.cameraInfo(game.camera, 32, 32);
             game.debug.spriteCoords(player, 32, 600);
             game.debug.body(player);
@@ -457,6 +453,10 @@ var mainState = {
 };
 
 function reprendre () {
+    overlay.style.display='none';
+    popup_arcade.style.display='none';
+    loading_gif.style.display = 'none';
+
     ajaxRequest(setJetons, "nbJeton", null);
     ajaxRequest(setScore, "scoreJour", null);
     game.physics.arcade.isPaused = false;

@@ -81,6 +81,18 @@ switch($q){
             $stmt->execute();
         }
         break;
+    case 'getListeQuizz':
+
+        $stmt = $poloDB->prepare("SELECT * FROM users_quizz WHERE users_id_user = :id_user;");
+        $stmt->bindValue(':id_user', $_SESSION['id_user']);
+        $stmt->execute();
+
+        $resultat = $stmt->fetchAll();
+
+        foreach($resultat as $row){
+            echo $row['id_quizz'] . "+". $row['valide']."+".$row['occurence'] . "/";
+        }
+        break;
 }
 
 //DECONNEXION

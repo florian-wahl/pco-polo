@@ -92,8 +92,6 @@ $personnage = $resultat[0];
 
             $('#popupclose_arcade').click(function(){
                 reprendre();
-                overlay.style.display='none';
-                popup_arcade.style.display='none';
             });
 
             $("#button_mini_jeux").click(function(){

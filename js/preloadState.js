@@ -30,6 +30,13 @@ var preloadState = {
     },
     startLoading : function() {
 
+        //récupération des infos nécessaires pour de l'affichage
+        ajaxRequest(setJetons, "nbJeton", null);
+        ajaxRequest(setScore, "scoreJour", null);
+        ajaxRequest(updateBadges, "getBadges", null);
+
+        ajaxQuizzRequest(getListeQuizz, "getListeQuizz", null);
+
         //link_res_perso est défini dans polo.php
         game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);

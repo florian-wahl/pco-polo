@@ -3,7 +3,9 @@
  */
 
     /*INITIALISATION */
-var NOMBRE_QUIZZ_MAX = 2;
+var NOMBRE_QUIZZ_MAX = 10;
+
+var listeQuizzInfos = new Array(NOMBRE_QUIZZ_MAX);
 
 var last_quizz_id;
 //On défini les différents tableaux
@@ -21,47 +23,24 @@ var numTrueReponses = [];
  * async: false (permet d'attendre la réponse avant de continuer le chargement de la page)
  */
 function ajaxQuizzRequest(callback, request, valeur) {
-    $.ajax({
-        type:"GET",
-        url: "ajaxQuizz.php",
-        async: true,
-        data: "q="+request+"&s="+valeur,
-        dataType: "json",
-        success: callback
-    });
+    var xhr = new XMLHttpRequest();
 
-}
-
-function callbackScenario(data){
-    scenario = data.toString();
-}
-
-/*
- * On récupère un json avec : id_question, descriptionQuestion, descriptionReponse, isTrue
- * On transfert ces données dans les tableaux javascript
- */
-function callbackQuestionsReponses(data){
-    var lastID = 0;
-    var numReponse = 0;
-
-    for (var i = 0; i < data.length; i++){
-        if(data[i].id_question != lastID){
-            numReponse = 0;
-            lastID = data[i].id_question;
-            intituleQuestions[data[i].id_question-1] = data[i].descriptionQuestion;
-            intituleReponses[data[i].id_question-1][numReponse] = data[i].descriptionReponse;
-        }
-        else {
-            numReponse++;
-            intituleReponses[data[i].id_question-1][numReponse] = data[i].descriptionReponse;
-        }
-        if(data[i].isTrue == '1'){
-            numTrueReponses[data[i].id_question-1] = numReponse;
-        }
-
+    if (callback != null) {
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                callback(xhr.responseText);
+            }
+        };
     }
 
-    genererjQuizzy();
+    if (valeur != null) {
+        xhr.open("GET", "ajaxQuizz.php?q=" + request + "&s=" + valeur, true);
+    }
+    else {
+        xhr.open("GET", "ajaxQuizz.php?q=" + request, true);
+    }
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    xhr.send(null);
 
 }
 
@@ -201,8 +180,6 @@ function demarrerQuizzByID(id_quizz){
     initQuizz();
 
     $.when(
-        //ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
-        //ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
         xmlRequestByID(id_quizz)
     ).done();
 
@@ -218,8 +195,6 @@ function demarrerQuizzByZone(id_zone){
     initQuizz();
 
     $.when(
-        //ajaxQuizzRequest(callbackScenario, 'getScenario', id_quizz),
-        //ajaxQuizzRequest(callbackQuestionsReponses, 'getQuestionsReponses', id_quizz)
         xmlRequestByZone(id_zone)
     ).done();
 
@@ -287,12 +262,78 @@ function xmlRequestByZone(id_zone){
 }
 
 function xmlCallbackByZone(xml, id_zone){
-    $(xml).find('quizz').each(function(){
+    //On réinitialise la liste des quizz correspondant à la zone choisie
+    var listeQuizzZoneChoisie = [];
+
+    //On récupère tous les quizz correspondant à la zone
+    $(xml).find('quizz').each(function() {
         var attr_id_quizz = $(this).attr('id');
         var attr_id_zone = $(this).find('zone').text();
+        var attr_id_op = $(this).find('op').text();
+        var attr_id_difficulte = $(this).find('difficulte').text();
 
-        if(attr_id_zone == id_zone){
+        if (attr_id_zone == id_zone) {
+            //[id, op, dif, occ]
+            listeQuizzZoneChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+        }
 
+    });
+
+    //On elimine tous les quizz déjà validé
+    var listeQuizzZoneNonValide = [];
+    for(var i = 0; i < listeQuizzZoneChoisie.length; i++){
+        var id = listeQuizzZoneChoisie[i][0];
+        if(listeQuizzInfos[id][1] == 0){
+            listeQuizzZoneNonValide.push(listeQuizzZoneChoisie[i]);
+        }
+    }
+
+    //S'il n'y a plus de quizz dispo
+    //TODO : a traiter : réinitialiser les quizz
+    if(listeQuizzZoneNonValide.length == 0){
+        alert("Plus de quizz dispo dans cette zone");
+        reprendre();
+        return 0;
+    }
+
+    //On détermine quel quizz sélectionner
+    // --> Occurence la plus faible
+    var min_occ = listeQuizzZoneNonValide[0][3];
+    for(i = 0; i < listeQuizzZoneNonValide.length; i++){
+        if(listeQuizzZoneNonValide[0][3] < min_occ){
+            min_occ = listeQuizzZoneNonValide[0][3];
+        }
+    }
+    var listeQuizzZoneNonValideOccMin = [];
+    for(i = 0; i < listeQuizzZoneNonValide.length; i++){
+        if(listeQuizzZoneNonValide[0][3] == min_occ){
+            listeQuizzZoneNonValideOccMin.push(listeQuizzZoneNonValide[i]);
+        }
+    }
+
+    //--> niveau le plus faible
+    var min_dif = listeQuizzZoneNonValideOccMin[0][2];
+    for(i = 0; i < listeQuizzZoneNonValideOccMin.length; i++){
+        if(listeQuizzZoneNonValideOccMin[0][2] < min_dif){
+            min_dif = listeQuizzZoneNonValideOccMin[0][2];
+        }
+    }
+    var listeQuizzZoneNonValideNivFaible = [];
+    for(i = 0; i < listeQuizzZoneNonValideOccMin.length; i++){
+        if(listeQuizzZoneNonValideOccMin[0][2] == min_dif){
+            listeQuizzZoneNonValideNivFaible.push(listeQuizzZoneNonValideOccMin[i]);
+        }
+    }
+
+
+    var num_quizz_alea = Math.floor(Math.random() * listeQuizzZoneNonValideNivFaible.length);
+    var id_quizz_select = listeQuizzZoneNonValideNivFaible[num_quizz_alea][0];
+
+    $(xml).find('quizz').each(function() {
+        var attr_id_quizz = $(this).attr('id');
+        if(attr_id_quizz == id_quizz_select){
+
+            last_quizz_id = id_quizz_select;
             scenario = $(this).find('scenario').text();
 
             var i = 0;
@@ -320,14 +361,26 @@ function xmlCallbackByZone(xml, id_zone){
         }
 
     });
+
+    //Reset : faire de la place en mémoire
+    listeQuizzZoneChoisie = null;
+    listeQuizzZoneNonValide = null;
+    listeQuizzZoneNonValideOccMin = null;
+    listeQuizzZoneNonValideNivFaible = null;
 }
 
 function updateStatsQuizz(nbReponseJuste, nbTotReponse){
 
+    //On met à jour la liste local
+    listeQuizzInfos[last_quizz_id][2]++;
+
+
+    //On met à jour la bdd
     var xhr = new XMLHttpRequest();
 
     if (nbReponseJuste == nbTotReponse){
         //Le quizz est validé
+        listeQuizzInfos[last_quizz_id][1] = 1;
         xhr.open("GET", "ajaxQuizz.php?q=quizzValide&id_quizz=" + last_quizz_id , true);
     }
     else {
@@ -339,3 +392,18 @@ function updateStatsQuizz(nbReponseJuste, nbTotReponse){
     xhr.send(null);
 }
 
+function getListeQuizz (liste) {
+    var tabQuizzBrut = liste.split("/");
+
+    //Initialisation
+    for(var i = 0; i < listeQuizzInfos.length; i++){
+        //[id, valide, occurence]
+        listeQuizzInfos[i] = [i, 0, 0];
+    }
+    //Remplissage
+    for(i = 0; i < tabQuizzBrut.length - 1; i++){// -1 car il y a un / en plus dans le tabQuizzBrut
+        var ligneQuizz = tabQuizzBrut[i].split("+");
+        listeQuizzInfos[parseInt(ligneQuizz[0])] = [parseInt(ligneQuizz[0]), parseInt(ligneQuizz[1]), parseInt(ligneQuizz[2])];//On parseInt pour enlever les caractères spéciaux
+    }
+
+}
