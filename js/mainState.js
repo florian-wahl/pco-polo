@@ -220,6 +220,12 @@ var mainState = {
         plantes.body.height = 60;
         plantes.anchor.setTo(1);
         group_decors_derriere_collide.add(plantes);
+        plantes = game.add.sprite(1265, 1495, 'plante3');
+        plantes.anchor.setTo(1);
+        group_decors_derriere_collide.add(plantes);
+        plantes = game.add.sprite(1125, 790, 'plante3');
+        plantes.anchor.setTo(1);
+        group_decors_derriere_collide.add(plantes);
         group_decors_derriere_collide.add(game.add.sprite(1690, 270, 'rangee_chaise_type1_haut'));
         group_decors_derriere_collide.add(game.add.sprite(1690, 512, 'rangee_chaise_type1_haut'));
         group_decors_derriere_collide.add(game.add.sprite(2358, 1403, 'chicane_assemblees_dba1'));
@@ -328,13 +334,7 @@ var mainState = {
         plantes.body.height = 20;
         plantes.anchor.setTo(1);
         group_decors_devant_collide.add(plantes);
-        plantes = game.add.sprite(1265, 1495, 'plante3');
-        game.physics.arcade.enable(plantes);
-        plantes.body.height = 20;
-        plantes.anchor.setTo(1);
-        group_decors_devant_collide.add(plantes);
-        group_decors_devant_collide.add(plantes);
-        plantes = game.add.sprite(1125, 790, 'plante3');
+        plantes = game.add.sprite(1560, 2195, 'plante3');
         game.physics.arcade.enable(plantes);
         plantes.body.height = 20;
         plantes.anchor.setTo(1);
@@ -356,7 +356,7 @@ var mainState = {
     setMusicsAndEffects : function(){
         //Musics
         musicbg = game.add.audio('fond_sonore');
-        musicbg.play();
+        musicbg.play("",0,1,true);
     },
 
     interactionPNJ : function (player, clientSprite, clientPNJ) {
@@ -371,7 +371,7 @@ var mainState = {
              LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
              Pour démarrer un quizz, faire appel à demarrerQuizzByID(id_quizz)
              */
-            game.touchControl.inputDisable();
+
             demarrerQuizzByZone(clientPNJ.zone);
             game.physics.arcade.isPaused = true;
 
@@ -461,7 +461,6 @@ function reprendre () {
     ajaxRequest(setJetons, "nbJeton", null);
     ajaxRequest(setScore, "scoreJour", null);
     game.physics.arcade.isPaused = false;
-    game.touchControl.inputEnable();
 
 
 }
