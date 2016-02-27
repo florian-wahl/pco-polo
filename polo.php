@@ -45,11 +45,13 @@ $personnage = $resultat[0];
 <script src="js/mouvementHandler.js"></script>
 <script src="js/jQuizzy.js"></script>
 <script src="js/PNJ.js"></script>
+<script src="js/gestionQuizz.js"></script>
+<script src="js/gestionJeu.js"></script>
+
+
 <style type="text/css">
     .popup_holder {width:760px; margin:10px 10px 10px -360px}
 </style>
-<script src="js/gestionQuizz.js"></script>
-
 <body>
 
     <script>

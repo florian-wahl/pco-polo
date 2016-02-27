@@ -10,6 +10,7 @@ var GAME_WIDTH = 1024;
 var GAME_HEIGHT = 700;
 var CLAN_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
 var CLAN_COLORS = ['Blue','Green','Purple','Red','Yellow'];
+var BADGES_NAME = [];
 
 var MAX_SPEED_PLAYER = 300;
 
@@ -94,6 +95,10 @@ var mainState = {
 
     update : function () {
 
+
+        testDebloquageBadge();
+        updateMap();
+
         //TEST DE COLLISIONS
         game.physics.arcade.collide(player, group_transparents);
         game.physics.arcade.collide(player, group_decors_derriere_collide);
@@ -116,9 +121,6 @@ var mainState = {
 
     render : function () {
 
-
-        testDebloquageBadge();
-        updateMap();
 
         if (0) {
             game.debug.cameraInfo(game.camera, 32, 32);
@@ -435,176 +437,20 @@ var mainState = {
         }, this, 2, 1, 0);
 
 
-        t_score = game.add.text(game.camera.x + 760, game.camera.y + 530,  score);
-        t_score.font = 'Arial Black';
+        t_score = game.add.text(game.camera.x + 600, game.camera.y + 530,  "Score : " + score);
         t_score.fontSize = 40;
         t_score.fontWeight = 'bold';
-        t_score.fill = '#6ec2a6';
+        t_score.fill = '#FFFFFF';
 
-        t_jetons = game.add.text(game.camera.x + 785, game.camera.y + 588,  nb_jetons);
-        t_jetons.font = 'Arial Black';
+        t_jetons = game.add.text(game.camera.x + 600, game.camera.y + 588, "Jetons : " + nb_jetons);
         t_jetons.fontSize = 40;
         t_jetons.fontWeight = 'bold';
-        t_jetons.fill = '#6ec2a6';
-
+        t_jetons.fill = '#FFFFFF';
 
     }
 
 
 };
-
-function reprendre () {
-    overlay.style.display='none';
-    popup_arcade.style.display='none';
-    loading_gif.style.display = 'none';
-
-    ajaxRequest(setJetons, "nbJeton", null);
-    ajaxRequest(setScore, "scoreJour", null);
-    game.physics.arcade.isPaused = false;
-
-
-}
-
-
-/*
- Permet de mettre à jour le score dans la BDD.
- Ajoute le nombre donnée en paramètre.
- Si ce nombre est négatif, le score va être diminué
- */
-function addToScore(scoreToAdd) {
-
-    ajaxRequest(null, "addToScore", scoreToAdd);
-
-    /*
-     On test si le score cumulé permet de débloqué un nouveau jeton
-     */
-    score_cumule += scoreToAdd;
-    while (score_cumule >= SCORE_POUR_NOUVEAU_JETON) {
-        score_cumule -= SCORE_POUR_NOUVEAU_JETON;
-        ajaxRequest(null, "addToJeton", 1);
-    }
-
-
-}
-
-/*
- Permet de mettre à jour les jetons en INTERNE,
- n'applique pas de changement à la BDD.
- Sert surtout pour mettre à jour l'affichage
- */
-function setJetons(jt) {
-    nb_jetons = parseInt(jt);
-}
-
-/*
- Permet de mettre à jour le score en INTERNE,
- n'applique pas de changement à la BDD.
- Sert surtout pour mettre à jour l'affichage
- */
-function setScore(sc) {
-    score = parseInt(sc);
-}
-
-function updateBadges (liste) {
-
-    var tabBadges = liste.split("/");
-    var i = 0;
-    while (i < NOMBRE_BADGE_MAX) {// 11 = nombre de badges au total
-        listeBadges[i] = false;
-        i++;
-    }
-    var j = 0;
-    while (j < tabBadges.length - 1) {
-        //tabBadges.length-1 car le dernier est null
-        listeBadges[parseInt(tabBadges[j])] = true;
-        j++;
-    }
-
-}
-
-function updateMap(){
-
-    //Blocage du niveau 1 séquence de test
-    if (listeBadges[1] == 1) {
-    }
-}
-/*
- Utilisé pour obtenir ou envoyer une info à la base de données
-
- callback = fonction qui traite l'information renvoyé par le serveur; null si pas de réponse attendue
- request = nom de la fonction ajax (coté php) à appeler
- valeur = valeur de l'information à passer, à mettre à jour; null si pas d'information à passer
-
- */
-function ajaxRequest(callback, request, valeur) {
-    var xhr = new XMLHttpRequest();
-
-    if (callback != null) {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-                callback(xhr.responseText);
-            }
-        };
-    }
-
-    if (valeur != null) {
-        xhr.open("GET", "ajaxDB.php?q=" + request + "&s=" + valeur, true);
-    }
-    else {
-        xhr.open("GET", "ajaxDB.php?q=" + request, true);
-    }
-    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    xhr.send(null);
-}
-
-
-function actionOnClickVolume() {
-    off_volume = !off_volume;
-
-    if (off_volume == false) {
-       musicbg.resume();
-        button_gestion_musique.setFrames(0);
-    }
-    else {
-       musicbg.pause();
-        button_gestion_musique.setFrames(1);
-    }
-}
-
-function actionOnClickEffet() {
-    off_effet = !off_effet;
-
-    if (off_effet == false) {
-       // musicbg.pause();
-        button_gestion_effet.setFrames(0);
-    }
-    else {
-       // musicbg.resume();
-        button_gestion_effet.setFrames(1);
-    }
-}
-
-function frameButonOnOff(test){
-    if(test == false){
-        return 0;
-    }
-    else {
-        return 1;
-    }
-}
-
-function testDebloquageBadge(){
-    /*DEBLOQUAGE DU BADGE 1 */
-    if(score >= 400 && listeBadges[1] == 0){
-        listeBadges[1] = 1;
-        ajaxRequest(badgeAjoute, 'addBadge', 1);
-    }
-}
-
-function badgeAjoute(numBadge){
-    listeBadges[numBadge] = 1;
-    ajaxRequest(updateBadges, "getBadges", null);
-}
 
 
 game.state.add('bootState', bootState);

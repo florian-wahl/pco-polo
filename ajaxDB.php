@@ -124,6 +124,7 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
                 echo $row['badges_id_badge'] . "/";
             }
             break;
+
         default:
             echo '';
             break;
