@@ -336,7 +336,7 @@ var mainState = {
         plantes.body.height = 20;
         plantes.anchor.setTo(1);
         group_decors_devant_collide.add(plantes);
-        plantes = game.add.sprite(1560, 2195, 'plante3');
+        plantes = game.add.sprite(1560, 2190, 'plante3');
         game.physics.arcade.enable(plantes);
         plantes.body.height = 20;
         plantes.anchor.setTo(1);
