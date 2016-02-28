@@ -19,6 +19,7 @@
 
 #fleche_gauche {
     background: url(../res/img/boutons/fleche_gauche.png) no-repeat;
+    margin-top: 200px;
     width: 60px;
     height: 60px;
     float: left;
@@ -26,6 +27,7 @@
 
 #fleche_droite {
     background: url(../res/img/boutons/fleche_droite.png) no-repeat;
+    margin-top: 200px;
     width: 60px;
     height: 60px;
     float: right;
@@ -88,6 +90,9 @@ p.choix {
     text-align: center;
 }
 
+#choix_pseudo{
+    min-width: 100px;
+}
 /* PROFIL */
 #profil_apercu {
     width: 280px;

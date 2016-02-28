@@ -70,7 +70,7 @@ $personnage = $resultat[0];
                   <div id='quiz-container'></div>
             </div>
             <div class="popupcontrols">
-                  <span id="popupclose">X</span>
+                  <span id="popupclose"><img src="res/img/boutons/black_cross.png"></span>
             </div>
         </div>
 
@@ -83,7 +83,7 @@ $personnage = $resultat[0];
                 </div>
             </div>
             <div class="popupcontrols_arcade">
-                <span id="popupclose_arcade">X</span>
+                <span id="popupclose_arcade"><img src="res/img/boutons/black_cross.png"></span>
             </div>
         </div>
     </div>

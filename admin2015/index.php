@@ -26,7 +26,6 @@ if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
         <table class="liste_utilisateur">
             <tr style="font-weight: bold;">
                 <td>ID Utilisateur</td>
-                <td>Nom</td>
                 <td>Prénom</td>
                 <td>Matricule</td>
                 <td>Pseudonyme</td>
@@ -38,7 +37,6 @@ if(!empty($_SESSION['LoggedInAdmin']) && !empty($_SESSION['identifiant'])){
             foreach($resultat as $row){
                 echo "<tr>";
                 echo "<td> " . $row['id_user'] . " </td>";
-                echo "<td> " . $row['nom'] . " </td>";
                 echo "<td> " . $row['prenom'] . " </td>";
                 echo "<td> " . $row['matricule'] . " </td>";
                 echo "<td> " . $row['pseudonyme'] . " </td>";

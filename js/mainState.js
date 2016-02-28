@@ -46,7 +46,7 @@ var score_cumule = 0;
 
 var listeBadges = [];
 var clients = [];
-var lastClient;
+var lastClientSprite;
 
 
 
@@ -107,12 +107,12 @@ var mainState = {
 
 
         for (i = 0; i < clients.length; i++) {
-            game.physics.arcade.collide(player, clients[i].getSprite(), function(player, clientSprite){mainState.interactionPNJ(player, clientSprite, clients[i])});
+            game.physics.arcade.collide(player, clients[i].getSprite(), function(player, clientSprite){mainState.interactionPNJ(player, clientSprite, clients[i], i)});
         }
 
 
         //DEPLACEMENTS
-        clients[0].move();
+        //clients[0].move();
 
         movementControllerJoystick(MAX_SPEED_PLAYER);
 
@@ -361,13 +361,13 @@ var mainState = {
         musicbg.play("",0,1,true);
     },
 
-    interactionPNJ : function (player, clientSprite, clientPNJ) {
+    interactionPNJ : function (player, clientSprite, clientPNJ, iPNJ) {
 
-        if (lastClient == clientSprite) {
+        if (lastClientSprite == clientSprite) {
             //On ne fait rien
         }
         else {
-            lastClient = clientSprite;
+            lastClientSprite = clientSprite;
 
             /*
              LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
@@ -375,6 +375,8 @@ var mainState = {
              */
 
             demarrerQuizzByZone(clientPNJ.zone);
+
+
             game.physics.arcade.isPaused = true;
 
 

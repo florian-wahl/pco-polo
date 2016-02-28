@@ -11,13 +11,25 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     if($_SESSION['pseudonyme'] == 'defaut') {
 
 
+    $tab_pseudonymes = array("Rendge", "Havan", "Nuty", "Luba", "Leto", "Len", "Nadam", "Macus", "Mardatt", "Lek", "Kunno", "Nery", "Mungan", "Floppy", "Maro", "Rodatt", "Saran", "Nel", "Mungan", "Dancus", "Locus", "Ranggs", "Bodatt", "Yono", "Necus", "Monrell", "Deedo", "Tanba");
 
-    //TODO : améliorer la gestion de l'aléatoire dans les pseudos
-    $tab_pseudonymes = array("Rendge", "Havan", "Nuty", "Luba", "Leto", "Len", "Nadam", "Macus", "Mardatt", "Lek", "Kunno", "Nery", "Mungan", "Anger", "Rodatt", "Saran", "Nel", "Mungan", "Dancus", "Locus", "Ranggs", "Bodatt", "Yono", "Necus", "Monrell", "Deedo", "Tanba");
-    $i = 0;
-    while ($i < 4) {
-        $tab_choix[$i] = $tab_pseudonymes[rand(0, max(0, count($tab_pseudonymes) - 1))];
-        $i++;
+    for($j = 0; $j < 4; $j++){
+        $tab_choix[$j] = $tab_pseudonymes[rand(0, max(0, count($tab_pseudonymes) - 1))];
+        if($j == 1){
+            while($tab_choix[$j] == $tab_choix[$j-1]){
+                $tab_choix[$j] = $tab_pseudonymes[rand(0, max(0, count($tab_pseudonymes) - 1))];
+            }
+
+        }if($j == 2){
+            while($tab_choix[$j] == $tab_choix[$j-1] || $tab_choix[$j] == $tab_choix[$j-2]){
+                $tab_choix[$j] = $tab_pseudonymes[rand(0, max(0, count($tab_pseudonymes) - 1))];
+            }
+        }if($j == 3){
+            while($tab_choix[$j] == $tab_choix[$j-1] || $tab_choix[$j] == $tab_choix[$j-2] || $tab_choix[$j] == $tab_choix[$j-3]){
+                $tab_choix[$j] = $tab_pseudonymes[rand(0, max(0, count($tab_pseudonymes) - 1))];
+            }
+        }
+
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -59,6 +71,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 </select>
             </div>
 
+            <br>
 
             <div id="selection_clan">
 
@@ -70,7 +83,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <p>
                         <b>Nom :</b> Tut <br>
                         <b>Planète :</b> QP66 <br>
-                        <b>Signes particulières :</b> Leur capacité c’est l’apprentissage, Ils apprennent très vit leur travail et tout autre type de compétences.
+                        <b>Signes particuliers :</b> Leur capacité c’est l’apprentissage, Ils apprennent très vite leur travail et tout autre type de compétences.
                     </p>
                 </div>
 
@@ -80,7 +93,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <p>
                         <b>Nom :</b> Tec <br>
                         <b>Planète :</b> HQ30 <br>
-                        <b>Signes particulières :</b> Ils sont des formes de vie biotechnologiques, ils arrivent à bien utiliser  tout outil informatique
+                        <b>Signes particuliers :</b> Ils sont des formes de vie biotechnologiques, ils arrivent à bien utiliser tout outil informatique.
                     </p>
                 </div>
 
@@ -90,7 +103,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <p>
                         <b>Nom :</b> Pri <br>
                         <b>Planète :</b> Frolix8 <br>
-                        <b>Signes particulières :</b> Ils ont un sens des affaires très développé
+                        <b>Signes particuliers :</b> Ils ont un sens des affaires très développé.
                     </p>
                 </div>
 
@@ -100,7 +113,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <p>
                         <b>Nom :</b> Lav <br>
                         <b>Planète :</b> FI12 <br>
-                        <b>Signes particulières :</b> Les dures conditions sur leurs planète leur à permit de devenir des grands travailleur, ils ne sentent pas la fatigue et ils n’aiment pas trop les pauses
+                        <b>Signes particuliers :</b> Les dures conditions sur leur planète natale leur à permit de devenir de grands travailleurs, ils ne sentent pas la fatigue et ils n’aiment pas trop les pauses
                     </p>
                 </div>
 
@@ -111,7 +124,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                         <b>Nom :</b> Qi <br>
                         <b>Planète :</b> XK12 <br>
                         <b>Yeux :</b> 3 <br>
-                        <b>Signes particulières :</b> Ils ont un troisième œil qui lui sert pour comprendre l’état d’esprit des gens
+                        <b>Signes particuliers :</b> Ils ont un troisième œil qui leur sert pour comprendre l’état d’esprit des gens.
 
                     </p>
                 </div>

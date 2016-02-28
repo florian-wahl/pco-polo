@@ -8,7 +8,7 @@
  * Users(id, matricule, password, nom, prenom, email, reg_date)
  *
  */
-
+include 'php/first_sql_conf.php';
 /*CREATION DES TABLES*/
 
 /*

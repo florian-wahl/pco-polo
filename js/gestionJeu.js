@@ -9,7 +9,9 @@ function reprendre () {
     ajaxRequest(setScore, "scoreJour", null);
     game.physics.arcade.isPaused = false;
 
-    checkQuizzValide();
+    if(last_quizz_id != null){
+        checkQuizzValide();
+    }
 
 }
 
@@ -142,26 +144,25 @@ function frameButonOnOff(test){
 }
 
 function testDebloquageBadge(){
-    /*DEBLOQUAGE DU BADGE 1 */
-    if(score >= 400 && listeBadges[1] == 0){
-        listeBadges[1] = 1;
-        ajaxRequest(badgeAjoute, 'addBadge', 1);
-    }
+
 }
 
 function badgeAjoute(numBadge){
     listeBadges[numBadge] = 1;
 
-    apparitionText("Nouveau badge : N " + parseInt(numBadge)  , 10);
-    ajaxRequest(updateBadges, "getBadges", null);
+    if (numBadge != null){
+        apparitionText("Nouveau badge : #" + parseInt(numBadge)  , 10, 30);
+        ajaxRequest(updateBadges, "getBadges", null);
+    }
+
 }
 
-function apparitionText(texte, y){
+function apparitionText(texte, posY, fontSize){
 
-    var t = game.add.text(-texte.length*15, y,  texte);
+    var t = game.add.text(-texte.length*fontSize/2, posY,  texte);
     t.fixedToCamera = true;
     //t.setStyle({ backgroundColor: '#000000'});
-    t.fontSize = 30;
+    t.fontSize = fontSize;
     t.fontWeight = 'bold';
     t.stroke = '#000000';
     t.strokeThickness = 10;
@@ -173,7 +174,7 @@ function apparitionText(texte, y){
     tween_t.onComplete.add(function(){
         e = game.add.tween(t.cameraOffset);
 
-        e.to({ x: -texte.length*15 }, 2000, "Linear", false, 2000);
+        e.to({ x: -texte.length*fontSize/2 }, 2000, "Linear", false, 2000);
         e.onComplete.add(function(){
             t.destroy();
         });

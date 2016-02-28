@@ -262,7 +262,7 @@ function xmlRequestByZone(id_zone){
         success: function(xml) {
             xmlCallbackByZone(xml, id_zone);
         }
-    }); //close $.ajax(
+    });
 }
 
 function xmlCallbackByZone(xml, id_zone){
@@ -294,7 +294,6 @@ function xmlCallbackByZone(xml, id_zone){
     }
 
     //S'il n'y a plus de quizz dispo
-    //TODO : a traiter : réinitialiser les quizz
     //S'il y a moins que 90% de quizz non validé --> Niveau terminé
     if(listeQuizzZoneNonValide.length <= 0.8*listeQuizzZoneChoisie.length){
 
@@ -433,4 +432,49 @@ function quizzResetCallback (){
 
 function checkQuizzValide(){
 
+    $.ajax({
+        type: "GET",
+        url: "data/quizz.xml",
+        dataType: "xml",
+        success: function(xml) {
+            var listeQuizzZoneChoisie = [];
+
+            //On récupère tous les quizz correspondant à la zone
+            $(xml).find('quizz').each(function() {
+                var attr_id_quizz = $(this).attr('id');
+                var attr_id_zone = $(this).find('zone').text();
+                var attr_id_op = $(this).find('op').text();
+                var attr_id_difficulte = $(this).find('difficulte').text();
+
+                if (attr_id_zone == last_zone_id) {
+                    //[id, op, dif, occ]
+                    listeQuizzZoneChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+                }
+
+            });
+
+            //On elimine tous les quizz déjà validé
+            var listeQuizzZoneNonValide = [];
+            for(var i = 0; i < listeQuizzZoneChoisie.length; i++){
+                var id = listeQuizzZoneChoisie[i][0];
+                if(listeQuizzInfos[id][1] == 0){
+                    listeQuizzZoneNonValide.push(listeQuizzZoneChoisie[i]);
+                }
+            }
+
+            //S'il n'y a plus de quizz dispo
+            //S'il y a moins que 90% de quizz non validé --> Niveau terminé
+            if(listeQuizzZoneNonValide.length <= 0.9*listeQuizzZoneChoisie.length){
+
+                //On ajoute le badge qui correspond au niveau / zone
+                ajaxRequest(badgeAjoute, 'addBadge', last_zone_id);
+
+                //On affiche un message comme quoi le niveau actuel est terminé
+
+                apparitionText("Vous avez fini le niveau " + last_zone_id + " ! Félicitation.", 50, 20);
+                //On reset les quizz
+                ajaxQuizzRequest(quizzResetCallback, 'resetQuizz', last_zone_id);
+            }
+        }
+    });
 }

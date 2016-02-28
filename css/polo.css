@@ -109,7 +109,7 @@ li{
 }
 #popupclose{
     float:none;
-    padding:15px;
+    padding:0;
     cursor:pointer;
 }
 
@@ -149,7 +149,7 @@ li{
 }
 #popupclose_arcade{
     float:none;
-    padding:15px;
+    padding:0;
     cursor:pointer;
 }
 #info_arcade {
