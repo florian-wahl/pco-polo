@@ -134,7 +134,7 @@ var mainState = {
 
     setPlayer : function(){
         // Ajout du joueur
-        player = game.add.sprite(1100, 1900, 'player');
+        player = game.add.sprite(890, 1850, 'player');
         game.physics.arcade.enable(player);
         player.body.collideWorldBounds = true;
         player.body.height = 40;
@@ -353,13 +353,22 @@ var mainState = {
         group_clients = game.add.group();
 
         //Ajout des clients
-        var client = new PNJ('Tec', 'Red', 1600, 1900, 1);
+        var client = new PNJ('Tec', 'Red', 1085, 1845, 1);
         clients.push(client);
         group_clients.add(client.getSprite());
-        client = new PNJ('Lav', 'Yellow', 1950, 865, 4);
+        client = new PNJ('Lav', 'Yellow', 1537, 1831, 2);
         clients.push(client);
         group_clients.add(client.getSprite());
-        client = new PNJ('Qi', 'Blue', 2110, 275, 3);
+        client = new PNJ('Qi', 'Blue', 770, 1300, 3);
+        clients.push(client);
+        group_clients.add(client.getSprite());
+        client = new PNJ('Qi', 'Blue', 2700, 900, 4);
+        clients.push(client);
+        group_clients.add(client.getSprite());
+        client = new PNJ('Qi', 'Blue', 2100, 410, 5);
+        clients.push(client);
+        group_clients.add(client.getSprite());
+        client = new PNJ('Qi', 'Blue', 250, 1100, 6);
         clients.push(client);
         group_clients.add(client.getSprite());
     },
@@ -522,8 +531,8 @@ var mainState = {
             case 6:
                 x = 120;
                 varX = 260;
-                y = 1030;
-                varY = 640;
+                y = 990;
+                varY = 310;
 
                 break;
         }
