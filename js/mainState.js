@@ -4,7 +4,7 @@
 var game = new Phaser.Game(1024, 705, Phaser.CANVAS, 'POLO');
 
 /*
-DECLARATION DES CONSTANTES
+ DECLARATION DES CONSTANTES
  */
 var GAME_WIDTH = 1024;
 var GAME_HEIGHT = 700;
@@ -19,7 +19,7 @@ var SCORE_POUR_NOUVEAU_JETON = 200;
 var NOMBRE_BADGE_MAX = 27;
 
 /*
-DECLARATION DES VARIABLES
+ DECLARATION DES VARIABLES
  */
 var player;
 var cursors;
@@ -35,6 +35,7 @@ var group_bornes_arcades;
 var group_decors_derriere_non_collide;
 var group_decors_devant_non_collide;
 var group_transparents;
+var group_clients;
 
 var button_settings;
 var off_volume = false;
@@ -349,10 +350,18 @@ var mainState = {
 
     setPNJ : function(){
 
+        group_clients = game.add.group();
+
         //Ajout des clients
-        clients[0] = new PNJ('Tec', 'Red', 1600, 1900, 1);
-        clients[1] = new PNJ('Lav', 'Yellow', 1950, 865, 1);
-        clients[2] = new PNJ('Qi', 'Blue', 2110, 275, 1);
+        var client = new PNJ('Tec', 'Red', 1600, 1900, 1);
+        clients.push(client);
+        group_clients.add(client.getSprite());
+        client = new PNJ('Lav', 'Yellow', 1950, 865, 4);
+        clients.push(client);
+        group_clients.add(client.getSprite());
+        client = new PNJ('Qi', 'Blue', 2110, 275, 3);
+        clients.push(client);
+        group_clients.add(client.getSprite());
     },
 
     setMusicsAndEffects : function(){
@@ -375,13 +384,152 @@ var mainState = {
              */
 
             demarrerQuizzByZone(clientPNJ.zone);
+            this.createPNJ(clientPNJ.zone);
 
+            clientSprite.destroy();
+            clientPNJ = null;
 
             game.physics.arcade.isPaused = true;
 
 
         }
 
+    },
+
+    createPNJ : function (zone) {
+        var x, y, varX, varY, a;
+        switch (zone){
+            case 1:
+                a = Math.random()*2;
+                if(a < 1){
+                    x = 510;
+                    varX = 200;
+                    y = 1630;
+                    varY = 300;
+                }
+                else {
+                    x = 1000;
+                    varX = 240;
+                    y = 1510;
+                    varY = 520;
+                }
+
+                break;
+            case 2:
+                a = Math.random()*3;
+                if(a < 1){
+                    x = 1280;
+                    varX = 460;
+                    y = 1290;
+                    varY = 750;
+                }
+                else if(a > 2){
+                    x = 1670;
+                    varX = 500;
+                    y = 1300;
+                    varY = 150;
+                }
+                else {
+                    x = 1280;
+                    varX = 900;
+                    y = 1780;
+                    varY = 300;
+                }
+                break;
+            case 3:
+                a = Math.random()*2;
+                if(a < 1){
+                    x = 635;
+                    varX = 760;
+                    y = 1170;
+                    varY = 280;
+                }
+                else {
+                    x = 635;
+                    varX = 260;
+                    y = 850;
+                    varY = 640;
+                }
+                break;
+            case 4:
+                a = Math.random()*5;
+                if(a <= 1){
+                    x = 2225;
+                    varX = 110;
+                    y = 810;
+                    varY = 600;
+
+                }
+                else if (a > 1 && a <= 2){
+                    x = 2395;
+                    varX = 95;
+                    y = 810;
+                    varY = 550;
+                }
+                else if (a > 2 && a <= 3){
+                    x = 2570;
+                    varX = 95;
+                    y = 810;
+                    varY = 550;
+
+                }
+                else if (a > 3 && a <= 4){
+                    x = 2570;
+                    varX = 130;
+                    y = 880;
+                    varY = 260;
+
+                }
+                else {
+                    x = 2570;
+                    varX = 130;
+                    y = 1080;
+                    varY = 260;
+
+                }
+
+
+                break;
+            case 5:
+                a = Math.random()*4;
+                if(a <= 1){
+                    x = 1360;
+                    varX = 860;
+                    y = 680;
+                    varY = 380;
+
+                }
+                else if (a > 1 && a <= 2){
+                    x = 1530;
+                    varX = 640;
+                    y = 340;
+                    varY = 140;
+                }
+                else if (a > 2 && a <= 3){
+                    x = 1530;
+                    varX = 640;
+                    y = 110;
+                    varY = 140;
+                }
+                else {
+                    x = 1085;
+                    varX = 285;
+                    y = 110;
+                    varY = 140;
+
+                }
+                break;
+            case 6:
+                x = 120;
+                varX = 260;
+                y = 1030;
+                varY = 640;
+
+                break;
+        }
+        var newClient = new PNJ(CLAN_NAMES[ Math.floor(Math.random()*5)], CLAN_COLORS[ Math.floor(Math.random()*5)], x + Math.random()*varX, y + Math.random()*varY, zone);
+        clients.push(newClient);
+        group_clients.add(newClient.getSprite());
     },
 
     interactionArcade : function(){

@@ -117,7 +117,7 @@
 
     <quizz id="3">
         <type>TEXTE</type>
-        <zone>1</zone>
+        <zone>2</zone>
         <op>2</op>
         <difficulte>1</difficulte>
         <scenario>
@@ -148,7 +148,7 @@
     </quizz>
     <quizz id="4">
         <type>TEXTE</type>
-        <zone>1</zone>
+        <zone>3</zone>
         <op>2</op>
         <difficulte>2</difficulte>
         <scenario>
@@ -179,7 +179,7 @@
     </quizz>
     <quizz id="5">
         <type>TEXTE</type>
-        <zone>1</zone>
+        <zone>4</zone>
         <op>2</op>
         <difficulte>1</difficulte>
         <scenario>
@@ -210,7 +210,7 @@
     </quizz>
     <quizz id="6">
         <type>TEXTE</type>
-        <zone>1</zone>
+        <zone>5</zone>
         <op>2</op>
         <difficulte>2</difficulte>
         <scenario>
@@ -241,7 +241,7 @@
     </quizz>
     <quizz id="7">
         <type>TEXTE</type>
-        <zone>1</zone>
+        <zone>6</zone>
         <op>2</op>
         <difficulte>1</difficulte>
         <scenario>
