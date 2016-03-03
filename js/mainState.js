@@ -37,6 +37,8 @@ var group_decors_devant_non_collide;
 var group_transparents;
 var group_clients;
 
+//IHM
+var button_map;
 var button_settings;
 var off_volume = false;
 var off_effet = false;
@@ -107,6 +109,7 @@ var mainState = {
         game.physics.arcade.collide(player, group_bornes_arcades, this.interactionArcade);
 
 
+
         for (i = 0; i < clients.length; i++) {
             game.physics.arcade.collide(player, clients[i].getSprite(), function(player, clientSprite){mainState.interactionPNJ(player, clientSprite, clients[i], i)});
         }
@@ -148,8 +151,11 @@ var mainState = {
 
     setIHM : function () {
 
-        button_settings = game.add.button(game.width - 80, 8, 'settings', this.actionOnClickMenu, this, 2, 1, 0);
+        button_settings = game.add.button(GAME_WIDTH - 80, 8, 'settings', this.actionOnClickMenu, this, 2, 1, 0);
         button_settings.fixedToCamera = true;
+
+        button_map = game.add.button(20, GAME_HEIGHT - 80, 'bouton_map', this.actionOnClickMap, this, 2, 1, 0);
+        button_map.fixedToCamera = true;
 
     },
 
@@ -351,26 +357,11 @@ var mainState = {
     setPNJ : function(){
 
         group_clients = game.add.group();
-
         //Ajout des clients
-        var client = new PNJ('Tec', 'Red', 1085, 1845, 1);
-        clients.push(client);
-        group_clients.add(client.getSprite());
-        client = new PNJ('Lav', 'Yellow', 1537, 1831, 2);
-        clients.push(client);
-        group_clients.add(client.getSprite());
-        client = new PNJ('Qi', 'Blue', 770, 1300, 3);
-        clients.push(client);
-        group_clients.add(client.getSprite());
-        client = new PNJ('Qi', 'Blue', 2700, 900, 4);
-        clients.push(client);
-        group_clients.add(client.getSprite());
-        client = new PNJ('Qi', 'Blue', 2100, 410, 5);
-        clients.push(client);
-        group_clients.add(client.getSprite());
-        client = new PNJ('Qi', 'Blue', 250, 1100, 6);
-        clients.push(client);
-        group_clients.add(client.getSprite());
+        for (var z = 1; z <= 6; z++){
+            this.createPNJ(z);
+            this.createPNJ(z);
+        }
     },
 
     setMusicsAndEffects : function(){
@@ -391,6 +382,8 @@ var mainState = {
              LA GESTION DES QUIZZ SE FAIT DANS LE js/gestionQuizz.js
              Pour démarrer un quizz, faire appel à demarrerQuizzByID(id_quizz)
              */
+
+
 
             demarrerQuizzByZone(clientPNJ.zone);
             this.createPNJ(clientPNJ.zone);
@@ -418,7 +411,7 @@ var mainState = {
                 }
                 else {
                     x = 1000;
-                    varX = 240;
+                    varX = 200;
                     y = 1510;
                     varY = 520;
                 }
@@ -436,7 +429,7 @@ var mainState = {
                     x = 1670;
                     varX = 500;
                     y = 1300;
-                    varY = 150;
+                    varY = 110;
                 }
                 else {
                     x = 1280;
@@ -451,7 +444,7 @@ var mainState = {
                     x = 635;
                     varX = 760;
                     y = 1170;
-                    varY = 280;
+                    varY = 220;
                 }
                 else {
                     x = 635;
@@ -524,7 +517,7 @@ var mainState = {
                     x = 1085;
                     varX = 285;
                     y = 110;
-                    varY = 140;
+                    varY = 120;
 
                 }
                 break;
@@ -553,6 +546,36 @@ var mainState = {
 
     },
 
+    actionOnClickMap : function(){
+
+        game.physics.arcade.isPaused = true;
+        button_settings.inputEnabled = false;
+        button_map.inputEnabled = false;
+        game.touchControl.inputDisable();
+
+        map = game.add.sprite(GAME_WIDTH/2, GAME_HEIGHT/2, 'map');
+        map.fixedToCamera = true;
+        map.anchor.setTo(0.5);
+
+        //X et Y : ecart de la min carte + position du player / taille de la map * taille de la mini carte
+        cursor = game.add.sprite(95 + player.x/2890*808, 32 + player.y/2206*617, 'cursor');
+        console.log(player.x/2890*808 + " " + player.y/2206*617);
+        cursor.fixedToCamera = true;
+        cursor.anchor.setTo(0.5, 1);
+
+        button_croix_blanche = game.add.button(game.camera.x + 847, game.camera.y + 42, 'croix_blanche', function () {
+            map.destroy();
+            button_croix_blanche.destroy();
+            cursor.destroy();
+
+            button_settings.inputEnabled = true;
+            button_map.inputEnabled = true;
+            game.touchControl.inputEnable();
+            // Unpause the game
+            reprendre();
+        }, this, 2, 1, 0);
+    },
+
 
     actionOnClickMenu: function () {
         //On pause la physique du jeu.
@@ -563,6 +586,7 @@ var mainState = {
 
         game.touchControl.inputDisable();
         button_settings.inputEnabled = false;
+        button_map.inputEnabled = false;
 
 
         /*AJOUT DU MENU ET DE SON IHM*/
@@ -587,8 +611,9 @@ var mainState = {
             button_gestion_effet.destroy();
             t_score.destroy();
             t_jetons.destroy();
-            button_settings.inputEnabled = true;
 
+            button_settings.inputEnabled = true;
+            button_map.inputEnabled = true;
             game.touchControl.inputEnable();
 
             // Unpause the game

@@ -5,7 +5,7 @@ var game = new Phaser.Game(400, 490, Phaser.AUTO, 'gameDiv');
 var mainState;
 var bootState;
 var preload;
-var menu;
+var menu_flappy;
 var gameOverState;
 var scorefinal=0;
 bootState= {
@@ -32,11 +32,11 @@ preload={
     },
 
     create: function(){
-        this.game.state.start("menu");
+        this.game.state.start("menu_flappy");
     }
 }
 
-menu={
+menu_flappy={
     create: function() {
         this.fond = game.add.tileSprite(0, 0, 490, game.cache.getImage('fond').height, 'fond');
         this.title = game.add.sprite(55,100,"title");
@@ -172,7 +172,7 @@ gameOverState = {
         game.state.start('main');
     },
     goToMenu:function(){
-        game.state.start('menu')
+        game.state.start('menu_flappy')
     }
 
 }
@@ -183,7 +183,7 @@ gameOverState = {
 // Add and start the 'main' state to start the game
 game.state.add('boot', bootState);
 game.state.add('preload', preload);
-game.state.add('menu', menu);
+game.state.add('menu_flappy', menu_flappy);
 game.state.add('main', mainState);
 game.state.add('gameOver', gameOverState);
 

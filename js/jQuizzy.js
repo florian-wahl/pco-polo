@@ -147,7 +147,6 @@
                     url: config.sendResultsURL,
                     data: '{"answers": [' + collate.join(",") + ']}',
                     complete: function() {
-                        console.log("OH HAI");
                     }
                 });
             }

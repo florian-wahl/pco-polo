@@ -60,6 +60,11 @@ var preloadState = {
         game.load.image('croix_blanche', 'res/img/ingame/croix_blanche.png', 70, 70);
         game.load.spritesheet('toggle_button', 'res/img/boutons/toggle.png', 95, 48);
 
+        //Map
+        game.load.image('map', 'res/img/ingame/carte.jpg');
+        game.load.image('bouton_map', 'res/img/boutons/map.png');
+        game.load.image('cursor', 'res/img/boutons/cursor.png');
+
         //Elements
         game.load.image('accueil_salon','res/img/ingame/elements/accueil_salon.png');
         game.load.image('BLS_haut','res/img/ingame/elements/BLS_haut.png');

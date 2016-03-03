@@ -333,4 +333,344 @@
             </question>
         </questions>
     </quizz>
+
+    <quizz id="10">
+        <type>TEXTE</type>
+        <zone>1</zone>
+        <op>1</op>
+        <difficulte>1</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op1.png"/><br/>
+        <b> 0 Client :</b> Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?<br/>
+        <b>Vous :</b> Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? <br/>
+        <b>Client :</b> Oui, je l'ai imprimé hier soir. La voici.<br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que devez-vous faire avec la carte d'embarquement de ce client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Scanner la carte d'embarquement en utilisant MARCO</reponse>
+                    <reponse isTrue="0">Rechercher le client dans la base de donnée MARCO</reponse>
+                    <reponse isTrue="0">Aller à l'accueil et demander des renseignements</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Comment pouvez-vous prendre une capture d'écran de votre iPad ?</intitule>
+                <reponses>
+                    <reponse isTrue="0">Appuyer sur les deux boutons de volume simultanément</reponse>
+                    <reponse isTrue="0">Appuyer sur le bouton central pendant 3 secondes</reponse>
+                    <reponse isTrue="1">Appuyer sur le bouton central et le bouton de verrouillage simultanément</reponse>
+                    <reponse isTrue="0">Appuyer deux fois de suite sur le bouton verrouillage</reponse>
+                </reponses>
+            </question>
+            <question id="3">
+                <intitule>A quoi sert le code PUK ?</intitule>
+                <reponses>
+                    <reponse isTrue="0">Déverrouiller votre iPad</reponse>
+                    <reponse isTrue="1">Débloquer votre iPad après blocage du code PIN</reponse>
+                    <reponse isTrue="0">À vous connecter à internet</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="11">
+        <type>TEXTE</type>
+        <zone>1</zone>
+        <op>1</op>
+        <difficulte>1</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op1.png"/><br/>
+        <b> 1 Client :</b> Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?<br/>
+        <b>Vous :</b> Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? <br/>
+        <b>Client :</b> Oui, je l'ai imprimé hier soir. La voici.<br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que devez-vous faire avec la carte d'embarquement de ce client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Scanner la carte d'embarquement en utilisant MARCO</reponse>
+                    <reponse isTrue="0">Rechercher le client dans la base de donnée MARCO</reponse>
+                    <reponse isTrue="0">Aller à l'accueil et demander des renseignements</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Comment pouvez-vous prendre une capture d'écran de votre iPad ?</intitule>
+                <reponses>
+                    <reponse isTrue="0">Appuyer sur les deux boutons de volume simultanément</reponse>
+                    <reponse isTrue="0">Appuyer sur le bouton central pendant 3 secondes</reponse>
+                    <reponse isTrue="1">Appuyer sur le bouton central et le bouton de verrouillage simultanément</reponse>
+                    <reponse isTrue="0">Appuyer deux fois de suite sur le bouton verrouillage</reponse>
+                </reponses>
+            </question>
+            <question id="3">
+                <intitule>A quoi sert le code PUK ?</intitule>
+                <reponses>
+                    <reponse isTrue="0">Déverrouiller votre iPad</reponse>
+                    <reponse isTrue="1">Débloquer votre iPad après blocage du code PIN</reponse>
+                    <reponse isTrue="0">À vous connecter à internet</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="12">
+        <type>TEXTE</type>
+        <zone>1</zone>
+        <op>2</op>
+        <difficulte>1</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op2.png"/><br/>
+        <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="13">
+        <type>TEXTE</type>
+        <zone>2</zone>
+        <op>2</op>
+        <difficulte>1</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op2.png"/><br/>
+        <b> 3 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="14">
+        <type>TEXTE</type>
+        <zone>3</zone>
+        <op>2</op>
+        <difficulte>2</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op2.png"/><br/>
+        <b> 4 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="15">
+        <type>TEXTE</type>
+        <zone>4</zone>
+        <op>2</op>
+        <difficulte>1</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op2.png"/><br/>
+        <b> 5 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="16">
+        <type>TEXTE</type>
+        <zone>5</zone>
+        <op>2</op>
+        <difficulte>2</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op2.png"/><br/>
+        <b> 6 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="17">
+        <type>TEXTE</type>
+        <zone>6</zone>
+        <op>2</op>
+        <difficulte>1</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op2.png"/><br/>
+        <b> 7 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+    <quizz id="18">
+        <type>TEXTE</type>
+        <zone>2</zone>
+        <op>2</op>
+        <difficulte>2</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op2.png"/><br/>
+        <b> 8 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="19">
+        <type>TEXTE</type>
+        <zone>1</zone>
+        <op>2</op>
+        <difficulte>3</difficulte>
+        <scenario>
+            <![CDATA[
+        <img src="res/img/quizz/op2.png"/><br/>
+        <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
 </data>
+

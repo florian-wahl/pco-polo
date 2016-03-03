@@ -373,7 +373,7 @@ var Coil = (function(){
 		playing = true;
 		
 		menu.fadeOut( MENU_FADE_OUT_DURATION, function() {
-			// Remove the header after the menu has appeared since
+			// Remove the header after the menu_flappy has appeared since
 			// it will no longer be used
 			$( 'h1', this ).remove();
 		} );
@@ -1319,7 +1319,7 @@ var Coil = (function(){
 			top: cy
 		} );
 		
-		// Center the menu
+		// Center the menu_flappy
 		menu.css( {
 			left: ( world.width - menu.width() ) / 2,
 			top: ( world.height - menu.height() ) / 2

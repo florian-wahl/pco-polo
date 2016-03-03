@@ -3,7 +3,7 @@
  */
 
     /*INITIALISATION */
-var NOMBRE_QUIZZ_MAX = 10;
+var NOMBRE_QUIZZ_MAX = 20;
 
 var listeQuizzInfos = new Array(NOMBRE_QUIZZ_MAX);
 
@@ -255,6 +255,7 @@ function xmlCallbackByID(xml, id_quizz){
 }
 
 function xmlRequestByZone(id_zone){
+
     $.ajax({
         type: "GET",
         url: "data/quizz.xml",
@@ -270,6 +271,7 @@ function xmlCallbackByZone(xml, id_zone){
     var listeQuizzZoneChoisie = [];
 
 
+
     //On récupère tous les quizz correspondant à la zone
     $(xml).find('quizz').each(function() {
         var attr_id_quizz = $(this).attr('id');
@@ -280,6 +282,7 @@ function xmlCallbackByZone(xml, id_zone){
         if (attr_id_zone == id_zone) {
             //[id, op, dif, occ]
             listeQuizzZoneChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+
         }
 
     });
@@ -292,22 +295,14 @@ function xmlCallbackByZone(xml, id_zone){
             listeQuizzZoneNonValide.push(listeQuizzZoneChoisie[i]);
         }
     }
-
     //S'il n'y a plus de quizz dispo
     //S'il y a moins que 90% de quizz non validé --> Niveau terminé
-    if(listeQuizzZoneNonValide.length <= 0.8*listeQuizzZoneChoisie.length){
-
-        //On ajoute le badge qui correspond au niveau / zone
-        ajaxRequest(badgeAjoute, 'addBadge', id_zone);
-
-        //On affiche un message comme quoi le niveau actuel est terminé
-
-        apparitionText("Vous avez fini le niveau " + id_zone + " ! Félicitation.", 50);
-        //On reset les quizz
+    if(listeQuizzZoneNonValide.length <= 0.1*listeQuizzZoneChoisie.length){
         ajaxQuizzRequest(quizzResetCallback, 'resetQuizz', id_zone);
         reprendre();
         return 0;
     }
+
 
     //On détermine quel quizz sélectionner
     // --> Occurence la plus faible
@@ -338,9 +333,10 @@ function xmlCallbackByZone(xml, id_zone){
         }
     }
 
-
     var num_quizz_alea = Math.floor(Math.random() * listeQuizzZoneNonValideNivFaible.length);
     var id_quizz_select = listeQuizzZoneNonValideNivFaible[num_quizz_alea][0];
+
+
 
     $(xml).find('quizz').each(function() {
         var attr_id_quizz = $(this).attr('id');
@@ -421,12 +417,10 @@ function getListeQuizz (liste) {
     }
 
 
-    console.log(listeQuizzInfos);
 
 }
 
 function quizzResetCallback (){
-    console.log("Quizz Reset Callback");
     ajaxQuizzRequest(getListeQuizz, "getListeQuizz", null)
 }
 
@@ -465,13 +459,14 @@ function checkQuizzValide(){
             //S'il n'y a plus de quizz dispo
             //S'il y a moins que 90% de quizz non validé --> Niveau terminé
             if(listeQuizzZoneNonValide.length <= 0.9*listeQuizzZoneChoisie.length){
+;
+                if(listeBadges[last_zone_id] == 0){
+                    //On ajoute le badge qui correspond au niveau / zone
+                    ajaxRequest(badgeAjoute, 'addBadge', last_zone_id);
 
-                //On ajoute le badge qui correspond au niveau / zone
-                ajaxRequest(badgeAjoute, 'addBadge', last_zone_id);
-
-                //On affiche un message comme quoi le niveau actuel est terminé
-
-                apparitionText("Vous avez fini le niveau " + last_zone_id + " ! Félicitation.", 50, 20);
+                    //On affiche un message comme quoi le niveau actuel est terminé
+                    apparitionText("Vous avez fini le niveau " + last_zone_id + " ! Félicitation.", 50, 20);
+                }
                 //On reset les quizz
                 ajaxQuizzRequest(quizzResetCallback, 'resetQuizz', last_zone_id);
             }
