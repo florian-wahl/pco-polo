@@ -71,8 +71,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 </select>
             </div>
 
-            <br>
-
             <div id="selection_clan">
 
                 <p class="choix">Choisissez le clan que vous voulez pour votre personnage :</p>

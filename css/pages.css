@@ -60,7 +60,7 @@
 .img_perso {
     float: left;
     margin: 5px 20px;
-    width: 130px;
+    width: 80px;
 }
 
 #submit_perso{
@@ -76,7 +76,8 @@
 }
 
 #selection_clan{
-    min-height: 350px;
+    min-height: 300px;
+    margin-bottom: 0;
 }
 #selection_couleur{
     text-align: center;
@@ -87,6 +88,7 @@
 }
 
 p.choix {
+    margin-bottom: 0;
     text-align: center;
 }
 
@@ -157,6 +159,7 @@ h4.tableau_scores {
 
 #tabs {
     margin-bottom: 20px;
+    margin-top: 50px;
     border: none;
 }
 

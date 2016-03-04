@@ -31,9 +31,9 @@ function test_input($info)
 }
 
 //Initialisation des variables à un string vide
-$errPrenom = $errMatricule = $errPassword = $errReponse_s = $errQuestion_s = "";
-$password = $prenom = $matricule = $reponse_s = $question_s = "";
-$okPassword = $okPrenom = $okMatricule = $okRepose_s = $okQuestion_s = false;
+$errPrenom = $errMatricule = $errPassword =  $errEscale = "";
+$password = $prenom = $matricule = $reponse_s = $escale = "";
+$okPassword = $okPrenom = $okMatricule = $okEscale = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -55,20 +55,11 @@ if (empty($_POST["matricule"])) {
     $okMatricule = true;
 }
 
-if (empty($_POST["question_s"])) {
-    $errQuestion_s = "Vous devez choisir une question secrète";
+if (empty($_POST["escale"])) {
+    $errEscale = "Vous devez choisir une escale";
 } else {
-    $question_s = test_input($_POST["question_s"]);
-    $okQuestion_s = true;
-}
-
-if (empty($_POST["reponse_s"])) {
-    $errReponse_s = "Une réponse à la question secrète est requise";
-} elseif (!preg_match("/^[a-zA-Zéèàêâùïüë0-9 -]*$/", $_POST["reponse_s"])) {
-    $errReponse_s = "Ne peut contenir que des lettres et des espaces";
-} else {
-    $reponse_s = test_input($_POST["reponse_s"]);
-    $okRepose_s = true;
+    $escale = test_input($_POST["escale"]);
+    $okEscale = true;
 }
 
 if (empty($_POST["password"])) {
@@ -91,7 +82,7 @@ if (empty($_POST["password"])) {
 }
 
 
-if ($okPrenom && $okPassword && $okMatricule && $okRepose_s && $okQuestion_s) {
+if ($okPrenom && $okPassword && $okMatricule && $okEscale) {
 /*CONNEXION A LA BDD SI TOUTES LES INFORMATIONS SONT RENSEIGNEES*/
 try {
 
@@ -108,8 +99,8 @@ if (count($resultat) != 0) {
 } else {
 
 //On crée une ligne dans la table score
-$stmt_score = $poloDB->prepare("INSERT INTO Score(score_jour, best_score, jetons)
-                                                    VALUES('0', '0', '0')");
+$stmt_score = $poloDB->prepare("INSERT INTO Score(score, jetons)
+                                                    VALUES('0', '0')");
 $stmt_score->execute();
 //On récupère l'id correspondant
 $stmt_score = $poloDB->prepare("SELECT id_score FROM Score ORDER BY id_score DESC;");
@@ -132,13 +123,12 @@ $res_id = $stmt_log->fetchAll();
 $id_log = $res_id[0][0];
 
 //On prépare les commandes qu'on va pouvoir ajouter dans la table
-$stmt_user = $poloDB->prepare("INSERT INTO Users(prenom, matricule, password, question_s, rep_s, pseudonyme, score_id_score, personnage_id_personnage, logs_id_log)
-                                                            VALUES(:prenom, :matricule, :password, :question_s, :reponse_s, 'defaut',:id_score, '1', :id_log)");
+$stmt_user = $poloDB->prepare("INSERT INTO Users(prenom, matricule, password, escale, pseudonyme, score_id_score, personnage_id_personnage, logs_id_log)
+                                                            VALUES(:prenom, :matricule, :password, :escale, 'defaut',:id_score, '1', :id_log)");
 $stmt_user->bindParam(':matricule', $matricule);
 $stmt_user->bindParam(':password', $hashedpassword);
 $stmt_user->bindParam(':prenom', $prenom);
-$stmt_user->bindParam(':question_s', $question_s);
-$stmt_user->bindParam(':reponse_s', $reponse_s);
+$stmt_user->bindParam(':escale', $escale);
 $stmt_user->bindParam(':id_score', $id_score);
 $stmt_user->bindParam(':id_log', $id_log);
 
@@ -221,22 +211,12 @@ $nom = $password = $prenom = $matricule = "";
                 </p>
 
                 <p>
-                    <label for="question_s">Question secrète</label>
-                    <select name="question_s" id="question_s">
-                        <option><?php echo $question_s; ?></option>
-                        <option>Quel est le prénom de votre premier animal de compagnie ?</option>
-                        <option>Quelle est votre couleur préférée ?</option>
-                        <option>Quel est le signe astrologique de votre père ?</option>
-                        <option>Quel est le nom de jeune fille de votre mère ?</option>
-                        <option>Quelle est votre chiffre préféré ?</option>
-                        <option>Quel est votre fruit préféré ?</option>
-                    </select> *<span class="error"> <?php echo $errQuestion_s; ?></span>
-                </p>
-
-                <p>
-                    <label for="reponse_s">Réponse</label>
-                    <input type="text" name="reponse_s" id="reponse_s"
-                           value="<?php echo $reponse_s; ?>"> *<span class="error"> <?php echo $errReponse_s; ?></span>
+                    <label for="escale">Choisissez votre escale</label>
+                    <select name="escale" id="escale">
+                        <option><?php echo $escale; ?></option>
+                        <option>CDG</option>
+                        <option>EXP</option>
+                    </select> *<span class="error"> <?php echo $errEscale; ?></span>
                 </p>
 
                 <p>

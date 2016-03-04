@@ -61,8 +61,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             </div>
 
             <div id="aide-7" class="post_it_aide">
-                <h4>Aide #7 : l'e-learning</h4>
-                <p>Vous pouvez trouver la réponse à tous les quizz sur l’intranet grâce au e-learning.</p>
+                <h4>Aide #7 : le guide utilisateur</h4>
+                <p>Vous pouvez trouver la réponse à tous les quizz sur l’intranet grâce au guide utilisateur.</p>
             </div>
         </div>
 

@@ -20,8 +20,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
     //On récupère la première ligne, le résultat doit être unique
     $res_score = $resultat[0];
-    $_SESSION['score_jour'] = $res_score['score_jour'];
-    $_SESSION['best_score'] = $res_score['best_score'];
+    $_SESSION['score'] = $res_score['score'];
     $_SESSION['jetons'] = $res_score['jetons'];
 
     $stmt = $poloDB->prepare("SELECT * FROM personnage WHERE id_personnage = :id_personnage;");
@@ -47,6 +46,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <p><b>Prénom :</b> <?php echo $_SESSION["prenom"]; ?></p>
                 <p><b>Matricule :</b> <?php echo $_SESSION["matricule"]; ?></p>
                 <p><b>Pseudonyme :</b> <?php echo $_SESSION["pseudonyme"]; ?></p>
+                <p><b>Escale :</b> <?php echo $_SESSION["escale"]; ?></p>
+                <p><b>Nombre de Jetons :</b> <?php echo $_SESSION["jetons"]; ?></p>
             </div>
 
             <script>
@@ -132,10 +133,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             </div>
         </div>
 
-        <div id="profil_score_jeton">
-            <p>Score Journalier : <b> <?php echo $_SESSION["score_jour"]; ?></b> / Meilleur Score :<b> <?php echo $_SESSION["best_score"]; ?></b> / Nombre de jetons : <b> <?php echo $_SESSION["jetons"]; ?></b></p>
-        </div>
-
         <script>
             $(function() {
                 $( "#tabs" ).tabs();
@@ -153,11 +150,12 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     <tr id="first_row_tableau_score">
                         <td>Rang</td>
                         <td>Pseudonyme</td>
+                        <td>Escale</td>
                         <td>Score</td>
                     </tr>
                     <?php
 
-                    $stmt = $poloDB->prepare("SELECT * FROM score, users WHERE score_id_score = id_score ORDER BY best_score DESC;");
+                    $stmt = $poloDB->prepare("SELECT * FROM score, users WHERE score_id_score = id_score ORDER BY score DESC;");
                     $stmt->execute();
 
                     //On récupère les résultats
@@ -186,7 +184,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                             echo "<td> " . $rang . " </td>";
                             echo "<td> " . $row['pseudonyme'] . " </td>";
-                            echo "<td> " . $row['best_score'] . " </td>";
+                            echo "<td> " . $row['escale'] . " </td>";
+                            echo "<td> " . $row['score'] . " </td>";
                             echo "</tr>";
 
                         }
@@ -212,7 +211,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                                     echo "<tr>";
                                     echo "<td> " . $rang . " </td>";
                                     echo "<td> " . $row['pseudonyme'] . " </td>";
-                                    echo "<td> " . $row['best_score'] . " </td>";
+                                    echo "<td> " . $row['escale'] . " </td>";
+                                    echo "<td> " . $row['score'] . " </td>";
                                     echo "</tr>";
 
 
@@ -235,7 +235,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                                         echo '<tr>';
                                         echo "<td> " . $rang . " </td>";
                                         echo "<td> " . $row_avant['pseudonyme'] . " </td>";
-                                        echo "<td> " . $row_avant['best_score'] . " </td>";
+                                        echo "<td> " . $row['escale'] . " </td>";
+                                        echo "<td> " . $row_avant['score'] . " </td>";
                                         echo "</tr>";
                                         $rang +=1;
                                     }
@@ -247,7 +248,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                                     echo '<tr id="ligne_tableau_score_user">';
                                     echo "<td> " . $rang . " </td>";
                                     echo "<td> " . $row['pseudonyme'] . " </td>";
-                                    echo "<td> " . $row['best_score'] . " </td>";
+                                    echo "<td> " . $row['escale'] . " </td>";
+                                    echo "<td> " . $row['score'] . " </td>";
                                     echo "</tr>";
 
                                     $row_apres = true;
@@ -265,7 +267,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 </table>
             </div>
             <div id="tabs-2">
-                <h4 class="tableau_scores">Classement journalier</h4>
+                <h4 class="tableau_scores">Classement de <?php echo $_SESSION['escale'];?></h4>
                 <table id="tableau_scores" class="tableau_scores">
                     <tr id="first_row_tableau_score">
                         <td>Rang</td>
@@ -274,9 +276,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                     </tr>
                     <?php
 
-                    $stmt = $poloDB->prepare("SELECT * FROM score, users, logs WHERE score_id_score = id_score AND logs_id_log = id_log AND last_log_date = :today_date ORDER BY score_jour DESC;");
-                    $today_date = date("Y-m-d");
-                    $stmt->bindValue(':today_date', $today_date);
+                    $stmt = $poloDB->prepare("SELECT * FROM score, users, logs WHERE score_id_score = id_score AND logs_id_log = id_log AND users.escale = :escale ORDER BY score DESC;");
+                    $stmt->bindValue(':escale', $_SESSION['escale']);
 
                     $stmt->execute();
 
@@ -307,7 +308,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                             echo "<td> " . $rang . " </td>";
                             echo "<td> " . $row['pseudonyme'] . " </td>";
-                            echo "<td> " . $row['score_jour'] . " </td>";
+                            echo "<td> " . $row['score'] . " </td>";
                             echo "</tr>";
 
                         }
@@ -333,7 +334,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                                     echo "<tr>";
                                     echo "<td> " . $rang . " </td>";
                                     echo "<td> " . $row['pseudonyme'] . " </td>";
-                                    echo "<td> " . $row['score_jour'] . " </td>";
+                                    echo "<td> " . $row['score'] . " </td>";
                                     echo "</tr>";
 
 
@@ -356,7 +357,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                                         echo '<tr>';
                                         echo "<td> " . $rang . " </td>";
                                         echo "<td> " . $row_avant['pseudonyme'] . " </td>";
-                                        echo "<td> " . $row_avant['score_jour'] . " </td>";
+                                        echo "<td> " . $row_avant['score'] . " </td>";
                                         echo "</tr>";
                                         $rang +=1;
                                     }
@@ -368,7 +369,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                                     echo '<tr id="ligne_tableau_score_user">';
                                     echo "<td> " . $rang . " </td>";
                                     echo "<td> " . $row['pseudonyme'] . " </td>";
-                                    echo "<td> " . $row['score_jour'] . " </td>";
+                                    echo "<td> " . $row['score'] . " </td>";
                                     echo "</tr>";
 
                                     $row_apres = true;

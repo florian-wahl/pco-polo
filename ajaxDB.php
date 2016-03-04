@@ -37,29 +37,18 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
             $resultat = $stmt->fetchAll();
 
             //On récupère la première ligne, le résultat doit être unique
-            $score = $resultat[0]['score_jour'];
+            $score = $resultat[0]['score'];
 
             echo $score;
             break;
         case 'addToScore':
             //On modifie le score
-            $_SESSION['score_jour'] += $s;
+            $_SESSION['score'] += $s;
 
-            $stmt = $poloDB->prepare("UPDATE score SET score_jour = :new_score_jour WHERE id_score = :id_score;");
+            $stmt = $poloDB->prepare("UPDATE score SET score = :new_score WHERE id_score = :id_score;");
             $stmt->bindValue(':id_score', $_SESSION['id_score']);
-            $stmt->bindValue(':new_score_jour', $_SESSION['score_jour']);
+            $stmt->bindValue(':new_score', $_SESSION['score']);
             $stmt->execute();
-
-            //On test par rapport au meilleur score
-            if($_SESSION['best_score'] < $_SESSION['score_jour']){
-                $_SESSION['best_score'] = $_SESSION['score_jour'];
-
-                //On le met aussi à jour dans la BDD
-                $stmt = $poloDB->prepare("UPDATE score SET best_score = :new_best WHERE id_score = :id_score;");
-                $stmt->bindValue(':id_score', $_SESSION['id_score']);
-                $stmt->bindValue(':new_best', $_SESSION['best_score']);
-                $stmt->execute();
-            }
 
             break;
         case 'addToJeton':

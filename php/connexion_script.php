@@ -6,8 +6,8 @@ $_SESSION['pseudonyme'] = $employe['pseudonyme'];
 $_SESSION['id_user'] = $employe['id_user'];
 $_SESSION['id_personnage'] = $employe['personnage_id_personnage'];
 $_SESSION['id_score'] = $employe['id_score'];
-$_SESSION['score_jour'] = $employe['score_jour'];
-$_SESSION['best_score'] = $employe['best_score'];
+$_SESSION['score'] = $employe['score'];
+$_SESSION["escale"] = $employe['escale'];
 $_SESSION['jetons'] = $employe['jetons'];
 $_SESSION['id_log'] = $employe['id_log'];
 $_SESSION['last_log_date'] = $employe['last_log_date'];
@@ -19,13 +19,13 @@ $_SESSION['nb_log'] = $employe['nb_log'];
 if ($_SESSION['last_log_date'] < date("Y-m-d")) {
     $_SESSION['last_log_date'] = date("Y-m-d");
     $_SESSION['nb_log'] += $_SESSION['nb_log'];
-    $_SESSION['score_jour'] = 0;
+    $_SESSION['score'] = 0;
 
 
     //On met à jour le score dans la BDD
-    $stmt = $poloDB->prepare("UPDATE score SET score_jour = :new_score_jour WHERE id_score = :id_score;");
+    $stmt = $poloDB->prepare("UPDATE score SET score = :new_score WHERE id_score = :id_score;");
     $stmt->bindValue(':id_score', $_SESSION['id_score']);
-    $stmt->bindValue(':new_score_jour', $_SESSION['score_jour']);
+    $stmt->bindValue(':new_score', $_SESSION['score']);
     $stmt->execute();
 
     //On met à jour le log dans la BDD

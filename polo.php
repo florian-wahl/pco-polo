@@ -25,8 +25,7 @@ $resultat = $stmt->fetchAll();
 
 //On récupère la première ligne, le résultat doit être unique
 $res_score = $resultat[0];
-$_SESSION['score_jour'] = $res_score['score_jour'];
-$_SESSION['best_score'] = $res_score['best_score'];
+$_SESSION['score'] = $res_score['score'];
 $_SESSION['jetons'] = $res_score['jetons'];
 
 $stmt = $poloDB->prepare("SELECT * FROM personnage WHERE id_personnage = :id_personnage;");
