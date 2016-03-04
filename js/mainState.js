@@ -7,7 +7,7 @@ var game = new Phaser.Game(1024, 705, Phaser.CANVAS, 'POLO');
  DECLARATION DES CONSTANTES
  */
 var GAME_WIDTH = 1024;
-var GAME_HEIGHT = 700;
+var GAME_HEIGHT = 705;
 var CLAN_NAMES = ['Tut','Lav', 'Pri', 'Tec', 'Qi'];
 var CLAN_COLORS = ['Blue','Green','Purple','Red','Yellow'];
 var BADGES_NAME = [];
@@ -557,13 +557,13 @@ var mainState = {
         map.fixedToCamera = true;
         map.anchor.setTo(0.5);
 
-        //X et Y : ecart de la min carte + position du player / taille de la map * taille de la mini carte
-        cursor = game.add.sprite(95 + player.x/2890*808, 32 + player.y/2206*617, 'cursor');
+        //X et Y :position du player / taille de la map * taille de la mini carte
+        cursor = game.add.sprite(player.x/2890*GAME_WIDTH, player.y/2206*GAME_HEIGHT, 'cursor');
         console.log(player.x/2890*808 + " " + player.y/2206*617);
         cursor.fixedToCamera = true;
         cursor.anchor.setTo(0.5, 1);
 
-        button_croix_blanche = game.add.button(game.camera.x + 847, game.camera.y + 42, 'croix_blanche', function () {
+        button_croix_blanche = game.add.button(game.camera.x + GAME_WIDTH - 70, game.camera.y, 'croix_blanche', function () {
             map.destroy();
             button_croix_blanche.destroy();
             cursor.destroy();
