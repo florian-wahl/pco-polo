@@ -44,9 +44,10 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         $poloDB = null;
 
         //Redirection
-        echo "<script>location.href = 'polo.php';</script>";
+        echo "<script>location.href = 'polo.php?origine=1';</script>";
     }
     ?>
+
     <div id="container" class="menu_polo">
 
         <script src="js/creation_perso.js"></script>

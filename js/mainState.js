@@ -21,7 +21,7 @@ var NOMBRE_BADGE_MAX = 27;
 /*
  DECLARATION DES VARIABLES
  */
-var player;
+var player, playerOx, playerOy;
 var cursors;
 var mur;
 var transparent;
@@ -51,7 +51,7 @@ var listeBadges = [];
 var clients = [];
 var lastClientSprite;
 
-
+var originePage;
 
 var mainState = {
 
@@ -93,6 +93,10 @@ var mainState = {
         this.setDecorsDevant();
 
         this.setIHM();
+
+        if (originePage == 1){
+            this.startIntroduction();
+        }
 
     },
 
@@ -136,8 +140,22 @@ var mainState = {
     },
 
     setPlayer : function(){
+        if (originePage == 1){
+            //On démarre l'introduction
+            playerOx = 890;
+            playerOy = 1850;
+        }
+        else if (originePage == 2){
+            playerOx = 618;
+            playerOy = 1673;
+        }
+        else {
+            playerOx = 890;
+            playerOy = 1850;
+        }
+
         // Ajout du joueur
-        player = game.add.sprite(890, 1850, 'player');
+        player = game.add.sprite(playerOx, playerOy, 'player');
         game.physics.arcade.enable(player);
         player.body.collideWorldBounds = true;
         player.body.height = 40;
@@ -544,6 +562,10 @@ var mainState = {
 
 
 
+    },
+
+    startIntroduction : function(){
+        apparitionText("Début de l'introduction", 50, 30);
     },
 
     actionOnClickMap : function(){

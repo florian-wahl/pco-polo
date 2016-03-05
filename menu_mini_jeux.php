@@ -16,11 +16,10 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     //L'employé est connecté
     ?>
 
-
     <div id="container" class="menu_polo">
         <h2> Menu Mini-Jeux </h2>
 
-        <input type="button" id="button_retour" onclick="location.href='polo.php';" />
+        <input type="button" id="button_retour" onclick="location.href='polo.php?origine=2';" />
 
         <p id="nb_jetons">
             Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 50px;"/>

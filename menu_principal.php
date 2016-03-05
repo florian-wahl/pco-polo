@@ -39,7 +39,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 location.href = "creation_perso.php";
             }
             else{
-                location.href = "polo.php";
+                location.href = "polo.php?origine=0";
             }
         });
 
