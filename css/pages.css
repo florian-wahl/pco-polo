@@ -76,7 +76,7 @@
 }
 
 #selection_clan{
-    min-height: 300px;
+    min-height: 265px;
     margin-bottom: 0;
 }
 #selection_couleur{
@@ -138,11 +138,12 @@ p.choix {
 #first_row_tableau_score{
     font-weight: bold;
     font-size: 110%;
-    background-color: rgba(149, 139, 147, 0.1);
+    background-color: #fa3d6e;
+    color: #ffffff;
 }
 
 table#tableau_scores, .tableau_scores tr, .tableau_scores td {
-    border: solid 1px black;
+    border-bottom: 1px solid;
     text-align: center;
 }
 
@@ -162,6 +163,10 @@ h4.tableau_scores {
     margin-top: 50px;
     border: none;
 }
+tr:nth-child(even){
+    background-color: #f2f2f2
+}
+
 
 #tabs > div{
     border: lightgray solid 1px;

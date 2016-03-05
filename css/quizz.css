@@ -23,7 +23,7 @@
 }
 .main-quiz-holder .slide-container{
     width:800px;
-    padding:360px 50px 50pt 70px;
+    padding:330px 20px 20px 70px;
 }
 .results-container,.intro-container{
     text-align:center;
@@ -64,9 +64,6 @@
     padding:5px 30px;
     margin:10px 0;
     color:#4c4c4c;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
     text-shadow:0 1px 0 rgba(255,255,255,0.3);
     -webkit-box-shadow:inset 0 0 0 1px rgba(255,255,255,0.2),inset 0 0 6px 0 rgba(255,255,255,0.3),0 1px 2px rgba(0,0,0,0.4);
     -moz-box-shadow:inset 0 0 0 1px rgba(255,255,255,0.2),inset 0 0 6px 0 rgba(255,255,255,0.3),0 1px 2px rgba(0,0,0,0.4);
@@ -85,13 +82,11 @@
     -moz-box-shadow:0 1px 5px #0061aa,inset 0 10px 20px #b6f9ff;
 }
 .main-quiz-holder .slide-container .prev,.main-quiz-holder .slide-container .next{
-    height:19px;
+    height:25px;
     cursor:pointer;
     padding:5px 10px;
     font-size:16px;
-    color:#4c4c4c;
-    border-radius:4px;
-    text-shadow:0 1px 0 rgba(255,255,255,0.3);
+    color:#ffffff;
     background:#6fb2e5;
     box-shadow:0 1px 5px #0061aa,inset 0 10px 20px #b6f9ff;
     -o-box-shadow:0 1px 5px #0061aa,inset 0 10px 20px #b6f9ff;
@@ -99,11 +94,11 @@
     -moz-box-shadow:0 1px 5px #0061aa,inset 0 10px 20px #b6f9ff;
 }
 .main-quiz-holder .slide-container .next{
-    background:#77d125;
-    box-shadow:0 1px 5px #3caa00,inset 0 10px 20px #c9ffb6;
-    -o-box-shadow:0 1px 5px #3caa00,inset 0 10px 20px #c9ffb6;
-    -webkit-box-shadow:0 1px 5px #3caa00,inset 0 10px 20px #c9ffb6;
-    -moz-box-shadow:0 1px 5px #3caa00,inset 0 10px 20px #c9ffb6;
+    background:#fa3d6e;
+    box-shadow:0 1px 5px #fa3d6e,inset 0 10px 20px #f69ab2;
+    -o-box-shadow:0 1px 5px #fa3d6e,inset 0 10px 20px #f69ab2;
+    -webkit-box-shadow:0 1px 5px #fa3d6e,inset 0 10px 20px #f69ab2;
+    -moz-box-shadow:0 1px 5px #fa3d6e,inset 0 10px 20px #f69ab2;
 }
 .main-quiz-holder .progress-keeper{
     width:553px;
@@ -137,20 +132,19 @@
     bottom:70px;
 }
 .main-quiz-holder .slide-container .prev{
-    width:70px;
+    width:90px;
     float:left;
 }
 .main-quiz-holder .slide-container .next,.main-quiz-holder .slide-container .final{
-    width:70px;
+    width:90px;
     float:right;
 }
 .main-quiz-holder .slide-container .final{
-    width:65px;
+    width:90px;
 }
 .main-quiz-holder .nav-previous{}
 .main-quiz-holder .nav-next{}
 .main-quiz-holder .nav-show-result{
-    padding-left:25px;
     background:url(/res/img/confirm.png) left no-repeat;
 }
 .main-quiz-holder .nav-start{
