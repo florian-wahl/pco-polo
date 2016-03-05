@@ -53,6 +53,8 @@ var preloadState = {
 
         //Sounds
         game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
+        game.load.audio('effet_quizz', 'res/sons/apparition_quizz.wav');
+        game.load.audio('effet_arcade', 'res/sons/apparition_arcade.wav');
 
         //Menu
         game.load.image('menu', 'res/img/ingame/menu.png', 804, 599);
@@ -137,7 +139,8 @@ var preloadState = {
         for (i = 0; i < CLAN_COLORS.length; i++) {
             for (j = 0; j < CLAN_NAMES.length; j++) {
 
-                game.load.spritesheet(CLAN_NAMES[j] + CLAN_COLORS[i], 'res/img/personnages/clients/' + CLAN_COLORS[i] + '/' + CLAN_NAMES[j] + '/perso_sheet.png', 74, 96);
+                game.load.spritesheet("client"+CLAN_NAMES[j] + CLAN_COLORS[i], 'res/img/personnages/clients/' + CLAN_COLORS[i] + '/' + CLAN_NAMES[j] + '/perso_sheet.png', 74, 96);
+                game.load.spritesheet("agent"+CLAN_NAMES[j] + CLAN_COLORS[i], 'res/img/personnages/agents/' + CLAN_COLORS[i] + '/' + CLAN_NAMES[j] + '/perso_sheet.png', 74, 96);
             }
         }
 

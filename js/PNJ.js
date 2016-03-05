@@ -9,7 +9,12 @@ function PNJ(clan, couleur, posX, posY, zone){
     this.posY = posY;
     this.zone = zone;
 
-    this.gameSprite = game.add.sprite(this.posX, this.posY, this.clan+this.couleur);
+    if (zone == 1){
+        this.gameSprite = game.add.sprite(this.posX, this.posY, "agent"+this.clan+this.couleur);
+    }
+    else {
+        this.gameSprite = game.add.sprite(this.posX, this.posY, "client"+this.clan+this.couleur);
+    }
     game.physics.arcade.enable(this.gameSprite);
     this.gameSprite.body.immovable = true;
     this.gameSprite.body.collideWorldBounds = true;

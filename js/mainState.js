@@ -26,7 +26,10 @@ var cursors;
 var mur;
 var transparent;
 
+//Sound
 var musicbg;
+var effetQuizz;
+var effetArcade;
 
 /*Groupes d'éléments du décor*/
 var group_decors_derriere_collide;
@@ -386,6 +389,10 @@ var mainState = {
         //Musics
         musicbg = game.add.audio('fond_sonore');
         musicbg.play("",0,1,true);
+
+        effetArcade = game.add.audio('effet_arcade');
+
+        effetQuizz = game.add.audio('effet_quizz')
     },
 
     interactionPNJ : function (player, clientSprite, clientPNJ, iPNJ) {
@@ -401,7 +408,9 @@ var mainState = {
              Pour démarrer un quizz, faire appel à demarrerQuizzByID(id_quizz)
              */
 
-
+            if(!off_effet){
+                effetQuizz.play();
+            }
 
             demarrerQuizzByZone(clientPNJ.zone);
             this.createPNJ(clientPNJ.zone);
@@ -413,6 +422,20 @@ var mainState = {
 
 
         }
+
+    },
+
+    interactionArcade : function(){
+
+        //Filtre blanc
+        if(!off_effet){
+            effetArcade.play();
+        }
+
+        game.physics.arcade.isPaused = true;
+
+        overlay.style.display='block';
+        popup_arcade.style.display='block';
 
     },
 
@@ -550,18 +573,6 @@ var mainState = {
         var newClient = new PNJ(CLAN_NAMES[ Math.floor(Math.random()*5)], CLAN_COLORS[ Math.floor(Math.random()*5)], x + Math.random()*varX, y + Math.random()*varY, zone);
         clients.push(newClient);
         group_clients.add(newClient.getSprite());
-    },
-
-    interactionArcade : function(){
-
-        //Filtre blanc
-        game.physics.arcade.isPaused = true;
-
-        overlay.style.display='block';
-        popup_arcade.style.display='block';
-
-
-
     },
 
     startIntroduction : function(){

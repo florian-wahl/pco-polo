@@ -173,3 +173,9 @@ input#button_mini_jeux{
     margin-right: 10px;
     margin-left: 0;
 }
+
+#img_op {
+    position: absolute;
+    left: -260px;
+    top: 60px;
+}
