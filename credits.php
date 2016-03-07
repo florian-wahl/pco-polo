@@ -25,7 +25,7 @@
         </p>
         <h4 id="page_credit">Equipe Développement</h4>
         <p id="page_credit">
-            Florian WAHL  <br>
+            Florian WAHL - Responsable Développement <br>
             Xiaoxiao ZHOU <br>
             Marco GENOVESE <br>
         </p>
