@@ -27,7 +27,8 @@ var mur;
 var transparent;
 
 //Sound
-var musicbg;
+var musicFond;
+var musicQuizz;
 var effetQuizz;
 var effetArcade;
 
@@ -250,9 +251,6 @@ var mainState = {
         plantes.body.height = 60;
         plantes.anchor.setTo(1);
         group_decors_derriere_collide.add(plantes);
-        plantes = game.add.sprite(1265, 1495, 'plante3');
-        plantes.anchor.setTo(1);
-        group_decors_derriere_collide.add(plantes);
         plantes = game.add.sprite(1125, 790, 'plante3');
         plantes.anchor.setTo(1);
         group_decors_derriere_collide.add(plantes);
@@ -387,8 +385,10 @@ var mainState = {
 
     setMusicsAndEffects : function(){
         //Musics
-        musicbg = game.add.audio('fond_sonore');
-        musicbg.play("",0,1,true);
+        musicFond = game.add.audio('fond_sonore');
+        musicFond.play("",0,1,true);
+
+        musicQuizz = game.add.audio('musique_quizz');
 
         effetArcade = game.add.audio('effet_arcade');
 
@@ -410,6 +410,12 @@ var mainState = {
 
             if(!off_effet){
                 effetQuizz.play();
+            }
+
+            if (!off_volume){
+                musicFond.stop();
+
+                musicQuizz.play("",0,1,true);
             }
 
             demarrerQuizzByZone(clientPNJ.zone);
@@ -596,7 +602,7 @@ var mainState = {
         cursor.fixedToCamera = true;
         cursor.anchor.setTo(0.5, 1);
 
-        button_croix_blanche = game.add.button(game.camera.x + GAME_WIDTH - 70, game.camera.y, 'croix_blanche', function () {
+        button_croix_blanche = game.add.button(game.camera.x + GAME_WIDTH - 85, game.camera.y + 15, 'croix_blanche', function () {
             map.destroy();
             button_croix_blanche.destroy();
             cursor.destroy();

@@ -23,7 +23,7 @@
         }
         var superContainer = $(this),
         answers = [],
-        introFob = '	<div class="intro-container slide-container"><div class="dialog">'+ config.scenario +'</div><a class="nav-start" href="#">Commencer<br/><br/><span></span></a></div>	',
+        introFob = '	<div class="intro-container slide-container"><div class="dialog">'+ config.scenario +'</div><a class="nav-start" href="#"><img src="res/img/boutons/bouton_commencer.png"/> <br/><br/><span></span></a></div>	',
         exitFob = '<div class="results-container slide-container"><div class="question-number">' + config.endText + '</div><div class="result-keeper"></div></div><div class="notice">Merci de choisir une réponse</div><div class="progress-keeper" ><div class="progress"></div></div>',
         contentFob = '',
         questionsIteratorIndex,

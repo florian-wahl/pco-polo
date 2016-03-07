@@ -12,6 +12,12 @@ function reprendre () {
         checkQuizzValide();
     }
 
+    if(!off_volume){
+        musicFond.stop();
+        musicQuizz.stop();
+        musicFond.play();
+    }
+
 }
 
 
@@ -111,11 +117,11 @@ function actionOnClickVolume() {
     off_volume = !off_volume;
 
     if (off_volume == false) {
-        musicbg.resume();
+        musicFond.resume();
         button_gestion_musique.setFrames(0);
     }
     else {
-        musicbg.pause();
+        musicFond.pause();
         button_gestion_musique.setFrames(1);
     }
 }
@@ -124,11 +130,11 @@ function actionOnClickEffet() {
     off_effet = !off_effet;
 
     if (off_effet == false) {
-        // musicbg.pause();
+        // musicFond.pause();
         button_gestion_effet.setFrames(0);
     }
     else {
-        // musicbg.resume();
+        // musicFond.resume();
         button_gestion_effet.setFrames(1);
     }
 }

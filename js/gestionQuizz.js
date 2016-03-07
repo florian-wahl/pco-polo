@@ -443,10 +443,19 @@ function checkQuizzValide(){
                 var attr_id_op = $(this).find('op').text();
                 var attr_id_difficulte = $(this).find('difficulte').text();
 
-                if (attr_id_zone == last_zone_id) {
-                    //[id, op, dif, occ]
-                    listeQuizzZoneChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+                if(last_zone_id == 3 || last_zone_id == 4){
+
                 }
+                else if(last_zone_id == 5 ||last_zone_id == 7){
+
+                }
+                else {
+                    if (attr_id_zone == last_zone_id) {
+                        //[id, op, dif, occ]
+                        listeQuizzZoneChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+                    }
+                }
+
 
             });
 

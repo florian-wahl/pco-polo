@@ -1,7 +1,7 @@
 body{
-    background:#f8f8f8;
+    background: url("../res/img/ingame/fond_general.jpg");
     font:18px Trebuchet MS, Arial, Helvetica, Sans-Serif;
-    color:#333;
+    color:#ffffff;
     line-height:160%;
     margin:0;
     padding:0;
@@ -29,7 +29,7 @@ h4{
 }
 
 a{
-    color:#333;
+    color: #fa3d6e;
     font-style: italic;
     text-decoration: none;
 }
@@ -70,7 +70,7 @@ li{
 
 #container{
     margin:0 auto;
-    background:#fff;
+    background: rgba(0, 0, 0, 0.4);
     width:820px;
     min-height: 500px;
     padding:20px 20px;

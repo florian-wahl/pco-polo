@@ -145,6 +145,7 @@ p.choix {
 table#tableau_scores, .tableau_scores tr, .tableau_scores td {
     border-bottom: 1px solid;
     text-align: center;
+    color: #FFFFFF;
 }
 
 #ligne_tableau_score_user {
@@ -156,15 +157,17 @@ table#tableau_scores, .tableau_scores tr, .tableau_scores td {
 
 h4.tableau_scores {
     text-align: center;
+    color: #FFFFFF;
 }
 
 #tabs {
     margin-bottom: 20px;
     margin-top: 50px;
     border: none;
+    background: rgba(0,0,0,0.4);
 }
 tr:nth-child(even){
-    background-color: #f2f2f2
+    background-color: rgba(255,255,255,0.2);
 }
 
 
@@ -177,7 +180,7 @@ div#table_badges_main {
 }
 
 img.table_badges {
-    max-width: 50px;
+    max-width: 70px;
     margin-right: 40px;
     margin-top: 20px;
     align-content: center;
@@ -214,6 +217,10 @@ p#page_credit{
 
 h4#page_credit {
     font-size: 150%;
+    text-align: center;
+}
+h3#page_credit {
+    font-size: 200%;
     text-align: center;
 }
 

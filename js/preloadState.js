@@ -53,6 +53,7 @@ var preloadState = {
 
         //Sounds
         game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
+        game.load.audio('musique_quizz', 'res/sons/fond_quizz.ogg');
         game.load.audio('effet_quizz', 'res/sons/apparition_quizz.wav');
         game.load.audio('effet_arcade', 'res/sons/apparition_arcade.wav');
 
