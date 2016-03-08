@@ -30,7 +30,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <table id="liste_mini_jeux" class="liste_mini_jeux">
             <tr>
                 <td><input type="button" id="mini_jeux_1" class="element_liste" onclick="location.href='#openModal_1'"></td>
-                <td><input type="button" id="mini_jeux_2" class="element_liste" value="Pacman" onclick="location.href='#openModal_2'"></td>
+                <td><input type="button" id="mini_jeux_2" class="element_liste"  onclick="location.href='#openModal_2'"></td>
                 <td><input type="button" id="mini_jeux_3" class="element_liste" onclick="location.href='#openModal_3'"></td>
                 <td><input type="button" id="mini_jeux_4" class="element_liste" value="Coil" onclick="location.href='#openModal_4'"></td>
                 <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mini-Jeux #5"></td>
@@ -53,8 +53,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <div>
             <a href="#close" title="Close" class="close">X</a>
             <img src="res/img/mini-jeux/Floppy_Bird_icon.png" id="img_popup_left"/>
-            <h2>Floppy Bird</h2>
-            <p>Vous dirigez un oiseau : touchez l’écran et l’oiseau saute ! <br>Attention aux obstacles ! Une collision ou une chute vous feront perdre la partie.</p>
+            <h2>Floppy Plane</h2>
+            <p>Vous dirigez un avion : touchez l’écran et l’avion saute ! <br>Attention aux obstacles ! Une collision ou une chute vous feront perdre la partie.</p>
             <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 40px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
@@ -64,9 +64,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_2" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/icon_pacman.png" width="250px" id="img_popup_left"/>
-            <h2>Pacman Classic</h2>
-            <p>Pacman est un jeu d'arcade classique.</p>
+            <img src="res/img/mini-jeux/labyrinth_icon.png" width="250px" id="img_popup_left"/>
+            <h2>Labyrinth Craze</h2>
+            <p>Guidez votre balle à destination en inclinant l'iPad! <br> Mais faites attention à ne pas la faire tomber.</p>
             <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_2" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>

@@ -90,6 +90,7 @@ var mainState = {
 
         this.setPNJ();
 
+
         this.setPlayer();
         game.camera.follow(player);
         game.camera.deadzone = new Phaser.Rectangle(300, 250, 420, 250);
