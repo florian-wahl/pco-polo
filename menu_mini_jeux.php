@@ -103,7 +103,6 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         CE SCRIPT PERMET DE GERER LE FONCTION DES POPUPS
         LA REACTION DES BOUTONS
         LA GESTION DES JETONS
-
     -->
     <script src="js/liste_mini_jeux.js"></script>
 
