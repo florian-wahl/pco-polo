@@ -22,7 +22,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <input type="button" id="button_retour" onclick="location.href='polo.php?origine=2';" />
 
         <p id="nb_jetons">
-            Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 50px;"/>
+            Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px;"/>
         </p>
 
         <h3>Que voulez-vous faire ?</h3>

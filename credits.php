@@ -36,6 +36,14 @@
             Badges : <a href="http://www.brusheezy.com/members/macca">Macca</a>
         </p>
 
+        <h4 id="page_credit">Remerciements</h4>
+        <p id="page_credit">
+           Christine Michel <br>
+           Patrick Pons <br>
+           Arnaud Lelevé <br>
+           Baptiste Monterrat <br>
+        </p>
+
 
 
 <input type="button" id="button_retour" onclick="location.href='menu_principal.php';" />

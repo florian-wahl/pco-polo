@@ -215,7 +215,14 @@ $nom = $password = $prenom = $matricule = "";
                     <select name="escale" id="escale">
                         <option><?php echo $escale; ?></option>
                         <option>CDG</option>
-                        <option>EXP</option>
+                        <option>ORY</option>
+                        <option>NCE</option>
+                        <option>TLS</option>
+                        <option>LYS</option>
+                        <option>MRS</option>
+                        <option>BOD</option>
+                        <option>RUN</option>
+                        <option>GVA</option>
                     </select> *<span class="error"> <?php echo $errEscale; ?></span>
                 </p>
 

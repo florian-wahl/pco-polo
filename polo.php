@@ -51,9 +51,10 @@ $personnage = $resultat[0];
 <style type="text/css">
     .popup_holder {width:760px; margin:10px 10px 10px -360px}
     .popup_holder_arcade {width:760px; margin:10px 10px 10px -360px}
+    .popup_holder_vide {width:760px; margin:10px 10px 10px -360px}
 </style>
 <body>
-
+    <div id="main_polo">
     <script>
         var link_res_perso = 'res/img/personnages/agents/<?php echo $personnage['couleur']."/".$personnage['clan']."/perso_sheet.png";?>';
     </script>
@@ -62,7 +63,7 @@ $personnage = $resultat[0];
     <script type="text/javascript" src="js/mainState.js"></script>
 
 
-    <div id="main">
+
         <div id="overlay"></div>
         <img id="loading_gif" src="res/img/loading.gif">
         <div id="popup">
@@ -86,6 +87,17 @@ $personnage = $resultat[0];
                 <span id="popupclose_arcade"><img src="res/img/boutons/black_cross.png"></span>
             </div>
         </div>
+
+        <div id="popup_vide">
+            <div class="popup_holder_vide">
+                <div id="info_vide">
+
+                </div>
+            </div>
+            <div class="popupcontrols_vide">
+                <span id="popupclose_vide"><img src="res/img/boutons/black_cross.png"></span>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -93,6 +105,10 @@ $personnage = $resultat[0];
             $('#popupclose').click(reprendre);
 
             $('#popupclose_arcade').click(function(){
+                reprendre();
+            });
+
+            $('#popupclose_vide').click(function(){
                 reprendre();
             });
 

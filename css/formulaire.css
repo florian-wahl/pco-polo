@@ -41,10 +41,10 @@
 
 #formulaire select{
     float:left;
-    width:200px;
+    width:233px;
     display:block;
     text-align:right;
-    margin-right:10px;
+    margin-right:5px;
 }
 
 .error{

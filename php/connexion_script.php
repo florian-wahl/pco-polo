@@ -19,14 +19,6 @@ $_SESSION['nb_log'] = $employe['nb_log'];
 if ($_SESSION['last_log_date'] < date("Y-m-d")) {
     $_SESSION['last_log_date'] = date("Y-m-d");
     $_SESSION['nb_log'] += $_SESSION['nb_log'];
-    $_SESSION['score'] = 0;
-
-
-    //On met à jour le score dans la BDD
-    $stmt = $poloDB->prepare("UPDATE score SET score = :new_score WHERE id_score = :id_score;");
-    $stmt->bindValue(':id_score', $_SESSION['id_score']);
-    $stmt->bindValue(':new_score', $_SESSION['score']);
-    $stmt->execute();
 
     //On met à jour le log dans la BDD
     //On créé une nouvelle ligne dans les logs

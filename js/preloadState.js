@@ -166,8 +166,15 @@ var preloadState = {
     loadComplete : function() {
         text.setText("Chargement terminé");
 
-        this.startButton = this.game.add.button(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 220, "playButton", this.playTheGame, this);
-        this.startButton.anchor.setTo(0.5);
+        if(originePage == 2){
+            // On revient des mini-jeux
+            this.playTheGame();
+        }
+        else {
+            this.startButton = this.game.add.button(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 220, "playButton", this.playTheGame, this);
+            this.startButton.anchor.setTo(0.5);
+        }
+
     }
 
 };

@@ -1,6 +1,7 @@
 function reprendre () {
     overlay.style.display='none';
     popup_arcade.style.display='none';
+    popup_vide.style.display='none';
     loading_gif.style.display = 'none';
     popup.style.display='none';
 

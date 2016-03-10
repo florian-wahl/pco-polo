@@ -126,7 +126,60 @@ li{
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
 }
+/*POPUP VIDE*/
+#popup_vide {
+    display: none;
+    position: absolute;
+    top: 260px;
+    left: 650px;
 
+    background: #999;
+    width: 100px;
+    height: 100px;
+    margin-left: -250px; /*Half the value of width to center div*/
+    margin-top: -250px; /*Half the value of height to center div*/
+    z-index: 200;
+}
+.popupcontrols_vide{
+    position:absolute;
+    left:500px;
+    top:20px;
+}
+#popupclose_vide{
+    float:none;
+    padding:0;
+    cursor:pointer;
+}
+#info_vide {
+    margin:0 auto;
+    background:#FCFCFC;
+    border:1px solid #dedede;
+    box-shadow:0 1px 5px #D9D9D9,inset 0 10px 20px #F1F1F1;
+    -o-box-shadow:0 1px 5px #D9D9D9,inset 0 10px 20px #F1F1F1;
+    -webkit-box-shadow:0 1px 5px #D9D9D9,inset 0 10px 20px #F1F1F1;
+    -moz-box-shadow:0 1px 5px #D9D9D9,inset 0 10px 20px #F1F1F1;
+    border-radius:20px 2px 20px 2px;
+    position:relative;
+    width:940px;
+    height:660px;
+}
+
+/*INTRODUCTION*/
+#introduction {
+    position: absolute;
+    left: -260px;
+    top: 35px;
+    width: inherit;
+}
+
+input#button_intro{
+    background: url(../res/img/boutons/bouton_commencer.png) no-repeat;
+    border: none;
+    height: 60px;
+    width: 140px;
+    margin-right: 10px;
+    margin-left: 0;
+}
 
 /*BORNES ARCADES*/
 #popup_arcade {
@@ -178,4 +231,8 @@ input#button_mini_jeux{
     position: absolute;
     left: -260px;
     top: 35px;
+}
+
+#main_polo{
+    color: #2b2b2b;
 }

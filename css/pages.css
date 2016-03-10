@@ -227,9 +227,8 @@ h3#page_credit {
 
 /* MINI-JEUX */
 p#nb_jetons {
-    font-size: 20px;
+    font-size: 26px;
     float: right;
-    border: solid 2px;
     padding: 5px 20px;
     margin: 0;
 }
@@ -337,6 +336,7 @@ input#mini_jeux_10 {
 }
 
 .modalDialog > div {
+    color: #2b2b2b;
     width: 600px;
     min-height: 480px;
     position: relative;

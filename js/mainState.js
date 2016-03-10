@@ -584,6 +584,15 @@ var mainState = {
 
     startIntroduction : function(){
         apparitionText("Début de l'introduction", 50, 30);
+
+        popup_vide.style.display='block';
+
+
+        $('.popup_holder_vide').append("<div id='introduction'>" +
+            "<h2>Bornes d'Arcades ZX1999</h2>"+
+            "<p>Bienvenue sur la borne d'arcade, pour accéder aux mini-jeux cliquez sur le bouton ci-dessous : <br></p>"+
+            "<input type='button' id='button_intro'/>"+
+            "</div>");
     },
 
     actionOnClickMap : function(){
