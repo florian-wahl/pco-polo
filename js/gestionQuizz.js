@@ -172,12 +172,6 @@ function initQuizz(){
 
 function demarrerQuizzByID(id_quizz){
 
-
-    if(id_quizz == 0){
-        //On génère un numéro de quizz aléatoire
-        id_quizz = Math.ceil(Math.random()*NOMBRE_QUIZZ_MAX);
-    }
-
     last_quizz_id = id_quizz;
     initQuizz();
 
@@ -224,7 +218,10 @@ function xmlCallbackByID(xml, id_quizz){
         var attr_id_quizz = $(this).attr('id');
 
         if(attr_id_quizz == id_quizz){
-
+            if (attr_id_quizz == 0){
+                //Quizz d'introduction !
+                $('.popup_holder').append("<img id='img_op' src='res/img/quizz/intro.png' />");
+            }
             scenario = $(this).find('scenario').text();
 
             var i = 0;

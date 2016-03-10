@@ -137,6 +137,7 @@ var preloadState = {
 
         //Sprites personnages
         game.load.image('agent_blue_headset','res/img/personnages/agent_blue_headset.png');
+        game.load.image('space_france_boss','res/img/personnages/space_france_boss.png');
         for (i = 0; i < CLAN_COLORS.length; i++) {
             for (j = 0; j < CLAN_NAMES.length; j++) {
 

@@ -6,9 +6,8 @@
         <difficulte>1</difficulte>
         <scenario>
             <![CDATA[
-            <b> 0 Client :</b> Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?<br/>
-            <b>Vous :</b> Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? <br/>
-            <b>Client :</b> Oui, je l'ai imprimé hier soir. La voici.<br/>
+            <b> Quizz :</b> Bonjour. Ceci est un quizz d'introduction, il vous permet de découvrir la mécanique des quizz.<br/>
+            <b> Quizz :</b> Cliquez sur le bouton <i>Commencer</i> pour démarrer le quizz.<br/>
             ]]>
         </scenario>
         <questions>

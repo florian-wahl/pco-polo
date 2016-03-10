@@ -23,7 +23,6 @@ var NOMBRE_BADGE_MAX = 27;
  */
 var player, playerOx, playerOy;
 var cursors;
-var mur;
 var transparent;
 
 //Sound
@@ -54,6 +53,12 @@ var score_cumule = 0;
 var listeBadges = [];
 var clients = [];
 var lastClientSprite;
+
+//Intro
+var bossPNJ;
+var agent1PNJ;
+var agent2PNJ;
+var occ_intro = 0;
 
 var originePage;
 
@@ -100,7 +105,7 @@ var mainState = {
         this.setIHM();
 
         if (originePage == 1){
-            this.startIntroduction();
+            this.gestionIntroduction(null,null,0);
         }
 
     },
@@ -117,6 +122,18 @@ var mainState = {
         game.physics.arcade.collide(player, group_decors_devant_collide);
         game.physics.arcade.collide(player, group_bornes_arcades, this.interactionArcade);
 
+        //Introduction
+        if (originePage == 1){
+            game.physics.arcade.collide(player, bossPNJ, function(player, pnj){
+                mainState.gestionIntroduction(player, pnj, 0)
+            });
+            game.physics.arcade.collide(player, agent1PNJ, function(player, pnj){
+                mainState.gestionIntroduction(player, pnj, 1)
+            });
+            game.physics.arcade.collide(player, agent2PNJ, function(player, pnj){
+                mainState.gestionIntroduction(player, pnj, 2)
+            });
+        }
 
 
         for (i = 0; i < clients.length; i++) {
@@ -147,8 +164,8 @@ var mainState = {
     setPlayer : function(){
         if (originePage == 1){
             //On démarre l'introduction
-            playerOx = 890;
-            playerOy = 1850;
+            playerOx = 1150;
+            playerOy = 2000;
         }
         else if (originePage == 2){
             playerOx = 618;
@@ -376,12 +393,28 @@ var mainState = {
 
     setPNJ : function(){
 
-        group_clients = game.add.group();
-        //Ajout des clients
-        for (var z = 1; z <= 6; z++){
-            this.createPNJ(z);
-            this.createPNJ(z);
+        if(originePage == 1){
+
+            bossPNJ = game.add.sprite(1100, 1850, 'space_france_boss');
+            game.physics.arcade.enable(bossPNJ);
+            bossPNJ.body.immovable = true;
+            bossPNJ.body.collideWorldBounds = true;
+
+            var introPNJ = new PNJ('Lav', 'Blue', 550, 1800, 1);
+            agent1PNJ = introPNJ.getSprite();
+
+            introPNJ = new PNJ('Lav', 'Green', 700, 1550, 1);
+            agent2PNJ = introPNJ.getSprite();
         }
+        else {
+            group_clients = game.add.group();
+            //Ajout des clients
+            for (var z = 1; z <= 6; z++){
+                this.createPNJ(z);
+                this.createPNJ(z);
+            }
+        }
+
     },
 
     setMusicsAndEffects : function(){
@@ -582,17 +615,200 @@ var mainState = {
         group_clients.add(newClient.getSprite());
     },
 
-    startIntroduction : function(){
-        apparitionText("Début de l'introduction", 50, 30);
+    gestionIntroduction : function(player, pnj, i_intro){
 
-        popup_vide.style.display='block';
+        if(i_intro == 0 && occ_intro >= 4){
+            game.physics.arcade.isPaused = true;
+            popup_vide.style.display='block';
 
+            $('#introduction').remove();
 
-        $('.popup_holder_vide').append("<div id='introduction'>" +
-            "<h2>Bornes d'Arcades ZX1999</h2>"+
-            "<p>Bienvenue sur la borne d'arcade, pour accéder aux mini-jeux cliquez sur le bouton ci-dessous : <br></p>"+
-            "<input type='button' id='button_intro'/>"+
-            "</div>");
+            $('.popup_holder_vide').append("<div id='introduction'>" +
+                "<h2>Introduction</h2>"+
+                "<br>" +
+                "<p><b>Agent</b>: Très bien ! J’espère que les explications de vos collègues étaient claires. Pour retourner au menu principal, touchez l’icône en haut à droite de votre écran, celle en forme de maison, et cliquez sur « Retour Menu Principal ». Depuis le menu principal, vous avez accès à votre profil et aux aides. <br></p>"+
+                "<input type='button' id='button_intro_1' class='button_suivant'/>"+
+                "</div>");
+
+            $('#button_intro_1').click(function(){
+                $('#introduction').remove();
+
+                $('.popup_holder_vide').append("<div id='introduction'>" +
+                    "<h2>Introduction</h2>"+
+                    "<br>" +
+                    "<p><b>Agent</b> : Je vous laisse maintenant découvrir cet astroport qui est nouveau pour vous. Mais n’oubliez pas votre mission principale : vous êtes ici pour aider les clients.<br></p>"+
+                    "<input type='button' id='button_intro_2' class='button_accepte'/>"+
+                    "<p><i>(En acceptant, vous finissez la phase d'introduction)</i><br></p>"+
+                "</div>");
+
+                $('#button_intro_2').click(function() {
+                    $('#introduction').remove();
+
+                    if (occ_intro == 4){
+                        occ_intro++;
+                    }
+                    reprendre();
+                    mainState.terminerIntroduction();
+                });
+            });
+        }
+        else if(i_intro == 0 && occ_intro >= 0){
+            game.physics.arcade.isPaused = true;
+            popup_vide.style.display='block';
+
+            $('#introduction').remove();
+
+            $('.popup_holder_vide').append("<div id='introduction'>" +
+                "<h2>Introduction</h2>"+
+                "<br>" +
+                "<p><b>Boss</b> : Bonjour, bienvenue parmi l’équipe SpaceFrance, j’espère que vous allez passer de très bons moments avec nous dans cet astroport.<br></p>"+
+                "<input type='button' id='button_intro_1' class='button_suivant'/>"+
+                "</div>");
+
+            $('#button_intro_1').click(function(){
+                $('#introduction').remove();
+
+                $('.popup_holder_vide').append("<div id='introduction'>" +
+                    "<h2>Introduction</h2>"+
+                    "<br>" +
+                    "<p><b>Boss</b> : Votre mission, si vous l’acceptez, est d’aider les clients qui ont besoin de vous en répondant à leurs questions. Cela vous convient-il ?<br></p>"+
+                    "<input type='button' id='button_intro_2' class='button_accepte'/>"+
+                    "</div>");
+
+                $('#button_intro_2').click(function(){
+                    $('#introduction').remove();
+
+                    $('.popup_holder_vide').append("<div id='introduction'>" +
+                        "<h2>Introduction</h2>"+
+                        "<br>" +
+                        "<p><b>Boss</b> : Les clients présents dans l'astroport ont tous besoin d'aide ou de renseignement. N’hésitez pas à aller les voir !<br></p>"+
+                        "<input type='button' id='button_intro_3' class='button_accepte'/>"+
+                        "</div>");
+
+                    $('#button_intro_3').click(function(){
+                        $('#introduction').remove();
+
+                        $('.popup_holder_vide').append("<div id='introduction'>" +
+                            "<h2>Introduction</h2>"+
+                            "<br>" +
+                            "<p><b>Boss</b> : Maintenant que vous connaissez les principes de base, je vous laisse aller voir votre collègue afin qu’il vous explique comment travailler avec MARCO.<br></p>"+
+                            "<input type='button' id='button_intro_4' class='button_suivant'/>"+
+                            "</div>");
+
+                        $('#button_intro_4').click(function(){
+                            $('#introduction').remove();
+
+                            $('.popup_holder_vide').append("<div id='introduction'>" +
+                                "<h2>Introduction</h2>"+
+                                "<br>" +
+                                "<p><b>Boss</b> : Afin d’interagir avec quelqu’un, il suffit de se déplacer vers lui. Un joystick virtuel apparaît lorsque vous touchez l’écran.<br></p>"+
+                                "<input type='button' id='button_intro_5' class='button_suivant'/>"+
+                                "</div>");
+
+                            $('#button_intro_5').click(function(){
+                                $('#introduction').remove();
+
+                                if (occ_intro == 0){
+                                    occ_intro++;
+                                }
+                                reprendre();
+                            });
+                        });
+                    });
+                });
+            });
+        }
+        else if (i_intro == 1 && occ_intro >= 1){
+            game.physics.arcade.isPaused = true;
+            popup_vide.style.display='block';
+
+            $('#introduction').remove();
+
+            $('.popup_holder_vide').append("<div id='introduction'>" +
+                "<h2>Introduction</h2>"+
+                "<br>" +
+                "<p><b>Agent</b> : Bonjour ! Bienvenue parmi nous ! Je vois que vous arrivez déjà bien à vous déplacer. Afin d’en savoir plus sur le fonctionnement de POLO, n’hésitez pas à consulter l’aide disponible sur le menu principal. Et surtout, testez vos connaissances acquises en vous déplaçant dans l’astroport.<br></p>"+
+                "<input type='button' id='button_intro_1' class='button_suivant'/>"+
+                "</div>");
+
+            $('#button_intro_1').click(function(){
+                    $('#introduction').remove();
+
+                    $('.popup_holder_vide').append("<div id='introduction'>" +
+                        "<h2>Introduction</h2>"+
+                        "<br>" +
+                        "<p><b>Agent</b> : Je crois que mon collègue voulait vous apprendre à répondre à un quizz. Allez le voir dès que vous avez un peu de temps.<br></p>"+
+                        "<input type='button' id='button_intro_2' class='button_accepte'/>"+
+                        "</div>");
+
+                    $('#button_intro_2').click(function() {
+                        $('#introduction').remove();
+
+                        if (occ_intro == 1){
+                            occ_intro++;
+                        }
+                        reprendre();
+                    });
+            });
+        }
+        else if (i_intro == 2 && occ_intro >= 3){
+            game.physics.arcade.isPaused = true;
+            popup_vide.style.display='block';
+            $('#introduction').remove();
+
+            $('.popup_holder_vide').append("<div id='introduction'>" +
+                "<h2>Introduction</h2>"+
+                "<br>" +
+                "<p><b>Agent</b> : Je crois que le patron voulait vous dire un dernier mot avant de partir. Retournez le voir.<br></p>"+
+                "<input type='button' id='button_intro_2' class='button_accepte'/>"+
+                "</div>");
+
+            $('#button_intro_2').click(function() {
+                $('#introduction').remove();
+
+                if (occ_intro == 3){
+                    occ_intro++;
+                }
+                reprendre();
+            });
+        }
+        else if (i_intro == 2 && occ_intro >= 2){
+            game.physics.arcade.isPaused = true;
+            popup_vide.style.display='block';
+
+            $('#introduction').remove();
+
+            $('.popup_holder_vide').append("<div id='introduction'>" +
+                "<h2>Introduction</h2>"+
+                "<br>" +
+                "<p><b>Agent</b> :Les quizz vous dites ? Ah oui ! Vous allez devoir répondre à plusieurs questions et choisir la meilleure réponse parmi celles proposées. Une fois vos réponses validées, vous ne pourrez plus les modifier. Je vous laisse essayer ?<br> Revenez me voir ensuite !<br></p>"+
+                "<input type='button' id='button_intro_1' class='button_suivant'/>"+
+                "</div>");
+
+            $('#button_intro_1').click(function(){
+                $('#introduction').remove();
+
+                if (occ_intro == 2){
+                    occ_intro++;
+                }
+                reprendre();
+                demarrerQuizzByID(0);
+            });
+        }
+    },
+
+    terminerIntroduction : function () {
+        bossPNJ.destroy();
+        agent1PNJ.destroy();
+        agent2PNJ.destroy();
+
+        originePage = 0;
+
+        this.setPNJ();
+        player.destroy();
+        this.setPlayer();
+
+        apparitionText("Félicitation ! Vous avez terminé l'introduction.", 20, 30);
     },
 
     actionOnClickMap : function(){

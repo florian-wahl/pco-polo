@@ -170,10 +170,20 @@ li{
     left: -260px;
     top: 35px;
     width: inherit;
+    font-size: 24px;
 }
 
-input#button_intro{
-    background: url(../res/img/boutons/bouton_commencer.png) no-repeat;
+input.button_suivant{
+    background: url(../res/img/boutons/bouton_suivant.png) no-repeat;
+    border: none;
+    height: 60px;
+    width: 140px;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+input.button_accepte{
+    background: url(../res/img/boutons/bouton_accepte.png) no-repeat;
     border: none;
     height: 60px;
     width: 140px;
