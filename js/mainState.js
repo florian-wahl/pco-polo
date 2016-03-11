@@ -626,7 +626,7 @@ var mainState = {
             $('.popup_holder_vide').append("<div id='introduction'>" +
                 "<h2>Introduction</h2>"+
                 "<br>" +
-                "<p><b>Agent</b>: Très bien ! J’espère que les explications de vos collègues étaient claires. Pour retourner au menu principal, touchez l’icône en haut à droite de votre écran, celle en forme de maison, et cliquez sur « Retour Menu Principal ». Depuis le menu principal, vous avez accès à votre profil et aux aides. <br></p>"+
+                "<p><b>Chef d'escale</b>: Très bien ! J’espère que les explications de vos collègues étaient claires. Pour retourner au menu principal, touchez l’icône en haut à droite de votre écran, celle en forme de maison, et cliquez sur « Retour Menu Principal ». Depuis le menu principal, vous avez accès à votre profil et aux aides. <br></p>"+
                 "<input type='button' id='button_intro_1' class='button_suivant'/>"+
                 "</div>");
 
@@ -636,7 +636,7 @@ var mainState = {
                 $('.popup_holder_vide').append("<div id='introduction'>" +
                     "<h2>Introduction</h2>"+
                     "<br>" +
-                    "<p><b>Agent</b> : Je vous laisse maintenant découvrir cet astroport qui est nouveau pour vous. Mais n’oubliez pas votre mission principale : vous êtes ici pour aider les clients.<br></p>"+
+                    "<p><b>Chef d'escale</b> : Je vous laisse maintenant découvrir cet astroport qui est nouveau pour vous. Mais n’oubliez pas votre mission principale : vous êtes ici pour aider les clients.<br></p>"+
                     "<input type='button' id='button_intro_2' class='button_accepte'/>"+
                     "<p><i>(En acceptant, vous finissez la phase d'introduction)</i><br></p>"+
                 "</div>");
@@ -661,7 +661,7 @@ var mainState = {
             $('.popup_holder_vide').append("<div id='introduction'>" +
                 "<h2>Introduction</h2>"+
                 "<br>" +
-                "<p><b>Boss</b> : Bonjour, bienvenue parmi l’équipe SpaceFrance, j’espère que vous allez passer de très bons moments avec nous dans cet astroport.<br></p>"+
+                "<p><b>Chef d'escale</b> : Bonjour, bienvenue parmi l’équipe SpaceFrance, j’espère que vous allez passer de très bons moments avec nous dans cet astroport.<br></p>"+
                 "<input type='button' id='button_intro_1' class='button_suivant'/>"+
                 "</div>");
 
@@ -671,7 +671,7 @@ var mainState = {
                 $('.popup_holder_vide').append("<div id='introduction'>" +
                     "<h2>Introduction</h2>"+
                     "<br>" +
-                    "<p><b>Boss</b> : Votre mission, si vous l’acceptez, est d’aider les clients qui ont besoin de vous en répondant à leurs questions. Cela vous convient-il ?<br></p>"+
+                    "<p><b>Chef d'escale</b> : Votre mission, si vous l’acceptez, est d’aider les clients qui ont besoin de vous en répondant à leurs questions. Cela vous convient-il ?<br></p>"+
                     "<input type='button' id='button_intro_2' class='button_accepte'/>"+
                     "</div>");
 
@@ -681,7 +681,7 @@ var mainState = {
                     $('.popup_holder_vide').append("<div id='introduction'>" +
                         "<h2>Introduction</h2>"+
                         "<br>" +
-                        "<p><b>Boss</b> : Les clients présents dans l'astroport ont tous besoin d'aide ou de renseignement. N’hésitez pas à aller les voir !<br></p>"+
+                        "<p><b>Chef d'escale</b> : Les clients présents dans l'astroport ont tous besoin d'aide ou de renseignement. N’hésitez pas à aller les voir !<br></p>"+
                         "<input type='button' id='button_intro_3' class='button_accepte'/>"+
                         "</div>");
 
@@ -691,7 +691,7 @@ var mainState = {
                         $('.popup_holder_vide').append("<div id='introduction'>" +
                             "<h2>Introduction</h2>"+
                             "<br>" +
-                            "<p><b>Boss</b> : Maintenant que vous connaissez les principes de base, je vous laisse aller voir votre collègue afin qu’il vous explique comment travailler avec MARCO.<br></p>"+
+                            "<p><b>Chef d'escale</b> : Maintenant que vous connaissez les principes de base, je vous laisse aller voir votre collègue afin qu’il vous explique comment travailler avec MARCO.<br></p>"+
                             "<input type='button' id='button_intro_4' class='button_suivant'/>"+
                             "</div>");
 
@@ -701,7 +701,7 @@ var mainState = {
                             $('.popup_holder_vide').append("<div id='introduction'>" +
                                 "<h2>Introduction</h2>"+
                                 "<br>" +
-                                "<p><b>Boss</b> : Afin d’interagir avec quelqu’un, il suffit de se déplacer vers lui. Un joystick virtuel apparaît lorsque vous touchez l’écran.<br></p>"+
+                                "<p><b>Chef d'escale</b> : Afin d’interagir avec quelqu’un, il suffit de se déplacer vers lui. Un joystick virtuel apparaît lorsque vous touchez l’écran.<br></p>"+
                                 "<input type='button' id='button_intro_5' class='button_suivant'/>"+
                                 "</div>");
 
