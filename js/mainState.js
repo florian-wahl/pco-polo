@@ -420,7 +420,7 @@ var mainState = {
     setMusicsAndEffects : function(){
         //Musics
         musicFond = game.add.audio('fond_sonore');
-        musicFond.play("",0,1,true);
+        musicFond.play("",0,1,true,false);
 
         musicQuizz = game.add.audio('musique_quizz');
 
@@ -447,9 +447,9 @@ var mainState = {
             }
 
             if (!off_volume){
-                musicFond.stop();
+                musicFond.pause();
 
-                musicQuizz.play("",0,1,true);
+                musicQuizz.play("",0,1,true,false);
             }
 
             demarrerQuizzByZone(clientPNJ.zone);
@@ -474,8 +474,20 @@ var mainState = {
 
         game.physics.arcade.isPaused = true;
 
-        overlay.style.display='block';
-        popup_arcade.style.display='block';
+        if(listeBadges[2] == 1){
+            overlay.style.display='block';
+            popup_arcade.style.display='block';
+        }
+        else {
+            popup_vide.style.display='block';
+            $('#introduction').remove();
+
+            $('.popup_holder_vide').append("<div id='introduction'>" +
+                "<h2>Bornes d'Arcades ZX1999</h2>"+
+                "<br>" +
+                "<p>Les Bornes d'Arcades ne sont pas disponibles pour le moment. Revenez lorsque vous aurez fini le premier niveau.<br></p>"+
+                "</div>");
+        }
 
     },
 

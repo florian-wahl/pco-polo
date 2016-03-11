@@ -14,10 +14,11 @@ function reprendre () {
     }
 
     if(!off_volume){
-        musicFond.stop();
-        musicQuizz.stop();
-        musicFond.play();
+        musicQuizz.pause();
+        musicFond.play("",0,1,true,false);
     }
+
+    $('#img_op').remove();
 
 }
 
