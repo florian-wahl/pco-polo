@@ -193,8 +193,6 @@ function demarrerQuizzByZone(id_zone){
 
     last_zone_id = id_zone;
 
-    console.log(NOMBRE_QUIZZ_MAX);
-
     $.when(
         xmlRequestByZone(id_zone)
     ).done();
@@ -533,7 +531,7 @@ function initNombreQuizz(){
                 nb_quizz++;
             });
 
-            console.log(nb_quizz);
+            console.log('Nombre de quizz : ' + nb_quizz);
             NOMBRE_QUIZZ_MAX = nb_quizz;
             listeQuizzInfos = new Array(NOMBRE_QUIZZ_MAX);
         }

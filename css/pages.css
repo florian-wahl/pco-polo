@@ -9,12 +9,10 @@
 
 .post_it_aide {
     display: none;
-    border-radius: 15px 50px 30px;
-    border: double 2px #8ccfb9;
-    width: 600px;
+    width: 665px;
     text-align: center;
     margin: auto;
-    padding: 10px;
+    padding-top: 20px;
 }
 
 #fleche_gauche {

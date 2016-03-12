@@ -53,6 +53,13 @@ input#button_retour{
     border: none;
 }
 
+input#rejouer_intro{
+    background: url(../res/img/boutons/bouton_jouer.png) no-repeat;
+    width: 140px;
+    height: 60px;
+    border: none;
+}
+
 .menu_polo input{
     font:100% Trebuchet MS, Arial, Helvetica, Sans-Serif;
     vertical-align: bottom;

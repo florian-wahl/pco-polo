@@ -903,7 +903,6 @@ var mainState = {
 
         //X et Y :position du player / taille de la map * taille de la mini carte
         cursor = game.add.sprite(player.x/2890*GAME_WIDTH, player.y/2206*GAME_HEIGHT, 'cursor');
-        console.log(player.x/2890*808 + " " + player.y/2206*617);
         cursor.fixedToCamera = true;
         cursor.anchor.setTo(0.5, 1);
 

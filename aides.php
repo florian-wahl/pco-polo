@@ -27,43 +27,40 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         -->
         <div class="post_it">
             <div id="aide-1" class="post_it_aide">
-
-                <h4>Aide #1 : les déplacements</h4>
-                <p>Pour vous déplacer sur la carte posez votre doigt sur n’importe quelle zone de l’écran et faites-le glisser dans la direction souhaitée.</p>
-
+                <img src="res/img/aides/aide_1.png">
             </div>
 
             <div id="aide-2" class="post_it_aide">
-                <h4>Aide #2 : les interactions</h4>
-
-                <p>Pour interagir avec un personnage, il vous suffit de l’approcher. Si le signe « ! » est présent au-dessus de sa tête, il a besoin de vous et vous pouvez interagir.</p>
-
+                <img src="res/img/aides/aide_2.png">
             </div>
 
             <div id="aide-3" class="post_it_aide">
-                <h4>Aide #3 : les quizz et les points</h4>
-                <p>L’interaction avec un personnage déclenche un quizz. En fonction de vos réponses, des points vous seront attribués. Une bonne réponse vous permet d'obtenir 100 points.</p>
+                <img src="res/img/aides/aide_3.png">
             </div>
 
             <div id="aide-4" class="post_it_aide">
-                <h4>Aide #4 : les jetons</h4>
-                <p>Les points gagnés aux quizz se convertissent en jetons : 200 points = 1 jeton. Ces jetons vous permettront de jouer aux mini-jeux présents dans le menu mini-jeu.</p>
+                <img src="res/img/aides/aide_4.png">
             </div>
 
             <div id="aide-5" class="post_it_aide">
-                <h4>Aide #5 : le menu dans Polo</h4>
-                <p>Lorsque vous jouez à Polo, vous pouvez revenir au menu principal et gérer les effets sonores grâce au menu en haut à droite.</p>
+                <img src="res/img/aides/aide_5.png">
             </div>
 
             <div id="aide-6" class="post_it_aide">
-                <h4>Aide #6 : le profil</h4>
-                <p>Vos scores journaliers et globaux sont présents dans votre profil. Cela vous permettra de comparer vos résultats avec les autres joueurs.</p>
+                <img src="res/img/aides/aide_6.png">
             </div>
 
             <div id="aide-7" class="post_it_aide">
-                <h4>Aide #7 : le guide utilisateur</h4>
-                <p>Vous pouvez trouver la réponse à tous les quizz sur l’intranet grâce au guide utilisateur.</p>
+                <img src="res/img/aides/aide_7.png">
             </div>
+
+            <div id="aide-8" class="post_it_aide">
+                <h4>Rejouer l'introduction</h4>
+                <p>Vous pouvez, si vous le voulez, rejouer l'introduction de POLO en cliquant sur le bouton ci-dessous.</p>
+                <br>
+                <input type="button" id='rejouer_intro' onclick="location.href='polo.php?origine=1';" />
+            </div>
+
         </div>
 
 

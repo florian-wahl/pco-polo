@@ -6,13 +6,10 @@
             shortURL: null,
             sendResultsURL: null,
             resultComments: {
-                perfect: 'Parfait',
-                excellent: 'Excellent',
-                good: 'Bien',
-                average: 'Bien',
-                bad: '',
-                poor: '',
-                worst: ''
+                perfect: "Félicitation ! C'est parfait !",
+                good: 'Bravo ! Vos résultats sont très bons !',
+                avrg: 'Bon résultats mais vous avez fait quelques erreurs.',
+                poor: 'Oups ! Essayez de faire mieux au prochain quizz'
             }
         };
         var config = $.extend(defaults, settings);
@@ -76,12 +73,9 @@
         function judgeSkills(score) {
             var returnString;
             if (score === 100) return config.resultComments.perfect;
-            else if (score > 90) return config.resultComments.excellent;
-            else if (score > 70) return config.resultComments.good;
-            else if (score > 50) return config.resultComments.average;
-            else if (score > 35) return config.resultComments.bad;
-            else if (score > 20) return config.resultComments.poor;
-            else return config.resultComments.worst;
+            else if (score >= 75) return config.resultComments.good;
+            else if (score >= 50) return config.resultComments.avrg;
+            else return config.resultComments.poor;
         }
         progressKeeper.hide();
         notice.hide();
@@ -157,7 +151,6 @@
                     url: config.sendResultsURL,
                     data: '{"answers": [' + collate.join(",") + ']}',
                     complete: function() {
-                        console.log("OH HAI");
                     }
                 });
             }
@@ -195,7 +188,7 @@
 
             score = roundReloaded(trueCount * 100, 2);
 
-            resultSet = '<h2 class="qTitle">' + judgeSkills(score) + '<br/> Votre score： ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div>';
+            resultSet = '<h2 class="qTitle">' + judgeSkills(trueCount/questionLength*100) + '<br/> Votre score : ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div>';
 
             //Ajout du score dans la bdd
             addToScore(score);
