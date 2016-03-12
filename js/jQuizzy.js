@@ -2,7 +2,6 @@
     $.fn.jquizzy = function(settings) {
         var defaults = {
             questions: null,
-            aideimg:'res/img/aide.png',
             endText: 'Bravo !',
             shortURL: null,
             sendResultsURL: null,
@@ -31,7 +30,7 @@
             answersIteratorIndex;
         superContainer.addClass('main-quiz-holder');
         for (questionsIteratorIndex = 0; questionsIteratorIndex < config.questions.length; questionsIteratorIndex++) {
-            contentFob += '<div class="slide-container"><div class="question-number">' + (questionsIteratorIndex + 1) + '/' + config.questions.length + '</div><div class="question">' + config.questions[questionsIteratorIndex].question + '</div><ul class="answers"><div class="aide"><img src="'+config.aideimg+'"></div><div class="aidecontenu" style="display: none">'+ config.scenario +'</div>';
+            contentFob += '<div class="slide-container"><div class="question-number">' + (questionsIteratorIndex + 1) + '/' + config.questions.length + '</div><div class="question">' + config.questions[questionsIteratorIndex].question + '</div><ul class="answers"><div class="aidecontenu" style="display: none">'+ config.scenario +'</div>';
             for (answersIteratorIndex = 0; answersIteratorIndex < config.questions[questionsIteratorIndex].answers.length; answersIteratorIndex++) {
                 contentFob += '<li>' + config.questions[questionsIteratorIndex].answers[answersIteratorIndex] + '</li>';
             }
@@ -53,7 +52,6 @@
             progressKeeper = superContainer.find('.progress-keeper'),
             notice = superContainer.find('.notice'),
             aidecontenu = superContainer.find('.aidecontenu'),
-            aide = superContainer.find('.aide'),
             progressWidth = progressKeeper.width(),
             userAnswers = [],
             questionLength = config.questions.length,

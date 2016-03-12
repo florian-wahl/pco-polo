@@ -145,7 +145,6 @@
 .main-quiz-holder .nav-previous{}
 .main-quiz-holder .nav-next{}
 .main-quiz-holder .nav-show-result{
-    background:url(/res/img/confirm.png) left no-repeat;
 }
 .main-quiz-holder .nav-start{
     display:block;
@@ -225,10 +224,8 @@
 }
 .main-quiz-holder .correct span{
     padding:0 10px;
-    background:url(/res/img/confirm.png) 6px 2px no-repeat;
 }
 .main-quiz-holder .wrong span{
-    padding:0 10px;background:url(/res/img/delete.png) 6px 2px no-repeat;
     color:#474747;
 }
 .main-quiz-holder .question{

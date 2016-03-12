@@ -81,8 +81,23 @@ function updateBadges (liste) {
 
 function updateMap(){
 
-    //Blocage du niveau 1 séquence de test
-    if (listeBadges[1] == 1) {
+    //Blocage du niveau 2 séquence de test
+    if (listeBadges[1] == 1 && bloquage_niveau_2 != null) {
+        bloquage_niveau_2.destroy();
+    }
+    //Blocage du niveau 3 séquence de test
+    if (listeBadges[2] == 1 && bloquage_niveau_3_1 != null) {
+        bloquage_niveau_3_1.destroy();
+        bloquage_niveau_3_2.destroy();
+        bloquage_niveau_3_3.destroy();
+    }
+    //Blocage du niveau 4 séquence de test
+    if (listeBadges[3] == 1 && bloquage_niveau_4 != null) {
+        bloquage_niveau_4.destroy();
+    }
+    //Blocage du niveau 4 séquence de test
+    if (listeBadges[4] == 1 && bloquage_niveau_5 != null) {
+        bloquage_niveau_5.destroy();
     }
 }
 /*
@@ -148,10 +163,6 @@ function frameButonOnOff(test){
     else {
         return 1;
     }
-}
-
-function testDebloquageBadge(){
-
 }
 
 function badgeAjoute(numBadge){

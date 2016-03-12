@@ -4,6 +4,7 @@
 
     /*INITIALISATION */
 var NOMBRE_QUIZZ_MAX;
+var POURCENTAGE_REUSSITE_QUIZZ = 0.5;
 
 var listeQuizzInfos;
 
@@ -222,6 +223,7 @@ function xmlCallbackByID(xml, id_quizz){
         if(attr_id_quizz == id_quizz){
             if (attr_id_quizz == 0){
                 //Quizz d'introduction !
+                $('#img_op').remove();
                 $('.popup_holder').append("<img id='img_op' src='res/img/quizz/intro.png' />");
             }
             scenario = $(this).find('scenario').text();
@@ -342,6 +344,7 @@ function xmlCallbackByZone(xml, id_zone){
         var attr_id_op = $(this).find('op').text();
         var src_img_op = 'res/img/quizz/op'+ attr_id_op +'.png';
         if(attr_id_quizz == id_quizz_select){
+            $('#img_op').remove();
             $('.popup_holder').append("<img id='img_op' src="+src_img_op+" />");
 
             last_quizz_id = id_quizz_select;
@@ -475,7 +478,7 @@ function checkQuizzValide(){
 
             //S'il n'y a plus de quizz dispo
             //S'il y a moins que 90% de quizz non validé --> Niveau terminé
-            if(listeQuizzZoneNonValide.length <= 0.8*listeQuizzZoneChoisie.length){
+            if(listeQuizzZoneNonValide.length <= POURCENTAGE_REUSSITE_QUIZZ*listeQuizzZoneChoisie.length){
 
                 var niveau;
 
