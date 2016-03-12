@@ -65,7 +65,6 @@ var originePage;
 var mainState = {
 
     create: function () {
-
         //inizialize les variables
 
         var closePopup = document.getElementById("popupclose");
@@ -97,8 +96,6 @@ var mainState = {
 
 
         this.setPlayer();
-        game.camera.follow(player);
-        game.camera.deadzone = new Phaser.Rectangle(300, 250, 420, 250);
 
         this.setDecorsDevant();
 
@@ -187,6 +184,9 @@ var mainState = {
         player.animations.add('down', [2, 3], 10, true);
         player.animations.add('up', [5, 6], 10, true);
         player.animations.add('right', [7, 8], 10, true);
+
+        game.camera.follow(player);
+        game.camera.deadzone = new Phaser.Rectangle(300, 250, 420, 250);
     },
 
     setIHM : function () {
@@ -408,10 +408,15 @@ var mainState = {
         }
         else {
             group_clients = game.add.group();
-            //Ajout des clients
-            for (var z = 1; z <= 6; z++){
-                this.createPNJ(z);
-                this.createPNJ(z);
+            //Ajout des clients par zone
+            for (var z = 1; z <= 7; z++){
+                if(z == 6){
+                    this.createPNJ(z);
+                }
+                else {
+                    this.createPNJ(z);
+                    this.createPNJ(z);
+                }
             }
         }
 
@@ -474,7 +479,7 @@ var mainState = {
 
         game.physics.arcade.isPaused = true;
 
-        if(listeBadges[2] == 1){
+        if(listeBadges[1] == 1){
             overlay.style.display='block';
             popup_arcade.style.display='block';
         }
@@ -586,7 +591,20 @@ var mainState = {
 
                 break;
             case 5:
-                a = Math.random()*4;
+                x = 1085;
+                varX = 285;
+                y = 110;
+                varY = 120;
+                break;
+            case 6:
+                x = 120;
+                varX = 260;
+                y = 990;
+                varY = 310;
+
+                break;
+            case 7:
+                a = Math.random()*3;
                 if(a <= 1){
                     x = 1360;
                     varX = 860;
@@ -600,26 +618,12 @@ var mainState = {
                     y = 340;
                     varY = 140;
                 }
-                else if (a > 2 && a <= 3){
+                else {
                     x = 1530;
                     varX = 640;
                     y = 110;
                     varY = 140;
                 }
-                else {
-                    x = 1085;
-                    varX = 285;
-                    y = 110;
-                    varY = 120;
-
-                }
-                break;
-            case 6:
-                x = 120;
-                varX = 260;
-                y = 990;
-                varY = 310;
-
                 break;
         }
         var newClient = new PNJ(CLAN_NAMES[ Math.floor(Math.random()*5)], CLAN_COLORS[ Math.floor(Math.random()*5)], x + Math.random()*varX, y + Math.random()*varY, zone);

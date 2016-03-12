@@ -652,5 +652,67 @@
             </question>
         </questions>
     </quizz>
+
+    <quizz id="20">
+        <type>TEXTE</type>
+        <zone>7</zone>
+        <op>2</op>
+        <difficulte>3</difficulte>
+        <scenario>
+            <![CDATA[
+        <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
+
+    <quizz id="21">
+        <type>TEXTE</type>
+        <zone>7</zone>
+        <op>2</op>
+        <difficulte>3</difficulte>
+        <scenario>
+            <![CDATA[
+        <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
+        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
+        <i>(Il est actuellement 10.00)</i><br/>
+        ]]>
+        </scenario>
+        <questions>
+            <question id="1">
+                <intitule>Que pouvez-vous proposer au client ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
+                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
+                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
+                </reponses>
+            </question>
+            <question id="2">
+                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
+                <reponses>
+                    <reponse isTrue="1">Oui</reponse>
+                    <reponse isTrue="0">Non</reponse>
+                </reponses>
+            </question>
+        </questions>
+    </quizz>
 </data>
 

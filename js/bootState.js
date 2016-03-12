@@ -18,6 +18,8 @@ var bootState = {
             vars.push(hash[0]);
             vars[hash[0]] = hash[1];
         }
+
+        initNombreQuizz();
         originePage = vars['origine'];
         this.game.state.start("preloadState");
     }
