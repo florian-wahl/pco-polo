@@ -135,13 +135,13 @@ var preloadState = {
         game.load.image('mur_salle_repos_droite_petit','res/img/ingame/transparents/mur_salle_repos_droite_petit.png');
         game.load.image('mur_salle_repos_droite_grand','res/img/ingame/transparents/mur_salle_repos_droite_grand.png');
 
-        //Bloquage des niveaux
-        game.load.image('bloquage_niveau_2','res/img/ingame/niveau/niveau_2.png');
-        game.load.image('bloquage_niveau_3_1','res/img/ingame/niveau/niveau_3_1.png');
-        game.load.image('bloquage_niveau_3_2','res/img/ingame/niveau/niveau_3_2.png');
-        game.load.image('bloquage_niveau_3_3','res/img/ingame/niveau/niveau_3_3.png');
-        game.load.image('bloquage_niveau_4','res/img/ingame/niveau/niveau_4.png');
-        game.load.image('bloquage_niveau_5','res/img/ingame/niveau/niveau_5.png');
+        //blocage des niveaux
+        game.load.image('blocage_niveau_2','res/img/ingame/niveau/niveau_2.png');
+        game.load.image('blocage_niveau_3_1','res/img/ingame/niveau/niveau_3_1.png');
+        game.load.image('blocage_niveau_3_2','res/img/ingame/niveau/niveau_3_2.png');
+        game.load.image('blocage_niveau_3_3','res/img/ingame/niveau/niveau_3_3.png');
+        game.load.image('blocage_niveau_4','res/img/ingame/niveau/niveau_4.png');
+        game.load.image('blocage_niveau_5','res/img/ingame/niveau/niveau_5.png');
 
         //Sprites personnages
         game.load.image('agent_blue_headset','res/img/personnages/agent_blue_headset.png');

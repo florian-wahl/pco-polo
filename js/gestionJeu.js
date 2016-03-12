@@ -82,22 +82,22 @@ function updateBadges (liste) {
 function updateMap(){
 
     //Blocage du niveau 2 séquence de test
-    if (listeBadges[1] == 1 && bloquage_niveau_2 != null) {
-        bloquage_niveau_2.destroy();
+    if (listeBadges[1] == 1 && blocage_niveau_2 != null) {
+        blocage_niveau_2.destroy();
     }
     //Blocage du niveau 3 séquence de test
-    if (listeBadges[2] == 1 && bloquage_niveau_3_1 != null) {
-        bloquage_niveau_3_1.destroy();
-        bloquage_niveau_3_2.destroy();
-        bloquage_niveau_3_3.destroy();
+    if (listeBadges[2] == 1 && blocage_niveau_3_1 != null) {
+        blocage_niveau_3_1.destroy();
+        blocage_niveau_3_2.destroy();
+        blocage_niveau_3_3.destroy();
     }
     //Blocage du niveau 4 séquence de test
-    if (listeBadges[3] == 1 && bloquage_niveau_4 != null) {
-        bloquage_niveau_4.destroy();
+    if (listeBadges[3] == 1 && blocage_niveau_4 != null) {
+        blocage_niveau_4.destroy();
     }
     //Blocage du niveau 4 séquence de test
-    if (listeBadges[4] == 1 && bloquage_niveau_5 != null) {
-        bloquage_niveau_5.destroy();
+    if (listeBadges[4] == 1 && blocage_niveau_5 != null) {
+        blocage_niveau_5.destroy();
     }
 }
 /*

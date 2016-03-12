@@ -55,12 +55,12 @@ var clients = [];
 var lastClientSprite;
 
 //Niveau
-var bloquage_niveau_2;
-var bloquage_niveau_3_1;
-var bloquage_niveau_3_2;
-var bloquage_niveau_3_3;
-var bloquage_niveau_4;
-var bloquage_niveau_5;
+var blocage_niveau_2;
+var blocage_niveau_3_1;
+var blocage_niveau_3_2;
+var blocage_niveau_3_3;
+var blocage_niveau_4;
+var blocage_niveau_5;
 
 //Intro
 var bossPNJ;
@@ -102,7 +102,7 @@ var mainState = {
 
         this.setPNJ();
 
-        this.setBloquageNiveau();
+        this.setblocageNiveau();
 
         this.setPlayer();
 
@@ -144,12 +144,12 @@ var mainState = {
             game.physics.arcade.collide(player, clients[i].getSprite(), function(player, clientSprite){mainState.interactionPNJ(player, clientSprite, clients[i], i)});
         }
 
-        game.physics.arcade.collide(player, bloquage_niveau_2, this.interactionBloquageNiveau);
-        game.physics.arcade.collide(player, bloquage_niveau_3_1, this.interactionBloquageNiveau);
-        game.physics.arcade.collide(player, bloquage_niveau_3_2, this.interactionBloquageNiveau);
-        game.physics.arcade.collide(player, bloquage_niveau_3_3, this.interactionBloquageNiveau);
-        game.physics.arcade.collide(player, bloquage_niveau_4, this.interactionBloquageNiveau);
-        game.physics.arcade.collide(player, bloquage_niveau_5, this.interactionBloquageNiveau);
+        game.physics.arcade.collide(player, blocage_niveau_2, this.interactionblocageNiveau);
+        game.physics.arcade.collide(player, blocage_niveau_3_1, this.interactionblocageNiveau);
+        game.physics.arcade.collide(player, blocage_niveau_3_2, this.interactionblocageNiveau);
+        game.physics.arcade.collide(player, blocage_niveau_3_3, this.interactionblocageNiveau);
+        game.physics.arcade.collide(player, blocage_niveau_4, this.interactionblocageNiveau);
+        game.physics.arcade.collide(player, blocage_niveau_5, this.interactionblocageNiveau);
 
         //DEPLACEMENTS
         //clients[0].move();
@@ -404,33 +404,33 @@ var mainState = {
         }
     },
 
-    setBloquageNiveau : function () {
+    setblocageNiveau : function () {
 
         if(listeBadges[1] == 0){
-            bloquage_niveau_2 = game.add.sprite(1271, 1082, 'bloquage_niveau_2');
-            game.physics.arcade.enable(bloquage_niveau_2);
-            bloquage_niveau_2.body.immovable = true;
+            blocage_niveau_2 = game.add.sprite(1271, 1082, 'blocage_niveau_2');
+            game.physics.arcade.enable(blocage_niveau_2);
+            blocage_niveau_2.body.immovable = true;
         }
         if(listeBadges[2] == 0){
-            bloquage_niveau_3_1 = game.add.sprite(620, 704, 'bloquage_niveau_3_1');
-            game.physics.arcade.enable(bloquage_niveau_3_1);
-            bloquage_niveau_3_1.body.immovable = true;
-            bloquage_niveau_3_2 = game.add.sprite(1308, 798, 'bloquage_niveau_3_2');
-            game.physics.arcade.enable(bloquage_niveau_3_2);
-            bloquage_niveau_3_2.body.immovable = true;
-            bloquage_niveau_3_3 = game.add.sprite(2380, 800, 'bloquage_niveau_3_3');
-            game.physics.arcade.enable(bloquage_niveau_3_3);
-            bloquage_niveau_3_3.body.immovable = true;
+            blocage_niveau_3_1 = game.add.sprite(620, 704, 'blocage_niveau_3_1');
+            game.physics.arcade.enable(blocage_niveau_3_1);
+            blocage_niveau_3_1.body.immovable = true;
+            blocage_niveau_3_2 = game.add.sprite(1308, 798, 'blocage_niveau_3_2');
+            game.physics.arcade.enable(blocage_niveau_3_2);
+            blocage_niveau_3_2.body.immovable = true;
+            blocage_niveau_3_3 = game.add.sprite(2380, 800, 'blocage_niveau_3_3');
+            game.physics.arcade.enable(blocage_niveau_3_3);
+            blocage_niveau_3_3.body.immovable = true;
         }
         if(listeBadges[3] == 0){
-            bloquage_niveau_4 = game.add.sprite(1061, 8, 'bloquage_niveau_4');
-            game.physics.arcade.enable(bloquage_niveau_4);
-            bloquage_niveau_4.body.immovable = true;
+            blocage_niveau_4 = game.add.sprite(1061, 8, 'blocage_niveau_4');
+            game.physics.arcade.enable(blocage_niveau_4);
+            blocage_niveau_4.body.immovable = true;
         }
         if(listeBadges[4] == 0){
-            bloquage_niveau_5 = game.add.sprite(4, 690, 'bloquage_niveau_5');
-            game.physics.arcade.enable(bloquage_niveau_5);
-            bloquage_niveau_5.body.immovable = true;
+            blocage_niveau_5 = game.add.sprite(4, 690, 'blocage_niveau_5');
+            game.physics.arcade.enable(blocage_niveau_5);
+            blocage_niveau_5.body.immovable = true;
         }
 
     },
@@ -540,7 +540,7 @@ var mainState = {
 
     },
 
-    interactionBloquageNiveau : function () {
+    interactionblocageNiveau : function () {
         game.physics.arcade.isPaused = true;
 
         popup_vide.style.display='block';
