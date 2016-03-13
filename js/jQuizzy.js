@@ -9,7 +9,7 @@
                 perfect: "Félicitation ! C'est parfait !",
                 good: 'Bravo ! Vos résultats sont très bons !',
                 avrg: 'Bon résultats mais vous avez fait quelques erreurs.',
-                poor: 'Oups ! Essayez de faire mieux au prochain quizz'
+                poor: 'Oups ! Essayez de faire mieux au prochain quizz.'
             }
         };
         var config = $.extend(defaults, settings);

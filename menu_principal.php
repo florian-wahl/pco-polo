@@ -13,6 +13,8 @@
 <?php
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     //L'employé est connecté
+    include "php/update_badges.php";
+
     ?>
         <div id="container" class="menu_principal">
         <h2>Bienvenue <?php echo $_SESSION['prenom']; ?> ! </h2>

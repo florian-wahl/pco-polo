@@ -32,7 +32,7 @@ var preloadState = {
 
         //récupération des infos nécessaires pour de l'affichage
         ajaxRequest(setJetons, "nbJeton", null);
-        ajaxRequest(setScore, "scoreJour", null);
+        ajaxRequest(setScore, "score", null);
         ajaxRequest(updateBadges, "getBadges", null);
 
         ajaxQuizzRequest(getListeQuizz, "getListeQuizz", null);

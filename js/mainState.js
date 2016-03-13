@@ -714,7 +714,7 @@ var mainState = {
                     "<br>" +
                     "<p><b>Chef d'escale</b> : Je vous laisse maintenant découvrir cet astroport qui est nouveau pour vous. Mais n’oubliez pas votre mission principale : vous êtes ici pour aider les clients.<br></p>"+
                     "<input type='button' id='button_intro_2' class='button_accepte'/>"+
-                    "<p><i>(En acceptant, vous finissez la phase d'introduction)</i><br></p>"+
+                    "<p><i>(En acceptant, vous finissez la phase d'introduction et le jeu va redémarrer. Vous pouvez rejouer l'introduction à tout moment en y accèdant depuis le menu Aides de POLO.)</i><br></p>"+
                 "</div>");
 
                 $('#button_intro_2').click(function() {
@@ -882,11 +882,7 @@ var mainState = {
         agent1PNJ.destroy();
         agent2PNJ.destroy();
 
-        originePage = 0;
-
-        this.setPNJ();
-        player.destroy();
-        this.setPlayer();
+        location.href="polo.php?origine=0";
 
         apparitionText("Félicitation ! Vous avez terminé l'introduction.", 20, 30);
     },
