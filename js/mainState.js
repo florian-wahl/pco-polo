@@ -152,11 +152,7 @@ var mainState = {
         game.physics.arcade.collide(player, blocage_niveau_5, this.interactionblocageNiveau);
 
         //DEPLACEMENTS
-        //clients[0].move();
-
         movementControllerJoystick(MAX_SPEED_PLAYER);
-
-        //movementControllerCursors(MAX_SPEED_PLAYER);
     },
 
     render : function () {
@@ -498,7 +494,12 @@ var mainState = {
             if (!off_volume){
                 musicFond.pause();
 
-                musicQuizz.play("",0,1,true,false);
+                if(musicQuizz.paused){
+                    musicQuizz.resume();
+                }
+                else{
+                    musicQuizz.play("",0,1,true,false);
+                }
             }
 
             demarrerQuizzByZone(clientPNJ.zone);

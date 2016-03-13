@@ -27,7 +27,7 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
 
             echo $nb_jeton;
             break;
-        case 'scoreJour':
+        case 'score':
             //Requête avec l'ID
             $stmt = $poloDB->prepare("SELECT * FROM score WHERE id_score = :id_score;");
             $stmt->bindValue(':id_score', $_SESSION['id_score']);

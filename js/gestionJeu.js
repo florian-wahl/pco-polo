@@ -6,7 +6,7 @@ function reprendre () {
     popup.style.display='none';
 
     ajaxRequest(setJetons, "nbJeton", null);
-    ajaxRequest(setScore, "scoreJour", null);
+    ajaxRequest(setScore, "score", null);
     game.physics.arcade.isPaused = false;
 
     if(last_quizz_id != null){
@@ -15,7 +15,7 @@ function reprendre () {
 
     if(!off_volume){
         musicQuizz.pause();
-        musicFond.play("",0,1,true,false);
+        musicFond.resume();
     }
 
     $('#img_op').remove();
@@ -84,6 +84,7 @@ function updateMap(){
     //Blocage du niveau 2 séquence de test
     if (listeBadges[1] == 1 && blocage_niveau_2 != null) {
         blocage_niveau_2.destroy();
+        console.log("ohoh");
     }
     //Blocage du niveau 3 séquence de test
     if (listeBadges[2] == 1 && blocage_niveau_3_1 != null) {

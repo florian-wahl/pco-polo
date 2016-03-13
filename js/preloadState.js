@@ -37,6 +37,13 @@ var preloadState = {
 
         ajaxQuizzRequest(getListeQuizz, "getListeQuizz", null);
 
+
+        //Sounds
+        game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
+        game.load.audio('musique_quizz', 'res/sons/fond_quizz.mp3');
+        game.load.audio('effet_quizz', 'res/sons/apparition_quizz.wav');
+        game.load.audio('effet_arcade', 'res/sons/apparition_arcade.wav');
+
         //link_res_perso est défini dans polo.php
         game.load.image('playButton', 'res/img/boutons/bouton_jouer.png');
         game.load.spritesheet('player', link_res_perso, 74, 96);
@@ -51,11 +58,6 @@ var preloadState = {
         //Images boutons
         game.load.image('settings', 'res/img/boutons/menu.png');
 
-        //Sounds
-        game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
-        game.load.audio('musique_quizz', 'res/sons/fond_quizz.ogg');
-        game.load.audio('effet_quizz', 'res/sons/apparition_quizz.wav');
-        game.load.audio('effet_arcade', 'res/sons/apparition_arcade.wav');
 
         //Menu
         game.load.image('menu', 'res/img/ingame/menu.png', 804, 599);
