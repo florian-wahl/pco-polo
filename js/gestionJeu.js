@@ -115,6 +115,7 @@ function checkUnlockBadges(){
         ajaxRequest(badgeAjoute, "addBadge", 13);
     }
 }
+
 /*
  Utilisé pour obtenir ou envoyer une info à la base de données
 
