@@ -63,19 +63,21 @@ function setScore(sc) {
 }
 
 function updateBadges (liste) {
+    console.log(listeBadges[10]);
 
     var tabBadges = liste.split("/");
     var i = 0;
     while (i < NOMBRE_BADGE_MAX) {// 11 = nombre de badges au total
-        listeBadges[i] = false;
+        listeBadges[i] = 0;
         i++;
     }
     var j = 0;
     while (j < tabBadges.length - 1) {
         //tabBadges.length-1 car le dernier est null
-        listeBadges[parseInt(tabBadges[j])] = true;
+        listeBadges[parseInt(tabBadges[j])] = 1;
         j++;
     }
+    console.log(listeBadges[10]);
 
 }
 
@@ -84,7 +86,6 @@ function updateMap(){
     //Blocage du niveau 2 séquence de test
     if (listeBadges[1] == 1 && blocage_niveau_2 != null) {
         blocage_niveau_2.destroy();
-        console.log("ohoh");
     }
     //Blocage du niveau 3 séquence de test
     if (listeBadges[2] == 1 && blocage_niveau_3_1 != null) {
@@ -99,6 +100,19 @@ function updateMap(){
     //Blocage du niveau 4 séquence de test
     if (listeBadges[4] == 1 && blocage_niveau_5 != null) {
         blocage_niveau_5.destroy();
+    }
+}
+
+function checkUnlockBadges(){
+
+    if(listeBadges[10] == 0 && score >= 1000){
+        listeBadges[10] = 1;
+        ajaxRequest(badgeAjoute, "addBadge", 10);
+    }
+
+    if(listeBadges[13] == 0 && nb_interaction_client >= 10){
+        listeBadges[13] = 1;
+        ajaxRequest(badgeAjoute, "addBadge", 13);
     }
 }
 /*

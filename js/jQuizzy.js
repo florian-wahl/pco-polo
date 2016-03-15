@@ -196,6 +196,7 @@
             //Mise à jour des statistiques associées
             updateStatsQuizz(trueCount, questionLength);
 
+
             //on nettoie le quizz
             config.questions = null;
             config.answer = null;

@@ -49,6 +49,7 @@ var off_effet = false;
 var nb_jetons = 0;
 var score = 0;
 var score_cumule = 0;
+var nb_interaction_client = 0;
 
 var listeBadges = [];
 var clients = [];
@@ -119,6 +120,7 @@ var mainState = {
     update : function () {
 
         updateMap();
+        checkUnlockBadges();
 
         //TEST DE COLLISIONS
         game.physics.arcade.collide(player, group_transparents);
@@ -501,6 +503,9 @@ var mainState = {
                     musicQuizz.play("",0,1,true,false);
                 }
             }
+
+            //On aumente le nombre de client avec lesquelles on a interagi
+            nb_interaction_client++;
 
             demarrerQuizzByZone(clientPNJ.zone);
             this.createPNJ(clientPNJ.zone);
