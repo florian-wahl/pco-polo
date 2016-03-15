@@ -42,7 +42,7 @@ $(document).ready(function() {
                     location.href = "mini-jeux/flappyBird.php";
                     break;
                 case 'popup_button_jouer_2':
-                    location.href = "mini-jeux/labyrint/labyrinth.php";
+                    location.href = "mini-jeux/labyrinth/labyrinth.php";
                     break;
                 case 'popup_button_jouer_3':
                     location.href = "mini-jeux/2048/index.html";

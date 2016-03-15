@@ -286,12 +286,12 @@ Main.Game.prototype =
 
             var self = this;
 
-            gyro.frequency = 10;
+            gyro.frequency = 5;
 
             gyro.startTracking(function (o) {
 
-                self.ball.body.velocity.x += o.gamma / 20;
-                self.ball.body.velocity.y -= o.beta / 20;
+                self.ball.body.velocity.x += o.gamma / 5;
+                self.ball.body.velocity.y += o.beta / 5;
             });
         }
 
