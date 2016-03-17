@@ -88,13 +88,12 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_4" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/img_defaut.jpg" id="img_popup_left"/>
-            <h2>Coil</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis feugiat enim sit amet feugiat. Sed urna mi, rhoncus a nulla vel.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <img src="mini-jeux/breakouts/resources/logo.png" id="img_popup_left"/>
+            <h2>Breakouts</h2>
+            <p>Détruisez les rectangles colorés en faisant rebondir la balle sur votre barre!</p>
+            <p>Attention à ne pas la laisser tomber!</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
-            <input type="button" id="popup_button_jouer_3" class="button_popup_jouer" />
+            <input type="button" id="popup_button_jouer_4" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>

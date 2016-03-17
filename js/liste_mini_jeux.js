@@ -7,7 +7,7 @@ $(document).ready(function() {
     /*GESTION DES MINI-JEUX*/
     liste_mini_jeux.each(function() {
         /*On teste quelles sont les jeux débloqués*/
-        if (this.id == 'mini_jeux_1' || this.id == 'mini_jeux_3' || this.id == 'mini_jeux_2') {
+        if (this.id == 'mini_jeux_1' || this.id == 'mini_jeux_2' || this.id == 'mini_jeux_3' || this.id == 'mini_jeux_4') {
             var actif = true;
         }
         if(!actif){
@@ -48,7 +48,8 @@ $(document).ready(function() {
                     location.href = "mini-jeux/2048/index.html";
                     break;
                 case 'popup_button_jouer_4':
-                    location.href = "mini-jeux/coil/index.html";
+
+                    location.href = "mini-jeux/breakouts/breakouts/melonjs/breakouts.php";
                     break;
                 default:
                     location.href = "menu_mini_jeux.php";

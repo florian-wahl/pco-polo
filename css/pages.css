@@ -271,7 +271,7 @@ input#mini_jeux_3 {
 }
 
 input#mini_jeux_4 {
-    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
+    background: url(../mini-jeux/breakouts/resources/logo.png) no-repeat;
     background-size: 110%;
     background-position: center;
 }

@@ -162,7 +162,10 @@ gameOverState = {
         playButton.anchor.setTo(0.5,0.5);
         var menuButton=this.game.add.button(200,400,"menuButton",this.goToMenu,this);
         menuButton.anchor.setTo(0.5,0.5);
-        this.labelScore=game.add.text(25,150,"ton score finale est de "+scorefinal+" points!",{font:"25px Arial",fill:'#FF0000'});
+        this.labelScore = game.add.text(25, 150, "ton score final est de " + scorefinal + " points!", {
+            font: "25px Arial",
+            fill: '#FF0000'
+        });
         console.log(scorefinal);
     },
     update: function(){
@@ -172,7 +175,7 @@ gameOverState = {
         game.state.start('main');
     },
     goToMenu:function(){
-        game.state.start('menu_flappy')
+        location.href = "../menu_mini_jeux.php";
     }
 
 }
