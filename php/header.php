@@ -23,6 +23,8 @@
 
 
     <link rel="icon" type="image/png" href="res/img/custom_icon_polo.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon.png" />
+
 
 
     <?php
