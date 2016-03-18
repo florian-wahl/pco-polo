@@ -19,7 +19,6 @@ function reprendre () {
     }
 
     $('#img_op').remove();
-
 }
 
 
