@@ -289,9 +289,34 @@ Main.Game.prototype =
             gyro.frequency = 5;
 
             gyro.startTracking(function (o) {
+                switch (window.orientation) {
+                    case 0:
 
-                self.ball.body.velocity.x += o.gamma / 5;
-                self.ball.body.velocity.y += o.beta / 5;
+                        // Portrait
+                        self.ball.body.velocity.x += o.gamma / 5;
+                        self.ball.body.velocity.y += o.beta / 5;
+                        break;
+
+                    case 180:
+
+                        // Portrait (Upside-down)
+                        self.ball.body.velocity.x -= o.gamma / 5;
+                        self.ball.body.velocity.y -= o.beta / 5;
+                        break;
+
+                    case -90:
+                        self.ball.body.velocity.x -= o.beta / 5;
+                        self.ball.body.velocity.y += o.gamma / 5;
+
+                        // Landscape (Clockwise)
+                        break;
+
+                    case 90:
+                        self.ball.body.velocity.x -= o.beta / 5;
+                        self.ball.body.velocity.y += o.gamma / 5;
+                        // Landscape  (Counterclockwise)
+                        break;
+
             });
         }
 

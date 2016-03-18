@@ -26,7 +26,7 @@ preload={
         game.load.spritesheet('brick', '../res/img/mini-jeux/bricks.png', 32, 32, 4);
         game.load.image('fond', '../res/img/mini-jeux/back.jpg');
         game.load.image('playButton','../res/img/mini-jeux/playButton.png');
-        game.load.image('title','../res/img/mini-jeux/Floppy.png');
+        game.load.image('title', '../res/img/mini-jeux/floppy.png');
         game.load.image('skull','../res/img/mini-jeux/skull.png');
         game.load.image('menuButton','../res/img/mini-jeux/menuButton.png');
     },

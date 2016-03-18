@@ -32,15 +32,11 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <td><input type="button" id="mini_jeux_1" class="element_liste" onclick="location.href='#openModal_1'"></td>
                 <td><input type="button" id="mini_jeux_2" class="element_liste"  onclick="location.href='#openModal_2'"></td>
                 <td><input type="button" id="mini_jeux_3" class="element_liste" onclick="location.href='#openModal_3'"></td>
-                <td><input type="button" id="mini_jeux_4" class="element_liste" value="Coil" onclick="location.href='#openModal_4'"></td>
-                <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mini-Jeux #5"></td>
             </tr>
             <tr>
+                <td><input type="button" id="mini_jeux_4" class="element_liste" value="Coil" onclick="location.href='#openModal_4'"></td>
+                <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mini-Jeux #5"></td>
                 <td><input type="button" id="mini_jeux_6" class="element_liste" value="Mini-Jeux #6"></td>
-                <td><input type="button" id="mini_jeux_7" class="element_liste" value="Mini-Jeux #7"></td>
-                <td><input type="button" id="mini_jeux_8" class="element_liste" value="Mini-Jeux #8"></td>
-                <td><input type="button" id="mini_jeux_9" class="element_liste" value="Mini-Jeux #9"></td>
-                <td><input type="button" id="mini_jeux_10" class="element_liste" value="Mini-Jeux #10"></td>
             </tr>
         </table>
 
