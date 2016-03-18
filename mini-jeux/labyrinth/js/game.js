@@ -316,7 +316,7 @@ Main.Game.prototype =
                         self.ball.body.velocity.y += o.gamma / 5;
                         // Landscape  (Counterclockwise)
                         break;
-
+                }
             });
         }
 
