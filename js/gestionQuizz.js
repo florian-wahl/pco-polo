@@ -535,8 +535,6 @@ function checkOPValide(){
                     listeQuizzOPChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
                 }
 
-
-
             });
 
             //On elimine tous les quizz déjà validé une fois (occurenceAvantValidation non nulle)
