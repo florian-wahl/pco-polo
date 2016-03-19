@@ -546,14 +546,13 @@ function checkOPValide(){
                 }
             }
 
-            console.log("OP :: Non Validé : "+ listeQuizzOPNonValide.length + " / Total : " + listeQuizzOPChoisie.length);
+            console.log("OP :: Quizz Non Validé : "+ listeQuizzOPNonValide.length + " / Total : " + listeQuizzOPChoisie.length);
 
             //S'il y a moins que 90% de quizz non validé --> Niveau terminé
             if(listeQuizzOPNonValide.length <= POURCENTAGE_REUSSITE_QUIZZ*listeQuizzOPChoisie.length){
 
                 var id_op = 20 + parseInt(last_op_id);
 
-                console.log(last_op_id + " / " + id_op);
                 if(listeBadges[id_op] == 0){
                     //On ajoute le badge qui correspond au niveau / zone
                     ajaxRequest(badgeAjoute, 'addBadge', id_op);
@@ -579,7 +578,7 @@ function initNombreQuizz(){
                 nb_quizz++;
             });
 
-            console.log('Nombre de quizz : ' + nb_quizz);
+            console.log('Chargement :: Nombre de quizz : ' + nb_quizz);
             NOMBRE_QUIZZ_MAX = nb_quizz;
             listeQuizzInfos = new Array(NOMBRE_QUIZZ_MAX);
         }
@@ -637,7 +636,7 @@ function avancementNiveauActuel(){
 
             avancementActuel = 100 - parseInt((listeQuizzZoneNonValide.length / listeQuizzZoneChoisie.length) * 100);
 
-            console.log("Avancement : " + avancementActuel + " / Non Validé : "+ listeQuizzZoneNonValide.length + " / Total : " + listeQuizzZoneChoisie.length);
+            console.log("Quizz :: Avancement : " + avancementActuel + "% / Non Validé : "+ listeQuizzZoneNonValide.length + " / Total : " + listeQuizzZoneChoisie.length);
         }
     });
 }

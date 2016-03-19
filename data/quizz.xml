@@ -1306,7 +1306,7 @@ Non."</intitule>
 		<type>TEXTE</type>
 		<zone>1</zone>
 		<op>1</op>
-		<scenario>Bidon</scenario>
+		<scenario>Quizz de test.</scenario>
 		<questions>
 			<question id="1">
 				<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule>
@@ -1326,7 +1326,7 @@ Non."</intitule>
 		<type>TEXTE</type>
 		<zone>1</zone>
 		<op>1</op>
-		<scenario>Bidon</scenario>
+		<scenario>Quizz de test.</scenario>
 		<questions>
 			<question id="1">
 				<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule>
@@ -1345,7 +1345,7 @@ Non."</intitule>
 		<type>TEXTE</type>
 		<zone>2</zone>
 		<op>1</op>
-		<scenario>Bidon</scenario>
+		<scenario>Quizz de test.</scenario>
 		<questions>
 			<question id="1">
 				<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule>
@@ -1365,7 +1365,7 @@ Non."</intitule>
 		<type>TEXTE</type>
 		<zone>2</zone>
 		<op>1</op>
-		<scenario>Bidon</scenario>
+		<scenario>Quizz de test.</scenario>
 		<questions>
 			<question id="1">
 				<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule>

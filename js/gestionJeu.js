@@ -30,16 +30,21 @@ function reprendre () {
  */
 function addToScore(scoreToAdd) {
 
-    ajaxRequest(null, "addToScore", scoreToAdd);
+    //Protection avant l'ajout du score
+    if(scoreToAdd < 1000){
+        ajaxRequest(null, "addToScore", scoreToAdd);
 
-    /*
-     On test si le score cumulé permet de débloqué un nouveau jeton
-     */
-    score_cumule += scoreToAdd;
-    while (score_cumule >= SCORE_POUR_NOUVEAU_JETON) {
-        score_cumule -= SCORE_POUR_NOUVEAU_JETON;
-        ajaxRequest(null, "addToJeton", 1);
+        /*
+         On test si le score cumulé permet de débloqué un nouveau jeton
+         */
+        score_cumule += scoreToAdd;
+        while (score_cumule >= SCORE_POUR_NOUVEAU_JETON) {
+            score_cumule -= SCORE_POUR_NOUVEAU_JETON;
+            ajaxRequest(null, "addToJeton", 1);
+        }
     }
+
+
 
 
 }

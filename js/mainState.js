@@ -631,14 +631,14 @@ var mainState = {
                     x = 2225;
                     varX = 110;
                     y = 810;
-                    varY = 600;
+                    varY = 550;
 
                 }
                 else if (a > 1 && a <= 2){
                     x = 2395;
                     varX = 95;
                     y = 810;
-                    varY = 550;
+                    varY = 520;
                 }
                 else if (a > 2 && a <= 3){
                     x = 2570;
