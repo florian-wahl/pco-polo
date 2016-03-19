@@ -21,6 +21,8 @@ for( var j = 0; j < 5; j++){
 }
 var numTrueReponses = [];
 
+var src_img_op;
+
 /*
  * Permet d'envoyer des requetes ajax vers ajaxQuizz
  * async: false (permet d'attendre la réponse avant de continuer le chargement de la page)
@@ -340,10 +342,8 @@ function xmlCallbackByZone(xml, id_zone){
     $(xml).find('quizz').each(function() {
         var attr_id_quizz = $(this).attr('id');
         var attr_id_op = $(this).find('op').text();
-        var src_img_op = 'res/img/quizz/op'+ attr_id_op +'.png';
+        src_img_op = 'res/img/quizz/op'+ attr_id_op +'.png';
         if(attr_id_quizz == id_quizz_select){
-            $('#img_op').remove();
-            $('.popup_holder').append("<img id='img_op' src="+src_img_op+" />");
 
             last_quizz_id = id_quizz_select;
 

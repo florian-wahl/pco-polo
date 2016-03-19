@@ -2,7 +2,7 @@
     $.fn.jquizzy = function(settings) {
         var defaults = {
             questions: null,
-            endText: 'Bravo !',
+            endText: 'Fin',
             shortURL: null,
             sendResultsURL: null,
             resultComments: {
@@ -20,25 +20,25 @@
 
         var superContainer = $(this),
             answers = [],
-            introFob = '	<div class="intro-container slide-container"><div class="dialog">'+ config.scenario +'</div><a class="nav-start" href="#"><img src="res/img/boutons/bouton_commencer.png"/><br/><br/><span></span></a></div>	',
-            exitFob = '<div class="results-container slide-container"><div class="question-number">' + config.endText + '</div><div class="result-keeper"></div></div><div class="notice">Merci de choisir une réponse</div><div class="progress-keeper" ><div class="progress"></div></div>',
+            introFob = '	<div class="intro-container slide-container"><img id="img_op" src='+src_img_op+' /><div class="dialog">'+ config.scenario +'</div><a class="nav-start" href="#"><img src="res/img/boutons/bouton_commencer.png"/><br/><br/><span></span></a></div>	',
+            exitFob = '<div class="results-container slide-container"><div class="question-number">' + config.endText + '</div><div class="result-keeper"></div></div><div class="notice">Merci de choisir une réponse</div>',
             contentFob = '',
             questionsIteratorIndex,
             answersIteratorIndex;
         superContainer.addClass('main-quiz-holder');
         for (questionsIteratorIndex = 0; questionsIteratorIndex < config.questions.length; questionsIteratorIndex++) {
-            contentFob += '<div class="slide-container"><div class="question-number">' + (questionsIteratorIndex + 1) + '/' + config.questions.length + '</div><div class="question">' + config.questions[questionsIteratorIndex].question + '</div><ul class="answers"><div class="aidecontenu" style="display: none">'+ config.scenario +'</div>';
+            contentFob += '<div class="slide-container"><div class="question-number">' + (questionsIteratorIndex + 1) + '/' + config.questions.length + '</div><img id="img_op" src='+src_img_op+' /><div class="question">' + config.questions[questionsIteratorIndex].question + '</div><ul class="answers"><div class="aidecontenu" style="display: none">'+ config.scenario +'</div>';
             for (answersIteratorIndex = 0; answersIteratorIndex < config.questions[questionsIteratorIndex].answers.length; answersIteratorIndex++) {
                 contentFob += '<li>' + config.questions[questionsIteratorIndex].answers[answersIteratorIndex] + '</li>';
             }
             contentFob += '</ul><div class="nav-container">';
             if (questionsIteratorIndex !== 0) {
-                contentFob += '<div class="prev"><a class="nav-previous" href="#">&lt; </a></div>';
+                contentFob += '<div class="prev"><a class="nav-previous" href="#">Précédent </a></div>';
             }
             if (questionsIteratorIndex < config.questions.length - 1) {
-                contentFob += '<div class="next"><a class="nav-next" href="#"> &gt;</a></div>';
+                contentFob += '<div class="next"><a class="nav-next" href="#"> Suivant</a></div>';
             } else {
-                contentFob += '<div class="next final"><a class="nav-show-result" href="#">Terminé</a></div>';
+                contentFob += '<div class="next final"><a class="nav-show-result" href="#">Terminer</a></div>';
             }
             contentFob += '</div></div>';
             answers.push(config.questions[questionsIteratorIndex].correctAnswer);

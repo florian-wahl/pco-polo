@@ -49,7 +49,7 @@ $personnage = $resultat[0];
 
 
 <style type="text/css">
-    .popup_holder {width:760px; margin:10px 10px 10px -360px}
+    .popup_holder {width:760px; margin:10px 10px 10px -360px;}
     .popup_holder_arcade {width:760px; margin:10px 10px 10px -360px}
     .popup_holder_vide {width:760px; margin:10px 10px 10px -360px}
 </style>

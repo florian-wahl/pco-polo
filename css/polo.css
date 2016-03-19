@@ -238,9 +238,7 @@ input#button_mini_jeux{
 }
 
 #img_op {
-    position: absolute;
-    left: -260px;
-    top: 35px;
+    position: relative;
 }
 
 #main_polo{
