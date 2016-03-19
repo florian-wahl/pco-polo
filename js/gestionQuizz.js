@@ -10,7 +10,7 @@ var listeQuizzInfos;
 
 var last_quizz_id;
 var last_zone_id;
-var last_xml;
+var last_op_id;
 //On défini les différents tableaux
 
 var scenario;
@@ -225,8 +225,7 @@ function xmlCallbackByID(xml, id_quizz){
         if(attr_id_quizz == id_quizz){
             if (attr_id_quizz == 0){
                 //Quizz d'introduction !
-                $('#img_op').remove();
-                $('.popup_holder').append("<img id='img_op' src='res/img/quizz/intro.png' />");
+                src_img_op = 'res/img/quizz/intro.png';
             }
             scenario = $(this).find('scenario').text();
 
@@ -341,6 +340,7 @@ function xmlCallbackByZone(xml, id_zone){
         if(attr_id_quizz == id_quizz_select){
 
             last_quizz_id = id_quizz_select;
+            last_op_id = attr_id_op;
 
             scenario = $(this).find('scenario').text();
 
@@ -389,11 +389,11 @@ function updateStatsQuizz(nbReponseJuste, nbTotReponse){
     if (nbReponseJuste == nbTotReponse){
         //Le quizz est validé
         listeQuizzInfos[last_quizz_id][1] = 1;
-        xhr.open("GET", "ajaxQuizz.php?q=quizzValide&id_quizz=" + last_quizz_id + "&id_zone="+ last_zone_id, true);
+        xhr.open("GET", "ajaxQuizz.php?q=quizzValide&id_quizz=" + last_quizz_id + "&id_zone="+ last_zone_id+ "&id_op="+ last_op_id, true);
     }
     else {
         //le quizz n'est pas validé
-        xhr.open("GET", "ajaxQuizz.php?q=quizzNonValide&id_quizz=" + last_quizz_id + "&id_zone="+ last_zone_id, true);
+        xhr.open("GET", "ajaxQuizz.php?q=quizzNonValide&id_quizz=" + last_quizz_id + "&id_zone="+ last_zone_id+ "&id_op="+ last_op_id, true);
     }
 
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
@@ -582,8 +582,9 @@ function avancementNiveauActuel(){
                 }
             }
 
-            avancementActuel = parseInt((listeQuizzZoneNonValide.length / listeQuizzZoneChoisie.length) * 100);
+            avancementActuel = 100 - parseInt((listeQuizzZoneNonValide.length / listeQuizzZoneChoisie.length) * 100);
 
+            console.log("Avancement : " + avancementActuel + " / Non Validé : "+ listeQuizzZoneNonValide.length + " / Total : " + listeQuizzZoneChoisie.length);
         }
     });
 }

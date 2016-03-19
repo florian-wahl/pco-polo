@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>POLO - Air France</title>
+    <title>POLO</title>
 
     <!-- Include meta tag to ensure proper rendering and touch zooming -->
     <link rel="apple-touch-icon" href="/res/img/custom_icon_polo.png">

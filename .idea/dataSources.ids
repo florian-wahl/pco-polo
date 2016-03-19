@@ -237,29 +237,33 @@ badges_id_badge</columns>
         <mandatory>1</mandatory>
         <data-type>int(6)</data-type>
       </column>
-      <column id="61" parent="9" name="valide">
+      <column id="61" parent="9" name="id_op">
+        <mandatory>1</mandatory>
+        <data-type>int(6)</data-type>
+      </column>
+      <column id="62" parent="9" name="valide">
         <mandatory>1</mandatory>
         <data-type>tinyint(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="62" parent="9" name="occurence">
+      <column id="63" parent="9" name="occurence">
         <mandatory>1</mandatory>
         <data-type>int(6)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="63" parent="9" name="occurenceAvantValidation">
+      <column id="64" parent="9" name="occurenceAvantValidation">
         <data-type>int(6)</data-type>
       </column>
-      <index id="64" parent="9" name="fk_users_has_quizz_users1_idx">
+      <index id="65" parent="9" name="fk_users_has_quizz_users1_idx">
         <columns>users_id_user</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="65" parent="9" name="PRIMARY">
+      <key id="66" parent="9" name="PRIMARY">
         <columns>users_id_user
 id_quizz</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="66" parent="9" name="fk_users_has_quizz_users1">
+      <foreign-key id="67" parent="9" name="fk_users_has_quizz_users1">
         <columns>users_id_user</columns>
         <ref-key>polo.users(id_user)</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>

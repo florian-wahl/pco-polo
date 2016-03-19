@@ -24,10 +24,11 @@ switch($q){
         if(count($resultat) == 0){
             //C'est la première fois que le joueur fair ce quizz
 
-            $stmt = $poloDB->prepare("INSERT INTO users_quizz(users_id_user, id_quizz, id_zone, valide, occurence, occurenceAvantValidation) VALUES(:id_user, :id_quizz, :id_zone,'1', '1','1')");
+            $stmt = $poloDB->prepare("INSERT INTO users_quizz(users_id_user, id_quizz, id_zone, id_op, valide, occurence, occurenceAvantValidation) VALUES(:id_user, :id_quizz, :id_zone, :id_op, '1', '1','1')");
             $stmt->bindValue(':id_user', $_SESSION['id_user']);
             $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
             $stmt->bindValue(':id_zone', $_GET['id_zone']);
+            $stmt->bindValue(':id_op', $_GET['id_op']);
             $stmt->execute();
 
         }
@@ -67,10 +68,11 @@ switch($q){
         if(count($resultat) == 0){
             //C'est la première fois que le joueur fair ce quizz
 
-            $stmt = $poloDB->prepare("INSERT INTO users_quizz(users_id_user, id_quizz, id_zone, valide, occurence, occurenceAvantValidation) VALUES(:id_user, :id_quizz, :id_zone,'0', '1','0')");
+            $stmt = $poloDB->prepare("INSERT INTO users_quizz(users_id_user, id_quizz, id_zone, id_op, valide, occurence, occurenceAvantValidation) VALUES(:id_user, :id_quizz, :id_zone, :id_op, '0', '1','0')");
             $stmt->bindValue(':id_user', $_SESSION['id_user']);
             $stmt->bindValue(':id_quizz', $_GET['id_quizz']);
             $stmt->bindValue(':id_zone', $_GET['id_zone']);
+            $stmt->bindValue(':id_op', $_GET['id_op']);
             $stmt->execute();
 
         }
