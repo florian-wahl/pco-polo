@@ -97,7 +97,7 @@ switch($q){
         $resultat = $stmt->fetchAll();
 
         foreach($resultat as $row){
-            echo $row['id_quizz'] . "+". $row['valide']."+".$row['occurence'] . "/";
+            echo $row['id_quizz'] . "+". $row['valide']."+".$row['occurence']."+".$row['occurenceAvantValidation'] . "/";
         }
         break;
     case 'resetQuizz':

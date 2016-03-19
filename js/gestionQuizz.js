@@ -405,13 +405,13 @@ function getListeQuizz (liste) {
 
     //Initialisation
     for(var i = 0; i < listeQuizzInfos.length; i++){
-        //[id, valide, occurence]
-        listeQuizzInfos[i] = [i, 0, 0];
+        //[id, valide, occurence, occurenceAvantValidation]
+        listeQuizzInfos[i] = [i, 0, 0, 0];
     }
     //Remplissage
     for(i = 0; i < tabQuizzBrut.length - 1; i++){// -1 car il y a un / en plus dans le tabQuizzBrut
         var ligneQuizz = tabQuizzBrut[i].split("+");
-        listeQuizzInfos[parseInt(ligneQuizz[0])] = [parseInt(ligneQuizz[0]), parseInt(ligneQuizz[1]), parseInt(ligneQuizz[2])];//On parseInt pour enlever les caractères spéciaux
+        listeQuizzInfos[parseInt(ligneQuizz[0])] = [parseInt(ligneQuizz[0]), parseInt(ligneQuizz[1]), parseInt(ligneQuizz[2]), parseInt(ligneQuizz[3])];//On parseInt pour enlever les caractères spéciaux
     }
 
 
@@ -507,6 +507,61 @@ function checkQuizzValide(){
                 }
                 else {
                     ajaxQuizzRequest(quizzResetCallback, 'resetQuizz', last_zone_id);
+                }
+
+            }
+        }
+    });
+}
+
+function checkOPValide(){
+
+    $.ajax({
+        type: "GET",
+        url: "data/quizz.xml",
+        dataType: "xml",
+        success: function(xml) {
+            var listeQuizzOPChoisie = [];
+
+            //On récupère tous les quizz correspondant à la zone
+            $(xml).find('quizz').each(function() {
+                var attr_id_quizz = $(this).attr('id');
+                var attr_id_zone = $(this).find('zone').text();
+                var attr_id_op = $(this).find('op').text();
+                var attr_id_difficulte = $(this).find('difficulte').text();
+
+                if (attr_id_op == last_op_id) {
+                    //[id, op, dif, occ]
+                    listeQuizzOPChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+                }
+
+
+
+            });
+
+            //On elimine tous les quizz déjà validé une fois (occurenceAvantValidation non nulle)
+            var listeQuizzOPNonValide = [];
+            for(var i = 0; i < listeQuizzOPChoisie.length; i++){
+                var id = listeQuizzOPChoisie[i][0];
+                if(listeQuizzInfos[id][3] == 0){
+                    listeQuizzOPNonValide.push(listeQuizzOPChoisie[i]);
+                }
+            }
+
+            console.log("OP :: Non Validé : "+ listeQuizzOPNonValide.length + " / Total : " + listeQuizzOPChoisie.length);
+
+            //S'il y a moins que 90% de quizz non validé --> Niveau terminé
+            if(listeQuizzOPNonValide.length <= POURCENTAGE_REUSSITE_QUIZZ*listeQuizzOPChoisie.length){
+
+                var id_op = 20 + parseInt(last_op_id);
+
+                console.log(last_op_id + " / " + id_op);
+                if(listeBadges[id_op] == 0){
+                    //On ajoute le badge qui correspond au niveau / zone
+                    ajaxRequest(badgeAjoute, 'addBadge', id_op);
+
+                    //On affiche un message comme quoi le niveau actuel est terminé
+                    apparitionText("Vous avez validé un Objectif Pédagogique ! Félicitation.", 50, 20);
                 }
 
             }

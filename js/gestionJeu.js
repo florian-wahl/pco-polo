@@ -11,6 +11,7 @@ function reprendre () {
 
     if(last_quizz_id != null){
         checkQuizzValide();
+        checkOPValide();
     }
 
     if(!off_volume){

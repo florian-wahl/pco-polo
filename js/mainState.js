@@ -978,18 +978,18 @@ var mainState = {
 
         niveauActuel();
 
-        t_niveau = game.add.text(game.camera.x + 580, game.camera.y + 490,  "Niveau : " + niveau_actuel);
-        t_niveau.fontSize = 40;
+        t_niveau = game.add.text(game.camera.x + 600, game.camera.y + 490,  "Niveau : " + niveau_actuel);
+        t_niveau.fontSize = 35;
         t_niveau.fontWeight = 'bold';
         t_niveau.fill = '#FFFFFF';
 
-        t_score = game.add.text(game.camera.x + 580, game.camera.y + 540,  "Score : " + score);
-        t_score.fontSize = 40;
+        t_score = game.add.text(game.camera.x + 600, game.camera.y + 540,  "Score : " + score);
+        t_score.fontSize = 35;
         t_score.fontWeight = 'bold';
         t_score.fill = '#FFFFFF';
 
-        t_jetons = game.add.text(game.camera.x + 580, game.camera.y + 588, "Jetons : " + nb_jetons);
-        t_jetons.fontSize = 40;
+        t_jetons = game.add.text(game.camera.x + 600, game.camera.y + 588, "Jetons : " + nb_jetons);
+        t_jetons.fontSize = 35;
         t_jetons.fontWeight = 'bold';
         t_jetons.fill = '#FFFFFF';
 
