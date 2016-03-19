@@ -23,6 +23,8 @@ var numTrueReponses = [];
 
 var src_img_op;
 
+var avancementActuel = 0;
+
 /*
  * Permet d'envoyer des requetes ajax vers ajaxQuizz
  * async: false (permet d'attendre la réponse avant de continuer le chargement de la page)
@@ -296,13 +298,6 @@ function xmlCallbackByZone(xml, id_zone){
             listeQuizzZoneNonValide.push(listeQuizzZoneChoisie[i]);
         }
     }
-    //S'il n'y a plus de quizz dispo
-    //S'il y a moins que 90% de quizz non validé --> Niveau terminé
-    if(listeQuizzZoneNonValide.length <= 0.1*listeQuizzZoneChoisie.length){
-        ajaxQuizzRequest(quizzResetCallback, 'resetQuizz', id_zone);
-        reprendre();
-        return 0;
-    }
 
 
     //On détermine quel quizz sélectionner
@@ -534,6 +529,61 @@ function initNombreQuizz(){
             console.log('Nombre de quizz : ' + nb_quizz);
             NOMBRE_QUIZZ_MAX = nb_quizz;
             listeQuizzInfos = new Array(NOMBRE_QUIZZ_MAX);
+        }
+    });
+}
+
+function avancementNiveauActuel(){
+
+    $.ajax({
+        type: "GET",
+        url: "data/quizz.xml",
+        dataType: "xml",
+        success: function(xml) {
+            var listeQuizzZoneChoisie = [];
+
+            //On récupère tous les quizz correspondant à la zone
+            $(xml).find('quizz').each(function() {
+                var attr_id_quizz = $(this).attr('id');
+                var attr_id_zone = $(this).find('zone').text();
+                var attr_id_op = $(this).find('op').text();
+                var attr_id_difficulte = $(this).find('difficulte').text();
+
+                niveauActuel();
+
+                if(niveau_actuel == 3){
+                    if (attr_id_zone == 3 || attr_id_zone == 4) {
+                        //[id, op, dif, occ]
+                        listeQuizzZoneChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+                    }
+                }
+                else if(niveau_actuel == 4){
+                    if (attr_id_zone == 5 || attr_id_zone == 7) {
+                        //[id, op, dif, occ]
+                        listeQuizzZoneChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+                    }
+                }
+                else {
+                    if (attr_id_zone == niveau_actuel) {
+                        //[id, op, dif, occ]
+                        listeQuizzZoneChoisie.push([attr_id_quizz, attr_id_op, attr_id_difficulte, listeQuizzInfos[attr_id_quizz][2]]);
+                    }
+                }
+
+
+            });
+
+            //On elimine tous les quizz déjà validé
+            var listeQuizzZoneNonValide = [];
+            for(var i = 0; i < listeQuizzZoneChoisie.length; i++){
+                var id = listeQuizzZoneChoisie[i][0];
+                if(listeQuizzInfos[id][1] == 0){
+                    listeQuizzZoneNonValide.push(listeQuizzZoneChoisie[i]);
+                }
+            }
+
+            avancementActuel = parseInt((listeQuizzZoneNonValide.length / listeQuizzZoneChoisie.length) * 100);
+
         }
     });
 }

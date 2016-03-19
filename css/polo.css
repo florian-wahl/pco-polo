@@ -191,6 +191,15 @@ input.button_accepte{
     margin-left: 0;
 }
 
+input.button_valider{
+    background: url(../res/img/boutons/bouton_valider.png) no-repeat;
+    border: none;
+    height: 60px;
+    width: 140px;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
 /*BORNES ARCADES*/
 #popup_arcade {
     display: none;

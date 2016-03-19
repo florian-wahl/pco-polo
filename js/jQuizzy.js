@@ -188,7 +188,7 @@
 
             score = roundReloaded(trueCount * 100, 2);
 
-            resultSet = '<h2 class="qTitle">' + judgeSkills(trueCount/questionLength*100) + '<br/> Votre score : ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div>';
+            resultSet = '<h2 class="qTitle">' + judgeSkills(trueCount/questionLength*100) + '<br/> Votre score : ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div><br><input type="button" class="button_valider" onclick="reprendre()" />';
 
             //Ajout du score dans la bdd
             addToScore(score);

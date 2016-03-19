@@ -62,7 +62,6 @@ function setScore(sc) {
 }
 
 function updateBadges (liste) {
-    console.log(listeBadges[10]);
 
     var tabBadges = liste.split("/");
     var i = 0;
@@ -76,7 +75,6 @@ function updateBadges (liste) {
         listeBadges[parseInt(tabBadges[j])] = 1;
         j++;
     }
-    console.log(listeBadges[10]);
 
 }
 
@@ -215,4 +213,25 @@ function apparitionText(texte, posY, fontSize){
     }, this);
     tween_t.start();
 
+}
+
+function niveauActuel(){
+    if (listeBadges[5] == 1){
+        niveau_actuel = 5;
+    }
+    else if (listeBadges[4] == 1){
+        niveau_actuel = 5;
+    }
+    else if (listeBadges[3] == 1){
+        niveau_actuel = 4;
+    }
+    else if (listeBadges[2] == 1){
+        niveau_actuel = 3;
+    }
+    else if (listeBadges[1] == 1){
+        niveau_actuel = 2;
+    }
+    else {
+        niveau_actuel = 1;
+    }
 }

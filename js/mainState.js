@@ -50,6 +50,7 @@ var nb_jetons = 0;
 var score = 0;
 var score_cumule = 0;
 var nb_interaction_client = 0;
+var niveau_actuel = 0;
 
 var listeBadges = [];
 var clients = [];
@@ -114,6 +115,9 @@ var mainState = {
         if (originePage == 1){
             this.gestionIntroduction(null,null,0);
         }
+
+        niveauActuel();
+        avancementNiveauActuel();
 
     },
 
@@ -452,7 +456,7 @@ var mainState = {
             group_clients = game.add.group();
             //Ajout des clients par zone
             for (var z = 1; z <= 7; z++){
-                if(z == 6){
+                if(z == 5){
                     this.createPNJ(z);
                 }
                 else {
@@ -509,6 +513,7 @@ var mainState = {
 
             demarrerQuizzByZone(clientPNJ.zone);
             this.createPNJ(clientPNJ.zone);
+            console.log("Zone PNJ : " + clientPNJ.zone + " / X : "+ clientPNJ.posX + " / Y : " + clientPNJ.posY);
 
             clientSprite.destroy();
             clientPNJ = null;
@@ -549,6 +554,9 @@ var mainState = {
     interactionblocageNiveau : function () {
         game.physics.arcade.isPaused = true;
 
+        niveauActuel();
+        avancementNiveauActuel();
+
         popup_vide.style.display='block';
         overlay.style.display='block';
         $('#introduction').remove();
@@ -556,7 +564,9 @@ var mainState = {
         $('.popup_holder_vide').append("<div id='introduction'>" +
             "<h2>Niveau bloqué</h2>"+
             "<br>" +
-            "<p>Vous n'avez pas encore accès à ce niveau. Continuez à aider les clients pour pouvoir le débloquer.<br></p>"+
+            "<p>Vous n'avez pas encore accès à ce niveau. <br> Continuez à aider les clients pour pouvoir le débloquer.<br></p>" +
+            "<p>Niveau actuel : " + niveau_actuel+ " </p>" +
+            "<p>Avancement : "+ avancementActuel +"% / 90% nécessaire</p>" +
             "</div>");
     },
 
@@ -605,14 +615,14 @@ var mainState = {
                 if(a < 1){
                     x = 635;
                     varX = 760;
-                    y = 1170;
+                    y = 1100;
                     varY = 220;
                 }
                 else {
                     x = 635;
                     varX = 260;
                     y = 850;
-                    varY = 640;
+                    varY = 540;
                 }
                 break;
             case 4:
@@ -641,14 +651,14 @@ var mainState = {
                     x = 2570;
                     varX = 130;
                     y = 880;
-                    varY = 260;
+                    varY = 200;
 
                 }
                 else {
                     x = 2570;
                     varX = 130;
                     y = 1080;
-                    varY = 260;
+                    varY = 200;
 
                 }
 
@@ -937,7 +947,7 @@ var mainState = {
         /*AJOUT DU MENU ET DE SON IHM*/
         menu = game.add.sprite(game.camera.x + GAME_WIDTH / 2 - 804 / 2, game.camera.y + GAME_HEIGHT / 2 - 599 / 2, 'menu');
 
-        button_retour_menu_principal = game.add.button(game.camera.x + GAME_WIDTH / 2, game.camera.y + GAME_HEIGHT / 2 + 80, 'retour_menu_principal', function () {
+        button_retour_menu_principal = game.add.button(game.camera.x + GAME_WIDTH / 2, game.camera.y + GAME_HEIGHT / 2 + 60, 'retour_menu_principal', function () {
             window.location.href = 'menu_principal.php';
         }, this, 2, 1, 0);
         button_retour_menu_principal.anchor.setTo(0.5);
@@ -956,6 +966,7 @@ var mainState = {
             button_gestion_effet.destroy();
             t_score.destroy();
             t_jetons.destroy();
+            t_niveau.destroy();
 
             button_settings.inputEnabled = true;
             button_map.inputEnabled = true;
@@ -965,13 +976,19 @@ var mainState = {
             reprendre();
         }, this, 2, 1, 0);
 
+        niveauActuel();
 
-        t_score = game.add.text(game.camera.x + 600, game.camera.y + 530,  "Score : " + score);
+        t_niveau = game.add.text(game.camera.x + 580, game.camera.y + 490,  "Niveau : " + niveau_actuel);
+        t_niveau.fontSize = 40;
+        t_niveau.fontWeight = 'bold';
+        t_niveau.fill = '#FFFFFF';
+
+        t_score = game.add.text(game.camera.x + 580, game.camera.y + 540,  "Score : " + score);
         t_score.fontSize = 40;
         t_score.fontWeight = 'bold';
         t_score.fill = '#FFFFFF';
 
-        t_jetons = game.add.text(game.camera.x + 600, game.camera.y + 588, "Jetons : " + nb_jetons);
+        t_jetons = game.add.text(game.camera.x + 580, game.camera.y + 588, "Jetons : " + nb_jetons);
         t_jetons.fontSize = 40;
         t_jetons.fontWeight = 'bold';
         t_jetons.fill = '#FFFFFF';
