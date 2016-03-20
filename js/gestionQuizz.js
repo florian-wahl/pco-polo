@@ -494,6 +494,11 @@ function checkQuizzValide(){
 
                     //On affiche un message comme quoi le niveau actuel est terminé
                     apparitionText("Vous avez fini le niveau " + niveau + " ! Félicitation.", 50, 20);
+
+                    if(niveau == 5){
+                        //Tous les niveaux sont terminés
+                        ajaxRequest(badgeAjoute, 'addBadge', 6);
+                    }
                 }
 
                 //On reset les quizz

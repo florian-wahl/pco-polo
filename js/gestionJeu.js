@@ -188,7 +188,17 @@ function badgeAjoute(numBadge){
     listeBadges[numBadge] = 1;
 
     if (numBadge != null){
-        apparitionText("Nouveau badge : #" + parseInt(numBadge)  , 10, 30);
+        if(numBadge == 6){
+            apparitionText("Nouveau badge : #" + parseInt(numBadge)  , 90, 30);
+            apparitionText("Félicitation ! Vous avez terminé tous les niveaux !", 130, 20);
+        }
+        else if(numBadge == 13){
+            apparitionText("Vous avez aidé 10 clients. Continuez ainsi !", 50, 20);
+        }
+        else {
+            apparitionText("Nouveau badge : #" + parseInt(numBadge)  , 10, 30);
+        }
+
         ajaxRequest(updateBadges, "getBadges", null);
     }
 

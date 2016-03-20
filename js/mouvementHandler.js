@@ -2,7 +2,6 @@
  * Created by Florian on 13/11/2015.
  */
 
-    var badge1=0;
 function movementControllerCursors(maxSpeed) {
 
     player.body.velocity.set(0);
@@ -47,8 +46,8 @@ function movementControllerJoystick (maxSpeed) {
     var speed = game.touchControl.speed;
     var delay = 0;
 
-    player.body.velocity.y = -speed.y * 4;//coordonn�es sont invers�es
-    player.body.velocity.x = -speed.x * 4;
+    player.body.velocity.y = -speed.y * 3.5;//coordonn�es sont invers�es
+    player.body.velocity.x = -speed.x * 3.5;
     // Also you could try linear speed;
     //this.tilesprite.tilePosition.y += this.game.touchControl.speed.y / 20;
     //this.tilesprite.tilePosition.x += this.game.touchControl.speed.x / 20;
