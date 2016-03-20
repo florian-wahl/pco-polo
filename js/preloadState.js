@@ -1,6 +1,4 @@
 var text;
-var fondSound;
-var quizzSound;
 
 var preloadState = {
     preload: function () {

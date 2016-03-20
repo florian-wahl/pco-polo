@@ -117,6 +117,11 @@ function checkUnlockBadges(){
         listeBadges[13] = 1;
         ajaxRequest(badgeAjoute, "addBadge", 13);
     }
+
+    if (listeBadges[19] == 0 && off_volume && off_effet){
+        listeBadges[19] = 1;
+        ajaxRequest(badgeAjoute, "addBadge", 19);
+    }
 }
 
 /*
