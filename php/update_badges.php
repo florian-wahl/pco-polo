@@ -31,6 +31,19 @@ if($rang <= 50){
     addBadge($poloDB, 15);
 }
 
+/*SUR LES OBJECTIFS PEDAGOGIQUES*/
+
+$stmt = $poloDB->prepare("SELECT * FROM users_badges WHERE users_id_user = :id_user AND badges_id_badge BETWEEN 21 AND 26");
+$stmt->bindValue(':id_user', $_SESSION['id_user']);
+$stmt->execute();
+
+$resultat = $stmt->fetchAll();
+
+if(count($resultat) == 6){
+    //On a les 6 OP
+    addBadge($poloDB, 7);
+}
+
 function addBadge($poloDB, $s){
     $stmt = $poloDB->prepare("SELECT * FROM users_badges WHERE users_id_user = :id_user AND badges_id_badge = :id_badge;");
     $stmt->bindValue(':id_user', $_SESSION['id_user']);

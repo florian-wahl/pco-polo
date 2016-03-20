@@ -38,6 +38,7 @@
 
         <h4 id="page_credit">Remerciements</h4>
         <p id="page_credit">
+            Rodolphe Guyard <br>
            Christine Michel <br>
            Patrick Pons <br>
            Arnaud Lelevé <br>
