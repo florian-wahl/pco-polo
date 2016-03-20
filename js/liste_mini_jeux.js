@@ -7,7 +7,7 @@ $(document).ready(function() {
     /*GESTION DES MINI-JEUX*/
     liste_mini_jeux.each(function() {
         /*On teste quelles sont les jeux débloqués*/
-        if (this.id == 'mini_jeux_1' || this.id == 'mini_jeux_2' || this.id == 'mini_jeux_3' || this.id == 'mini_jeux_4') {
+        if (this.id == 'mini_jeux_1' || this.id == 'mini_jeux_2' || this.id == 'mini_jeux_3' || this.id == 'mini_jeux_4' || this.id == 'mini_jeux_5') {
             var actif = true;
         }
         if(!actif){
@@ -50,6 +50,10 @@ $(document).ready(function() {
                 case 'popup_button_jouer_4':
 
                     location.href = "mini-jeux/breakouts/breakouts/melonjs/breakouts.php";
+                    break;
+                case 'popup_button_jouer_5':
+
+                    location.href = "mini-jeux/hextris/hextris.php";
                     break;
                 default:
                     location.href = "menu_mini_jeux.php";

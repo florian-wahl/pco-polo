@@ -35,7 +35,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             </tr>
             <tr>
                 <td><input type="button" id="mini_jeux_4" class="element_liste" value="Coil" onclick="location.href='#openModal_4'"></td>
-                <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mini-Jeux #5"></td>
+                <td><input type="button" id="mini_jeux_5" class="element_liste" value="hextris" onclick="location.href='#openModal_5'"></td>
                 <td><input type="button" id="mini_jeux_6" class="element_liste" value="Mini-Jeux #6"></td>
             </tr>
         </table>
@@ -93,7 +93,18 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
-
+    <div id="openModal_5" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <img src="res/img/mini-jeux/hextris-logo.png" id="img_popup_left"/>
+            <h2>Hextris</h2>
+            <p>Détruisez les blocs colorés en en mettant au moins trois à coté</p>
+            <p>Vous pouvez tourner l'hexagone avec un tap à droit ou à gauche de l'écran</p>
+            <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+            <input type="button" id="popup_button_jouer_5" class="button_popup_jouer" />
+            <p class="errJetons">Vous n'avez pas assez de jetons.</p>
+        </div>
+    </div>
     <!--
 
         CE SCRIPT PERMET DE GERER LE FONCTION DES POPUPS
