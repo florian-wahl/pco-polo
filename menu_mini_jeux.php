@@ -105,6 +105,17 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
         </div>
     </div>
+    <div id="openModal_6" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <img src="res/img/mini-jeux/mahjong-logo.png" id="img_popup_left"/>
+                <h2>bobble</h2>
+                <p>Lancer le bobble et toucher les bobbles en mêmes couleur!</p>
+                <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
+                <input type="button" id="popup_button_jouer_6" class="button_popup_jouer" />
+                <p class="errJetons">Vous n'avez pas assez de jetons.</p>
+            </div>
+        </div>
     <!--
 
         CE SCRIPT PERMET DE GERER LE FONCTION DES POPUPS
