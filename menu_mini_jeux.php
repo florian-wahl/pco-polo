@@ -98,7 +98,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <a href="#close" title="Close" class="close">X</a>
             <img src="res/img/mini-jeux/mahjong-logo.png" id="img_popup_left"/>
             <h2>Green Mahjong</h2>
-            <p>Associez les symboles egales et videz le plateau du niveau!</p>
+            <p>Associez les symboles egaux et videz le plateau du niveau!</p>
+            <p>Seules les tuiles "libres", c'est-à-dire pouvant glisser aux extrémités gauche et droite du plateau peuvent être utilisées pour former des paires.</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_5" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
