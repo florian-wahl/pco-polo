@@ -34,8 +34,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <td><input type="button" id="mini_jeux_3" class="element_liste" onclick="location.href='#openModal_3'"></td>
             </tr>
             <tr>
-                <td><input type="button" id="mini_jeux_4" class="element_liste" value="Coil" onclick="location.href='#openModal_4'"></td>
-                <td><input type="button" id="mini_jeux_5" class="element_liste" value="hextris" onclick="location.href='#openModal_5'"></td>
+                <td><input type="button" id="mini_jeux_4" class="element_liste"  onclick="location.href='#openModal_4'"></td>
+                <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mahjong" onclick="location.href='#openModal_5'"></td>
                 <td><input type="button" id="mini_jeux_6" class="element_liste" value="Mini-Jeux #6"></td>
             </tr>
         </table>
