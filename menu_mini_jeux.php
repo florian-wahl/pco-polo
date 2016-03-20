@@ -96,10 +96,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_5" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/hextris-logo.png" id="img_popup_left"/>
-            <h2>Hextris</h2>
-            <p>Détruisez les blocs colorés en en mettant au moins trois à coté</p>
-            <p>Vous pouvez tourner l'hexagone avec un tap à droit ou à gauche de l'écran</p>
+            <img src="res/img/mini-jeux/mahjong-logo.png" id="img_popup_left"/>
+            <h2>Green Mahjong</h2>
+            <p>Associez les symboles egales et videz le plateau du niveau!</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_5" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>

@@ -53,7 +53,7 @@ $(document).ready(function() {
                     break;
                 case 'popup_button_jouer_5':
 
-                    location.href = "mini-jeux/hextris/hextris.php";
+                    location.href = "mini-jeux/greenMahjong/mahjong.php";
                     break;
                 default:
                     location.href = "menu_mini_jeux.php";
