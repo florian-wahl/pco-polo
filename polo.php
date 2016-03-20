@@ -5,8 +5,13 @@
 <?php include 'php/header.php';?>
 <!-- Désactive le zoom et le scrolling -->
 <script>
-    document.ontouchmove = function(event){
-        event.preventDefault();
+    document.addEventListener("gesturestart", gestureStart, false);
+    document.addEventListener("gesturechange", gestureChange, false);
+    function gestureStart(e){
+        e.preventDefault();
+    }
+    function gestureChange(e){
+        e.preventDefault();
     }
 </script>
 
@@ -54,6 +59,10 @@ $personnage = $resultat[0];
         background:#DCDCDC;}
     .popup_holder_vide {width:760px; margin:10px 10px 10px -360px;
         background:#DCDCDC;}
+
+    body{
+        position: fixed;
+    }
 </style>
 <body>
     <div id="main_polo">

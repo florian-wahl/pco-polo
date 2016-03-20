@@ -159,6 +159,7 @@ var mainState = {
 
         //DEPLACEMENTS
         movementControllerJoystick(MAX_SPEED_PLAYER);
+
     },
 
     render : function () {

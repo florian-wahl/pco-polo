@@ -79,7 +79,7 @@
         }
         progressKeeper.hide();
         notice.hide();
-        slidesList.hide().first().fadeIn(500);
+        slidesList.hide().first().fadeIn(100);
         superContainer.find('li').click(function() {
             var thisLi = $(this);
             if (thisLi.hasClass('selected')) {
@@ -90,31 +90,31 @@
             }
         });
         superContainer.find('.nav-start').click(function() {
-            $(this).parents('.slide-container').fadeOut(500,
+            $(this).parents('.slide-container').fadeOut(100,
                 function() {
-                    $(this).next().fadeIn(500);
-                    progressKeeper.fadeIn(500);
+                    $(this).next().fadeIn(100);
+                    progressKeeper.fadeIn(100);
                 });
             return false;
         });
 
         //fonction de aide
         superContainer.find('.aide').click(function() {
-            aidecontenu.fadeIn(300);
+            aidecontenu.fadeIn(100);
             return false;
         });
 
         superContainer.find('.next').click(function() {
             if ($(this).parents('.slide-container').find('li.selected').length === 0) {
-                notice.fadeIn(300);
+                notice.fadeIn(100);
                 return false;
             }
             notice.hide();
-            $(this).parents('.slide-container').fadeOut(500,
+            $(this).parents('.slide-container').fadeOut(100,
                 function() {
-                    $(this).next().fadeIn(500);
+                    $(this).next().fadeIn(100);
                 });
-            aidecontenu.fadeOut(300);
+            aidecontenu.fadeOut(100);
             progress.animate({
                     width: progress.width() + Math.round(progressWidth / questionLength)
                 },
@@ -123,9 +123,9 @@
         });
         superContainer.find('.prev').click(function() {
             notice.hide();
-            $(this).parents('.slide-container').fadeOut(500,
+            $(this).parents('.slide-container').fadeOut(100,
                 function() {
-                    $(this).prev().fadeIn(500);
+                    $(this).prev().fadeIn(100);
                 });
             progress.animate({
                     width: progress.width() - Math.round(progressWidth / questionLength)
@@ -135,7 +135,7 @@
         });
         superContainer.find('.final').click(function() {
             if ($(this).parents('.slide-container').find('li.selected').length === 0) {
-                notice.fadeIn(300);
+                notice.fadeIn(100);
                 return false;
             }
             superContainer.find('li.selected').each(function(index) {

@@ -1,4 +1,6 @@
 var text;
+var fondSound;
+var quizzSound;
 
 var preloadState = {
     preload: function () {
@@ -39,8 +41,8 @@ var preloadState = {
 
 
         //Sounds
-        game.load.audio('fond_sonore', 'res/sons/fond_sonore.mp3');
-        game.load.audio('musique_quizz', 'res/sons/fond_quizz.mp3');
+        fondSound = game.load.audio('fond_sonore', ['res/sons/fond_sonore.mp3','res/sons/fond_sonore.m4a', 'res/sons/fond_sonore.ogg']);
+        quizzSound = game.load.audio('musique_quizz', ['res/sons/fond_quizz.mp3','res/sons/fond_quizz.m4a','res/sons/fond_quizz.ogg']);
         game.load.audio('effet_quizz', 'res/sons/apparition_quizz.wav');
         game.load.audio('effet_arcade', 'res/sons/apparition_arcade.wav');
 
@@ -177,14 +179,16 @@ var preloadState = {
     loadComplete : function() {
         text.setText("Chargement terminé");
 
-        if(originePage == 2){
-            // On revient des mini-jeux
-            this.playTheGame();
-        }
-        else {
-            this.startButton = this.game.add.button(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 220, "playButton", this.playTheGame, this);
-            this.startButton.anchor.setTo(0.5);
-        }
+            if(originePage == 2){
+                // On revient des mini-jeux
+                this.playTheGame();
+            }
+            else {
+                this.startButton = this.game.add.button(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 220, "playButton", this.playTheGame, this);
+                this.startButton.anchor.setTo(0.5);
+            }
+
+
 
     }
 
