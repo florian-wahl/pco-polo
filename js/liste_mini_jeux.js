@@ -55,6 +55,10 @@ $(document).ready(function() {
 
                     location.href = "mini-jeux/greenMahjong/mahjong.php";
                     break;
+                case 'popup_button_jouer_6':
+
+                    location.href = "mini-jeux/bobble/bobble.html";
+                    break;
                 default:
                     location.href = "menu_mini_jeux.php";
                     break;
