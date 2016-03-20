@@ -7,7 +7,7 @@ $(document).ready(function() {
     /*GESTION DES MINI-JEUX*/
     liste_mini_jeux.each(function() {
         /*On teste quelles sont les jeux débloqués*/
-        if (this.id == 'mini_jeux_1' || this.id == 'mini_jeux_2' || this.id == 'mini_jeux_3' || this.id == 'mini_jeux_4' || this.id == 'mini_jeux_5') {
+        if (this.id == 'mini_jeux_1' || this.id == 'mini_jeux_2' || this.id == 'mini_jeux_3' || this.id == 'mini_jeux_4' || this.id == 'mini_jeux_5'|| this.id == 'mini_jeux_6') {
             var actif = true;
         }
         if(!actif){
