@@ -44,6 +44,19 @@ if(count($resultat) == 6){
     addBadge($poloDB, 7);
 }
 
+/*TOUS LES BADGES*/
+$stmt = $poloDB->prepare("SELECT * FROM users_badges WHERE users_id_user = :id_user");
+$stmt->bindValue(':id_user', $_SESSION['id_user']);
+$stmt->execute();
+
+$resultat = $stmt->fetchAll();
+
+if(count($resultat) == 26){
+    //On a tous les badges
+    addBadge($poloDB, 27);
+}
+
+
 function addBadge($poloDB, $s){
     $stmt = $poloDB->prepare("SELECT * FROM users_badges WHERE users_id_user = :id_user AND badges_id_badge = :id_badge;");
     $stmt->bindValue(':id_user', $_SESSION['id_user']);
