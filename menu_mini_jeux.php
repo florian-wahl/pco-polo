@@ -36,7 +36,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <tr>
                 <td><input type="button" id="mini_jeux_4" class="element_liste"  onclick="location.href='#openModal_4'"></td>
                 <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mahjong" onclick="location.href='#openModal_5'"></td>
-                <td><input type="button" id="mini_jeux_6" class="element_liste" value="Mini-Jeux #6"></td>
+                <td><input type="button" id="mini_jeux_6" class="element_liste" value="Bobble" onclick="location.href='#openModal_6'"></td>
             </tr>
         </table>
 
@@ -110,12 +110,13 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <a href="#close" title="Close" class="close">X</a>
                 <img src="res/img/mini-jeux/mahjong-logo.png" id="img_popup_left"/>
                 <h2>bobble</h2>
-                <p>Lancer le bobble et toucher les bobbles en mêmes couleur!</p>
+                <p>Lancez les sphères colorées vers celles du mêmes couleur! Si vous mettez trois ils vonts se detruire</p>
                 <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
                 <input type="button" id="popup_button_jouer_6" class="button_popup_jouer" />
                 <p class="errJetons">Vous n'avez pas assez de jetons.</p>
             </div>
         </div>
+
     <!--
 
         CE SCRIPT PERMET DE GERER LE FONCTION DES POPUPS

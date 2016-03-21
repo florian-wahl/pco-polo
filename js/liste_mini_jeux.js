@@ -57,7 +57,7 @@ $(document).ready(function() {
                     break;
                 case 'popup_button_jouer_6':
 
-                    location.href = "mini-jeux/bobble/bobble.html";
+                    location.href = "mini-jeux/bobble/bobble.php";
                     break;
                 default:
                     location.href = "menu_mini_jeux.php";

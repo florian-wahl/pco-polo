@@ -139,7 +139,7 @@
         <a class="addBorder"  id="gameStatisticsButton" href="#gamestatistics"  data-l10n-id="gameStatistics">Game statistics</a>
         <a class="addBorder" id="aboutButton" href="#about"  data-l10n-id="about">About the Game</a>
         <a class="addBorder" id="resumeGameButton" data-l10n-id="resumeGame" data-back="-1"  data-page-options="resumeGame">Resume Game</a>
-        <a class="addBorder" id="goToMenuButton" onclick="location.href='../../menu_mini_jeux.php'"  data-back="-1"  data-page-options="resumeGame">Menu Mini Jeux</a>
+        <a class="addBorder" id="goToMenuButton"   data-back="-1"  data-page-options="resumeGame">Menu Mini Jeux</a>
       </section>
       <!--<p><a class="button" id="closeAboutScreenButton" data-l10n-id="close">Resume game</a></p>-->
     </div>
