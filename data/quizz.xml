@@ -1,717 +1,1384 @@
 <data>
-    <quizz id="0">
-        <type>TEXTE</type>
-        <zone>1</zone>
-        <op>1</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> Quizz :</b> Bonjour. Ceci est un quizz d'introduction, il vous permet de découvrir la mécanique des quizz.<br/>
-            <b> Quizz :</b> Cliquez sur le bouton <i>Commencer</i> pour démarrer le quizz.<br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que devez-vous faire avec la carte d'embarquement de ce client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Scanner la carte d'embarquement en utilisant MARCO</reponse>
-                    <reponse isTrue="0">Rechercher le client dans la base de donnée MARCO</reponse>
-                    <reponse isTrue="0">Aller à l'accueil et demander des renseignements</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Comment pouvez-vous prendre une capture d'écran de votre iPad ?</intitule>
-                <reponses>
-                    <reponse isTrue="0">Appuyer sur les deux boutons de volume simultanément</reponse>
-                    <reponse isTrue="0">Appuyer sur le bouton central pendant 3 secondes</reponse>
-                    <reponse isTrue="1">Appuyer sur le bouton central et le bouton de verrouillage simultanément</reponse>
-                    <reponse isTrue="0">Appuyer deux fois de suite sur le bouton verrouillage</reponse>
-                </reponses>
-            </question>
-            <question id="3">
-            <intitule>A quoi sert le code PUK ?</intitule>
-            <reponses>
-                <reponse isTrue="0">Déverrouiller votre iPad</reponse>
-                <reponse isTrue="1">Débloquer votre iPad après blocage du code PIN</reponse>
-                <reponse isTrue="0">À vous connecter à internet</reponse>
-            </reponses>
-            </question>
-        </questions>
-    </quizz>
+	<quizz id="0">
+		<type>TEXTE</type>
+		<difficulte>1</difficulte>
+		<zone>1</zone>
+		<op>1</op>
+		<scenario>Ceci est la scénario d'introduction. C'est parti ?</scenario>
+		<questions>
+			<question id="1">
+				<intitule>Est ce que tu as envie d'en apprendre beaucoup sur MARCO ?</intitule>
+				<reponses>
+					<reponse isTrue="1">Oui !</reponse>
+					<reponse isTrue="0">Non...</reponse>
 
-    <quizz id="1">
-        <type>TEXTE</type>
-        <zone>1</zone>
-        <op>1</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 1 Client :</b> Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?<br/>
-            <b>Vous :</b> Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? <br/>
-            <b>Client :</b> Oui, je l'ai imprimé hier soir. La voici.<br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que devez-vous faire avec la carte d'embarquement de ce client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Scanner la carte d'embarquement en utilisant MARCO</reponse>
-                    <reponse isTrue="0">Rechercher le client dans la base de donnée MARCO</reponse>
-                    <reponse isTrue="0">Aller à l'accueil et demander des renseignements</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Comment pouvez-vous prendre une capture d'écran de votre iPad ?</intitule>
-                <reponses>
-                    <reponse isTrue="0">Appuyer sur les deux boutons de volume simultanément</reponse>
-                    <reponse isTrue="0">Appuyer sur le bouton central pendant 3 secondes</reponse>
-                    <reponse isTrue="1">Appuyer sur le bouton central et le bouton de verrouillage simultanément</reponse>
-                    <reponse isTrue="0">Appuyer deux fois de suite sur le bouton verrouillage</reponse>
-                </reponses>
-            </question>
-            <question id="3">
-            <intitule>A quoi sert le code PUK ?</intitule>
-            <reponses>
-                <reponse isTrue="0">Déverrouiller votre iPad</reponse>
-                <reponse isTrue="1">Débloquer votre iPad après blocage du code PIN</reponse>
-                <reponse isTrue="0">À vous connecter à internet</reponse>
-            </reponses>
-            </question>
-        </questions>
-    </quizz>
+				</reponses>
+			</question>
+		</questions>
+	</quizz>
 
-    <quizz id="2">
-        <type>TEXTE</type>
-        <zone>1</zone>
-        <op>2</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-            <i>(Il est actuellement 10.00)</i><br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+<quizz id="1">
+	<type>TEXTE</type>
+	<difficulte>1</difficulte>
+	<zone>4</zone>
+	<op>5</op>
+<scenario>Le client est bloqué à une BLS. Vous allez le voir pour l'aider.</scenario>
+	<questions>
+		<question id="1">
+			<intitule>"Bonjour Monsieur, puis-je vous être utile ?
+Oui, je n'arrive pas à acceder à mon dossier, pouvez-vous m'aider ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Je vais appeler le service BLS pour qu'il la répare."</reponse>
+	<reponse isTrue="0">"Pouvez-vous réessayer de vous identifier dans la BLS ?"</reponse>
+	<reponse isTrue="1">"Quelle est la référence de votre dossier de réservation (PNR)? Je vais vous rechercher dans MARCO."</reponse>
+	
+	
+				</reponses> 	
+		</question>
 
-    <quizz id="3">
-        <type>TEXTE</type>
-        <zone>2</zone>
-        <op>2</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 3 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-            <i>(Il est actuellement 10.00)</i><br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
-    <quizz id="4">
-        <type>TEXTE</type>
-        <zone>3</zone>
-        <op>2</op>
-        <difficulte>2</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 4 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-            <i>(Il est actuellement 10.00)</i><br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
-    <quizz id="5">
-        <type>TEXTE</type>
-        <zone>4</zone>
-        <op>2</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 5 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-            <i>(Il est actuellement 10.00)</i><br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
-    <quizz id="6">
-        <type>TEXTE</type>
-        <zone>5</zone>
-        <op>2</op>
-        <difficulte>2</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 6 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-            <i>(Il est actuellement 10.00)</i><br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
-    <quizz id="7">
-        <type>TEXTE</type>
-        <zone>6</zone>
-        <op>2</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 7 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-            <i>(Il est actuellement 10.00)</i><br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
-    <quizz id="8">
-        <type>TEXTE</type>
-        <zone>2</zone>
-        <op>2</op>
-        <difficulte>2</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 8 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-            <i>(Il est actuellement 10.00)</i><br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+		<question id="2">
+					<intitule>[Son dossier client apparait sur MARCO, il y a un point d'exclamation au niveau de son compte Flying Blue. Comment devez-vous réagir ? ]</intitule> 
+				<reponses> 
+	<reponse isTrue="0">[Le Client est suspect, vous appellez la police aux frontières de l'espace.]</reponse>
+	<reponse isTrue="1">[Les données Flying Blue ne sont pas à jour,  vous devez les mettre à jour avec le Client.]</reponse>
+	<reponse isTrue="0">[Les données Flying Blue n'ont pas pu être récupérées, elle sont erronées.]</reponse>
+	
+	
+				</reponses> 
+		</question>
 
-    <quizz id="9">
-        <type>TEXTE</type>
-        <zone>1</zone>
-        <op>2</op>
-        <difficulte>3</difficulte>
-        <scenario>
-            <![CDATA[
-            <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-            <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-            <i>(Il est actuellement 10.00)</i><br/>
-            ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+	</questions>
+</quizz>
 
-    <quizz id="10">
-        <type>TEXTE</type>
-        <zone>1</zone>
-        <op>1</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 0 Client :</b> Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?<br/>
-        <b>Vous :</b> Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? <br/>
-        <b>Client :</b> Oui, je l'ai imprimé hier soir. La voici.<br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que devez-vous faire avec la carte d'embarquement de ce client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Scanner la carte d'embarquement en utilisant MARCO</reponse>
-                    <reponse isTrue="0">Rechercher le client dans la base de donnée MARCO</reponse>
-                    <reponse isTrue="0">Aller à l'accueil et demander des renseignements</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Comment pouvez-vous prendre une capture d'écran de votre iPad ?</intitule>
-                <reponses>
-                    <reponse isTrue="0">Appuyer sur les deux boutons de volume simultanément</reponse>
-                    <reponse isTrue="0">Appuyer sur le bouton central pendant 3 secondes</reponse>
-                    <reponse isTrue="1">Appuyer sur le bouton central et le bouton de verrouillage simultanément</reponse>
-                    <reponse isTrue="0">Appuyer deux fois de suite sur le bouton verrouillage</reponse>
-                </reponses>
-            </question>
-            <question id="3">
-                <intitule>A quoi sert le code PUK ?</intitule>
-                <reponses>
-                    <reponse isTrue="0">Déverrouiller votre iPad</reponse>
-                    <reponse isTrue="1">Débloquer votre iPad après blocage du code PIN</reponse>
-                    <reponse isTrue="0">À vous connecter à internet</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
 
-    <quizz id="11">
-        <type>TEXTE</type>
-        <zone>1</zone>
-        <op>1</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 1 Client :</b> Bonjour. Je suis un peu perdu. Pouvez-vous m'indiquer dans quel terminal je dois me rendre ?<br/>
-        <b>Vous :</b> Bonjour. Aucun soucis. Avez-vous votre carte d'embarquement ? <br/>
-        <b>Client :</b> Oui, je l'ai imprimé hier soir. La voici.<br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que devez-vous faire avec la carte d'embarquement de ce client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Scanner la carte d'embarquement en utilisant MARCO</reponse>
-                    <reponse isTrue="0">Rechercher le client dans la base de donnée MARCO</reponse>
-                    <reponse isTrue="0">Aller à l'accueil et demander des renseignements</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Comment pouvez-vous prendre une capture d'écran de votre iPad ?</intitule>
-                <reponses>
-                    <reponse isTrue="0">Appuyer sur les deux boutons de volume simultanément</reponse>
-                    <reponse isTrue="0">Appuyer sur le bouton central pendant 3 secondes</reponse>
-                    <reponse isTrue="1">Appuyer sur le bouton central et le bouton de verrouillage simultanément</reponse>
-                    <reponse isTrue="0">Appuyer deux fois de suite sur le bouton verrouillage</reponse>
-                </reponses>
-            </question>
-            <question id="3">
-                <intitule>A quoi sert le code PUK ?</intitule>
-                <reponses>
-                    <reponse isTrue="0">Déverrouiller votre iPad</reponse>
-                    <reponse isTrue="1">Débloquer votre iPad après blocage du code PIN</reponse>
-                    <reponse isTrue="0">À vous connecter à internet</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+<quizz id="2">
+	<type>TEXTE</type>
+	<difficulte>4</difficulte>
+	<zone>4</zone>
+	<op>5</op>
+<scenario>Position Accompagnement Bornes Libre Service. Le Client est sans document de voyage.</scenario>
+	<questions>
+		<question id="1">
+			<intitule>[Le client arrive vers vous paniqué.] "Pouvez-vous m'indiquez quel est mon vol, s'il vous plait ?" </intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Pouvez-vous me donner votre carte d'embarquement s'il vous plait ? "</reponse>
+	<reponse isTrue="1">"Quel est votre destination et votre nom ? Je vais effectuer une recherche via MARCO."</reponse>
+	<reponse isTrue="0">[En indiquant un comptoir de renseignement avec la paume de la main.] 
+"Veuillez vous rendre à un comptoir de renseignement de l'Astroport."</reponse>
+	<reponse isTrue="0">"Quel est votre numéro de billet ? Avec ce numéro, je vais pouvoir effectuer une recherche via MARCO".</reponse>
+	
+				</reponses> 
+		</question>
 
-    <quizz id="12">
-        <type>TEXTE</type>
-        <zone>1</zone>
-        <op>2</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+		<question id="2">
+			<intitule>"Pouvez- vous me fournir ma carte d'embarquement ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Cela m'est impossible, vous aller devoir l'imprimer sur une borne libre service."</reponse>
+	<reponse isTrue="1">Vous scannez le code barre du dossier Client MARCO via la Borne Libre Service en retournant l'Ipad face contre le lecteur.</reponse>
+	<reponse isTrue="0">"Cela m'est impossible, vous devez aller à un comptoir de dépose bagage de l'Astroport."</reponse>
+	<reponse isTrue="0">"Veuillez me suivre, nous allons à un point d'appui pour rééditer votre carte d'embarquement."</reponse>
+	
+				</reponses> 
+		</question>
 
-    <quizz id="13">
-        <type>TEXTE</type>
-        <zone>2</zone>
-        <op>2</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 3 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+	</questions>
+</quizz>
 
-    <quizz id="14">
-        <type>TEXTE</type>
-        <zone>3</zone>
-        <op>2</op>
-        <difficulte>2</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 4 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+<quizz id="3">
+	<type>TEXTE</type>
+	<difficulte>2</difficulte>
+	<zone>8</zone>
+	<op>4</op>
+<scenario>Dans l'Astroport, un client rencontre un ami plusieurs heures avant l'embarquement. </scenario>
+	<questions>
+		<question id="1">
+			<intitule>"Nous aimerions passez le voyage côte à côte, est ce possible ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="1">"Avez-vous vos cartes d'embarquement ? Je vais scanner l'une d'entre elles via MARCO afin d'acceder au plan cabine."</reponse>
+	<reponse isTrue="0">"Je vais demander au passager qui est assis à côté de vous s'il veut bien échanger sa place avec la votre".</reponse>
+	<reponse isTrue="0">"Vous pouvez aller à un comptoir de l'Astoport, ils sauront vous répondre."</reponse>
+	
+	
+				</reponses> 
+		</question>
 
-    <quizz id="15">
-        <type>TEXTE</type>
-        <zone>4</zone>
-        <op>2</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 5 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+		<question id="2">
+			<intitule>"Vous n'avez pas de siège libre à côté de vous.
+Existe -t'il un moyen d'être asis à côté ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="0">[Les deux Clients sont éligibles au surclassement] 
+"Vous avez la possibilité d'être surclassés, cela vous intéresse ? "</reponse>
+	<reponse isTrue="0">"Hélas, l'avion est plein, vous aller devoir voyager séparement."</reponse>
+	<reponse isTrue="0">"Vous pouvez aller à une borne libre service et y effectuer le changement de siège ."</reponse>
+	<reponse isTrue="1">"Je vais scanner la deuxième carte d'embarquement, et voir si un siège libre le jouxte."</reponse>
+	
+				</reponses> 
+		</question>
 
-    <quizz id="16">
-        <type>TEXTE</type>
-        <zone>5</zone>
-        <op>2</op>
-        <difficulte>2</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 6 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+		<question id="3">
+			<intitule>Oui, effectivement il y a un siège disponible. Que faites-vous ?</intitule> 
+				<reponses> 
+<reponse isTrue="1">Vous effectuez le changement de siège dans la seatmap de MARCO en cliquant sur le siège de destination</reponse>
+	<reponse isTrue="0">Vous les orientez vers un comptoir pour effectuer leur changement de siège</reponse>
+	<reponse isTrue="0">Vous les orientez vers une Borne Libre Service pour faire un changement de siège.</reponse>
+	<reponse isTrue="0">Vous leur dites que le personnel à bord se chargera de les asseoir l'un à coté de l'autre</reponse>
+	
+				</reponses> 
+		</question>
 
-    <quizz id="17">
-        <type>TEXTE</type>
-        <zone>6</zone>
-        <op>2</op>
-        <difficulte>1</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 7 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
-    <quizz id="18">
-        <type>TEXTE</type>
-        <zone>2</zone>
-        <op>2</op>
-        <difficulte>2</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 8 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+	</questions>
+</quizz>
 
-    <quizz id="19">
-        <type>TEXTE</type>
-        <zone>1</zone>
-        <op>2</op>
-        <difficulte>3</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
 
-    <quizz id="20">
-        <type>TEXTE</type>
-        <zone>7</zone>
-        <op>2</op>
-        <difficulte>3</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
 
-    <quizz id="21">
-        <type>TEXTE</type>
-        <zone>7</zone>
-        <op>2</op>
-        <difficulte>3</difficulte>
-        <scenario>
-            <![CDATA[
-        <b> 2 Vous :</b> Bonjour. Est-ce que je peux vous aider ? <br/>
-        <b>Client :</b> Bonjour. J'ai mon vol pour Rome à 10.45 aujourd'hui <br/>
-        <i>(Il est actuellement 10.00)</i><br/>
-        ]]>
-        </scenario>
-        <questions>
-            <question id="1">
-                <intitule>Que pouvez-vous proposer au client ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Ne rien proposer et lui souhaiter bon vol</reponse>
-                    <reponse isTrue="0">Ne rien proposer et s'en aller</reponse>
-                    <reponse isTrue="0">Lui proposer un abonnement FlyingBlue</reponse>
-                </reponses>
-            </question>
-            <question id="2">
-                <intitule>Est-il possible d'afficher les vols en retard grâce à MARCO ?</intitule>
-                <reponses>
-                    <reponse isTrue="1">Oui</reponse>
-                    <reponse isTrue="0">Non</reponse>
-                </reponses>
-            </question>
-        </questions>
-    </quizz>
+<quizz id="4">
+	<type>TEXTE</type>
+	<difficulte>1</difficulte>
+	<zone>8</zone>
+	<op>6</op>
+<scenario>Un client seul dans l'astroport semble s'ennuyer, il n'est apparement pas pressé. </scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour Monsieur, êtes vous adhérent Flying Blue ?
+Non."</intitule> 
+				<reponses> 
+<reponse isTrue="1">"Si vous le souhaitez, en scannant votre cab, je peux vous adhérer en un clic."</reponse>
+	<reponse isTrue="0">"Si vous le souhaitez, je peux contacter le service CRM pour qu'il vous enrôle à distance."</reponse>
+	<reponse isTrue="0">"Si vous le souhaitez, vous avez la possibilité de voyus enrôler directement via votre smartphone."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>Pouvez-vous me dire ou suis-je assis sur le vol ? </intitule> 
+				<reponses> 
+<reponse isTrue="1">"Via le plan cabine de MARCO, je peux vous montrer votre emplacement dans l'avion."</reponse>
+	<reponse isTrue="0">"Donner moi votre numéro de siège, je vais vous faire un rapide schéma de l'avion pour vous montrer ou se trouve votre siège."</reponse>
+	<reponse isTrue="0">"Allons nous renseigner à la borne libre service, il y a un plan cabine."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="3">
+					<intitule>"J'aimerais être assis à côté du hublot, est-ce possible ? "</intitule> 
+				<reponses> 
+<reponse isTrue="1">"J'ai la possibilité d'effectuer le changement de place depuis MARCO : en cliquant sur le siège."</reponse>
+	<reponse isTrue="0">"Vous pouvez aller à un comptoir de l'Astroport, ils pourront effectuer le changement de place."</reponse>
+	<reponse isTrue="0">"Vous pouvez aller à une borne libre service pour faire un changement de siège."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+
+
+<quizz id="5">
+			<type>TEXTE</type>
+			<difficulte>2</difficulte>
+			<zone>4</zone>
+			<op>5</op>
+		<scenario>Position Accompagnement Bornes Libre Service. L'activité est très calme.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, pouvez-vous me dire où se trouve ma porte d'embarquement ? "</intitule> 
+				<reponses> 
+<reponse isTrue="0">[Je souris au Client et montre du doigt la direction à prendre.]</reponse>
+	<reponse isTrue="1">"Puis-je voir votre carte d'embarquement, s'il vous plait ? "</reponse>
+	<reponse isTrue="0">"Vous devez vous rendre à un comptoir de renseignement de l'Astroport, ce dernier qui pourra répondre à votre question."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>[Le Client vous donne sa carte mais la porte d'embarquement n'y est pas indiquée, le Client a du s'enregistrer très tôt.]
+"Pouvez-vous me dire à quelle porte d'embarquement dois-je me rendre ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Monsieur, vous pouvez voir  que la porte d'embarquement est affichée dans le Terminal. Je vous conseille de suivre les panneaux de signalisation pour vous y rendre."</reponse>
+	<reponse isTrue="1">"Avez-vous votre carte d'embarquement ? Dans ce cas, je vais la scanner pour ouvrir votre dossier Client via MARCO afin de vérifier votre porte d'embarquement."</reponse>
+	<reponse isTrue="0">"Vous devez réediter votre carte d'embarquement."</reponse>
+	<reponse isTrue="0">"Veuillez me suivre, nous allons à un comptoir pour avoir accès à votre dossier."</reponse>
+	
+				</reponses> 
+		</question>
+
+		<question id="3">
+			<intitule>[La porte se situe dans un autre Terminal, loin de votre position, que répondez-vous ?]</intitule> 
+				<reponses> 
+<reponse isTrue="0">"Pour aller jusqu'à votre porte d'embarquement, vous allez devoir suivre les panneaux de signalisation. Votre porte se situe dans un autre Terminal."</reponse>
+	<reponse isTrue="1">"Regardez, j'ai accès au plan de l'Astroport via MARCO. Vous pouvez voir le chemin à prendre, où se trouve l'embarquement dans l'autre terminal. Je vous conseille de suivre les panneaux signalétique pour ne pas vous perdre."</reponse>
+	<reponse isTrue="0">"Je vous invite à vous rendre à un comptoir et de demander une carte détaillée de l'Astroport."</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="4">
+			<intitule>Le Client n'est pas Flying Blue, il reste peu de temps avant le départ du vol.</intitule> 
+				<reponses> 
+<reponse isTrue="0">"Je vous propose de vous enrôler via MARCO, c'est très rapide et vous devriez être à l'heure pour l'embarquement"
+</reponse>
+	<reponse isTrue="1">Vous ne prenez pas le risque de retarder encore plus le passager.Vous ne lui proposez pas d'adhérer au programme de fidélité.</reponse>
+	
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+
+
+<quizz id="6">
+			<type>TEXTE</type>
+			<difficulte>2</difficulte>
+			<zone>4</zone>
+			<op>6</op>
+		<scenario>Position Accompagnement Bornes Libre Service. L'activité est très calme.</scenario>
+	<questions>
+		<question id="1">
+			<intitule>"Bonjour, combien de miles puis-je gagner avec ce vol ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Veuillez vous rendre à un comptoir Service Client qui pourra répondre à votre question."</reponse>
+	<reponse isTrue="1">"Avez-vous votre carte d'embarquement ? Je vais la scanner afin d'ouvrir votre dossier dans MARCO pour vous répondre".</reponse>
+	
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="2">
+			<intitule>Où se trouve dans MARCO l'information du nombre de miles acquis lors d'un vol ?</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Dans le dossier passager.</reponse>
+	<reponse isTrue="0">Dans le dossier passager en cliquant sur l'icône Flying Blue.</reponse>
+	<reponse isTrue="0">Dans le dossier passager sous l'icône Flying Blue.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="3">
+			<intitule>"Je suis déjà adhérent Flying Blue, quel est mon solde de miles ?"</intitule> 
+				<reponses> 
+<reponse isTrue="0">Dans le dossier passager, en cliquant sur l'icône Flying Blue, on retrouve le solde de miles du Client.
+</reponse>
+	<reponse isTrue="1">Le solde de miles est visible sous l'icône Flying Blue du dossier passager.</reponse>
+	<reponse isTrue="0">MARCO n'a pas cette information, il faut renvoyer le Client vers un comptoir Service Client.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="4">
+			<intitule>Vous remarquez un point d'exclamation rouge dans l'icône Flying Blue. Que signifie-t-il ?</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Cela signifie que le compte Flying Blue du Client est expiré.</reponse>
+	<reponse isTrue="0">Cela signifie que le compte Flying Blue du Client est à découvert.</reponse>
+	<reponse isTrue="1">Cela signifie que le compte Flying Blue du Client n'est pas à jour.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="5">
+			<intitule>Vous cliquez sur l'icône Flying blue, le numéro de téléphone XX XX XX 14 22 est en rouge. Que faites-vous ?</intitule> 
+				<reponses> 
+<reponse isTrue="1">Vous demandez au client si son numéro de téléphone se termine toujours par les 4 derniers chiffres 14 22.
+</reponse>
+	<reponse isTrue="0">Rien de spécial dans ce cas, vous n'avez pas le temps.</reponse>
+	<reponse isTrue="0">Vous demandez au Client quels sont les chiffres manquants XX XX XX.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+
+
+
+<quizz id="7">
+			<type>TEXTE</type>
+			<difficulte>1</difficulte>
+			<zone>4</zone>
+			<op>6</op>
+		<scenario>Position Accompagnement Bornes Libre Service. L'activité est très calme.</scenario>
+	<questions>
+		<question id="1">
+			<intitule>"Je viens tout juste de m'enregistrer, savez-vous combien de miles je peux gagner avec ce vol ?"</intitule> 
+				<reponses> 
+<reponse isTrue="0">"Veuillez vous rendre à un comptoir Service Client qui pourra répondre à votre question."</reponse>
+	<reponse isTrue="1">"Avez-vous votre carte d'embarquement ? Je vais la scanner afin d'ouvrir votre dossier dans MARCO pour vous répondre".</reponse>
+	
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="2">
+			<intitule>Où se trouve dans MARCO l'information du nombre de miles acquis lors d'un vol ?</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Dans le dossier passager.</reponse>
+	<reponse isTrue="0">Dans le dossier passager en cliquant sur l'icône Flying Blue.</reponse>
+	<reponse isTrue="0">Dans le dossier passager sous l'icône Flying Blue.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="3">
+			<intitule>"Je suis intéressé par le programme de fidélité Flying Blue, comment puis-je y adhérer ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Veuillez me suivre, nous allons à un comptoir Client pour vous enrôler." </reponse>
+	<reponse isTrue="0">"Je vous conseille d'aller sur le site Air France."</reponse>
+	<reponse isTrue="1">Vous cliquez sur le bouton Flying Blue en bas du dossier passager et vous complétez le formulaire d'adhésion avec le Client.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+	</questions>
+</quizz>
+
+
+
+<quizz id="8">
+	<type>TEXTE</type>
+	<difficulte>2</difficulte>
+	<zone>4</zone>
+	<op>5</op>
+<scenario>Position Accompagnement Bornes Libre Service. L'activité est très calme.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, je suis arrivé avec beaucoup d'avance à l'Astroport. Je viens de m'enregistrer et je n'ai pas été informé du report de mon vol."</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Monsieur, excusez-nous de ce dérangement, je vais de suite remonté l'anomalie via le boutons 'Signaler una anomalie libre-Service'."</reponse>
+	<reponse isTrue="1">"Avez-vous votre carte d'embarquement ? Avec celle-ci, je vais pouvoir ouvrir votre dossier dans MARCO."</reponse>
+	
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>Vous remarquez dans le dossier passager qu'il y a un point d'exclamation dans le bouton Flying Blue.</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Cela vous intrigue, le téléphone du Client n'est peut-être pas à jour, ce qui expliquerait qu'il ne fût pas averti du report du vol. Vous cliquez sur le bouton Flying Blue pour vérifier.</reponse>
+	<reponse isTrue="0">Il n'y a aucun rapport, vous ne comprenez pas pourquoi le passager n'a pas été informé.</reponse>
+	
+	
+						</reponses> 
+		</question>
+
+			<question id="3">
+					<intitule>Vous expliquez au passager que son numéro de téléphone dans son dossier Flying Blue n'est peut-être pas à jour et qu'il n'a pas pu être joint pour cette raison.Son numéro de téléphone se termine par XX XX XX 14 22. Que faites-vous ?</intitule> 
+				<reponses> 
+<reponse isTrue="1">Vous demandez au client si son numéro de téléphone se termine toujours par les 4 derniers chiffres 14 22 ?</reponse>
+	<reponse isTrue="0">Rien de spécial dans ce cas, vous proposez au passager de mettre à jour son dossier sur Internet</reponse>
+	<reponse isTrue="0">Vous demandez au Client quels sont les chiffres manquants XX XX XX.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+	</questions>
+</quizz>
+
+
+
+<quizz id="9">
+	<type>TEXTE</type>
+	<difficulte>1</difficulte>
+	<zone>3</zone>
+	<op>5</op>
+<scenario>Position Accompagnement DBA. L'activité est très calme.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>[Un Client devant vous semble avoir des difficultés pour scanner sa carte d'embarquement.]</intitule> 
+				<reponses> 
+<reponse isTrue="1">"Bonjour Monsieur, puis-je vous aider ? "</reponse>
+	<reponse isTrue="0">Vous regardez l'écran de supervision DBA dans MARCO pour pouvoir ouvrir le dossier de ce Client directement pour comprendre son problème ?</reponse>
+	
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="2">
+			<intitule>"Je n'arrive pas à scanner ma carte d'embarquement."</intitule> 
+				<reponses> 
+	<reponse isTrue="1">"Pouvez-vous me donner votre carte ? Je vais essayer de la scanner moi-même."</reponse>
+	<reponse isTrue="0">"Vous devez vous rendre au comptoir d'assistance pour un dépose bagage classique."</reponse>
+	
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="3">
+			<intitule>Vous ne parvenez pas à scanner la carte d'embarquement, le code barre semble défectueux, sans doute une mauvaise impression. Que faites-vous ?</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous demandez au Client de se rendre à un comptoir d'assistance pour réimprimer sa carte d'embarquement.</reponse>
+	<reponse isTrue="0">Vous demandez au Client de se rendre aux bornes pour réimprimer sa carte d'embarquement.</reponse>
+	<reponse isTrue="0">Vous scannez la carte d'embarquement du client via MARCO.</reponse>
+	<reponse isTrue="1">Vous recherchez le client dans MARCO via la page de recherche en utilisant la destination et le nom.</reponse>
+	
+					</reponses> 
+		</question>
+
+			<question id="4">
+					<intitule>Vous avez ouvert le dossier du client dans MARCO, que faites-vous ?</intitule> 
+				<reponses> 
+<reponse isTrue="0">Je scanne le code barre du dossier Client dans MARCO sur une borne pour ré-imprimer la carte d'embarquement.</reponse>
+	<reponse isTrue="1">Je scanne le code barre du dossier client dans MARCO avec la douchette de la DBA.</reponse>
+	
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+<quizz id="10">
+			<type>TEXTE</type>
+			<difficulte>1</difficulte>
+			<zone>6</zone>
+			<op>6</op>
+		<scenario>Position Salon</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, puis-je entrer dans le Salon ? "</intitule> 
+				<reponses> 
+<reponse isTrue="0">"Puis-je voir votre CAB ?
+[ Vous regarder la CAB] 
+ Monsieur, vous pouvez rentrer."</reponse>
+	<reponse isTrue="1">"Puis-je voir votre carte d'embarquement ? Je vais la scanner via MARCO."</reponse>
+	<reponse isTrue="0">"Puis-je voir votre carte d'embarquement ? Je vais vous demander de patienter afin de vérifier sur Bienvenue."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+<quizz id="11">
+			<type>TEXTE</type>
+			<difficulte>3</difficulte>
+			<zone>6</zone>
+			<op>4</op>
+		<scenario>Position Salon </scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, pouvez-vous me dire quelle est ma porte d'embarquement ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Vous devez aller voir votre porte d'embarquement sur un panneau d'affichage de l'Astroport."</reponse>
+	<reponse isTrue="0">"Je vais aller sur votre dossier client pour voir votre porte d'embarquement via MARCO."</reponse>
+	<reponse isTrue="1">"Quel est votre numéro de vol ? Je vais pouvoir aller dans la liste des vols voir le détail vol."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+<quizz id="12">
+			<type>TEXTE</type>
+			<difficulte>4</difficulte>
+			<zone>5</zone>
+			<op>3</op>
+		<scenario>Position Embarquement. Deux collègues discutent.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, savez-vous combien y a-t'il de personnes handicapées dans le prochain vol ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous allez dans votre Marco et consultez les compteurs dans le tableau de bord du vol.</reponse>
+	<reponse isTrue="0">Vous allez dans votre Marco et vous consultez la liste des passagers</reponse>
+	<reponse isTrue="0">Vous allez dans votre Marco et vous consultez la liste des vols.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>"Savez-vous combien y-a-t'il d'UM dans le prochain vol ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous allez dans votre Marco et consultez les compteurs dans le tableau de bord du vol.</reponse>
+	<reponse isTrue="0">Vous allez dans votre Marco et vous  comptez le nombre d'UM sur la liste des PAX.</reponse>
+	<reponse isTrue="0">Vous allez dans votre Marco et vous consultez la liste des vols.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="3">
+					<intitule>"Savez-vous combien y-a-t'il de VIP dans le prochain vol ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous allez dans votre Marco et consultez les compteurs dans le tableau de bord du vol.</reponse>
+	<reponse isTrue="0">Vous allez dans votre Marco et vous  comptez le nombre de VIP sur la liste des PAX via la fonction recherche (loupe)</reponse>
+	<reponse isTrue="0">Vous allez dans votre Marco et vous consultez la liste des passagers pour compter les icônes VIP</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+
+<quizz id="13">
+			<type>TEXTE</type>
+			<difficulte>1</difficulte>
+			<zone>5</zone>
+			<op>3</op>
+		<scenario>Position Embarquement. Deux collègues discutent.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>Je veux savoir combien il y a d'UM sur mon vol</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Je vais dans MARCO sur le tableau de bord.</reponse>
+	<reponse isTrue="0">J'appelle le responsable Roger du vol pour lui poser la question</reponse>
+	
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>Je veux m'assurer auprès de mon collègue que l'UM est bien pris en charge à l'enregistrement</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Je vais dans MARCO dans contact vol et je pose la question sur le tchat du vol ou j'envoie un i-message à Roger le responsable du vol</reponse>
+	<reponse isTrue="0">Je quitte mon poste pour aller voir Roger le Responsable du vol et je reviens dans 10 minutes.</reponse>
+	
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="14">
+			<type>TEXTE</type>
+			<difficulte>2</difficulte>
+			<zone>4</zone>
+			<op>6</op>
+		<scenario>Position Accompagnement Bornes Libre Service. L'activité est calme.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, j'ai recu un mail concernant une offre de surclassement découverte."</intitule> 
+				<reponses> 
+<reponse isTrue="1">"Pouvez-vous me montrer ce mail ?"</reponse>
+	<reponse isTrue="0">"Avez -vous votre carte d'embarquement ? Je vais avoir besoin de la scanner afin d'ouvrir votre dossier et de vérifier votre éligibilité au Paid Upgrade."</reponse>
+	<reponse isTrue="0">"Je vous conseille d'aller à un comptoir de vente de l'Astroport."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>"Je suis intéressé par un siège en business, pouvez-vous m'en dire plus ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="1">"Regardez, voici les photos et les avantages de la cabine business que l'on peut voir sur MARCO."</reponse>
+	<reponse isTrue="0">"La cabine business est une cabine supérieure, de ce fait elle est mieux."</reponse>
+	<reponse isTrue="0">"Je vous conseille d'aller voir sur internet les avantages d'un vol en business."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="3">
+					<intitule>"Je souhaite bénéficier de l'offre et j'ai choisi mon siège."</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Veuillez me suivre sur un poste de travail à un comptoir pour que je puisse accéder à votre dossier."</reponse>
+	<reponse isTrue="1">Vous effectuez le paiement via MARCO en appuyant sur paiement pour le siège sélectionné et en utilisant le TPE.
+</reponse>
+	<reponse isTrue="0">"Vous devez vous rendre à une borne libre service pour choisir votre siège sur le plan cabine et effectuer le paiement."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+
+<quizz id="15">
+			<type>TEXTE</type>
+			<difficulte>1</difficulte>
+			<zone>6</zone>
+			<op>6</op>
+		<scenario>Position Salon</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, j'ai un billet éco et je souhaite entrer au salon en payant l'accés. Où puis-je payer ?"</intitule> 
+				<reponses> 
+<reponse isTrue="0">"Monsieur, vous devez aller  à un comptoir salon afin de procéder au paiement."
+</reponse>
+	<reponse isTrue="1">Vous scannez la carte d'embarquement du Client avec MARCO afin d'ouvrir son dossier et d'effectuer le paiement grâce à la fonction dédiée.
+</reponse>
+	<reponse isTrue="0">Vous scannez la carte d'embarquement du Client avec MARCO afin d'ouvrir son dossier puis vous effectuez le paiement depuis le comptoir du salon.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+<quizz id="16">
+			<type>TEXTE</type>
+			<difficulte>1</difficulte>
+			<zone>8</zone>
+			<op>4</op>
+		<scenario>Position accueil. Activité calme.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, j'ai plusieurs vols et j'aimerais savoir l'heure de départ de mon vol. Pouvez-vous m'aider ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Veuillez me suivre au panneau d'affichage de l'Astroport."</reponse>
+	<reponse isTrue="0">Vous utilisez l'application myspaceport pour lui répondre.</reponse>
+	<reponse isTrue="1">"Je vais avoir besoin de votre carte d'embarquement pour ouvrir votre dossier via MARCO et selectionner le vol suivant."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+<quizz id="17">
+			<type>TEXTE</type>
+			<difficulte>1</difficulte>
+			<zone>8</zone>
+			<op>4</op>
+		<scenario>Position accueil. Activité calme.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, nous aimerions passer le voyage côte à côte, est-ce possible ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Vous devez aller voir le plan cabine sur une borne libre service."</reponse>
+	<reponse isTrue="0">"Veuillez me suivre à un poste afin de voir la disponibilité du siège dans ALTEA."</reponse>
+	<reponse isTrue="1">"Depuis votre dossier client dans MARCO, j'ai accès à la seatmap et je peux voir la disponibilité du siège demandé."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>Le siège est libre et dans la même catégorie. Que faites-vous ?</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous utilisez la seatmap depuis le dossier client dans MARCO pour changer le siège du passager.</reponse>
+	<reponse isTrue="0">Vous lui conseillez de demander aux hotesses une fois à bord de l'avion pour changer de place.</reponse>
+	<reponse isTrue="0">Vous effectuez le changement de place sur ALTEA.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="18">
+			<type>TEXTE</type>
+			<difficulte>3</difficulte>
+			<zone>4</zone>
+			<op>3</op>
+		<scenario>Position Accompagnement Bornes Libre Service. L'activité est chargée, les vols sont survendus. </scenario>
+		<questions>
+		<question id="1">
+					<intitule>Vous recevez pour consigne de trouver 4 VDB, si possible une famille?</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous faites une annonce micro a l'attention des familles.</reponse>
+	<reponse isTrue="0">Vous proposez des bonbons aux enfants et leur demandez où sont leurs parents.</reponse>
+	<reponse isTrue="1">Vous consultez la liste PAX MARCO et vérifiez le nombre d'accompagnants dans le dossier client pour vous mettre en contact avec eux.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>Un collègue vous demande pourquoi est-ce qu'il y a un point d'exclamation sur le bouton bagages, que lui repondez-vous ? </intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Cela signifie que c'est un bagage suspect."</reponse>
+	<reponse isTrue="1">"Cela signifie que c'est un excédent bagage."</reponse>
+	<reponse isTrue="0">"Il s'agit d'une alerte, le bagage est perdu."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="3">
+					<intitule>Vous souhaitez connaitre le nombre exact de bagages enregistrés en soute, que faites-vous ? </intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous consultez l'écran MARCO TDB pour visualiser le nombre de pièces bagages.</reponse>
+	<reponse isTrue="0">Vous appellez le Chef d'escale pour avoir le nombre exact.</reponse>
+	<reponse isTrue="0">Vous consultez la liste des vols dans MARCO pour visualiser le nombre de pièces de bagages.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="4">
+					<intitule>Vous voulez connaitre le nombre exact de VIP sur le vol, que faites-vous ?</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous comptabilisez le nombre d'icone VIP sur la liste PAX.</reponse>
+	<reponse isTrue="1">Vous consultez l'écran MARCO TDB pour visualiser le nombre total de VIP sur le vol.</reponse>
+	
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+
+
+<quizz id="19">
+			<type>TEXTE</type>
+			<difficulte>2</difficulte>
+			<zone>4</zone>
+			<op>6</op>
+		<scenario>Position Accompagnement Bornes Libre Service. L'activité est normale. L'agent répond à une demande d'un client d'adhérer au programme de fidélité Flying Blue</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, j'aimerais adhérer au programme de fidélité Flying Blue, comment faire ? "</intitule> 
+				<reponses> 
+<reponse isTrue="0">"L'adhésion se fait uniquement sur le site de la compagnie."</reponse>
+	<reponse isTrue="0">"L'adhésion est uniquement proposé aux Clients effectuant au moins 10 trajets par an."</reponse>
+	<reponse isTrue="1">[Vous consultez depuis MARCO le dossier client.] 
+"Voulez-vous compléter votre bulletin d 'adhésion via MARCO ?"</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>Comment pouvez-vous retrouver le solde des miles acquis par le client ?</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous n'avez pas accès à cette information.</reponse>
+	<reponse isTrue="0">Vous proposez au client de se rendre à l'agence Vente Space Air à l'entrée de l'astroport.</reponse>
+	<reponse isTrue="1">Vous vous positionnez sur le dossier Client et cliquez sur l'icône FB pour accéder au solde.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="20">
+			<type>TEXTE</type>
+			<difficulte>4</difficulte>
+			<zone>5</zone>
+			<op>4</op>
+		<scenario>Position embarquement </scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, je m'appelle Mr Zirtuc et je voyage avec mon animal et j'aimerais vérifier qu'il est bien enregistré avec moi."</intitule> 
+				<reponses> 
+	<reponse isTrue="0">[Je scanne la carte d'embarquement du Client avec MARCO et vérifie la présence de la remarque repas spécial dans le dossier Client.]</reponse>
+	<reponse isTrue="0">[Je vais dans le détail des options du vol avec MARCO et dans l'onglet repas spécial je vérifie le nom du client.]</reponse>
+	<reponse isTrue="0">"J'appelle SERVAIR pour avoir la confirmation du repas spécial."</reponse>
+	<reponse isTrue="1">Dans la liste des PAX dans MARCO je clique ensuite sur la ligne de Mr Zirtuc , j'ouvre ainsi son dossier et je vérifie la présence de la remarque repas spécial.</reponse>
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>"J'ai aussi un repas spécial, pouvez-vous vérifier sa prise en compte ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Monsieur, les animaux voyagent obligatoirement en soute."</reponse>
+	<reponse isTrue="1">Je filtre la liste PAX dans MARCO pour n'afficher que les remarques liées aux animaux(et je regarde si Mr Zirtuc est dans cette liste)</reponse>
+	<reponse isTrue="0">"Puis-je voir votre carte d'embarquement ? "[Je vérifie que l'option animal en soute est affichée.]</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="21">
+			<type>TEXTE</type>
+			<difficulte>3</difficulte>
+			<zone>8</zone>
+			<op>6</op>
+		<scenario>Un client avec Jack Russel semble avoir besoin d'une information. I</scenario>
+	<questions>
+		<question id="1">
+			<intitule>"Bonjour, je souhaite voyager avec mon chien, comment faire ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="1">" Bien sûr, sa taille est règlementaire, pour aller vite et éviter de vous rendre au comptoir de vente,  je peux directement vous faire payer son entrée en cabine avec ce terminal de paiement "</reponse>
+	<reponse isTrue="0">"Je vais devoir appeler l'ATO."</reponse>
+	<reponse isTrue="0">"Veuillez me suivre sur un poste fixe."</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="2">
+			<intitule>"Je n'ai pas encore acheté mon billet de retour et j'aimerais le faire maintenant. J'ai besoin d'un vol Pluton - Mars. Puis-je le faire ici ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous reservez le vol via Marco.</reponse>
+	<reponse isTrue="1">Vous allez sur le site internet spaceport.</reponse>
+	<reponse isTrue="0">"Je vous propose d'acheter votre billet de retour un fois que vous serez installé dans l'avion via le CabinPAd."</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+	</questions>
+</quizz>
+
+
+<quizz id="22">
+	<type>TEXTE</type>
+	<difficulte>3</difficulte>
+	<zone>7</zone>
+	<op>3</op>
+<scenario>Je suis en vol arrivé et je dois accueillir les client qui ont des correspondances.</scenario>
+	<questions>
+		<question id="1">
+			<intitule>Comment voir la liste des vols en correspondance ?</intitule> 
+				<reponses> 
+<reponse isTrue="1">Vous vous positionnez via MARCO sur votre vol arrivée et vous arrivez sur la liste des vols en correspondances par défaut.</reponse>
+	<reponse isTrue="0">Vous consultez un poste fixe.</reponse>
+	<reponse isTrue="0">Vous consultez une bornes libre-services.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="2">
+			<intitule>Il y a un changement d'heure pour le vol à destination de Bételgeuse. Comment prévenir les passagers?</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous faites une annonce vocale.</reponse>
+	<reponse isTrue="1">[Je reste à la sortie et depuis le tableau de bord MARCO je clique sur le vol de correspondance, je selectionne l'ardoise et je choisis les noms des clients que je souhaite interpeller via cette ardoise.]</reponse>
+	<reponse isTrue="0">Vous imprimez des feuilles pour les montrer aux clients quand ils vont passer.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="3">
+					<intitule>"Bonjour, vous m'avez interpellé, y a-t'il un soucis avec avec mon vol?"</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous regardez dans le dossier Client s'il n'y a pas une alerte.</reponse>
+	<reponse isTrue="0">[Je mets une vidéo youtube pour écouter de la musique avec lui grâce à MARCO Pad.]</reponse>
+	<reponse isTrue="0">Vous lui souriez et lui indiquez un siège pour qu'il s'asseoie.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="4">
+					<intitule>[Je vois dans l'historique qu'il y a eu de nombreux retards avec les vols AF.]</intitule> 
+				<reponses> 
+	<reponse isTrue="1">"Monsieur, je vous propose en tant que geste commercial  pour excuser la compagnie de vous offrir un crédit de miles"</reponse>
+	<reponse isTrue="0">"Monsieur, une hotesse va patienter avec vous le temps du retard de votre vol."</reponse>
+	
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+
+
+<quizz id="23">
+			<type>TEXTE</type>
+			<difficulte>2</difficulte>
+			<zone>6</zone>
+			<op>6</op>
+		<scenario>Position salon</scenario>
+		<questions>
+		<question id="1">
+					<intitule>"Bonjour, je souhaiterais accéder au salon. Où puis-je payer ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Bonjour, je vais vous créer une entrée et je vais vous encaisser sur mon poste fixe."</reponse>
+	<reponse isTrue="1">Vous allez dans son dossier client en scannant sa cab avec MARCO et vous faites l'encaissement via le bouton d'action "paiement".</reponse>
+	<reponse isTrue="0">"Bonjour, connaissez vous le mot de passe secret pour entrer ?"</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>"Je suis en correspondance, savez-vous si mon bagage est bien arrivé ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="1">"Vous pourrez poser cette question au personnel au moment de l'embarquement."</reponse>
+	<reponse isTrue="0">"Je vais vérifier le statut de votre bagage dans votre dossier Client via MARCO."</reponse>
+	<reponse isTrue="0">"Je vais vérifier sur BOB le statut de votre bagage."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="3">
+					<intitule>"Je trouve la tasse Air France très jolie, où puis-je l'acheter ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="1">[Je lui donne le prix et grâce à mes talents de négociateur hors pair je le convainc de la prendre et fait l'encaissement via MARCO par le bouton d'action paiement puis articles AF.]</reponse>
+	<reponse isTrue="0">"Je vais appeler un collègue pourqu'il vous encaisse via la caisse du salon."</reponse>
+	<reponse isTrue="0">"Je vais le noter en tant que remarque dans MARCO afin que la tasse puisse être vendu à bord."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="24">
+			<type>TEXTE</type>
+			<difficulte>2</difficulte>
+			<zone>8</zone>
+			<op>4</op>
+		<scenario>Des clients chinois arrivent vers moi et me parlent en chinois.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>Que dois-je faire ? </intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous plissez les yeux en essayant de comprendre.</reponse>
+	<reponse isTrue="1">Vous allez sur la page outils de Marco et vous cliquez sur "Traducteur". MARCO reconnait la langue et  traduit ce qu'ils  disent.</reponse>
+	<reponse isTrue="0">Vous demandez à une collègue asiatique de s'occuper d'eux.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>" Quelle est notre porte d'embarquement ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="1">[via le traducteur de MARCO]
+"Puis-je voir votre carte d'embarquement ? Je vais la scanner via MARCO et voir dans le dossier Client où est votre porte d'embarquement."</reponse>
+	<reponse isTrue="0">"Je ne sais pas, vous devez regarder sur les écrans."</reponse>
+	<reponse isTrue="0">Vous allez sur un poste fixe pour regarder quelle est le numéro de porte.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="25">
+			<type>TEXTE</type>
+			<difficulte>3</difficulte>
+			<zone>5</zone>
+			<op>4</op>
+		<scenario>Position embarquement</scenario>
+			<questions>
+		<question id="1">
+					<intitule>[30 min avant le départ. Il manque un client, que faire ? ]</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous demandez aux autres clients si quelqu'un le connait.</reponse>
+	<reponse isTrue="0">Vous demandez à un collègue d'aller le chercher.</reponse>
+	<reponse isTrue="1">Vous allez dans le tableau de bord Pax manquant à l'embarquement dans MARCO et vous lui envoyez un sms.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>[20 min vavant le départ. Il manque toujours un client, que faire ?]</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous prévenez le pilote qu'il y a un problème.</reponse>
+	<reponse isTrue="0">Vous allez voir au salon si le client s'y trouve.</reponse>
+	<reponse isTrue="1">Vous faites un appel, renvoyez un sms et préparez le débarquement du bagage du passager qui est indiqué en vert à coté du nom du client dans MARCO.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="3">
+					<intitule>[Le client arrive enfin et semble tenter de m'expliquer son retard dans une langue que je ne comprends pas. Que faites vous ?]</intitule> 
+				<reponses> 
+<reponse isTrue="1">Vous utilisez le traducteur de la page outil de MARCO pour comprendre ce qu'il vous dit.</reponse>
+	<reponse isTrue="0">Vous attendez qu'il ait finis, vous souriez et le faites monter dans l'avion.</reponse>
+	<reponse isTrue="0">Vous demandez à vos collègues si quelqu'un comprend.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+	</questions>
+</quizz>
+
+
+<quizz id="26">
+	<type>TEXTE</type>
+	<difficulte>5</difficulte>
+	<zone>3</zone>
+	<op>5</op>
+<scenario>Position DBA</scenario>
+	<questions>
+		<question id="1">
+			<intitule>[Sur l'écran de supervision DBA, une DBA s'affiche en rouge. Que faites-vous ?]</intitule> 
+				<reponses> 
+	<reponse isTrue="0">[Je vais voir le client sur la DBA.]
+"Bonjour Monsieur, avez-vous besoin d'aide ?"</reponse>
+	<reponse isTrue="0">Vous demandez à un de vos collègues d'aller voir.</reponse>
+	<reponse isTrue="1">[J'acquite l'alerte dans MARCO, le dossier du Client s'ouvre, il est indiqué Mr Grzuc, et je m'approche de la DBA indiquée]"Bonjour Mr Grzuc, puis-je vous aider ?"</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="2">
+			<intitule>"Je ne parviens pas à scanner mon étiquette bagage, il y a un problème... ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="0">[En indiquant la direction d'un dépose bagage avec la paume de la main.] 
+"Vous devez vous rendre à un guichet de dépose bagage pour l'imprimer de nouveau."</reponse>
+	<reponse isTrue="1">Vous regardez le détail des bagages de Monsieur Grzuc pour mieux comprendre.</reponse>
+	<reponse isTrue="0">"Cela n'est certainement pas la bonne étiquette, il doit s'agir de l'étiquette du vol précédent"</reponse>
+	<reponse isTrue="0">"Cela ne marche jamais ces bornes, suivez-moi au comptoir"</reponse>
+	
+				</reponses> 
+		</question>
+
+		<question id="3">
+			<intitule>[Vous remarquez que Mr Grzuc a deux bagages, l'un déjà activé avec un poids et donc déjà injecté, et l'autre inactif. Cependant le bagage au pied de Monsieur Grzuc est celui déjà activé, il y a eu interversion lors de la dépose, Mr Grzuc a scanné le bagage à ses pieds au lieu de celui sur le tapis]</intitule> 
+				<reponses> 
+<reponse isTrue="0">"Veuillez m'accompagner au comptoir à coté, il y a eu une erreur, c'est compliqué, je vais rectifier votre dossier"</reponse>
+	<reponse isTrue="0">[via MARCO, vous activez l'étiquette du bagage inactif, car il a été injecté à la place du deuxième bagage de Mr Grzuc et vous modifier son poids arbitrairement avec 23kg] </reponse>
+	<reponse isTrue="0">[Via MARCO, vous activez l'étiquette du bagage inactif, car il a été injecté à la place du deuxième bagage de Mr Grzuc et vous désactivez l'étiquette du bagage actif, puisque il doit être à nouveau injecté à la DBA]</reponse>
+	<reponse isTrue="1">[via MARCO, vous activez l'étiquette du bagage inactif, car il a été injecté à la place du deuxième bagage de Mr Grzuc, vous modifier son poids avec le poids du bagage actif et vous désactivez l'étiquette du bagage actif, puisque il doit être à nouveau injecté et pesé à la DBA]</reponse>
+	<reponse isTrue="0">[via MARCO, vous activez l'étiquette du bagage inactif, car il a été injecté à la place du deuxième bagage de Mr Grzuc, vous modifier son poids avec 23kg  et vous désactivez l'étiquette du bagage actif, puisque il doit être à nouveau injecté et pesé à la DBA}</reponse>
+				</reponses> 
+		</question>
+
+	</questions>
+</quizz>
+
+
+<quizz id="27">
+	<type>TEXTE</type>
+	<difficulte>1</difficulte>
+	<zone>5</zone>
+	<op>3</op>
+<scenario>Je suis en porte d'embarquement, le vol Vénus-Pluton va décoller et des passagers sont en retard.</scenario>
+		<questions>
+		<question id="1">
+					<intitule>[Je souhaite avertir les agents que le vol va partir. Que fais-je?]</intitule> 
+				<reponses> 
+	<reponse isTrue="0">[Je fais une annonce sonore pour dire que le vol Vénus-Pluton va partir.]</reponse>
+	<reponse isTrue="1">[Je vais sur le tableau de bord de MARCO et je clique sur l'option SMS pour envoyer des SMS à tous les clients en retard.]</reponse>
+	<reponse isTrue="0">[Je vais voir les clients un par un pour savoir s'ils prennent le vol Vénus-Pluton.]</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="28">
+			<type>TEXTE</type>
+			<zone>3</zone>
+			<op>5</op>
+		<scenario>position DBA</scenario>
+		<questions>
+		<question id="1">
+					<intitule>Sur l'écran de supervision DBA, une DBA s'affiche en rouge, après s'être aquité de la tache. Que faites vous ?</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Bonjour, quelque chose ne fonctionne pas avec la DBA ?"</reponse>
+	<reponse isTrue="0">Vous cliquez sur la DBA en rouge pour ouvrir le dossier client dans MARCO.</reponse>
+	<reponse isTrue="1">Vous scannez la cab du client dans MARCO.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="2">
+			<intitule>Le Client a un excédent bagabe à payer. Que faire ? </intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous faites le paiement via le bouton bagage du dossier Client dans MARCO qui a un point d'exclamation rouge.</reponse>
+	<reponse isTrue="0">"Monsieur, veuillez me suivre à un comptoir pour effectuer le paiement."</reponse>
+	<reponse isTrue="0">[En indiquant une BLS du doigt]
+"Veuillez vous rendre à une BLS."</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="3">
+			<intitule>Le client part à Rio et n'est donc pas en excédent selon la législation du Brésil. Que faire ?
+</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous utilisez Marco pour faire un waive total de l'excédent.</reponse>
+	<reponse isTrue="0">Vous débloquez la DBA via votre Marco et laissez le Client ârtir.</reponse>
+	<reponse isTrue="0">"Veuillez vous rendre à un comptoir bagage, c'est le seul endroit disponible pour débloquer votre situation."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+
+<quizz id="29">
+			<type>TEXTE</type>
+			<zone>8</zone>
+			<op>4</op>
+		<scenario>Votre vol départ est peut être annulé. </scenario>
+		<questions>
+		<question id="1">
+					<intitule>Comment en être sûr ?</intitule> 
+				<reponses> 
+	<reponse isTrue="1">Vous allez sur la liste des vols au départ. Vous cliquez sur la loupe et vous tapez le numéro duvol. Dans information il est écrit "Annulé".</reponse>
+	<reponse isTrue="0">Vous appelez votre collègue en backoffice qui travaille sur ALTEA.</reponse>
+	<reponse isTrue="0">Vous faites une annonce pour savoir si quelqu'un sait si le vol est annulé.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>Un des clients de votre vol arrive tout étonné et furieux. Que faire?</intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous lui ofrez un Mojito.</reponse>
+	<reponse isTrue="1">Vous faites un geste commercail au nom de la compagnie : un bon de 50€.</reponse>
+	<reponse isTrue="0">"Monsieur, je vous présente mes excuses au nom de la compagnie. Nous vous proposons un billet d'avion en première classe à vie."</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="30">
+			<type>TEXTE</type>
+			<zone>7</zone>
+			<op>3</op>
+		<scenario>Position Arrivée Bagage</scenario>
+		<questions>
+		<question id="1">
+					<intitule>Comment savoir combien de bagage y a-t'il à l'arrivé sur le vol ? </intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous allez sur un poste fixe pour consulter AlteaDC.</reponse>
+	<reponse isTrue="0">Vous allez dans le tableau de bord arrivée.</reponse>
+	<reponse isTrue="1">Vous allez dans le tableau de bord bagage.</reponse>
+	
+	
+					</reponses> 
+		</question>
+
+			<question id="2">
+					<intitule>[Un Client vous aborde.]
+" Bonjour, sur quel tapis je pourrais récupérer mes bagages ? "</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Bonjour Monsieur, Veuillez me suivre jusqu'à un poste fixe et nous allons regarder ensemble."</reponse>
+	<reponse isTrue="1">Vous allez dans le tableau de bord arrivée.</reponse>
+	<reponse isTrue="0">Vous aller dans le tableau de bord bagage.</reponse>
+	<reponse isTrue="0">Vous allez sur le dossier du client. </reponse>
+	
+					</reponses> 
+		</question>
+
+		</questions>
+</quizz>
+
+
+<quizz id="31">
+			<type>TEXTE</type>
+			<zone>8</zone>
+			<op>1</op>
+		<scenario>Sécurisation de l'Ipad</scenario>
+	<questions>
+		<question id="1">
+			<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule> 
+				<reponses> 
+	<reponse isTrue="0">Vous allez dans l'application Marco, rubrique Outils.</reponse>
+	<reponse isTrue="1">Vous allez dans Règlages et code.</reponse>
+	<reponse isTrue="0">Vous allez dans Règlages et Général.</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+	</questions>
+</quizz>
+
+
+<quizz id="32">
+	<type>TEXTE</type>
+	<zone>8</zone>
+	<op>3</op>
+<scenario>Un agent qui vient tout juste d'être équipé d'un MARCO discute avec un autre agent qui en possède un depuis lontemps.</scenario>
+	<questions>
+		<question id="1">
+			<intitule>"Comment allumes-tu ton iPad ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="1">"Il faut que tu appuyes lontemps sur le bouton en haut à droite."</reponse>
+	<reponse isTrue="0">"Tu dois t'adresser à l'Ipad en disant : Siri allume toi."</reponse>
+	<reponse isTrue="0">"Il faut que tu le secoues."</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="2">
+			<intitule>"Comment fait tu pour accéder à l'application Marco ?"</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Tu dois appeler le Help desk et ils te guideront."</reponse>
+	<reponse isTrue="1">"A l'accueil de l'ipad, tu appuis sur le carré blanc où est écrit "MARCO PRD"".</reponse>
+	<reponse isTrue="0">"Dans la barre de recherche de l'ipad tu écris MARCO et l'application apparait."</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="3">
+			<intitule>"J'ai vu une anomalie, comment faire une copie écran de l'anomalie?"</intitule> 
+				<reponses> 
+	<reponse isTrue="0">"Tu dois appeller le help desk."</reponse>
+	<reponse isTrue="0">"Tu dois appuyer sur le bouton rond en bas de l'écran."</reponse>
+	<reponse isTrue="1">"Tu dois appuyer lontemps et simultanément sur le bouton rond en bas de l'écran et sur le bouton en haut à droite de l'écran."</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="4">
+			<intitule>"Sais-tu comment transmettre l'anomalie à l'équipe projet Marco ?" </intitule> 
+				<reponses> 
+	<reponse isTrue="1">"Depuis la page Outils de MARCO tu appuis sur l'enveloppe "Vos suggestions!" et tu colles ta copie-écran dans le corps du texte et tu décris ce qui ne vas pas."</reponse>
+	<reponse isTrue="0">"Tu dois appeller le helpdesk."</reponse>
+	<reponse isTrue="0">"Depuis la page Outils de MARCO tu dois changer de profil."</reponse>
+	
+	
+				</reponses> 
+		</question>
+
+		<question id="5">
+			<intitule>"Un membre de l'équipe projet MARCO m'a appelé pour éclaircir le problème que j'ai détecté. Il m'a demandé quelle est la version de mon application. Sais-tu où est-ce que je  peux trouver cette information? "</intitule> 
+				<reponses> 
+	<reponse isTrue="1">"En bas de la page Outils de MARCO le numéro de version est indiqué après "Version: XXXX""</reponse>
+	<reponse isTrue="0">"Tu dois demander à Siri."</reponse>
+	<reponse isTrue="0">"C'est impossible de connaitre la version."</reponse>
+				</reponses> 
+		</question>
+
+		<question id="6">
+			<intitule>"Un membre de l'équipe projet MARCO m'a appelé pour éclaircir le problème que j'ai détecté. Il m'a demandé quel est mon certificat. Sais-tu où est ce que je peux trouver cette information? "</intitule> 
+				<reponses> 
+	<reponse isTrue="1">"Depuis la page Outils de MARCO, tappe trois fois avec deux doigts dans une zone blanche. User group indiquera la nature du certificat."</reponse>
+	<reponse isTrue="0">"C'est impossible de connaitre la version."</reponse>
+	<reponse isTrue="0">"Il faut que tu appeles le help desk."</reponse>
+				</reponses> 
+		</question>
+
+	</questions>
+</quizz>
+	<quizz id="33">
+		<type>TEXTE</type>
+		<zone>1</zone>
+		<op>1</op>
+		<scenario>Quizz de test.</scenario>
+		<questions>
+			<question id="1">
+				<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule>
+				<reponses>
+					<reponse isTrue="0">Vous allez dans l'application Marco, rubrique Outils.</reponse>
+					<reponse isTrue="1">Vous allez dans Règlages et code.</reponse>
+					<reponse isTrue="0">Vous allez dans Règlages et Général.</reponse>
+
+
+				</reponses>
+			</question>
+
+		</questions>
+	</quizz>
+
+	<quizz id="34">
+		<type>TEXTE</type>
+		<zone>1</zone>
+		<op>1</op>
+		<scenario>Quizz de test.</scenario>
+		<questions>
+			<question id="1">
+				<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule>
+				<reponses>
+					<reponse isTrue="0">Vous allez dans l'application Marco, rubrique Outils.</reponse>
+					<reponse isTrue="1">Vous allez dans Règlages et code.</reponse>
+					<reponse isTrue="0">Vous allez dans Règlages et Général.</reponse>
+
+
+				</reponses>
+			</question>
+
+		</questions>
+	</quizz>
+	<quizz id="35">
+		<type>TEXTE</type>
+		<zone>2</zone>
+		<op>1</op>
+		<scenario>Quizz de test.</scenario>
+		<questions>
+			<question id="1">
+				<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule>
+				<reponses>
+					<reponse isTrue="0">Vous allez dans l'application Marco, rubrique Outils.</reponse>
+					<reponse isTrue="1">Vous allez dans Règlages et code.</reponse>
+					<reponse isTrue="0">Vous allez dans Règlages et Général.</reponse>
+
+
+				</reponses>
+			</question>
+
+		</questions>
+	</quizz>
+
+	<quizz id="36">
+		<type>TEXTE</type>
+		<zone>2</zone>
+		<op>1</op>
+		<scenario>Quizz de test.</scenario>
+		<questions>
+			<question id="1">
+				<intitule>Vous souhaitez changer le code de votre Ipad. Comment faire? </intitule>
+				<reponses>
+					<reponse isTrue="0">Vous allez dans l'application Marco, rubrique Outils.</reponse>
+					<reponse isTrue="1">Vous allez dans Règlages et code.</reponse>
+					<reponse isTrue="0">Vous allez dans Règlages et Général.</reponse>
+
+
+				</reponses>
+			</question>
+
+		</questions>
+	</quizz>
+
 </data>
-

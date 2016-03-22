@@ -718,6 +718,7 @@ var mainState = {
             $('.popup_holder_vide').append("<div id='introduction'>" +
                 "<h2>Introduction</h2>"+
                 "<br>" +
+                "<img src='res/img/intro/10_boss_talking_menu.png' style='height: 200px'/>" +
                 "<p><b>Chef d'escale</b>: Très bien ! J’espère que les explications de vos collègues étaient claires. Pour retourner au menu principal, touchez l’icône en haut à droite de votre écran, celle en forme de maison, et cliquez sur « Retour Menu Principal ». Depuis le menu principal, vous avez accès à votre profil et aux aides. <br></p>"+
                 "<input type='button' id='button_intro_1' class='button_suivant'/>"+
                 "</div>");
@@ -728,9 +729,10 @@ var mainState = {
                 $('.popup_holder_vide').append("<div id='introduction'>" +
                     "<h2>Introduction</h2>"+
                     "<br>" +
+                    "<img src='res/img/intro/2-3-11_boss_talking_client_collegue.png' style='height: 160px'/>" +
                     "<p><b>Chef d'escale</b> : Je vous laisse maintenant découvrir cet astroport qui est nouveau pour vous. Mais n’oubliez pas votre mission principale : vous êtes ici pour aider les clients.<br></p>"+
                     "<input type='button' id='button_intro_2' class='button_accepte'/>"+
-                    "<p><i>(En acceptant, vous finissez la phase d'introduction et le jeu va redémarrer. Vous pouvez rejouer l'introduction à tout moment en y accèdant depuis le menu Aides de POLO.)</i><br></p>"+
+                    "<p style='font-size: 20px'><i>(En acceptant, vous finissez la phase d'introduction et le jeu va redémarrer. Vous pouvez rejouer l'introduction à tout moment en y accèdant depuis le menu Aides de POLO.)</i><br></p>"+
                 "</div>");
 
                 $('#button_intro_2').click(function() {
@@ -754,6 +756,7 @@ var mainState = {
             $('.popup_holder_vide').append("<div id='introduction'>" +
                 "<h2>Introduction</h2>"+
                 "<br>" +
+                "<img src='res/img/intro/1_boss_talking.png' style='height: 200px'/>" +
                 "<p><b>Chef d'escale</b> : Bonjour, bienvenue parmi l’équipe SpaceFrance, j’espère que vous allez passer de très bons moments avec nous dans cet astroport.<br></p>"+
                 "<input type='button' id='button_intro_1' class='button_suivant'/>"+
                 "</div>");
@@ -764,7 +767,8 @@ var mainState = {
                 $('.popup_holder_vide').append("<div id='introduction'>" +
                     "<h2>Introduction</h2>"+
                     "<br>" +
-                    "<p><b>Chef d'escale</b> : Votre mission, si vous l’acceptez, est d’aider les clients qui ont besoin de vous en répondant à leurs questions. Cela vous convient-il ?<br></p>"+
+                    "<img src='res/img/intro/2-3-11_boss_talking_client_collegue.png' style='height: 200px'/>" +
+                    "<p><b>Chef d'escale</b> : Votre mission, si vous l’acceptez, est d’aider les clients (équipés d'une valise) en répondant à leurs questions.Il vous faudra aussi répondre à vos collègues, agents SpaceFrance, munis de leurs iPads ! Êtes vous d'accord avec cela ?<br></p>"+
                     "<input type='button' id='button_intro_2' class='button_accepte'/>"+
                     "</div>");
 
@@ -774,6 +778,7 @@ var mainState = {
                     $('.popup_holder_vide').append("<div id='introduction'>" +
                         "<h2>Introduction</h2>"+
                         "<br>" +
+                        "<img src='res/img/intro/2-3-11_boss_talking_client_collegue.png' style='height: 200px'/>" +
                         "<p><b>Chef d'escale</b> : Les clients présents dans l'astroport ont tous besoin d'aide ou de renseignement. N’hésitez pas à aller les voir !<br></p>"+
                         "<input type='button' id='button_intro_3' class='button_accepte'/>"+
                         "</div>");
@@ -784,6 +789,7 @@ var mainState = {
                         $('.popup_holder_vide').append("<div id='introduction'>" +
                             "<h2>Introduction</h2>"+
                             "<br>" +
+                            "<img src='res/img/intro/4_boss_talking_collegue_bleu.png' style='height: 200px'/>" +
                             "<p><b>Chef d'escale</b> : Maintenant que vous connaissez les principes de base, je vous laisse aller voir votre collègue afin qu’il vous explique comment travailler avec MARCO.<br></p>"+
                             "<input type='button' id='button_intro_4' class='button_suivant'/>"+
                             "</div>");
@@ -794,6 +800,7 @@ var mainState = {
                             $('.popup_holder_vide').append("<div id='introduction'>" +
                                 "<h2>Introduction</h2>"+
                                 "<br>" +
+                                "<img src='res/img/intro/5_boss_talking_joystick.png' style='height: 200px'/>" +
                                 "<p><b>Chef d'escale</b> : Afin d’interagir avec quelqu’un, il suffit de se déplacer vers lui. Un joystick virtuel apparaît lorsque vous touchez l’écran.<br></p>"+
                                 "<input type='button' id='button_intro_5' class='button_suivant'/>"+
                                 "</div>");
@@ -821,6 +828,7 @@ var mainState = {
             $('.popup_holder_vide').append("<div id='introduction'>" +
                 "<h2>Introduction</h2>"+
                 "<br>" +
+                "<img src='res/img/intro/6_collegue_bleu_aides.png' style='height: 200px'/>" +
                 "<p><b>Agent</b> : Bonjour ! Bienvenue parmi nous ! Je vois que vous arrivez déjà bien à vous déplacer. Afin d’en savoir plus sur le fonctionnement de POLO, n’hésitez pas à consulter l’aide disponible sur le menu principal. Et surtout, testez vos connaissances acquises en vous déplaçant dans l’astroport.<br></p>"+
                 "<input type='button' id='button_intro_1' class='button_suivant'/>"+
                 "</div>");
@@ -831,6 +839,7 @@ var mainState = {
                     $('.popup_holder_vide').append("<div id='introduction'>" +
                         "<h2>Introduction</h2>"+
                         "<br>" +
+                        "<img src='res/img/intro/7_collegue_bleu_collegue_vert.png' style='height: 200px'/>" +
                         "<p><b>Agent</b> : Je crois que mon collègue voulait vous apprendre à répondre à un quizz. Allez le voir dès que vous avez un peu de temps.<br></p>"+
                         "<input type='button' id='button_intro_2' class='button_accepte'/>"+
                         "</div>");
@@ -854,6 +863,7 @@ var mainState = {
             $('.popup_holder_vide').append("<div id='introduction'>" +
                 "<h2>Introduction</h2>"+
                 "<br>" +
+                "<img src='res/img/intro/9_collegue_vert_talking_boss.png' style='height: 200px'/>" +
                 "<p><b>Agent</b> : Je crois que le patron voulait vous dire un dernier mot avant de partir. Retournez le voir.<br></p>"+
                 "<input type='button' id='button_intro_2' class='button_accepte'/>"+
                 "</div>");
@@ -877,6 +887,7 @@ var mainState = {
             $('.popup_holder_vide').append("<div id='introduction'>" +
                 "<h2>Introduction</h2>"+
                 "<br>" +
+                "<img src='res/img/intro/8_collegue_vert_quizz.png' style='height: 200px'/>" +
                 "<p><b>Agent</b> :Les quizz vous dites ? Ah oui ! Vous allez devoir répondre à plusieurs questions et choisir la meilleure réponse parmi celles proposées. Une fois vos réponses validées, vous ne pourrez plus les modifier. Je vous laisse essayer ?<br> Revenez me voir ensuite !<br></p>"+
                 "<input type='button' id='button_intro_1' class='button_suivant'/>"+
                 "</div>");
