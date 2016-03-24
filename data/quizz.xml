@@ -2,8 +2,8 @@
 	<quizz id="0">
 		<type>TEXTE</type>
 		<difficulte>1</difficulte>
-		<zone>1</zone>
-		<op>1</op>
+		<zone>0</zone>
+		<op>0</op>
 		<scenario>Ceci est la scénario d'introduction. C'est parti ?</scenario>
 		<questions>
 			<question id="1">
@@ -11,7 +11,6 @@
 				<reponses>
 					<reponse isTrue="1">Oui !</reponse>
 					<reponse isTrue="0">Non...</reponse>
-
 				</reponses>
 			</question>
 		</questions>
