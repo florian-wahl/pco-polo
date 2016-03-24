@@ -29,8 +29,8 @@ function reprendre () {
  Si ce nombre est négatif, le score va être diminué
  */
 function addToScore(scoreToAdd) {
-
     //Protection avant l'ajout du score
+    console.log(scoreToAdd);
     if(scoreToAdd < 1000){
         ajaxRequest(null, "addToScore", scoreToAdd);
 
@@ -43,10 +43,25 @@ function addToScore(scoreToAdd) {
             ajaxRequest(null, "addToJeton", 1);
         }
     }
+}
 
-
-
-
+function addToScoreTestOccurence(scoreToAdd){
+    console.log("Occurence " + listeQuizzInfos[last_quizz_id][2]);
+    if(listeQuizzInfos[last_quizz_id][2] == 0){
+        //C'est la première fois
+        addToScore(scoreToAdd);
+    }
+    else if(listeQuizzInfos[last_quizz_id][2] == 1){
+        //Deuxième fois
+        addToScore(parseInt(scoreToAdd/2));
+    }
+    else if(listeQuizzInfos[last_quizz_id][2] == 2){
+        //Troisième fois
+        addToScore(parseInt(scoreToAdd/4));
+    }
+    else{
+        //On ajoute plus le score
+    }
 }
 
 /*
