@@ -301,6 +301,26 @@ function xmlCallbackByZone(xml, id_zone){
 
     //On détermine quel quizz sélectionner
     // --> Occurence la plus faible
+
+    if(listeQuizzZoneNonValide.length == 0){
+        //Dans ce cas de figure, on a finit tous les quizz de la zone sans pour autant avoir finis le niveau
+
+        //On refait la même fonction avec l'id de l'autre zone du niveau
+        if(id_zone == 3){
+            xmlCallbackByZone(xml, 4);
+        }
+        if(id_zone == 4){
+            xmlCallbackByZone(xml, 3);
+        }
+        if(id_zone == 5){
+            xmlCallbackByZone(xml, 7);
+        }
+        if(id_zone == 7){
+            xmlCallbackByZone(xml, 5);
+        }
+        return;
+    }
+
     var min_occ = listeQuizzZoneNonValide[0][3];
     for(i = 0; i < listeQuizzZoneNonValide.length; i++){
         if(listeQuizzZoneNonValide[0][3] < min_occ){
