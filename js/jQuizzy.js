@@ -188,7 +188,7 @@
 
             score = roundReloaded(trueCount * 100, 2);
 
-            resultSet = '<h2 class="qTitle">' + judgeSkills(trueCount/questionLength*100) + '<br/> Votre score : ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div><br><input type="button" class="button_valider" onclick="reprendre()" />';
+            resultSet = '<h2 class="qTitle">' + judgeSkills(trueCount/questionLength*100) + '<br/> Votre score : ' + score + '</h2>' + shareButton + '<div class="jquizzy-clear"></div>' + resultSet + '<div class="jquizzy-clear"></div><br><input type="button" id="button_valider_quizz" class="button_valider" onclick="onclick_button_valider_quizz()"/>';
 
             //Ajout du score dans la bdd
             addToScoreTestOccurence(score);
@@ -198,7 +198,6 @@
 
             //Mise à jour des statistiques associées
             updateStatsQuizz(trueCount, questionLength);
-
 
             //on nettoie le quizz
             config.questions = null;
@@ -221,3 +220,13 @@
         });
     };
 })(jQuery);
+
+function onclick_button_valider_quizz(){
+    if(last_quizz_id == 0){
+        //Pour l'introduction
+        mainState.gestionIntroduction(player, agent2PNJ, 2);
+    }
+    else {
+        reprendre();
+    }
+}
