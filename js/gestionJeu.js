@@ -1,3 +1,6 @@
+var NOMBRE_BADGE_MAX = 27;
+var listeBadges = [];
+
 function reprendre () {
     overlay.style.display='none';
     popup_arcade.style.display='none';

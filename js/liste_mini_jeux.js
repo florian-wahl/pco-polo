@@ -2,22 +2,10 @@ $(document).ready(function() {
 
     var liste_mini_jeux = $(".element_liste");
     var nb_jetons = 0;
+    var actif;
     getJetons();
+    ajaxRequest(gestionMiniJeux, "getBadges", null);
 
-    /*GESTION DES MINI-JEUX*/
-    liste_mini_jeux.each(function() {
-        /*On teste quelles sont les jeux débloqués*/
-        if (this.id == 'mini_jeux_1' || this.id == 'mini_jeux_2' || this.id == 'mini_jeux_3' || this.id == 'mini_jeux_4' || this.id == 'mini_jeux_5'|| this.id == 'mini_jeux_6') {
-            var actif = true;
-        }
-        if(!actif){
-            $(this).attr('disabled','disabled').css({
-                opacity: '0.3',
-                color: 'grey'
-            });
-
-        }
-    });
 
     /*GESTION DES BOUTONS JOUER*/
     $(".button_popup_jouer").click(function (event) {
@@ -90,4 +78,57 @@ $(document).ready(function() {
     function setJetons(jt){;
         nb_jetons = jt;
     }
+
+    function gestionMiniJeux(liste){
+
+        var tabBadges = liste.split("/");
+        var i = 0;
+        while (i < NOMBRE_BADGE_MAX) {// 11 = nombre de badges au total
+            listeBadges[i] = 0;
+            i++;
+        }
+        var j = 0;
+        while (j < tabBadges.length - 1) {
+            //tabBadges.length-1 car le dernier est null
+            listeBadges[parseInt(tabBadges[j])] = 1;
+            j++;
+        }
+
+
+        /*GESTION DES MINI-JEUX*/
+        liste_mini_jeux.each(function() {
+            /*On teste quelles sont les jeux débloqués*/
+
+            if(this.id == 'mini_jeux_1' && listeBadges[1] == 1){
+                actif = true;
+            }
+            else if(this.id == 'mini_jeux_2' && listeBadges[2] == 1){
+                actif = true;
+            }
+            else if(this.id == 'mini_jeux_3' && listeBadges[3] == 1){
+                actif = true;
+            }
+            else if(this.id == 'mini_jeux_4' && listeBadges[4] == 1){
+                actif = true;
+            }
+            else if(this.id == 'mini_jeux_5' && listeBadges[5] == 1){
+                actif = true;
+            }
+            else if(this.id == 'mini_jeux_6' && listeBadges[6] == 1){
+                actif = true;
+            }
+            else {
+                actif = false;
+            }
+
+            if(!actif){
+                $(this).attr('disabled','disabled').css({
+                    opacity: '0.3'
+                });
+
+            }
+        });
+    }
 });
+
+

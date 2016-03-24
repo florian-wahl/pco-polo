@@ -35,8 +35,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             </tr>
             <tr>
                 <td><input type="button" id="mini_jeux_4" class="element_liste"  onclick="location.href='#openModal_4'"></td>
-                <td><input type="button" id="mini_jeux_5" class="element_liste" value="Mahjong" onclick="location.href='#openModal_5'"></td>
-                <td><input type="button" id="mini_jeux_6" class="element_liste" value="Bobble" onclick="location.href='#openModal_6'"></td>
+                <td><input type="button" id="mini_jeux_5" class="element_liste"  onclick="location.href='#openModal_5'"></td>
+                <td><input type="button" id="mini_jeux_6" class="element_liste"  onclick="location.href='#openModal_6'"></td>
             </tr>
         </table>
 
@@ -48,7 +48,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_1" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/Floppy_Bird_icon.png" id="img_popup_left"/>
+            <img src="res/img/mini-jeux/Floppy_Plane_icon.png" id="img_popup_left"/>
             <h2>Floppy Plane</h2>
             <p>Vous dirigez un avion : touchez l’écran et l’avion saute ! <br>Attention aux obstacles ! Une collision ou une chute vous feront perdre la partie.</p>
             <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 40px; vertical-align: text-bottom;"/></p>
@@ -60,7 +60,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_2" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/labyrinth_icon.png" width="250px" id="img_popup_left"/>
+            <img src="res/img/mini-jeux/Labyrinth_icon.png" id="img_popup_left"/>
             <h2>Labyrinth Craze</h2>
             <p>Guidez votre balle à destination en inclinant l'iPad! <br> Mais faites attention à ne pas la faire tomber.</p>
             <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
@@ -84,7 +84,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_4" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="mini-jeux/breakouts/resources/logo.png" id="img_popup_left"/>
+            <img src="res/img/mini-jeux/Breakouts_icon.png" id="img_popup_left"/>
             <h2>Breakouts</h2>
             <p>Détruisez les rectangles colorés en faisant rebondir la balle sur votre barre!</p>
             <p>Attention à ne pas la laisser tomber!</p>
@@ -96,10 +96,10 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_5" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <img src="res/img/mini-jeux/mahjong-logo.png" id="img_popup_left"/>
+            <img src="res/img/mini-jeux/Mahjong_icon.png" id="img_popup_left"/>
             <h2>Green Mahjong</h2>
             <p>Associez les symboles egaux et videz le plateau du niveau!</p>
-            <p>Seules les tuiles "libres", c'est-à-dire pouvant glisser aux extrémités gauche et droite du plateau peuvent être utilisées pour former des paires.</p>
+            <p>Seules les tuiles "libres", c'est-à-dire pouvant glisser aux extrémités gauche et droite du plateau, peuvent être utilisées pour former des paires.</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_5" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
@@ -108,9 +108,9 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
     <div id="openModal_6" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
-                <img src="res/img/mini-jeux/mahjong-logo.png" id="img_popup_left"/>
-                <h2>bobble</h2>
-                <p>Lancez les sphères colorées vers celles du mêmes couleur! Si vous mettez trois ils vonts se detruire</p>
+                <img src="res/img/mini-jeux/Bobble_icon.png" id="img_popup_left"/>
+                <h2>Bobble</h2>
+                <p>Lancez les sphères colorées vers celles qui sont de la même couleur! Si trois sphères de la même couleur se touchent, elles disparaîtront ! L'objectif est de ne pas atteindre la ligne inférieure de la zone de jeu.</p>
                 <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
                 <input type="button" id="popup_button_jouer_6" class="button_popup_jouer" />
                 <p class="errJetons">Vous n'avez pas assez de jetons.</p>
@@ -124,6 +124,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         LA GESTION DES JETONS
     -->
     <script src="js/liste_mini_jeux.js"></script>
+    <script src="js/gestionJeu.js"></script>
 
     <?php
 }else{

@@ -16,8 +16,6 @@ var MAX_SPEED_PLAYER = 300;
 
 var SCORE_POUR_NOUVEAU_JETON = 200;
 
-var NOMBRE_BADGE_MAX = 27;
-
 /*
  DECLARATION DES VARIABLES
  */
@@ -52,7 +50,6 @@ var score_cumule = 0;
 var nb_interaction_client = 0;
 var niveau_actuel = 0;
 
-var listeBadges = [];
 var clients = [];
 var lastClientSprite;
 

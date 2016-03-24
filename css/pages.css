@@ -235,7 +235,8 @@ table#liste_mini_jeux {
     text-align: center;
 }
 .liste_mini_jeux tr, .liste_mini_jeux td {
-    padding: 10px;
+    padding: 15px;
+    background: none;
 }
 
 img.icon_mini_jeux {
@@ -250,66 +251,41 @@ img.icon_mini_jeux {
 }
 
 input#mini_jeux_1 {
-    background: url(../res/img/mini-jeux/Floppy_Bird_icon.png) no-repeat;
-    background-size: 90%;
+    background: url(../res/img/mini-jeux/Floppy_Plane_icon.png) no-repeat;
     background-position: center;
     color: blue;
+    background-size: 100%;
 }
 
 
 input#mini_jeux_2 {
-    background: url(../res/img/mini-jeux/labyrinth_icon.png) no-repeat;
-    background-size: 110%;
+    background: url(../res/img/mini-jeux/Labyrinth_icon.png) no-repeat;
     background-position: center;
+    background-size: 100%;
 }
 
 input#mini_jeux_3 {
     background: url(../res/img/mini-jeux/2048_icon.png) no-repeat;
-    border-radius: 20px;
-    background-size: 100%;
     background-position: center;
+    background-size: 100%;
 }
 
 input#mini_jeux_4 {
-    background: url(../mini-jeux/breakouts/resources/logo.png) no-repeat;
-    background-size: 110%;
+    background: url(../res/img/mini-jeux/Breakouts_icon.png) no-repeat;
     background-position: center;
+    background-size: 100%;
 }
 
 input#mini_jeux_5 {
-    background: url(../res/img/mini-jeux/mahjong-logo.png) no-repeat;
-    background-size: 110%;
+    background: url(../res/img/mini-jeux/Mahjong_icon.png) no-repeat;
     background-position: center;
+    background-size: 100%;
 }
 
 input#mini_jeux_6 {
-    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
-    background-size: 110%;
+    background: url(../res/img/mini-jeux/Bobble_icon.png) no-repeat;
     background-position: center;
-}
-
-input#mini_jeux_7 {
-    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
-    background-size: 110%;
-    background-position: center;
-}
-
-input#mini_jeux_8 {
-    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
-    background-size: 110%;
-    background-position: center;
-}
-
-input#mini_jeux_9 {
-    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
-    background-size: 110%;
-    background-position: center;
-}
-
-input#mini_jeux_10 {
-    background: url(../res/img/mini-jeux/icon_pacman.png) no-repeat;
-    background-size: 110%;
-    background-position: center;
+    background-size: 100%;
 }
 
 .modalDialog {
