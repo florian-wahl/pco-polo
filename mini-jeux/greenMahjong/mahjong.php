@@ -134,12 +134,11 @@
     <div id="menuScreen" class="scene" style="background: rgba(0,0,0,0.75)" data-page="menu" data-back-options="resumeGame">
       <section><h1 data-l10n-id="gamePaused">Game Paused</h1>
         <!--<br>-->
-        <a class="addBorder" id="newGameButton" data-l10n-id="startNewGame" data-page-option="startNewGame" data-back="-2">Start new game</a>
         <!--<h2 class="addBorder"  id="themeButton" data-l10n-id="changeTheme">Change Theme</h2>-->
         <a class="addBorder"  id="gameStatisticsButton" href="#gamestatistics"  data-l10n-id="gameStatistics">Game statistics</a>
         <a class="addBorder" id="aboutButton" href="#about"  data-l10n-id="about">About the Game</a>
+        <a class="addBorder" id="goToMenuButton" href='../../menu_mini_jeux.php'>Menu Mini Jeux</a>
         <a class="addBorder" id="resumeGameButton" data-l10n-id="resumeGame" data-back="-1"  data-page-options="resumeGame">Resume Game</a>
-        <a class="addBorder" id="goToMenuButton"   data-back="-1"  data-page-options="resumeGame">Menu Mini Jeux</a>
       </section>
       <!--<p><a class="button" id="closeAboutScreenButton" data-l10n-id="close">Resume game</a></p>-->
     </div>
