@@ -142,7 +142,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
         <div id="tabs">
             <ul>
                 <li><a href="#tabs-1">Global</a></li>
-                <li><a href="#tabs-2">Escale</a></li>
+                <li><a id="tab-escale" href="#tabs-2">Escale</a></li>
             </ul>
             <div id="tabs-1">
                 <table id="tableau_scores" class="tableau_scores">
@@ -387,6 +387,19 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 </table>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $("#tab-escale").click(function() {
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open("GET", "ajaxDB.php?q=addBadge&s=20", true);
+                    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+                    xhr.send(null);
+                });
+            });
+
+
+        </script>
         <?php $poloDB = null; ?>
     </div>
 <?php

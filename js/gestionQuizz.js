@@ -518,6 +518,7 @@ function checkQuizzValide(){
                     if(niveau == 5){
                         //Tous les niveaux sont terminés
                         ajaxRequest(badgeAjoute, 'addBadge', 6);
+                        apparitionText("Félicitation ! Vous avez terminé tous les niveaux !", 130, 20);
                     }
                 }
 

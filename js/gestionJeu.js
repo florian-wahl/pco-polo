@@ -33,7 +33,6 @@ function reprendre () {
  */
 function addToScore(scoreToAdd) {
     //Protection avant l'ajout du score
-    console.log(scoreToAdd);
     if(scoreToAdd < 1000){
         ajaxRequest(null, "addToScore", scoreToAdd);
 
@@ -57,10 +56,6 @@ function addToScoreTestOccurence(scoreToAdd){
     else if(listeQuizzInfos[last_quizz_id][2] == 1){
         //Deuxième fois
         addToScore(parseInt(scoreToAdd/2));
-    }
-    else if(listeQuizzInfos[last_quizz_id][2] == 2){
-        //Troisième fois
-        addToScore(parseInt(scoreToAdd/4));
     }
     else{
         //On ajoute plus le score
@@ -131,6 +126,11 @@ function checkUnlockBadges(){
         ajaxRequest(badgeAjoute, "addBadge", 10);
     }
 
+    if(listeBadges[12] == 0 && score >= 10000){
+        listeBadges[12] = 1;
+        ajaxRequest(badgeAjoute, "addBadge", 12);
+    }
+
     if(listeBadges[13] == 0 && nb_interaction_client >= 10){
         listeBadges[13] = 1;
         ajaxRequest(badgeAjoute, "addBadge", 13);
@@ -139,6 +139,11 @@ function checkUnlockBadges(){
     if (listeBadges[19] == 0 && off_volume && off_effet){
         listeBadges[19] = 1;
         ajaxRequest(badgeAjoute, "addBadge", 19);
+    }
+
+    if (listeBadges[17] == 0 && nb_jetons >= 20){
+        listeBadges[17] = 1;
+        ajaxRequest(badgeAjoute, "addBadge", 17);
     }
 }
 
@@ -213,10 +218,9 @@ function badgeAjoute(numBadge){
     if (numBadge != null){
         if(numBadge == 6){
             apparitionText("Nouveau badge : #" + parseInt(numBadge)  , 90, 30);
-            apparitionText("Félicitation ! Vous avez terminé tous les niveaux !", 130, 20);
         }
         else if(numBadge == 13){
-            apparitionText("Vous avez aidé 10 clients. Continuez ainsi !", 50, 20);
+            apparitionText("Vous avez aide 10 clients. Continuez ainsi !", 50, 20);
         }
         else {
             apparitionText("Nouveau badge : #" + parseInt(numBadge)  , 10, 30);
