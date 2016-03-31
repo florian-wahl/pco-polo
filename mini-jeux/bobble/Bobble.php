@@ -1,16 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <title>bobble</title>
+    <title>POLO - Bobble</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <meta content="bobble" name="keywords" />
     <style type="text/css">
         body,div,p,ul,ol,li{margin:0; padding:0;}
-        body {font-family:Arial,??,sans-serif;background:#949494;font-size:13px;text-align:left;}
+        body {font:20px Trebuchet MS, Arial, Helvetica, Sans-Serif; background:url("../../res/img/ingame/fond_general.jpg"); text-align:left;}
         ul {list-style-type:none;}
         a {text-decoration:none;}
         img {border:none;}
-        .board {margin-left:200px;margin-top:10px;background:#803a07;border-style:solid; border-width:1px;
+        .board {margin-left:250px;margin-top:40px;background:#803a07;border-style:solid; border-width:1px;
             border-color:#b86c20 #341b02 #341b02 #b86c20;padding:5px;float:left;overflow:hidden;_margin-left:100px;}
         #box {position:relative;width:288px;height:432px;background:#ede0c8;float:left;}
         .red {background:url("images/red.png") center no-repeat;
@@ -37,15 +37,20 @@
             font-size:20px;font-weight:bold;text-align:center;background:#FF9900;color:#0061aa;}
         .pad {background:#717171;width:160px;height:432px;font-size:14px;color:#ffff33;float:left;
             text-align:center;position:relative;}
-        #run {cursor:pointer;width:46px;height:22px;line-height:22px;border-width:1px;border-style:solid;font-weight:bold;
+        #run {cursor:pointer;font-size:18px;width:80px;height:30px;padding-top:6px;line-height:22px;border-width:1px;border-style:solid;font-weight:bold;
             border-color:#b86c20 #4f2302 #4f2302 #b86c20; background:#803a07;margin:20px auto 0 auto; }
-        #menuButton {cursor:pointer;width:46px;height:22px;line-height:22px;border-width:1px;border-style:solid;font-weight:bold;
+        #menuButton {cursor:pointer;font-size:18px;width:80px;height:30px; padding-top:6px;line-height:22px;border-width:1px;border-style:solid;font-weight:bold;
             border-color:#b86c20 #4f2302 #4f2302 #b86c20; background:#803a07;margin:20px auto 0 auto; }
         #score, #level {color:#f00;}
-        .bb {margin:10px auto 0 auto;height:22px;line-height:22px;white-space:pre;font-weight:bold;}
+        .bb {margin:40px auto 0 auto;height:30px;font-size:22px;line-height:22px;white-space:pre;font-weight:bold;}
         #about {position:absolute;left:0px;bottom:0px;text-align:left;padding:8px;}
         #about li {height:18px;line-height:18px;}
     </style>
+    <script type="text/javascript">
+        document.ontouchmove = function(event){
+            event.preventDefault();
+        }
+    </script>
     <script type="text/javascript">
 
         var isIE=!!window.ActiveXObject;
@@ -454,7 +459,7 @@
                 }
             };
             function gameover() {
-                onotice.innerHTML="game over<br />start again!";
+                onotice.innerHTML="Game Over<br> <a href='../../menu_mini_jeux.php'>Retour Menu</a>";
                 onotice.style.marginLeft=(-onotice.offsetWidth/2)+"px";
                 onotice.style.top="50%";
                 return GameOver=true;
@@ -500,8 +505,9 @@
                     }
                     autoAdd(10);
                     GameOver=false; lock=false;
-                    onotice.innerHTML="entre next level";onotice.style.marginLeft=(-onotice.offsetWidth/2)+"px";
+                    onotice.innerHTML="Prochain niveau";onotice.style.marginLeft=(-onotice.offsetWidth/2)+"px";
                     onotice.style.top="-1000px";
+                    this.style.display = "none";
                 };
                 $("menuButton").onclick=function(){
                     location.href='../../menu_mini_jeux.php';
@@ -591,10 +597,10 @@
         <div id="notice"></div>
     </div>
     <div class="pad">
-        <div id="run">start</div>
-        <div id="menuButton">Menu</div>
-        <div class="bb">score:  <span id="score">0</span></div>
-        <div class="bb">level:  <span id="level">1</span> </div>
+        <div id="run">Jouer</div>
+        <div id="menuButton">Retour</div>
+        <div class="bb">Score :  <span id="score">0</span></div>
+        <div class="bb">Niveau :  <span id="level">1</span> </div>
         <ul id="about">
 
         </ul>
