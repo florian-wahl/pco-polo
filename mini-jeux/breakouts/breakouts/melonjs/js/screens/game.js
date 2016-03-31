@@ -92,9 +92,9 @@ var PlayScreen = me.ScreenObject.extend({
 
             },
             draw: function (renderer) {
-                this.font.draw(renderer.getContext(), 'lives: ' + game.data.lives, 25, this.fontYpos);
-                this.font.draw(renderer.getContext(), 'score: ' + game.data.score, 105, this.fontYpos);
-                this.font.draw(renderer.getContext(), 'level: ' + (game.data.level + 1), 230, this.fontYpos);
+                this.font.draw(renderer.getContext(), 'Vies: ' + game.data.lives, 25, this.fontYpos);
+                this.font.draw(renderer.getContext(), 'Score: ' + game.data.score, 105, this.fontYpos);
+                this.font.draw(renderer.getContext(), 'Niveau: ' + (game.data.level + 1), 215, this.fontYpos);
             }
         })), 2200);
     },

@@ -31,13 +31,14 @@ var GameEndScreen = me.ScreenObject.extend({
 
             },
             draw: function (renderer) {
-                this.font.draw(renderer.getContext(), 'you are the master !', me.game.viewport.width / 2, me.game.viewport.height / 2 + 80);
+                this.font.draw(renderer.getContext(), 'Félicitation ! Vous avez gagné !', me.game.viewport.width / 2, me.game.viewport.height / 2 + 80);
             }
         })), 2200);
 
         // automatically switch back to Menu screen after 2sec
         this.timeoutID = setTimeout(function () {
-            me.state.change(me.state.MENU)
+            location.href = "../../../../menu_mini_jeux.php";
+            //me.state.change(me.state.MENU)
         }, 2000);
     },
 

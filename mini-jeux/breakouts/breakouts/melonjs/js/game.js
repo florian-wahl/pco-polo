@@ -87,7 +87,7 @@ var game = {
         me.state.onPause = function () {
             var _font = new me.Font('Arial', 20, 'black', 'center');
             _font.bold();
-            _font.draw(me.video.renderer.getContext(), 'Paused !', me.game.viewport.width / 2, me.game.viewport.height / 2 + 110);
+            _font.draw(me.video.renderer.getContext(), 'Pause !', me.game.viewport.width / 2, me.game.viewport.height / 2 + 110);
         };
 
         // switch to MENU state

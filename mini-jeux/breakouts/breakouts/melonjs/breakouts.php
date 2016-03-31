@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Breakouts - melonJS</title>
+        <title>POLO - Breakouts</title>
         <link rel="stylesheet" type="text/css" media="screen" href="index.css">
         <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,7 +11,7 @@
     <body>
         <!-- Canvas placeholder -->
 		<div id="screen"></div>
-
+		<input type="button" id="button_retour" onclick="location.href='../../../../menu_mini_jeux.php';" />
         <!-- melonJS Library -->
 		<script type="text/javascript" src="lib/melonJS-2.0.2.js"></script>
 

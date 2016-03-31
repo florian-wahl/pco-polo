@@ -19,6 +19,18 @@ body {
     touch-action: none;
 }
 
+input#button_retour{
+    background: url(../../../../res/img/boutons/bouton_retour.png) no-repeat;
+    width: 140px;
+    height: 60px;
+    border: none;
+    float: left;
+    margin-top: 30px;
+    margin-left: 30px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
 #screen canvas {
     margin: auto;
 

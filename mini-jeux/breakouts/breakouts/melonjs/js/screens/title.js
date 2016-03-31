@@ -31,9 +31,9 @@ var TitleScreen = me.ScreenObject.extend({
                 // init a font object
                 this.font = new me.Font('Arial', 20, 'black', 'center');
                 // add multiline support would be nice...
-                this.instructions = (me.device.touch ? 'Tap' : 'Click') + ' to start';
-                this.instructions2 = 'during the game: use L/R arrow';
-                this.instructions3 = 'keys to skip levels';
+                this.instructions = (me.device.touch ? 'Tapez' : 'Clickez') + ' pour commencer !';
+                this.instructions2 = 'Utilisez vos doigts ';
+                this.instructions3 = 'pour bouger la plateforme';
 
             },
             draw: function (renderer) {
