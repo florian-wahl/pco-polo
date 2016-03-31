@@ -135,5 +135,4 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 }
 ?>
 </body>
-<?php include 'php/footer.php';?>
 </html>
