@@ -444,10 +444,10 @@ var mainState = {
             bossPNJ.body.immovable = true;
             bossPNJ.body.collideWorldBounds = true;
 
-            var introPNJ = new PNJ('Lav', 'Blue', 550, 1800, 1);
+            var introPNJ = new PNJ('Lav', 'Blue', 520, 1850, 1);
             agent1PNJ = introPNJ.getSprite();
 
-            introPNJ = new PNJ('Lav', 'Green', 700, 1550, 1);
+            introPNJ = new PNJ('Lav', 'Green', 730, 1540, 1);
             agent2PNJ = introPNJ.getSprite();
         }
         else {
@@ -715,31 +715,43 @@ var mainState = {
             $('.popup_holder_vide').append("<div id='introduction'>" +
                 "<h2>Introduction</h2>"+
                 "<br>" +
-                "<img src='res/img/intro/10_boss_talking_menu.png' style='height: 200px'/>" +
+                "<img src='res/img/intro/11_boss_talking_menu.png' style='height: 200px'/>" +
                 "<p><b>Chef d'escale</b>: Très bien ! J’espère que les explications de vos collègues étaient claires. Pour retourner au menu principal, touchez l’icône en haut à droite de votre écran, celle en forme de maison, et cliquez sur « Retour Menu Principal ». Depuis le menu principal, vous avez accès à votre profil et aux aides. <br></p>"+
                 "<input type='button' id='button_intro_1' class='button_suivant'/>"+
                 "</div>");
 
-            $('#button_intro_1').click(function(){
+            $('#button_intro_1').click(function() {
                 $('#introduction').remove();
 
                 $('.popup_holder_vide').append("<div id='introduction'>" +
-                    "<h2>Introduction</h2>"+
+                    "<h2>Introduction</h2>" +
                     "<br>" +
-                    "<img src='res/img/intro/2-3-11_boss_talking_client_collegue.png' style='height: 160px'/>" +
-                    "<p><b>Chef d'escale</b> : Je vous laisse maintenant découvrir cet astroport qui est nouveau pour vous. Mais n’oubliez pas votre mission principale : vous êtes ici pour aider les clients.<br></p>"+
-                    "<input type='button' id='button_intro_2' class='button_accepte'/>"+
-                    "<p style='font-size: 20px'><i>(En acceptant, vous finissez la phase d'introduction et le jeu va redémarrer. Vous pouvez rejouer l'introduction à tout moment en y accèdant depuis le menu Aides de POLO.)</i><br></p>"+
-                "</div>");
+                    "<img src='res/img/intro/10_mini_jeu.png' style='height: 200px'/>" +
+                    "<p><b>Chef d'escale</b> : Dès que vous aurez atteint le niveau 2, vous pourrez vous détendre en jouant sur les bornes d'arcade présentes dans la salle de repos !.<br></p>" +
+                    "<input type='button' id='button_intro_2' class='button_suivant'/>" +
+                    "</div>");
 
-                $('#button_intro_2').click(function() {
+                $('#button_intro_2').click(function () {
                     $('#introduction').remove();
 
-                    if (occ_intro == 4){
-                        occ_intro++;
-                    }
-                    reprendre();
-                    mainState.terminerIntroduction();
+                    $('.popup_holder_vide').append("<div id='introduction'>" +
+                        "<h2>Introduction</h2>" +
+                        "<br>" +
+                        "<img src='res/img/intro/2-3-11_boss_talking_client_collegue.png' style='height: 160px'/>" +
+                        "<p><b>Chef d'escale</b> : Je vous laisse maintenant découvrir cet astroport qui est nouveau pour vous. Mais n’oubliez pas votre mission principale : vous êtes ici pour aider les clients.<br></p>" +
+                        "<input type='button' id='button_intro_3' class='button_accepte'/>" +
+                        "<p style='font-size: 20px'><i>(En acceptant, vous finissez la phase d'introduction et le jeu va redémarrer. Vous pouvez rejouer l'introduction à tout moment en y accèdant depuis le menu Aides de POLO.)</i><br></p>" +
+                        "</div>");
+
+                    $('#button_intro_3').click(function () {
+                        $('#introduction').remove();
+
+                        if (occ_intro == 4) {
+                            occ_intro++;
+                        }
+                        reprendre();
+                        mainState.terminerIntroduction();
+                    });
                 });
             });
         }
