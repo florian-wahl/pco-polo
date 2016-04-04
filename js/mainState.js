@@ -740,7 +740,7 @@ var mainState = {
                         "<img src='res/img/intro/2-3-11_boss_talking_client_collegue.png' style='height: 160px'/>" +
                         "<p><b>Chef d'escale</b> : Je vous laisse maintenant découvrir cet astroport qui est nouveau pour vous. Mais n’oubliez pas votre mission principale : vous êtes ici pour aider les clients.<br></p>" +
                         "<input type='button' id='button_intro_3' class='button_accepte'/>" +
-                        "<p style='font-size: 20px'><i>(En acceptant, vous finissez la phase d'introduction et le jeu va redémarrer. Vous pouvez rejouer l'introduction à tout moment en y accèdant depuis le menu Aides de POLO.)</i><br></p>" +
+                        "<p style='font-size: 20px'><i>(En acceptant, vous finissez la phase d'introduction et le jeu va redémarrer. Vous pouvez rejouer l'introduction à tout moment en y accédant depuis le menu Aides de POLO.)</i><br></p>" +
                         "</div>");
 
                     $('#button_intro_3').click(function () {
@@ -766,7 +766,7 @@ var mainState = {
                 "<h2>Introduction</h2>"+
                 "<br>" +
                 "<img src='res/img/intro/1_boss_talking.png' style='height: 200px'/>" +
-                "<p><b>Chef d'escale</b> : Bonjour, bienvenue parmi l’équipe SpaceFrance, j’espère que vous allez passer de très bons moments avec nous dans cet astroport.<br></p>"+
+                "<p><b>Chef d'escale</b> : Bonjour et bienvenue parmi l’équipe SpaceFrance ! J’espère que vous allez passer de très bons moments avec nous dans cet astroport.<br></p>"+
                 "<input type='button' id='button_intro_1' class='button_suivant'/>"+
                 "</div>");
 
@@ -777,7 +777,7 @@ var mainState = {
                     "<h2>Introduction</h2>"+
                     "<br>" +
                     "<img src='res/img/intro/2-3-11_boss_talking_client_collegue.png' style='height: 200px'/>" +
-                    "<p><b>Chef d'escale</b> : Votre mission, si vous l’acceptez, est d’aider les clients (équipés d'une valise) en répondant à leurs questions.Il vous faudra aussi répondre à vos collègues, agents SpaceFrance, munis de leurs iPads ! Êtes vous d'accord avec cela ?<br></p>"+
+                    "<p><b>Chef d'escale</b> : Votre mission, si vous l’acceptez, est d’aider les clients (équipés d'une valise) en répondant à leurs questions.Il vous faudra aussi répondre à vos collègues, agents SpaceFrance, munis de leurs iPads ! Êtes-vous d'accord avec cela ?<br></p>"+
                     "<input type='button' id='button_intro_2' class='button_accepte'/>"+
                     "</div>");
 
@@ -788,8 +788,8 @@ var mainState = {
                         "<h2>Introduction</h2>"+
                         "<br>" +
                         "<img src='res/img/intro/2-3-11_boss_talking_client_collegue.png' style='height: 200px'/>" +
-                        "<p><b>Chef d'escale</b> : Les clients présents dans l'astroport ont tous besoin d'aide ou de renseignement. N’hésitez pas à aller les voir !<br></p>"+
-                        "<input type='button' id='button_intro_3' class='button_accepte'/>"+
+                        "<p><b>Chef d'escale</b> : Les clients présents dans l'astroport ont tous besoin d'aide ou de renseignements. N’hésitez pas à aller les voir !<br></p>"+
+                        "<input type='button' id='button_intro_3' class='button_suivant'/>"+
                         "</div>");
 
                     $('#button_intro_3').click(function(){
