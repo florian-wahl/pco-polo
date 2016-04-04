@@ -727,7 +727,7 @@ var mainState = {
                     "<h2>Introduction</h2>" +
                     "<br>" +
                     "<img src='res/img/intro/10_mini_jeu.png' style='height: 200px'/>" +
-                    "<p><b>Chef d'escale</b> : Dès que vous aurez atteint le niveau 2, vous pourrez vous détendre en jouant sur les bornes d'arcade présentes dans la salle de repos !.<br></p>" +
+                    "<p><b>Chef d'escale</b> : Dès que vous aurez atteint le niveau 2, vous pourrez vous détendre en jouant sur les bornes d'arcade présentes dans la salle de repos !<br></p>" +
                     "<input type='button' id='button_intro_2' class='button_suivant'/>" +
                     "</div>");
 

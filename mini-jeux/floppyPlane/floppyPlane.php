@@ -8,7 +8,7 @@
     <style>
         body {
             background: url("../../res/img/ingame/fond_general.jpg");
-            margin-left: 300px;
+            margin-left: 220px;
         }
     </style>
     <body>
