@@ -27,7 +27,7 @@ $(document).ready(function() {
             //Pour chaque bouton
             switch (event.target.id){
                 case 'popup_button_jouer_1':
-                    location.href = "mini-jeux/flappyBird.php";
+                    location.href = "mini-jeux/floppyPlane/floppyPlane.php";
                     break;
                 case 'popup_button_jouer_2':
                     location.href = "mini-jeux/labyrinth/labyrinth.php";
