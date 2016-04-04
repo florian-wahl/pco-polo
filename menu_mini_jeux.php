@@ -50,7 +50,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <a href="#close" title="Close" class="close">X</a>
             <img src="res/img/mini-jeux/Floppy_Plane_icon.png" id="img_popup_left"/>
             <h2>Floppy Plane</h2>
-            <p>Vous dirigez un avion : touchez l’écran et l’avion saute ! <br>Attention aux obstacles ! Une collision ou une chute vous feront perdre la partie.</p>
+            <p>Vous dirigez un avion : touchez l’écran et l’avion vol ! <br>Attention aux obstacles ! Une collision ou une chute vous feront perdre la partie.</p>
             <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 40px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_1" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
@@ -62,7 +62,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <a href="#close" title="Close" class="close">X</a>
             <img src="res/img/mini-jeux/Labyrinth_icon.png" id="img_popup_left"/>
             <h2>Labyrinth Craze</h2>
-            <p>Guidez votre balle à destination en inclinant l'iPad! <br> Mais faites attention à ne pas la faire tomber.</p>
+            <p>Guidez votre balle vers les trous noirs en inclinant l'iPad! <br> Mais faites attention à ne pas la faire tomber dans les trous noirs.</p>
             <p>Vos jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_2" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
@@ -86,8 +86,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <a href="#close" title="Close" class="close">X</a>
             <img src="res/img/mini-jeux/Breakouts_icon.png" id="img_popup_left"/>
             <h2>Breakouts</h2>
-            <p>Détruisez les rectangles colorés en faisant rebondir la balle sur votre barre!</p>
-            <p>Attention à ne pas la laisser tomber!</p>
+            <p>Détruisez les rectangles colorés en faisant rebondir la balle sur la plateforme !</p><br>
+            <p>Attention à ne pas la laisser tomber !</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_4" class="button_popup_jouer" />
             <p class="errJetons">Vous n'avez pas assez de jetons.</p>
@@ -98,7 +98,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
             <a href="#close" title="Close" class="close">X</a>
             <img src="res/img/mini-jeux/Mahjong_icon.png" id="img_popup_left"/>
             <h2>Green Mahjong</h2>
-            <p>Associez les symboles egaux et videz le plateau du niveau!</p>
+            <p>Associez les symboles égaux et videz le plateau du niveau !</p>
             <p>Seules les tuiles "libres", c'est-à-dire pouvant glisser aux extrémités gauche et droite du plateau, peuvent être utilisées pour former des paires.</p>
             <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
             <input type="button" id="popup_button_jouer_5" class="button_popup_jouer" />
@@ -110,7 +110,8 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                 <a href="#close" title="Close" class="close">X</a>
                 <img src="res/img/mini-jeux/Bobble_icon.png" id="img_popup_left"/>
                 <h2>Bobble</h2>
-                <p>Lancez les sphères colorées vers celles qui sont de la même couleur! Si trois sphères de la même couleur se touchent, elles disparaîtront ! L'objectif est de ne pas atteindre la ligne inférieure de la zone de jeu.</p>
+                <p>Lancez les sphères colorées vers celles qui sont de la même couleur ! Si trois sphères de la même couleur se touchent, elles disparaîtront !
+                    <br>L'objectif est de ne pas atteindre la ligne inférieure de la zone de jeu.</p>
                 <p> Jetons : <?php echo $_SESSION['jetons']; ?> <img src="res/img/jeton.png" style="width: 20px; vertical-align: text-bottom;"/></p>
                 <input type="button" id="popup_button_jouer_6" class="button_popup_jouer" />
                 <p class="errJetons">Vous n'avez pas assez de jetons.</p>
