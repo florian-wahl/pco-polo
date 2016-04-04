@@ -89,7 +89,8 @@ $personnage = $resultat[0];
         <div id="popup_arcade">
             <div class="popup_holder_arcade">
                 <div id="info_arcade">
-                    <h2>Bornes d'Arcades ZX1999</h2>
+                    <h2>Borne d'Arcade ZX1999</h2>
+                    <br>
                     <p>Bienvenue sur la borne d'arcade, pour accéder aux mini-jeux cliquez sur le bouton ci-dessous : <br></p>
                     <input type="button" id="button_mini_jeux"/>
                 </div>
