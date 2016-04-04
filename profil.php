@@ -76,7 +76,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
                         <?php
                         foreach($resultat as $badge){
 
-                            if($badge['id_badge'] >= 21 || $badge['id_badge'] < 8){
+                            if($badge['id_badge'] >= 21 || $badge['id_badge'] < 6){
                                 echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
                                 echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
                                 echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";
@@ -95,7 +95,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['matricule'])){
 
                     foreach($resultat as $badge){
 
-                        if($badge['id_badge'] < 21 && $badge['id_badge'] >= 8 || $badge['id_badge'] >= 27){
+                        if($badge['id_badge'] < 21 && $badge['id_badge'] >= 6 || $badge['id_badge'] >= 27){
                             echo "<img id='badge-".$badge['id_badge']."' class='table_badges' src='res/img/badges/".$badge['id_badge'].".png'>";
                             echo "<div id='badge-".$badge['id_badge']."' class='table_badges'>";
                             echo "<h5 id='badge-".$badge['id_badge']."' class='table_badges'>".$badge['nom']."</h5>";

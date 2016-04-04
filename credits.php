@@ -29,13 +29,11 @@
             Xiaoxiao ZHOU <br>
             Marco GENOVESE <br>
         </p>
-        <br>
         <h4 id="page_credit">Crédits Graphiques</h4>
         <p id="page_credit">
-           Personnages : <a href="http://kenney.nl/">Kenney</a>  <br>
+            Personnages : <a href="http://kenney.nl/">Kenney</a>  <br>
             Badges : <a href="http://www.brusheezy.com/members/macca">Macca</a>
         </p>
-
         <h4 id="page_credit">Remerciements</h4>
         <p id="page_credit">
             Rodolphe Guyard <br>
