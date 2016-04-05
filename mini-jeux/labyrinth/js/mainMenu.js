@@ -31,6 +31,17 @@ Main.MainMenu.prototype =
             this.input.onUp.add(this.buttonUp, this.play);
 
             this.group.add(this.play);
+
+            this.retour = this.game.add.button(320, 850, 'retour');
+            this.retour.anchor = {x: 0.5, y: 0.5};
+            this.retour.orgWidth = 380;
+            this.retour.orgHeight = 110;
+
+            this.retour.onInputDown.add(this.buttonDown, this.retour);
+            this.retour.onInputUp.add(this.retourGame, this);
+            this.input.onUp.add(this.buttonUp, this.retour);
+
+            this.group.add(this.retour);
         }
         else {
             var needed = this.game.add.sprite(320, 740, 'accelneeded');
@@ -62,5 +73,9 @@ Main.MainMenu.prototype =
         var bounce = this.game.add.tween(this);
         bounce.to({width: this.orgWidth, height: this.orgHeight}, 300, Phaser.Easing.Back.Out);
         bounce.start();
+    },
+
+    retourGame : function () {
+        location.href = "../../menu_mini_jeux.php";
     }
 }

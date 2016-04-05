@@ -18,6 +18,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	</head>
+	<script>
+		document.ontouchmove = function(event){
+			event.preventDefault();
+		}
+	</script>
 	<body>
 		<!--<a href="http://games-reachtheflag.rhcloud.com/">Portfolio</a>//-->
 		<script type="text/javascript">

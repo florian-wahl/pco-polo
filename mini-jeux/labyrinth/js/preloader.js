@@ -12,6 +12,7 @@ Main.Preloader.prototype =
         this.game.load.image('bg', 'assets/bg.png');
         this.game.load.image('logo', 'assets/logo.png');
         this.game.load.image('play', 'assets/play.png');
+        this.game.load.image('retour', 'assets/retour.png');
         this.game.load.image('accelneeded', 'assets/accelneeded.png');
 
         this.game.load.image('selectlevel', 'assets/selectlevel.png');
