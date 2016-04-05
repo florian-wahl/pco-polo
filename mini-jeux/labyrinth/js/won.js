@@ -22,8 +22,8 @@ Main.Won.prototype =
         var j = Main.progress[parseInt(Main.level)].time;
 
         var style = {font: '40px \'Arial Rounded MT Bold\'', fill: '#684525', align: 'left'};
-        this.timeLabel = this.game.add.text(80, 320, 'Time: ' + Math.floor(i / 100) + ':' + (Math.floor(i / 10) - Math.floor(i / 100) * 10) + (i - (Math.floor(i / 10) * 10)), style);
-        this.bestLabel = this.game.add.text(360, 320, 'Best: ' + Math.floor(j / 100) + ':' + (Math.floor(j / 10) - Math.floor(j / 100) * 10) + (j - (Math.floor(j / 10) * 10)), style);
+        this.timeLabel = this.game.add.text(80, 320, 'Temps: ' + Math.floor(i / 100) + ':' + (Math.floor(i / 10) - Math.floor(i / 100) * 10) + (i - (Math.floor(i / 10) * 10)), style);
+        this.bestLabel = this.game.add.text(360, 320, 'Meilleur: ' + Math.floor(j / 100) + ':' + (Math.floor(j / 10) - Math.floor(j / 100) * 10) + (j - (Math.floor(j / 10) * 10)), style);
 
         this.next = this.game.add.button(320, 510, 'next');
         this.next.anchor = {x: 0.5, y: 0.5};

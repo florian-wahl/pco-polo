@@ -344,7 +344,7 @@ Main.Game.prototype =
         this.uigroup.add(this.exitButton);
 
         var style = {font: '40px \'Arial Rounded MT Bold\'', fill: '#FFFFFF', align: 'left'};
-        this.timeLabel = this.game.add.text(15, 900, 'Time: 0:00', style);
+        this.timeLabel = this.game.add.text(15, 900, 'Temps: 0:00', style);
         this.uigroup.add(this.timeLabel);
         this.i = 0;
 
@@ -354,7 +354,7 @@ Main.Game.prototype =
             self.interval = setInterval(function () {
                 self.i++;
                 self.timeLabel.destroy();
-                self.timeLabel = self.game.add.text(15, 900, 'Time: ' + Math.floor(self.i / 100) + ':' + (Math.floor(self.i / 10) - Math.floor(self.i / 100) * 10) + (self.i - (Math.floor(self.i / 10) * 10)), style);
+                self.timeLabel = self.game.add.text(15, 900, 'Temps: ' + Math.floor(self.i / 100) + ':' + (Math.floor(self.i / 10) - Math.floor(self.i / 100) * 10) + (self.i - (Math.floor(self.i / 10) * 10)), style);
                 self.uigroup.add(self.timeLabel);
             }, 10);
         }, 300);
