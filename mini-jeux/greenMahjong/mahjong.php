@@ -40,6 +40,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="greenmahjong32.ico">
     <link type="image/x-icon" href="greenmahjong32.ico">
   </head>
+  <script>
+    document.ontouchmove = function(event){
+      event.preventDefault();
+    }
+  </script>
   <body>
     <div id="background">
     </div>

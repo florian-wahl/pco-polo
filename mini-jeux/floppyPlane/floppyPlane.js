@@ -8,7 +8,7 @@ var preload;
 var menu_flappy;
 var gameOverState;
 var scorefinal=0;
-var lives = 2;
+var lives = 3;
 bootState= {
     preload: function(){
         this.game.load.image("loading","res/loading.png");
@@ -125,7 +125,7 @@ mainState = {
 
     dead : function () {
         scorefinal= (this.score < 0) ? 0 : this.score;
-        if( lives > 0 ){
+        if( lives > 1 ){
             lives--;
             this.state.start('menu_flappy');
         }
